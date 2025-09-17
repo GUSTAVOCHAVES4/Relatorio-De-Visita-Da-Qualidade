@@ -1,0 +1,229 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    background-color: #0056b3;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+main {
+    max-width: 100%;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-x: hidden;
+}
+
+.controls {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilo para a caixa de pesquisa */
+#responsible-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 250px;
+    transition: border-color 0.3s;
+    /* Alinha a seta do datalist corretamente */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%20197.999L146.2%2057.199%205.4%20197.999h281.6z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right .7em top 50%;
+    background-size: .65em auto;
+}
+
+#responsible-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Estilo para o botão de limpar */
+#clear-search-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#clear-search-btn:hover {
+    background-color: #c82333;
+}
+
+/* Estilo para o botão "Gerar Ata" */
+#generate-minutes-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+#generate-minutes-btn:hover {
+    background-color: #218838;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+th {
+    background-color: #e9e9e9;
+    font-weight: bold;
+}
+
+.evaluation-cell {
+    min-width: 150px;
+}
+
+.evaluation-cell label {
+    margin-right: 5px;
+}
+
+input[type="radio"] {
+    vertical-align: top;
+}
+
+textarea {
+    width: 100%;
+    min-height: 50px;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.minutes-output {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.minutes-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    table-layout: auto;
+}
+
+.minutes-table th, .minutes-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.minutes-table th {
+    background-color: #e9e9e9;
+}
+
+.section-header td, .theme-header td {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+/* Container dos botões na seção de download */
+#download-buttons {
+    display: flex;
+    gap: 15px; /* Espaçamento entre os botões */
+    margin-top: 20px;
+    justify-content: center; /* Centraliza os botões */
+}
+
+/* Estilo base para todos os botões (limpar, gerar, baixar) */
+button {
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px; /* Bordas arredondadas */
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efeitos suaves de transição */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilo do botão de limpar */
+#clear-search-btn {
+    background-color: #dc3545; /* Vermelho para a ação de limpar */
+    padding: 10px 15px;
+    font-size: 14px;
+    box-shadow: none;
+}
+#clear-search-btn:hover {
+    background-color: #c82333;
+    transform: scale(1.05); /* Efeito de crescimento ao passar o mouse */
+}
+
+/* Estilo do botão de gerar ata */
+#generate-minutes-btn {
+    background-color: #007bff; /* Azul vibrante */
+}
+#generate-minutes-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Estilo do botão de baixar Word */
+#download-word-btn {
+    background-color: #2b579a; /* Cor do Word */
+}
+#download-word-btn:hover {
+    background-color: #1a427f;
+    transform: scale(1.05);
+}
+
+/* Estilo do botão de baixar PDF */
+#download-pdf-btn {
+    background-color: #dc3545; /* Cor do PDF (vermelho) */
+}
+#download-pdf-btn:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}

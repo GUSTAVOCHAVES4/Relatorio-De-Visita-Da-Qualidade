@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Ata de Reunião</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Gerador de Atas das Visitas da Qualidade - Roteiro CQH </h1>
+    </header>
+
+    <main>
+        <section class="controls">
+            <label for="responsible-input">Filtrar por Responsável:</label>
+            <input list="responsible-list" id="responsible-input" placeholder="Digite para pesquisar..." />
+            <datalist id="responsible-list">
+                </datalist>
+            <button id="clear-search-btn" title="Limpar pesquisa">X</button>
+        </section>
+
+        <section class="table-container">
+            <h2>Itens de Ação</h2>
+            <table id="action-items-table">
+                <thead>
+                    <tr>
+                        <th>Responsável</th>
+                        <th>Seção</th>
+                        <th>Tema</th>
+                        <th>Item</th>
+                        <th>Descrição</th>
+                        <th>Descrição do Subitem</th>
+                        <th>Nível de Exigência</th>
+                        <th>Avaliação</th>
+                        <th>Evidências</th>
+                        <th>Propostas</th>
+                        <th>Observações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </section>
+        
+        <button id="generate-minutes-btn">Gerar Ata</button>
+
+        <section id="minutes-output" class="minutes-output"></section>
+    </main>
+
+    <script src="https://unpkg.com/docx@5.0.0/build/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
