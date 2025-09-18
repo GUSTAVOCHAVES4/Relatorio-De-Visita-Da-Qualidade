@@ -1,13 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ✨ ALTERAÇÃO: Adicionada referência ao formulário
+    const evaluationForm = document.getElementById('evaluation-form');
     const responsibleInput = document.getElementById('responsible-input');
     const responsibleList = document.getElementById('responsible-list');
     const clearSearchBtn = document.getElementById('clear-search-btn');
     const tableBody = document.querySelector('#action-items-table tbody');
-    const generateBtn = document.getElementById('generate-minutes-btn');
     const minutesOutput = document.getElementById('minutes-output');
 
     let meetingItems = [];
     let currentMinutesData = [];
+
+    // --- FUNÇÕES DE LÓGICA ---
 
     async function loadDataAndInitialize() {
         try {
@@ -41,54 +44,94 @@ document.addEventListener('DOMContentLoaded', () => {
         tableBody.innerHTML = '';
         let currentSection = '';
         let currentTheme = '';
-    
+
+        const groupedItems = {};
         items.forEach(item => {
-            const isMainItem = !item.subitem_number;
-            const descriptionText = item.description || '';
-            const subitemDescriptionText = item.subitem_description || '';
+            const groupKey = `${item.section}-${item.theme}-${item.item_number}-${item.description}`;
+            if (!groupedItems[groupKey]) {
+                groupedItems[groupKey] = { ...item, subitems: [] };
+            }
+            if (item.subitem_number) {
+                groupedItems[groupKey].subitems.push(item);
+            }
+        });
+
+        for (const key in groupedItems) {
+            const group = groupedItems[key];
             
-            if (item.section !== currentSection) {
+            if (group.section !== currentSection) {
                 const sectionRow = document.createElement('tr');
                 sectionRow.classList.add('section-header');
-                sectionRow.innerHTML = `<td colspan="11"><strong>${item.section}</strong></td>`;
+                sectionRow.innerHTML = `<td colspan="11"><strong>${group.section}</strong></td>`;
                 tableBody.appendChild(sectionRow);
-                currentSection = item.section;
+                currentSection = group.section;
                 currentTheme = '';
             }
-    
-            if (item.theme && item.theme !== currentTheme) {
+
+            if (group.theme && group.theme !== currentTheme) {
                 const themeRow = document.createElement('tr');
                 themeRow.classList.add('theme-header');
-                themeRow.innerHTML = `<td colspan="11"><strong>Tema: ${item.theme}</strong></td>`;
+                themeRow.innerHTML = `<td colspan="11"><strong>Tema: ${group.theme}</strong></td>`;
                 tableBody.appendChild(themeRow);
-                currentTheme = item.theme;
+                currentTheme = group.theme;
             }
-    
-            const row = document.createElement('tr');
-            row.dataset.masterId = item.master_id;
 
-            row.innerHTML = `
-                <td>${item.responsible || ''}</td>
-                <td>${item.section || ''}</td>
-                <td>${item.theme || ''}</td>
-                <td>${item.item_number || ''}</td>
-                <td>${isMainItem ? descriptionText : ''}</td>
-                <td>${subitemDescriptionText}</td>
-                <td>${item.exigency_level || ''}</td>
+            const mainRow = document.createElement('tr');
+            mainRow.dataset.masterId = group.master_id;
+            // ✨ ALTERAÇÃO: Adicionado 'required' no primeiro input para torná-lo obrigatório
+            mainRow.innerHTML = `
+                <td>${group.responsible || ''}</td>
+                <td>${group.section || ''}</td>
+                <td>${group.theme || ''}</td>
+                <td>${group.item_number || ''}</td>
+                <td></td>
+                <td class="truncate-text">${group.description || ''}</td>
+                <td>${group.exigency_level || ''}</td>
                 <td class="evaluation-cell">
-                    <label><input type="radio" name="evaluation-${item.master_id}" value="Sim"> Sim</label>
-                    <label><input type="radio" name="evaluation-${item.master_id}" value="Não"> Não</label>
-                    <label><input type="radio" name="evaluation-${item.master_id}" value="N/A"> N/A</label>
+                    <input type="radio" id="eval-sim-${group.master_id}" name="evaluation-${group.master_id}" value="Sim" required>
+                    <label for="eval-sim-${group.master_id}" class="radio-label">Sim</label>
+                    <input type="radio" id="eval-nao-${group.master_id}" name="evaluation-${group.master_id}" value="Não">
+                    <label for="eval-nao-${group.master_id}" class="radio-label">Não</label>
+                    <input type="radio" id="eval-na-${group.master_id}" name="evaluation-${group.master_id}" value="N/A">
+                    <label for="eval-na-${group.master_id}" class="radio-label">N/A</label>
                 </td>
                 <td><textarea name="evidences" placeholder="Evidências..."></textarea></td>
                 <td><textarea name="proposals" placeholder="Propostas..."></textarea></td>
                 <td><textarea name="observations" placeholder="Observações..."></textarea></td>
             `;
-            tableBody.appendChild(row);
-        });
+            tableBody.appendChild(mainRow);
+            
+            group.subitems.forEach(subitem => {
+                const subitemRow = document.createElement('tr');
+                subitemRow.dataset.masterId = subitem.master_id;
+                // ✨ ALTERAÇÃO: Adicionado 'required' no primeiro input para torná-lo obrigatório
+                subitemRow.innerHTML = `
+                    <td>${subitem.responsible || ''}</td>
+                    <td>${subitem.section || ''}</td>
+                    <td>${subitem.theme || ''}</td>
+                    <td>${subitem.item_number || ''}</td>
+                    <td>${subitem.subitem_number || ''}</td>
+                    <td class="truncate-text">${subitem.subitem_description || ''}</td>
+                    <td>${subitem.exigency_level || ''}</td>
+                    <td class="evaluation-cell">
+                        <input type="radio" id="eval-sim-${subitem.master_id}" name="evaluation-${subitem.master_id}" value="Sim" required>
+                        <label for="eval-sim-${subitem.master_id}" class="radio-label">Sim</label>
+                        <input type="radio" id="eval-nao-${subitem.master_id}" name="evaluation-${subitem.master_id}" value="Não">
+                        <label for="eval-nao-${subitem.master_id}" class="radio-label">Não</label>
+                        <input type="radio" id="eval-na-${subitem.master_id}" name="evaluation-${subitem.master_id}" value="N/A">
+                        <label for="eval-na-${subitem.master_id}" class="radio-label">N/A</label>
+                    </td>
+                    <td><textarea name="evidences" placeholder="Evidências..."></textarea></td>
+                    <td><textarea name="proposals" placeholder="Propostas..."></textarea></td>
+                    <td><textarea name="observations" placeholder="Observações..."></textarea></td>
+                `;
+                tableBody.appendChild(subitemRow);
+            });
+        }
     }
 
     function generateMinutes() {
+        // ... (o conteúdo desta função permanece exatamente o mesmo)
         minutesOutput.innerHTML = '';
         
         const filledItems = Array.from(tableBody.querySelectorAll('tr:not(.section-header):not(.theme-header)')).map(row => {
@@ -100,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 section: cells[1].textContent,
                 theme: cells[2].textContent,
                 item_number: cells[3].textContent,
-                item_description: cells[4].textContent,
+                subitem_number: cells[4].textContent,
                 subitem_description: cells[5].textContent,
                 exigency_level: cells[6].textContent,
                 evaluation: evaluation ? evaluation.value : 'Não avaliado',
@@ -132,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <th>Seção</th>
                             <th>Tema</th>
                             <th>Item</th>
-                            <th>Descrição do Item</th>
+                            <th>Subitem</th>
                             <th>Descrição do Subitem</th>
                             <th>Nível de Exigência</th>
                             <th>Avaliação</th>
@@ -148,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <td>${item.section}</td>
                                 <td>${item.theme}</td>
                                 <td>${item.item_number}</td>
-                                <td>${item.item_description}</td>
+                                <td>${item.subitem_number}</td>
                                 <td>${item.subitem_description}</td>
                                 <td>${item.exigency_level}</td>
                                 <td>${item.evaluation}</td>
@@ -172,28 +215,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- FUNÇÕES DE DOWNLOAD ---
+    // ... (suas funções de download generateWordDocument e generatePdfDocument permanecem as mesmas)
+
+    const createSizedText = (text, size = 22, bold = false) => {
+        return new docx.Paragraph({
+            children: [new docx.TextRun({ text, size, bold })]
+        });
+    };
     
     function generateWordDocument(data) {
+        const FONT_SIZE_TITLE = 32;
+        const FONT_SIZE_BODY = 22;
+
         const doc = new docx.Document({
             sections: [{
                 properties: {
                     page: {
-                        margin: {
-                            top: 1440, // 1 polegada em twips (1440 twips = 1 polegada)
-                            right: 1440,
-                            bottom: 1440,
-                            left: 1440,
-                        },
+                        margin: { top: 1440, right: 1440, bottom: 1440, left: 1440 },
                     },
                 },
                 children: [
                     new docx.Paragraph({
-                        text: `Ata de Reunião - ${responsibleInput.value || 'Todos'}`,
-                        heading: docx.HeadingLevel.TITLE,
+                        children: [new docx.TextRun({ text: `Ata de Reunião - ${responsibleInput.value || 'Todos'}`, size: FONT_SIZE_TITLE, bold: true })],
                         alignment: docx.AlignmentType.CENTER,
                     }),
                     new docx.Paragraph({
-                        text: `Data: ${new Date().toLocaleDateString()}`,
+                         children: [new docx.TextRun({ text: `Data: ${new Date().toLocaleDateString()}`, size: FONT_SIZE_BODY })],
                         alignment: docx.AlignmentType.CENTER,
                     }),
                     new docx.Paragraph({ text: '' }),
@@ -201,32 +248,32 @@ document.addEventListener('DOMContentLoaded', () => {
                         rows: [
                             new docx.TableRow({
                                 children: [
-                                    new docx.TableCell({ children: [new docx.Paragraph({ text: "Responsável", bold: true })] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph({ text: "Seção", bold: true })] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph({ text: "Tema", bold: true })] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph({ text: "Item", bold: true })] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph({ text: "Descrição do Item", bold: true })] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph({ text: "Descrição do Subitem", bold: true })] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph({ text: "Nível de Exigência", bold: true })] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph({ text: "Avaliação", bold: true })] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph({ text: "Evidências", bold: true })] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph({ text: "Propostas", bold: true })] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph({ text: "Observações", bold: true })] }),
+                                    new docx.TableCell({ children: [createSizedText("Responsável", FONT_SIZE_BODY, true)] }),
+                                    new docx.TableCell({ children: [createSizedText("Seção", FONT_SIZE_BODY, true)] }),
+                                    new docx.TableCell({ children: [createSizedText("Tema", FONT_SIZE_BODY, true)] }),
+                                    new docx.TableCell({ children: [createSizedText("Item", FONT_SIZE_BODY, true)] }),
+                                    new docx.TableCell({ children: [createSizedText("Subitem", FONT_SIZE_BODY, true)] }),
+                                    new docx.TableCell({ children: [createSizedText("Descrição do Subitem", FONT_SIZE_BODY, true)] }),
+                                    new docx.TableCell({ children: [createSizedText("Nível de Exigência", FONT_SIZE_BODY, true)] }),
+                                    new docx.TableCell({ children: [createSizedText("Avaliação", FONT_SIZE_BODY, true)] }),
+                                    new docx.TableCell({ children: [createSizedText("Evidências", FONT_SIZE_BODY, true)] }),
+                                    new docx.TableCell({ children: [createSizedText("Propostas", FONT_SIZE_BODY, true)] }),
+                                    new docx.TableCell({ children: [createSizedText("Observações", FONT_SIZE_BODY, true)] }),
                                 ]
                             }),
                             ...data.map(item => new docx.TableRow({
                                 children: [
-                                    new docx.TableCell({ children: [new docx.Paragraph(item.responsible)] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph(item.section)] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph(item.theme)] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph(item.item_number)] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph(item.item_description)] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph(item.subitem_description)] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph(item.exigency_level)] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph(item.evaluation)] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph(item.evidences)] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph(item.proposals)] }),
-                                    new docx.TableCell({ children: [new docx.Paragraph(item.observations)] }),
+                                    new docx.TableCell({ children: [createSizedText(item.responsible, FONT_SIZE_BODY)] }),
+                                    new docx.TableCell({ children: [createSizedText(item.section, FONT_SIZE_BODY)] }),
+                                    new docx.TableCell({ children: [createSizedText(item.theme, FONT_SIZE_BODY)] }),
+                                    new docx.TableCell({ children: [createSizedText(item.item_number, FONT_SIZE_BODY)] }),
+                                    new docx.TableCell({ children: [createSizedText(item.subitem_number, FONT_SIZE_BODY)] }),
+                                    new docx.TableCell({ children: [createSizedText(item.subitem_description, FONT_SIZE_BODY)] }),
+                                    new docx.TableCell({ children: [createSizedText(item.exigency_level, FONT_SIZE_BODY)] }),
+                                    new docx.TableCell({ children: [createSizedText(item.evaluation, FONT_SIZE_BODY)] }),
+                                    new docx.TableCell({ children: [createSizedText(item.evidences, FONT_SIZE_BODY)] }),
+                                    new docx.TableCell({ children: [createSizedText(item.proposals, FONT_SIZE_BODY)] }),
+                                    new docx.TableCell({ children: [createSizedText(item.observations, FONT_SIZE_BODY)] }),
                                 ]
                             }))
                         ],
@@ -247,14 +294,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function generatePdfDocument() {
         const { jsPDF } = window.jspdf;
-        const doc = new jsPDF('p', 'mm', 'a4');
+        const doc = new jsPDF('l', 'mm', 'a4');
 
         const minutesContent = document.getElementById('minutes-table-wrapper');
 
+        minutesContent.classList.add('pdf-export-style');
+
         html2canvas(minutesContent, { scale: 2 }).then(canvas => {
             const imgData = canvas.toDataURL('image/png');
-            const imgWidth = 210; 
-            const pageHeight = 295;  
+            const imgWidth = 297;
+            const pageHeight = 210; 
             const imgHeight = canvas.height * imgWidth / canvas.width;
             let heightLeft = imgHeight;
             let position = 0;
@@ -269,6 +318,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 heightLeft -= pageHeight;
             }
             doc.save(`ata_reuniao_${responsibleInput.value || 'todos'}.pdf`);
+            
+            minutesContent.classList.remove('pdf-export-style');
         });
     }
 
@@ -294,7 +345,11 @@ document.addEventListener('DOMContentLoaded', () => {
         responsibleInput.focus();
     });
 
-    generateBtn.addEventListener('click', generateMinutes);
+    // ✨ ALTERAÇÃO: Trocamos o listener de 'click' do botão por 'submit' do formulário
+    evaluationForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // Impede que a página recarregue ao enviar o formulário
+        generateMinutes();      // Chama sua função original para gerar a ata
+    });
 
     loadDataAndInitialize();
 });
