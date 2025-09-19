@@ -139,6 +139,106 @@ document.addEventListener('DOMContentLoaded', () => {
             tableBody.appendChild(subitemRow);
         });
     }
+}function renderTable(items) {
+    tableBody.innerHTML = '';
+    let currentSection = '';
+    let currentTheme = '';
+    let uniqueIdCounter = 0;
+
+    const groupedItems = {};
+    // ✨ LÓGICA DE AGRUPAMENTO CORRIGIDA
+    items.forEach(item => {
+        const groupKey = `${item.section}-${item.theme}-${item.item_number}`;
+        if (!groupedItems[groupKey]) {
+            groupedItems[groupKey] = { ...item, subitems: [] };
+        }
+        if (!item.subitem_number && item.description) {
+            groupedItems[groupKey].description = item.description;
+        }
+        if (item.subitem_number) {
+            groupedItems[groupKey].subitems.push(item);
+        }
+    });
+
+    for (const key in groupedItems) {
+        const group = groupedItems[key];
+        
+        if (group.section !== currentSection) {
+            const sectionRow = document.createElement('tr');
+            sectionRow.classList.add('section-header');
+            sectionRow.innerHTML = `<td colspan="12"><strong>${group.section}</strong></td>`;
+            tableBody.appendChild(sectionRow);
+            currentSection = group.section;
+            currentTheme = '';
+        }
+
+        if (group.theme && group.theme !== currentTheme) {
+            const themeRow = document.createElement('tr');
+            themeRow.classList.add('theme-header');
+            themeRow.innerHTML = `<td colspan="12"><strong>Tema: ${group.theme}</strong></td>`;
+            tableBody.appendChild(themeRow);
+            currentTheme = group.theme;
+        }
+
+        uniqueIdCounter++;
+        const mainRow = document.createElement('tr');
+        mainRow.dataset.masterId = group.master_id;
+        mainRow.dataset.mainDescription = group.description || '';
+        // ✨ LÓGICA DE EXIBIÇÃO CORRIGIDA PARA O ITEM PRINCIPAL
+        mainRow.innerHTML = `
+            <td>${group.responsible || ''}</td>
+            <td>${group.section || ''}</td>
+            <td>${group.theme || ''}</td>
+            <td>${group.item_number || ''}</td>
+            <td class="truncate-text">${group.description || ''}</td>
+            <td></td>
+            <td></td> <td>${group.exigency_level || ''}</td>
+            <td>
+                <div class="evaluation-cell">
+                    <input type="radio" id="eval-sim-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Sim">
+                    <label for="eval-sim-${uniqueIdCounter}" class="radio-label">Sim</label>
+                    <input type="radio" id="eval-nao-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Não">
+                    <label for="eval-nao-${uniqueIdCounter}" class="radio-label">Não</label>
+                    <input type="radio" id="eval-na-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="N/A">
+                    <label for="eval-na-${uniqueIdCounter}" class="radio-label">N/A</label>
+                </div>
+            </td>
+            <td><textarea name="evidences" placeholder="Evidências..."></textarea></td>
+            <td><textarea name="proposals" placeholder="Propostas..."></textarea></td>
+            <td><textarea name="observations" placeholder="Observações..."></textarea></td>
+        `;
+        tableBody.appendChild(mainRow);
+        
+        group.subitems.forEach(subitem => {
+            uniqueIdCounter++;
+            const subitemRow = document.createElement('tr');
+            subitemRow.dataset.masterId = subitem.master_id;
+            subitemRow.dataset.mainDescription = group.description || '';
+            // ✨ LÓGICA DE EXIBIÇÃO CORRIGIDA PARA O SUBITEM
+            subitemRow.innerHTML = `
+                <td>${subitem.responsible || ''}</td>
+                <td>${subitem.section || ''}</td>
+                <td>${subitem.theme || ''}</td>
+                <td>${subitem.item_number || ''}</td>
+                <td class="truncate-text">${group.description || ''}</td> <td>${subitem.subitem_number || ''}</td>
+                <td class="truncate-text">${subitem.subitem_description || ''}</td> <td>${subitem.exigency_level || ''}</td>
+                <td>
+                    <div class="evaluation-cell">
+                        <input type="radio" id="eval-sim-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Sim">
+                        <label for="eval-sim-${uniqueIdCounter}" class="radio-label">Sim</label>
+                        <input type="radio" id="eval-nao-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Não">
+                        <label for="eval-nao-${uniqueIdCounter}" class="radio-label">Não</label>
+                        <input type="radio" id="eval-na-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="N/A">
+                        <label for="eval-na-${uniqueIdCounter}" class="radio-label">N/A</label>
+                    </div>
+                </td>
+                <td><textarea name="evidences" placeholder="Evidências..."></textarea></td>
+                <td><textarea name="proposals" placeholder="Propostas..."></textarea></td>
+                <td><textarea name="observations" placeholder="Observações..."></textarea></td>
+            `;
+            tableBody.appendChild(subitemRow);
+        });
+    }
 }
 
    function generateMinutes(allRows) {
