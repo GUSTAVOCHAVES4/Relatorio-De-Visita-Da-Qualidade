@@ -6,7 +6,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    background-color: #f0f4f8; /* Fundo cinza-azulado claro */
+    background-color: #dfe9f0; /* Fundo cinza-azulado claro */
 }
 
 header {
@@ -69,7 +69,7 @@ th, td {
     border: 1px solid #000000;
     padding: 12px;
     text-align: left;
-    vertical-align: middl;
+    vertical-align: middle; /* Essencial para alinhar o container DIV */
     white-space: normal;
     word-wrap: break-word;
 }
@@ -138,11 +138,13 @@ textarea {
 
 .evaluation-cell {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    padding: 5px;
+    align-content: center; 
     flex-wrap: wrap;
     gap: 5px;
+    width: 100%;
+    height: 100%; /* Preenche a altura da célula */
 }
 
 .evaluation-cell input[type="radio"] {
@@ -259,4 +261,180 @@ tr.linha-destacada td {
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #fff;
+}
+
+/* ✨ NOVO: Estilo para destacar linhas com avaliação pendente */
+tr.avaliacao-pendente td {
+    background-color: #fffbe6 !important; /* Um amarelo bem claro */
+    transition: background-color 0.5s ease;
+}
+
+tr.avaliacao-pendente .evaluation-cell div {
+    /* Adiciona um contorno vermelho na célula específica para chamar atenção */
+    outline: 2px solid #e53e3e; 
+    outline-offset: -2px;
+    border-radius: 8px;
+}
+
+/* --- Estilos para os Botões de Download da Ata --- */
+
+/* Container que segura os botões */
+#download-buttons {
+    text-align: center; /* Centraliza os botões */
+    margin-top: 25px;   /* Aumenta o espaço acima deles */
+    padding-top: 20px;
+    border-top: 1px solid #ddd; /* Adiciona uma linha de separação */
+}
+
+/* Estilo geral para os botões de download (aumenta o tamanho) */
+#download-buttons button {
+    font-size: 16px;
+    padding: 12px 28px;
+    margin: 0 10px; /* Adiciona um espaço entre os botões */
+}
+
+/* Efeito de elevação ao passar o mouse */
+#download-buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Cor específica para o botão do Word */
+#download-word-btn {
+    background-color: #007dd1; /* Azul principal do tema */
+}
+
+/* Cor específica para o botão do PDF */
+#download-pdf-btn {
+    background-color: #c63321; /* Vermelho para diferenciar */
+}
+
+/* --- Estilos para a Seção de Upload de Imagens --- */
+.image-upload-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.image-upload-section h3 {
+    color: #004585;
+    margin-bottom: 15px;
+}
+
+#image-upload {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    width: fit-content;
+    margin: 0 auto 20px auto;
+    background-color: #f9f9f9;
+}
+
+#image-preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 10px;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    min-height: 100px;
+    background-color: #fcfcfc;
+    align-items: center; /* Centraliza verticalmente se não tiver imagens */
+    color: #888;
+    font-style: italic;
+}
+
+#image-preview-container::before {
+    content: "Arraste e solte imagens aqui ou clique no botão acima.";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#image-preview-container:empty::before {
+    content: "Nenhuma imagem selecionada ainda.";
+}
+
+.image-preview-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.image-preview-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.image-preview-wrapper .remove-image-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(220, 53, 69, 0.8); /* Vermelho */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    line-height: 1; /* Para alinhar o 'x' */
+}
+
+.image-preview-wrapper .remove-image-btn:hover {
+    background-color: #dc3545;
+}
+
+/* Estilos para a seção de fotos na ata gerada no HTML */
+.minutes-photos-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.minutes-photos-section h3 {
+    text-align: center;
+    color: #004585;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.minutes-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* 5 colunas por padrão */
+    gap: 15px;
+    justify-items: center;
+    align-items: start;
+}
+
+.minutes-photo-grid img {
+    width: 100%;
+    max-width: 250px; /* Limite o tamanho da imagem na grid */
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Para visualização no PDF */
+.pdf-export-style .minutes-photo-grid img {
+    max-width: 150px !important; /* Ajuste para o PDF */
 }

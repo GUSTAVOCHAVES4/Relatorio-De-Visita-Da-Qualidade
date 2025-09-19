@@ -10,7 +10,7 @@
 <body>
 
     <header>
-        <h1>Gerador de Ata de Reunião</h1>
+        <h1>Gerador de Atas CQH - Visitas Qualidade</h1>
     </header>
         
    <main>
@@ -33,6 +33,7 @@
                             <th>Seção</th>
                             <th>Tema</th>
                             <th>Item</th>
+                            <th>Descrição do Item</th>
                             <th>Subitem</th>
                             <th>Descrição do Subitem</th>
                             <th>Nível de Exigência</th>
@@ -47,14 +48,14 @@
                 </table>
             </section>
             
-            <button type="submit" id="generate-minutes-btn">Gerador de Ata</button>
+            <button type="submit" id="generate-minutes-btn">Gerar Ata</button>
         </form>
 
         <section id="minutes-output" class="minutes-output"></section>
     </div>
 </main>
 
-    <script src="https://unpkg.com/docx@5.0.0/build/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     

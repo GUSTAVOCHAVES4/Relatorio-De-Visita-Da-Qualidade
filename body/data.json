@@ -4122,7 +4122,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "PGRRS"
+   "responsible": "PGRSS"
  },
  {
    "master_id": "b4993e6d-a711-45f0-ad6e-10262899a5a8",
@@ -4144,7 +4144,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "*",
-   "responsible": "PGRRS"
+   "responsible": "PGRSS"
  },
  {
    "master_id": "251bfc25-e4d6-4f45-b5c8-2cf94a711223",
@@ -4188,7 +4188,7 @@
    "subitem_number": 2,
    "subitem_description": "Racionalização do uso de materiais administrativos (ex.: papéis, cartuchos)",
    "exigency_level": "",
-   "responsible": "PGRRS"
+   "responsible": "PGRSS"
  },
  {
    "master_id": "e0d83517-29a6-48fc-85e0-149ae2aaf66b",
@@ -4221,7 +4221,7 @@
    "subitem_number": 4,
    "subitem_description": "Campanhas relacionadas à preservação do meio ambiente",
    "exigency_level": "",
-   "responsible": "PGRRS"
+   "responsible": "PGRSS"
  },
  {
    "master_id": "40c89310-4161-482d-9f13-d87e3471e971",
@@ -4254,7 +4254,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "PGRRS"
+   "responsible": "PGRSS"
  },
  {
    "master_id": "3b36b5c9-3910-4e21-a4e1-1d0d50ff83de",
@@ -4287,7 +4287,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "PGRRS"
+   "responsible": "PGRSS"
  },
  {
    "master_id": "88c6d23d-a505-46b3-8f22-03331e25c718",
