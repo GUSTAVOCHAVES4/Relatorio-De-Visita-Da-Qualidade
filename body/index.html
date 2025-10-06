@@ -10,7 +10,7 @@
 <body>
 
     <header>
-        <h1>Gerador de Atas CQH - Visitas Qualidade</h1>
+        <h1>RELATÓRIO DE VISITA DA QUALIDADE</h1>
     </header>
         
    <main>
@@ -21,6 +21,12 @@
             <datalist id="responsible-list">
             </datalist>
             <button id="clear-search-btn" title="Limpar pesquisa">X</button>
+        </section>
+
+        <section class="image-upload-section">
+            <h3>Anexar Fotos</h3>
+            <input type="file" id="image-upload" multiple accept="image/*">
+            <div id="image-preview-container" title="Pré-visualização das imagens selecionadas"></div>
         </section>
 
         <form id="evaluation-form">
@@ -56,7 +62,10 @@
 </main>
 
     <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <script src="jspdf.min.js"></script>
+    <script src="jspdf-autotable.min.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     
     <script src="script.js"></script>

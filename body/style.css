@@ -114,16 +114,24 @@ tr:nth-child(odd) {
 
 textarea {
     width: 100%;
-    min-height: 50px;
+    min-height: 80px; /* Aumenta a altura mínima inicial */
     padding: 10px;
     box-sizing: border-box;
-    border: 1px solid #000000;
-    border-radius: 8px;
+    border: 1px solid #999; /* Borda um pouco mais escura */
+    border-radius: 6px;
     resize: vertical;
     font-family: Arial, sans-serif;
     font-size: 14px;
     line-height: 1.5;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fdfdfd; /* Fundo ligeiramente off-white */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efeito de FOCO: acontece quando você clica no campo para digitar */
+textarea:focus {
+    outline: none; /* Remove a borda padrão do navegador */
+    border-color: #287eb8; /* Borda fica azul, combinando com o tema */
+    box-shadow: 0 0 5px rgba(40, 126, 184, 0.5); /* Adiciona um brilho azul sutil */
 }
 
 #responsible-input {
@@ -314,7 +322,6 @@ tr.avaliacao-pendente .evaluation-cell div {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    margin-top: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -322,17 +329,14 @@ tr.avaliacao-pendente .evaluation-cell div {
 
 .image-upload-section h3 {
     color: #004585;
+    margin-top: 0;
     margin-bottom: 15px;
 }
 
 #image-upload {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
     display: block;
     width: fit-content;
     margin: 0 auto 20px auto;
-    background-color: #f9f9f9;
 }
 
 #image-preview-container {
@@ -341,26 +345,23 @@ tr.avaliacao-pendente .evaluation-cell div {
     gap: 15px;
     justify-content: center;
     padding: 10px;
-    border: 1px dashed #ccc;
+    border: 2px dashed #ccc;
     border-radius: 8px;
-    min-height: 100px;
+    min-height: 120px;
     background-color: #fcfcfc;
-    align-items: center; /* Centraliza verticalmente se não tiver imagens */
+    align-items: center;
+    position: relative;
+}
+
+/* Mensagem padrão quando o container estiver vazio */
+#image-preview-container:empty::before {
+    content: "Nenhuma imagem selecionada.";
     color: #888;
     font-style: italic;
-}
-
-#image-preview-container::before {
-    content: "Arraste e solte imagens aqui ou clique no botão acima.";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-}
-
-#image-preview-container:empty::before {
-    content: "Nenhuma imagem selecionada ainda.";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .image-preview-wrapper {
@@ -384,57 +385,56 @@ tr.avaliacao-pendente .evaluation-cell div {
     position: absolute;
     top: 5px;
     right: 5px;
-    background-color: rgba(220, 53, 69, 0.8); /* Vermelho */
+    background-color: rgba(220, 53, 69, 0.8); /* Vermelho translúcido */
     color: white;
     border: none;
     border-radius: 50%;
     width: 25px;
     height: 25px;
     font-size: 14px;
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: background-color 0.2s;
-    line-height: 1; /* Para alinhar o 'x' */
+    line-height: 1;
 }
 
 .image-preview-wrapper .remove-image-btn:hover {
-    background-color: #dc3545;
+    background-color: #dc3545; /* Vermelho sólido */
 }
 
-/* Estilos para a seção de fotos na ata gerada no HTML */
+
+/* --- Estilos para a seção de fotos na ata gerada --- */
 .minutes-photos-section {
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid #eee;
+    border-top: 2px solid #287eb8;
 }
 
 .minutes-photos-section h3 {
     text-align: center;
-    color: #004585;
+    color: #287eb8;
     margin-bottom: 20px;
     font-size: 24px;
+    border-bottom: 2px solid #287eb8;
+    padding-bottom: 10px;
+    display: inline-block;
 }
 
 .minutes-photo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* 5 colunas por padrão */
-    gap: 15px;
+    /* Tenta criar 4 colunas, mas se ajusta para telas menores */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 100px;
     justify-items: center;
-    align-items: start;
 }
 
 .minutes-photo-grid img {
     width: 100%;
-    max-width: 250px; /* Limite o tamanho da imagem na grid */
     height: auto;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Para visualização no PDF */
-.pdf-export-style .minutes-photo-grid img {
-    max-width: 150px !important; /* Ajuste para o PDF */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }

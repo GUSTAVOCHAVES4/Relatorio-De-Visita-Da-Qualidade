@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ✨ ALTERAÇÃO: Adicionada referência ao formulário
+    // ✨ ALTERAÇÃO: Adicionada referência ao formulário e aos novos elementos de imagem
     const evaluationForm = document.getElementById('evaluation-form');
     const responsibleInput = document.getElementById('responsible-input');
     const responsibleList = document.getElementById('responsible-list');
@@ -7,8 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const tableBody = document.querySelector('#action-items-table tbody');
     const minutesOutput = document.getElementById('minutes-output');
 
+    // ✨ NOVO: Referências para o upload de imagens
+    const imageUploadInput = document.getElementById('image-upload');
+    const imagePreviewContainer = document.getElementById('image-preview-container');
+
     let meetingItems = [];
     let currentMinutesData = [];
+    let uploadedImages = []; // ✨ NOVO: Array para armazenar os dados das imagens
 
     // --- FUNÇÕES DE LÓGICA ---
 
@@ -30,98 +35,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function populateResponsibleDatalist() {
         const responsibles = [...new Set(meetingItems.map(item => item.responsible))].filter(Boolean).sort();
-        
         responsibleList.innerHTML = '';
-
         responsibles.forEach(responsible => {
             const option = document.createElement('option');
             option.value = responsible;
             responsibleList.appendChild(option);
         });
     }
-
+    
+    // ... (Sua função renderTable original permanece a mesma)
     function renderTable(items) {
-    tableBody.innerHTML = '';
-    let currentSection = '';
-    let currentTheme = '';
-    let uniqueIdCounter = 0;
+        tableBody.innerHTML = '';
+        let currentSection = '';
+        let currentTheme = '';
+        let uniqueIdCounter = 0;
 
-    const groupedItems = {};
-    // Lógica de agrupamento corrigida para usar apenas o número do item
-    items.forEach(item => {
-        const groupKey = `${item.section}-${item.theme}-${item.item_number}`;
-        if (!groupedItems[groupKey]) {
-            groupedItems[groupKey] = { ...item, subitems: [] };
-        }
-        if (!item.subitem_number && item.description) {
-            groupedItems[groupKey].description = item.description;
-        }
-        if (item.subitem_number) {
-            groupedItems[groupKey].subitems.push(item);
-        }
-    });
+        const groupedItems = {};
+        items.forEach(item => {
+            const groupKey = `${item.section}-${item.theme}-${item.item_number}`;
+            if (!groupedItems[groupKey]) {
+                groupedItems[groupKey] = { ...item, subitems: [] };
+            }
+            if (!item.subitem_number && item.description) {
+                groupedItems[groupKey].description = item.description;
+            }
+            if (item.subitem_number) {
+                groupedItems[groupKey].subitems.push(item);
+            }
+        });
 
-    for (const key in groupedItems) {
-        const group = groupedItems[key];
-        
-        if (group.section !== currentSection) {
-            const sectionRow = document.createElement('tr');
-            sectionRow.classList.add('section-header');
-            sectionRow.innerHTML = `<td colspan="12"><strong>${group.section}</strong></td>`;
-            tableBody.appendChild(sectionRow);
-            currentSection = group.section;
-            currentTheme = '';
-        }
+        for (const key in groupedItems) {
+            const group = groupedItems[key];
+            
+            if (group.section !== currentSection) {
+                const sectionRow = document.createElement('tr');
+                sectionRow.classList.add('section-header');
+                sectionRow.innerHTML = `<td colspan="12"><strong>${group.section}</strong></td>`;
+                tableBody.appendChild(sectionRow);
+                currentSection = group.section;
+                currentTheme = '';
+            }
 
-        if (group.theme && group.theme !== currentTheme) {
-            const themeRow = document.createElement('tr');
-            themeRow.classList.add('theme-header');
-            themeRow.innerHTML = `<td colspan="12"><strong>Tema: ${group.theme}</strong></td>`;
-            tableBody.appendChild(themeRow);
-            currentTheme = group.theme;
-        }
+            if (group.theme && group.theme !== currentTheme) {
+                const themeRow = document.createElement('tr');
+                themeRow.classList.add('theme-header');
+                themeRow.innerHTML = `<td colspan="12"><strong>Tema: ${group.theme}</strong></td>`;
+                tableBody.appendChild(themeRow);
+                currentTheme = group.theme;
+            }
 
-        uniqueIdCounter++;
-        const mainRow = document.createElement('tr');
-        mainRow.dataset.masterId = group.master_id;
-        mainRow.dataset.mainDescription = group.description || '';
-        mainRow.innerHTML = `
-            <td>${group.responsible || ''}</td>
-            <td>${group.section || ''}</td>
-            <td>${group.theme || ''}</td>
-            <td>${group.item_number || ''}</td>
-            <td class="truncate-text">${group.description || ''}</td> <td></td>
-            <td class="truncate-text">${group.description || ''}</td>
-            <td>${group.exigency_level || ''}</td>
-            <td>
-                <div class="evaluation-cell">
-                    <input type="radio" id="eval-sim-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Sim">
-                    <label for="eval-sim-${uniqueIdCounter}" class="radio-label">Sim</label>
-                    <input type="radio" id="eval-nao-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Não">
-                    <label for="eval-nao-${uniqueIdCounter}" class="radio-label">Não</label>
-                    <input type="radio" id="eval-na-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="N/A">
-                    <label for="eval-na-${uniqueIdCounter}" class="radio-label">N/A</label>
-                </div>
-            </td>
-            <td><textarea name="evidences" placeholder="Evidências..."></textarea></td>
-            <td><textarea name="proposals" placeholder="Propostas..."></textarea></td>
-            <td><textarea name="observations" placeholder="Observações..."></textarea></td>
-        `;
-        tableBody.appendChild(mainRow);
-        
-        group.subitems.forEach(subitem => {
             uniqueIdCounter++;
-            const subitemRow = document.createElement('tr');
-            subitemRow.dataset.masterId = subitem.master_id;
-            subitemRow.dataset.mainDescription = group.description || '';
-            subitemRow.innerHTML = `
-                <td>${subitem.responsible || ''}</td>
-                <td>${subitem.section || ''}</td>
-                <td>${subitem.theme || ''}</td>
-                <td>${subitem.item_number || ''}</td>
-                <td class="truncate-text">${group.description || ''}</td> <td>${subitem.subitem_number || ''}</td>
-                <td class="truncate-text">${subitem.subitem_description || ''}</td>
-                <td>${subitem.exigency_level || ''}</td>
+            const mainRow = document.createElement('tr');
+            mainRow.dataset.masterId = group.master_id;
+            mainRow.dataset.mainDescription = group.description || '';
+            mainRow.innerHTML = `
+                <td>${group.responsible || ''}</td>
+                <td>${group.section || ''}</td>
+                <td>${group.theme || ''}</td>
+                <td>${group.item_number || ''}</td>
+                <td class="truncate-text">${group.description || ''}</td>
+                <td></td>
+                <td></td> <td>${group.exigency_level || ''}</td>
                 <td>
                     <div class="evaluation-cell">
                         <input type="radio" id="eval-sim-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Sim">
@@ -136,257 +110,276 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td><textarea name="proposals" placeholder="Propostas..."></textarea></td>
                 <td><textarea name="observations" placeholder="Observações..."></textarea></td>
             `;
-            tableBody.appendChild(subitemRow);
-        });
+            tableBody.appendChild(mainRow);
+            
+            group.subitems.forEach(subitem => {
+                uniqueIdCounter++;
+                const subitemRow = document.createElement('tr');
+                subitemRow.dataset.masterId = subitem.master_id;
+                subitemRow.dataset.mainDescription = group.description || '';
+                subitemRow.innerHTML = `
+                    <td>${subitem.responsible || ''}</td>
+                    <td>${subitem.section || ''}</td>
+                    <td>${subitem.theme || ''}</td>
+                    <td>${subitem.item_number || ''}</td>
+                    <td class="truncate-text">${group.description || ''}</td> <td>${subitem.subitem_number || ''}</td>
+                    <td class="truncate-text">${subitem.subitem_description || ''}</td> <td>${subitem.exigency_level || ''}</td>
+                    <td>
+                        <div class="evaluation-cell">
+                            <input type="radio" id="eval-sim-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Sim">
+                            <label for="eval-sim-${uniqueIdCounter}" class="radio-label">Sim</label>
+                            <input type="radio" id="eval-nao-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Não">
+                            <label for="eval-nao-${uniqueIdCounter}" class="radio-label">Não</label>
+                            <input type="radio" id="eval-na-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="N/A">
+                            <label for="eval-na-${uniqueIdCounter}" class="radio-label">N/A</label>
+                        </div>
+                    </td>
+                    <td><textarea name="evidences" placeholder="Evidências..."></textarea></td>
+                    <td><textarea name="proposals" placeholder="Propostas..."></textarea></td>
+                    <td><textarea name="observations" placeholder="Observações..."></textarea></td>
+                `;
+                tableBody.appendChild(subitemRow);
+            });
+        }
     }
-}function renderTable(items) {
-    tableBody.innerHTML = '';
-    let currentSection = '';
-    let currentTheme = '';
-    let uniqueIdCounter = 0;
 
-    const groupedItems = {};
-    // ✨ LÓGICA DE AGRUPAMENTO CORRIGIDA
-    items.forEach(item => {
-        const groupKey = `${item.section}-${item.theme}-${item.item_number}`;
-        if (!groupedItems[groupKey]) {
-            groupedItems[groupKey] = { ...item, subitems: [] };
-        }
-        if (!item.subitem_number && item.description) {
-            groupedItems[groupKey].description = item.description;
-        }
-        if (item.subitem_number) {
-            groupedItems[groupKey].subitems.push(item);
-        }
-    });
-
-    for (const key in groupedItems) {
-        const group = groupedItems[key];
-        
-        if (group.section !== currentSection) {
-            const sectionRow = document.createElement('tr');
-            sectionRow.classList.add('section-header');
-            sectionRow.innerHTML = `<td colspan="12"><strong>${group.section}</strong></td>`;
-            tableBody.appendChild(sectionRow);
-            currentSection = group.section;
-            currentTheme = '';
-        }
-
-        if (group.theme && group.theme !== currentTheme) {
-            const themeRow = document.createElement('tr');
-            themeRow.classList.add('theme-header');
-            themeRow.innerHTML = `<td colspan="12"><strong>Tema: ${group.theme}</strong></td>`;
-            tableBody.appendChild(themeRow);
-            currentTheme = group.theme;
-        }
-
-        uniqueIdCounter++;
-        const mainRow = document.createElement('tr');
-        mainRow.dataset.masterId = group.master_id;
-        mainRow.dataset.mainDescription = group.description || '';
-        // ✨ LÓGICA DE EXIBIÇÃO CORRIGIDA PARA O ITEM PRINCIPAL
-        mainRow.innerHTML = `
-            <td>${group.responsible || ''}</td>
-            <td>${group.section || ''}</td>
-            <td>${group.theme || ''}</td>
-            <td>${group.item_number || ''}</td>
-            <td class="truncate-text">${group.description || ''}</td>
-            <td></td>
-            <td></td> <td>${group.exigency_level || ''}</td>
-            <td>
-                <div class="evaluation-cell">
-                    <input type="radio" id="eval-sim-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Sim">
-                    <label for="eval-sim-${uniqueIdCounter}" class="radio-label">Sim</label>
-                    <input type="radio" id="eval-nao-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Não">
-                    <label for="eval-nao-${uniqueIdCounter}" class="radio-label">Não</label>
-                    <input type="radio" id="eval-na-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="N/A">
-                    <label for="eval-na-${uniqueIdCounter}" class="radio-label">N/A</label>
-                </div>
-            </td>
-            <td><textarea name="evidences" placeholder="Evidências..."></textarea></td>
-            <td><textarea name="proposals" placeholder="Propostas..."></textarea></td>
-            <td><textarea name="observations" placeholder="Observações..."></textarea></td>
-        `;
-        tableBody.appendChild(mainRow);
-        
-        group.subitems.forEach(subitem => {
-            uniqueIdCounter++;
-            const subitemRow = document.createElement('tr');
-            subitemRow.dataset.masterId = subitem.master_id;
-            subitemRow.dataset.mainDescription = group.description || '';
-            // ✨ LÓGICA DE EXIBIÇÃO CORRIGIDA PARA O SUBITEM
-            subitemRow.innerHTML = `
-                <td>${subitem.responsible || ''}</td>
-                <td>${subitem.section || ''}</td>
-                <td>${subitem.theme || ''}</td>
-                <td>${subitem.item_number || ''}</td>
-                <td class="truncate-text">${group.description || ''}</td> <td>${subitem.subitem_number || ''}</td>
-                <td class="truncate-text">${subitem.subitem_description || ''}</td> <td>${subitem.exigency_level || ''}</td>
-                <td>
-                    <div class="evaluation-cell">
-                        <input type="radio" id="eval-sim-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Sim">
-                        <label for="eval-sim-${uniqueIdCounter}" class="radio-label">Sim</label>
-                        <input type="radio" id="eval-nao-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Não">
-                        <label for="eval-nao-${uniqueIdCounter}" class="radio-label">Não</label>
-                        <input type="radio" id="eval-na-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="N/A">
-                        <label for="eval-na-${uniqueIdCounter}" class="radio-label">N/A</label>
-                    </div>
-                </td>
-                <td><textarea name="evidences" placeholder="Evidências..."></textarea></td>
-                <td><textarea name="proposals" placeholder="Propostas..."></textarea></td>
-                <td><textarea name="observations" placeholder="Observações..."></textarea></td>
-            `;
-            tableBody.appendChild(subitemRow);
-        });
-    }
-}
 
    function generateMinutes(allRows) {
-    try {
-        minutesOutput.innerHTML = '<p>Processando e gerando a ata, por favor aguarde...</p>';
+        try {
+            minutesOutput.innerHTML = '<p>Processando e gerando a ata, por favor aguarde...</p>';
 
-        const filledItems = allRows.map(row => {
-            const cells = row.querySelectorAll('td');
-            // ✨ ÍNDICES DAS CÉLULAS CORRIGIDOS DEVIDO À NOVA COLUNA
-            const evaluation = cells[8].querySelector('input:checked');
-            
-            return {
-                description: row.dataset.mainDescription,
-                responsible: cells[0].textContent,
-                section: cells[1].textContent,
-                theme: cells[2].textContent,
-                item_number: cells[3].textContent,
-                subitem_number: cells[5].textContent,       // Corrigido
-                subitem_description: cells[6].textContent, // Corrigido
-                exigency_level: cells[7].textContent,     // Corrigido
-                evaluation: evaluation ? evaluation.value : 'Não avaliado',
-                evidences: cells[9].querySelector('textarea').value,    // Corrigido
-                proposals: cells[10].querySelector('textarea').value,   // Corrigido
-                observations: cells[11].querySelector('textarea').value, // Corrigido
-            };
-        });
+            const filledItems = allRows.map(row => {
+                const cells = row.querySelectorAll('td');
+                const evaluation = cells[8].querySelector('input:checked');
+                
+                return {
+                    description: row.dataset.mainDescription,
+                    responsible: cells[0].textContent,
+                    section: cells[1].textContent,
+                    theme: cells[2].textContent,
+                    item_number: cells[3].textContent,
+                    subitem_number: cells[5].textContent,
+                    subitem_description: cells[6].textContent,
+                    exigency_level: cells[7].textContent,
+                    evaluation: evaluation ? evaluation.value : 'Não avaliado',
+                    evidences: cells[9].querySelector('textarea').value,
+                    proposals: cells[10].querySelector('textarea').value,
+                    observations: cells[11].querySelector('textarea').value,
+                };
+            });
 
-        currentMinutesData = filledItems.filter(item => 
-            item.evaluation !== 'Não avaliado' ||
-            item.evidences.trim() !== '' ||
-            item.proposals.trim() !== '' ||
-            item.observations.trim() !== ''
-        );
+            currentMinutesData = filledItems.filter(item => 
+                item.evaluation !== 'Não avaliado' ||
+                item.evidences.trim() !== '' ||
+                item.proposals.trim() !== '' ||
+                item.observations.trim() !== ''
+            );
 
-        if (currentMinutesData.length === 0) {
-            minutesOutput.textContent = 'Nenhum item preenchido para gerar a ata.';
-            return;
+            if (currentMinutesData.length === 0 && uploadedImages.length === 0) { // ✨ ALTERAÇÃO: Verifica também se há imagens
+                minutesOutput.textContent = 'Nenhum item preenchido ou imagem anexada para gerar a ata.';
+                return;
+            }
+
+            let minutesTableHTML = `
+                <h3>Ata de Reunião - ${responsibleInput.value || 'Todos'}</h3>
+                <div id="minutes-content-wrapper"> <div id="minutes-table-wrapper">
+                        <table class="minutes-table">
+                            <thead>
+                                <tr>
+                                    <th>Responsável</th> <th>Seção</th> <th>Tema</th>
+                                    <th>Item</th> <th>Descrição do Item</th> <th>Subitem</th>
+                                    <th>Descrição do Subitem</th> <th>Nível de Exigência</th> <th>Avaliação</th>
+                                    <th>Evidências</th> <th>Propostas</th> <th>Observações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${currentMinutesData.map(item => `
+                                    <tr>
+                                        <td>${item.responsible}</td> <td>${item.section}</td> <td>${item.theme}</td>
+                                        <td>${item.item_number}</td> <td>${item.description}</td> <td>${item.subitem_number}</td>
+                                        <td>${item.subitem_description}</td> <td>${item.exigency_level}</td> <td>${item.evaluation}</td>
+                                        <td>${item.evidences}</td> <td>${item.proposals}</td> <td>${item.observations}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+
+            // ✨ NOVO: Adiciona a seção de fotos se houver imagens
+            if (uploadedImages.length > 0) {
+                minutesTableHTML += `
+                    <div class="minutes-photos-section">
+                        <div style="text-align: center;"><h3>FOTOS</h3></div>
+                        <div class="minutes-photo-grid">
+                            ${uploadedImages.map(imgData => `<img src="${imgData}" alt="Evidência fotográfica">`).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            minutesTableHTML += `</div>`; // Fecha o minutes-content-wrapper
+
+            minutesTableHTML += `
+                <div id="download-buttons" style="margin-top: 20px;">
+                    <button id="download-word-btn">Baixar .docx</button>
+                    <button id="download-pdf-btn">Baixar .pdf</button>
+                </div>
+            `;
+
+            minutesOutput.innerHTML = minutesTableHTML;
+
+            document.getElementById('download-word-btn').addEventListener('click', () => generateWordDocument(currentMinutesData, uploadedImages));
+            document.getElementById('download-pdf-btn').addEventListener('click', () => generatePdfDocument());
+
+        } catch (error) {
+            console.error("ERRO AO GERAR A ATA:", error);
+            minutesOutput.innerHTML = `<p style="color: red; font-weight: bold;">Ocorreu um erro ao gerar a ata. Verifique o console (F12).</p>`;
         }
-
-        const minutesTableHTML = `
-            <h3>Ata de Reunião - ${responsibleInput.value || 'Todos'}</h3>
-            <div id="minutes-table-wrapper">
-                <table class="minutes-table">
-                    <thead>
-                        <tr>
-                            <th>Responsável</th> <th>Seção</th> <th>Tema</th>
-                            <th>Item</th> <th>Descrição do Item</th> <th>Subitem</th>
-                            <th>Descrição do Subitem</th> <th>Nível de Exigência</th> <th>Avaliação</th>
-                            <th>Evidências</th> <th>Propostas</th> <th>Observações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${currentMinutesData.map(item => `
-                            <tr>
-                                <td>${item.responsible}</td> <td>${item.section}</td> <td>${item.theme}</td>
-                                <td>${item.item_number}</td> <td>${item.description}</td> <td>${item.subitem_number}</td>
-                                <td>${item.subitem_description}</td> <td>${item.exigency_level}</td> <td>${item.evaluation}</td>
-                                <td>${item.evidences}</td> <td>${item.proposals}</td> <td>${item.observations}</td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            </div>
-            <div id="download-buttons" style="margin-top: 20px;">
-                <button id="download-word-btn">Baixar .docx</button>
-                <button id="download-pdf-btn">Baixar .pdf</button>
-            </div>
-        `;
-        minutesOutput.innerHTML = minutesTableHTML;
-
-        document.getElementById('download-word-btn').addEventListener('click', () => generateWordDocument(currentMinutesData));
-        document.getElementById('download-pdf-btn').addEventListener('click', () => generatePdfDocument());
-
-    } catch (error) {
-        console.error("ERRO AO GERAR A ATA:", error);
-        minutesOutput.innerHTML = `<p style="color: red; font-weight: bold;">Ocorreu um erro ao gerar a ata. Verifique o console (F12).</p>`;
     }
-}
+    
+    // --- ✨ NOVAS FUNÇÕES PARA MANIPULAR IMAGENS ---
+
+    function handleImageUpload(event) {
+        const files = event.target.files;
+        for (const file of files) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                uploadedImages.push(e.target.result);
+                renderImagePreviews();
+            };
+            reader.readAsDataURL(file);
+        }
+        // Limpa o input para permitir selecionar o mesmo arquivo novamente
+        event.target.value = null;
+    }
+
+    function renderImagePreviews() {
+        imagePreviewContainer.innerHTML = ''; // Limpa as prévias existentes
+        uploadedImages.forEach((imageData, index) => {
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('image-preview-wrapper');
+            
+            const img = document.createElement('img');
+            img.src = imageData;
+            img.alt = `Pré-visualização da imagem ${index + 1}`;
+            
+            const removeBtn = document.createElement('button');
+            removeBtn.classList.add('remove-image-btn');
+            removeBtn.innerHTML = '&times;'; // 'x' character
+            removeBtn.title = 'Remover imagem';
+            removeBtn.onclick = () => {
+                uploadedImages.splice(index, 1); // Remove do array
+                renderImagePreviews(); // Re-renderiza as prévias
+            };
+            
+            wrapper.appendChild(img);
+            wrapper.appendChild(removeBtn);
+            imagePreviewContainer.appendChild(wrapper);
+        });
+    }
+
 
     // --- FUNÇÕES DE DOWNLOAD ---
-    // ... (suas funções de download generateWordDocument e generatePdfDocument permanecem as mesmas)
-
     const createSizedText = (text, size = 22, bold = false) => {
         return new docx.Paragraph({
             children: [new docx.TextRun({ text, size, bold })]
         });
     };
     
-    function generateWordDocument(data) {
+    // ✨ ALTERAÇÃO: Função agora é assíncrona e aceita imagens
+    async function generateWordDocument(data, images) {
+        const { Document, Packer, Paragraph, TextRun, ImageRun, AlignmentType, Table, TableRow, TableCell } = docx;
+
         const FONT_SIZE_TITLE = 32;
         const FONT_SIZE_BODY = 22;
+        
+        const children = [
+            new Paragraph({
+                children: [new TextRun({ text: `Ata de Reunião - ${responsibleInput.value || 'Todos'}`, size: FONT_SIZE_TITLE, bold: true })],
+                alignment: AlignmentType.CENTER,
+            }),
+            new Paragraph({
+                 children: [new TextRun({ text: `Data: ${new Date().toLocaleDateString()}`, size: FONT_SIZE_BODY })],
+                alignment: AlignmentType.CENTER,
+            }),
+            new Paragraph({ text: '' }),
+        ];
 
-        const doc = new docx.Document({
+        if (data.length > 0) {
+            const table = new Table({
+                rows: [
+                    new TableRow({
+                        children: [
+                            new TableCell({ children: [createSizedText("Responsável", FONT_SIZE_BODY, true)] }),
+                            new TableCell({ children: [createSizedText("Seção", FONT_SIZE_BODY, true)] }),
+                            new TableCell({ children: [createSizedText("Tema", FONT_SIZE_BODY, true)] }),
+                            new TableCell({ children: [createSizedText("Item", FONT_SIZE_BODY, true)] }),
+                            new TableCell({ children: [createSizedText("Subitem", FONT_SIZE_BODY, true)] }),
+                            new TableCell({ children: [createSizedText("Descrição do Subitem", FONT_SIZE_BODY, true)] }),
+                            new TableCell({ children: [createSizedText("Nível de Exigência", FONT_SIZE_BODY, true)] }),
+                            new TableCell({ children: [createSizedText("Avaliação", FONT_SIZE_BODY, true)] }),
+                            new TableCell({ children: [createSizedText("Evidências", FONT_SIZE_BODY, true)] }),
+                            new TableCell({ children: [createSizedText("Propostas", FONT_SIZE_BODY, true)] }),
+                            new TableCell({ children: [createSizedText("Observações", FONT_SIZE_BODY, true)] }),
+                        ]
+                    }),
+                    ...data.map(item => new TableRow({
+                        children: [
+                            new TableCell({ children: [createSizedText(item.responsible, FONT_SIZE_BODY)] }),
+                            new TableCell({ children: [createSizedText(item.section, FONT_SIZE_BODY)] }),
+                            new TableCell({ children: [createSizedText(item.theme, FONT_SIZE_BODY)] }),
+                            new TableCell({ children: [createSizedText(item.item_number, FONT_SIZE_BODY)] }),
+                            new TableCell({ children: [createSizedText(item.subitem_number, FONT_SIZE_BODY)] }),
+                            new TableCell({ children: [createSizedText(item.subitem_description, FONT_SIZE_BODY)] }),
+                            new TableCell({ children: [createSizedText(item.exigency_level, FONT_SIZE_BODY)] }),
+                            new TableCell({ children: [createSizedText(item.evaluation, FONT_SIZE_BODY)] }),
+                            new TableCell({ children: [createSizedText(item.evidences, FONT_SIZE_BODY)] }),
+                            new TableCell({ children: [createSizedText(item.proposals, FONT_SIZE_BODY)] }),
+                            new TableCell({ children: [createSizedText(item.observations, FONT_SIZE_BODY)] }),
+                        ]
+                    }))
+                ],
+            });
+            children.push(table);
+        }
+
+        // ✨ NOVO: Processa e adiciona imagens ao documento
+        if (images.length > 0) {
+            children.push(new Paragraph({ text: '' })); // Espaçamento
+            children.push(new Paragraph({
+                children: [new TextRun({ text: 'FOTOS', size: FONT_SIZE_TITLE, bold: true })],
+                alignment: AlignmentType.CENTER
+            }));
+
+            for (const imageUrl of images) {
+                const response = await fetch(imageUrl);
+                const imageBuffer = await response.arrayBuffer();
+                children.push(new Paragraph({
+                    children: [
+                        new ImageRun({
+                            data: imageBuffer,
+                            transformation: {
+                                width: 400, // Ajuste a largura conforme necessário
+                                height: 300, // Ajuste a altura conforme necessário
+                            },
+                        }),
+                    ],
+                    alignment: AlignmentType.CENTER
+                }));
+            }
+        }
+        
+        const doc = new Document({
             sections: [{
                 properties: {
-                    page: {
-                        margin: { top: 1440, right: 1440, bottom: 1440, left: 1440 },
-                    },
+                    page: { margin: { top: 1440, right: 1440, bottom: 1440, left: 1440 } },
                 },
-                children: [
-                    new docx.Paragraph({
-                        children: [new docx.TextRun({ text: `Ata de Reunião - ${responsibleInput.value || 'Todos'}`, size: FONT_SIZE_TITLE, bold: true })],
-                        alignment: docx.AlignmentType.CENTER,
-                    }),
-                    new docx.Paragraph({
-                         children: [new docx.TextRun({ text: `Data: ${new Date().toLocaleDateString()}`, size: FONT_SIZE_BODY })],
-                        alignment: docx.AlignmentType.CENTER,
-                    }),
-                    new docx.Paragraph({ text: '' }),
-                    new docx.Table({
-                        rows: [
-                            new docx.TableRow({
-                                children: [
-                                    new docx.TableCell({ children: [createSizedText("Responsável", FONT_SIZE_BODY, true)] }),
-                                    new docx.TableCell({ children: [createSizedText("Seção", FONT_SIZE_BODY, true)] }),
-                                    new docx.TableCell({ children: [createSizedText("Tema", FONT_SIZE_BODY, true)] }),
-                                    new docx.TableCell({ children: [createSizedText("Item", FONT_SIZE_BODY, true)] }),
-                                    new docx.TableCell({ children: [createSizedText("Subitem", FONT_SIZE_BODY, true)] }),
-                                    new docx.TableCell({ children: [createSizedText("Descrição do Subitem", FONT_SIZE_BODY, true)] }),
-                                    new docx.TableCell({ children: [createSizedText("Nível de Exigência", FONT_SIZE_BODY, true)] }),
-                                    new docx.TableCell({ children: [createSizedText("Avaliação", FONT_SIZE_BODY, true)] }),
-                                    new docx.TableCell({ children: [createSizedText("Evidências", FONT_SIZE_BODY, true)] }),
-                                    new docx.TableCell({ children: [createSizedText("Propostas", FONT_SIZE_BODY, true)] }),
-                                    new docx.TableCell({ children: [createSizedText("Observações", FONT_SIZE_BODY, true)] }),
-                                ]
-                            }),
-                            ...data.map(item => new docx.TableRow({
-                                children: [
-                                    new docx.TableCell({ children: [createSizedText(item.responsible, FONT_SIZE_BODY)] }),
-                                    new docx.TableCell({ children: [createSizedText(item.section, FONT_SIZE_BODY)] }),
-                                    new docx.TableCell({ children: [createSizedText(item.theme, FONT_SIZE_BODY)] }),
-                                    new docx.TableCell({ children: [createSizedText(item.item_number, FONT_SIZE_BODY)] }),
-                                    new docx.TableCell({ children: [createSizedText(item.subitem_number, FONT_SIZE_BODY)] }),
-                                    new docx.TableCell({ children: [createSizedText(item.subitem_description, FONT_SIZE_BODY)] }),
-                                    new docx.TableCell({ children: [createSizedText(item.exigency_level, FONT_SIZE_BODY)] }),
-                                    new docx.TableCell({ children: [createSizedText(item.evaluation, FONT_SIZE_BODY)] }),
-                                    new docx.TableCell({ children: [createSizedText(item.evidences, FONT_SIZE_BODY)] }),
-                                    new docx.TableCell({ children: [createSizedText(item.proposals, FONT_SIZE_BODY)] }),
-                                    new docx.TableCell({ children: [createSizedText(item.observations, FONT_SIZE_BODY)] }),
-                                ]
-                            }))
-                        ],
-                    }),
-                ],
+                children: children,
             }]
         });
 
-        docx.Packer.toBlob(doc).then(blob => {
+        Packer.toBlob(doc).then(blob => {
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
             a.download = `ata_reuniao_${responsibleInput.value || 'todos'}.docx`;
@@ -396,63 +389,128 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function generatePdfDocument() {
+ function generatePdfDocument() {
+    try {
+        if (typeof window.jspdf.jsPDF.API.autoTable !== 'function') {
+            alert('Erro Crítico: A biblioteca jsPDF-AutoTable não foi carregada.');
+            return;
+        }
+
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF('l', 'mm', 'a4');
 
-        const minutesContent = document.getElementById('minutes-table-wrapper');
+        const table = document.querySelector('#minutes-output .minutes-table');
+        const tableHasRows = table ? table.querySelectorAll('tbody tr').length > 0 : false;
+        const images = uploadedImages;
 
-        minutesContent.classList.add('pdf-export-style');
-
-        html2canvas(minutesContent, { scale: 2 }).then(canvas => {
-            const imgData = canvas.toDataURL('image/png');
-            const imgWidth = 297;
-            const pageHeight = 210; 
-            const imgHeight = canvas.height * imgWidth / canvas.width;
-            let heightLeft = imgHeight;
-            let position = 0;
-
-            doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-            heightLeft -= pageHeight;
-
-            while (heightLeft >= 0) {
-                position = heightLeft - imgHeight;
-                doc.addPage();
-                doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                heightLeft -= pageHeight;
-            }
-            doc.save(`ata_reuniao_${responsibleInput.value || 'todos'}.pdf`);
-            
-            minutesContent.classList.remove('pdf-export-style');
-        });
-    }
-
-    // ✨ NOVA FUNÇÃO PARA DESTACAR AVALIAÇÕES VAZIAS
-function highlightEmptyEvaluations() {
-    const allRows = Array.from(tableBody.querySelectorAll('tr:not(.section-header):not(.theme-header)'));
-    let firstEmptyRow = null;
-
-    allRows.forEach(row => {
-        // Primeiro, limpa qualquer destaque anterior da linha
-        row.classList.remove('avaliacao-pendente');
-
-        const isChecked = row.querySelector('input[name^="evaluation-"]:checked');
-
-        // Se não houver avaliação marcada, adiciona a classe de destaque
-        if (!isChecked) {
-            row.classList.add('avaliacao-pendente');
-            // Armazena a primeira linha vazia para rolar até ela
-            if (!firstEmptyRow) {
-                firstEmptyRow = row;
-            }
+        if (!tableHasRows && images.length === 0) {
+            alert("Nada para gerar no PDF. Por favor, preencha a tabela ou adicione imagens.");
+            return;
         }
-    });
 
-    // Se encontrou alguma linha vazia, rola a tela suavemente até a primeira
-    if (firstEmptyRow) {
-        firstEmptyRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const pageHeight = doc.internal.pageSize.getHeight();
+        const pageWidth = doc.internal.pageSize.getWidth();
+        const margin = 15;
+        let y = 15;
+
+        // --- TÍTULO ---
+        doc.setFontSize(18);
+        doc.text('Relatório de Visita da Qualidade', pageWidth / 2, y, { align: 'center' });
+        y += 8;
+        doc.setFontSize(14);
+        const unidade = responsibleInput.value || 'Todas as Unidades';
+        doc.text(`Unidade: ${unidade}`, pageWidth / 2, y, { align: 'center' });
+        y += 7;
+        doc.setFontSize(10);
+        doc.text(`Data: ${new Date().toLocaleDateString()}`, pageWidth / 2, y, { align: 'center' });
+        y += 10;
+
+        // --- TABELA ---
+        if (tableHasRows) {
+            doc.autoTable({
+                html: table,
+                startY: y,
+                theme: 'grid',
+                headStyles: { fillColor: [40, 126, 184], textColor: 255, fontSize: 8, halign: 'center' },
+                styles: { fontSize: 8, cellPadding: 2, overflow: 'linebreak' },
+                columnStyles: {
+                    0: { cellWidth: 25 }, 1: { cellWidth: 35 }, 2: { cellWidth: 20 },
+                    3: { cellWidth: 10 }, 4: { cellWidth: 30 }, 5: { cellWidth: 12 },
+                    6: { cellWidth: 30 }, 7: { cellWidth: 15 }, 8: { cellWidth: 15 },
+                    9: { cellWidth: 25 }, 10: { cellWidth: 25 }, 11: { cellWidth: 25 },
+                }
+            });
+        }
+
+        // --- 3. ADICIONA AS IMAGENS EM FORMATO DE GRADE ---
+        if (images.length > 0) {
+            doc.addPage();
+            let photoY = margin;
+
+            doc.setTextColor(40, 126, 184);
+            doc.setFontSize(16);
+            doc.text('FOTOS', pageWidth / 2, photoY, { align: 'center' });
+            doc.setTextColor(0, 0, 0); 
+            photoY += 15;
+
+            // ✨ CONFIGURAÇÕES DA GRADE DE FOTOS (você pode alterar aqui) ✨
+            const imagesPerRow = 3; // Quantas imagens você quer por linha
+            const imgWidth = 85;   // Largura de cada imagem em mm
+            const imgHeight = 64;  // Altura de cada imagem em mm (mantendo proporção 4:3)
+            const horizontalGap = 5; // Espaço horizontal entre as imagens
+            const verticalGap = 10;   // Espaço vertical entre as linhas de imagens
+
+            let photoX = margin;
+
+            images.forEach((imgData, index) => {
+                // Se for a primeira imagem de uma nova linha, verifica se a linha cabe na página
+                if (index % imagesPerRow === 0 && index > 0) {
+                    photoX = margin; // Volta para a margem esquerda
+                    photoY += imgHeight + verticalGap; // Move para a linha de baixo
+                }
+                
+                // Se a nova linha de fotos for passar do fim da página, cria uma nova página
+                if (photoY + imgHeight > pageHeight - margin) {
+                    doc.addPage();
+                    photoY = margin;
+                }
+                
+                // Adiciona a imagem na posição calculada
+                doc.addImage(imgData, 'PNG', photoX, photoY, imgWidth, imgHeight);
+                
+                // Move a posição X para a próxima imagem na mesma linha
+                photoX += imgWidth + horizontalGap;
+            });
+        }
+
+        doc.save(`ata_reuniao_${responsibleInput.value || 'todos'}.pdf`);
+
+    } catch (error) {
+        console.error("Erro detalhado ao gerar o PDF:", error);
+        alert("Ocorreu um erro inesperado ao gerar o PDF. Verifique o console (F12).");
     }
 }
+    // ... (Sua função highlightEmptyEvaluations permanece a mesma)
+    function highlightEmptyEvaluations() {
+        const allRows = Array.from(tableBody.querySelectorAll('tr:not(.section-header):not(.theme-header)'));
+        let firstEmptyRow = null;
+
+        allRows.forEach(row => {
+            row.classList.remove('avaliacao-pendente');
+            const isChecked = row.querySelector('input[name^="evaluation-"]:checked');
+            if (!isChecked) {
+                row.classList.add('avaliacao-pendente');
+                if (!firstEmptyRow) {
+                    firstEmptyRow = row;
+                }
+            }
+        });
+
+        if (firstEmptyRow) {
+            firstEmptyRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+
 
     // --- EVENT LISTENERS ---
 
@@ -473,32 +531,39 @@ function highlightEmptyEvaluations() {
         responsibleInput.value = '';
         tableBody.innerHTML = '';
         minutesOutput.innerHTML = '';
+        // ✨ NOVO: Limpa também as imagens
+        uploadedImages = [];
+        renderImagePreviews();
         responsibleInput.focus();
     });
 
-    // ✨ EVENT LISTENER CORRIGIDO
-evaluationForm.addEventListener('submit', (event) => {
-    event.preventDefault(); 
-    
-    const allRows = Array.from(tableBody.querySelectorAll('tr:not(.section-header):not(.theme-header)'));
+    // ✨ NOVO: Event listener para o input de imagens
+    imageUploadInput.addEventListener('change', handleImageUpload);
 
-    if (allRows.length === 0) {
-        alert('Filtre por um responsável para exibir os itens antes de gerar a ata.');
-        return;
-    }
 
-    const allEvaluationsAreFilled = allRows.every(row => {
-        return row.querySelector('input[name^="evaluation-"]:checked') !== null;
+    evaluationForm.addEventListener('submit', (event) => {
+        event.preventDefault(); 
+        const allRows = Array.from(tableBody.querySelectorAll('tr:not(.section-header):not(.theme-header)'));
+
+        if (allRows.length === 0) {
+            alert('Filtre por um responsável para exibir os itens antes de gerar a ata.');
+            return;
+        }
+
+        const allEvaluationsAreFilled = allRows.every(row => {
+            return row.querySelector('input[name^="evaluation-"]:checked') !== null;
+        });
+
+        if (!allEvaluationsAreFilled) {
+            const confirmContinue = confirm('Atenção: Nem todos os itens foram avaliados. Deseja gerar a ata mesmo assim com os itens preenchidos?');
+            if (!confirmContinue) {
+                highlightEmptyEvaluations(); // Destaca os itens vazios
+                return;
+            }
+        }
+
+        generateMinutes(allRows);      
     });
-
-    if (!allEvaluationsAreFilled) {
-        alert('Deve preencher todas as avaliações antes de gerar a ata.');
-        return;
-    }
-
-    // ✨ ALTERAÇÃO: Agora passamos 'allRows' para a função
-    generateMinutes(allRows);      
-});
 
     loadDataAndInitialize();
 });
