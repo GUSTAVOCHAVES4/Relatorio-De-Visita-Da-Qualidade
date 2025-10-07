@@ -279,115 +279,152 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+   // --- GARANTE QUE A BIBLIOTECA DOCX FOI CARREGADA ---
+const docx = window.docx || undefined;
 
-    // --- FUNÇÕES DE DOWNLOAD ---
-    const createSizedText = (text, size = 22, bold = false) => {
-        return new docx.Paragraph({
-            children: [new docx.TextRun({ text, size, bold })]
-        });
-    };
-    
-    // ✨ ALTERAÇÃO: Função agora é assíncrona e aceita imagens
-    async function generateWordDocument(data, images) {
-        const { Document, Packer, Paragraph, TextRun, ImageRun, AlignmentType, Table, TableRow, TableCell } = docx;
+if (!docx) {
+    console.error("❌ A biblioteca docx não foi carregada. Verifique a tag <script> no index.html.");
+}
 
-        const FONT_SIZE_TITLE = 32;
-        const FONT_SIZE_BODY = 22;
-        
-        const children = [
-            new Paragraph({
-                children: [new TextRun({ text: `Ata de Reunião - ${responsibleInput.value || 'Todos'}`, size: FONT_SIZE_TITLE, bold: true })],
-                alignment: AlignmentType.CENTER,
-            }),
-            new Paragraph({
-                 children: [new TextRun({ text: `Data: ${new Date().toLocaleDateString()}`, size: FONT_SIZE_BODY })],
-                alignment: AlignmentType.CENTER,
-            }),
-            new Paragraph({ text: '' }),
-        ];
+// --- FUNÇÕES DE DOWNLOAD ---
+const createSizedText = (text, size = 22, bold = false) => {
+    return new docx.Paragraph({
+        children: [new docx.TextRun({ text, size, bold })]
+    });
+};
 
-        if (data.length > 0) {
-            const table = new Table({
-                rows: [
-                    new TableRow({
-                        children: [
-                            new TableCell({ children: [createSizedText("Responsável", FONT_SIZE_BODY, true)] }),
-                            new TableCell({ children: [createSizedText("Seção", FONT_SIZE_BODY, true)] }),
-                            new TableCell({ children: [createSizedText("Tema", FONT_SIZE_BODY, true)] }),
-                            new TableCell({ children: [createSizedText("Item", FONT_SIZE_BODY, true)] }),
-                            new TableCell({ children: [createSizedText("Subitem", FONT_SIZE_BODY, true)] }),
-                            new TableCell({ children: [createSizedText("Descrição do Subitem", FONT_SIZE_BODY, true)] }),
-                            new TableCell({ children: [createSizedText("Nível de Exigência", FONT_SIZE_BODY, true)] }),
-                            new TableCell({ children: [createSizedText("Avaliação", FONT_SIZE_BODY, true)] }),
-                            new TableCell({ children: [createSizedText("Evidências", FONT_SIZE_BODY, true)] }),
-                            new TableCell({ children: [createSizedText("Propostas", FONT_SIZE_BODY, true)] }),
-                            new TableCell({ children: [createSizedText("Observações", FONT_SIZE_BODY, true)] }),
-                        ]
-                    }),
-                    ...data.map(item => new TableRow({
-                        children: [
-                            new TableCell({ children: [createSizedText(item.responsible, FONT_SIZE_BODY)] }),
-                            new TableCell({ children: [createSizedText(item.section, FONT_SIZE_BODY)] }),
-                            new TableCell({ children: [createSizedText(item.theme, FONT_SIZE_BODY)] }),
-                            new TableCell({ children: [createSizedText(item.item_number, FONT_SIZE_BODY)] }),
-                            new TableCell({ children: [createSizedText(item.subitem_number, FONT_SIZE_BODY)] }),
-                            new TableCell({ children: [createSizedText(item.subitem_description, FONT_SIZE_BODY)] }),
-                            new TableCell({ children: [createSizedText(item.exigency_level, FONT_SIZE_BODY)] }),
-                            new TableCell({ children: [createSizedText(item.evaluation, FONT_SIZE_BODY)] }),
-                            new TableCell({ children: [createSizedText(item.evidences, FONT_SIZE_BODY)] }),
-                            new TableCell({ children: [createSizedText(item.proposals, FONT_SIZE_BODY)] }),
-                            new TableCell({ children: [createSizedText(item.observations, FONT_SIZE_BODY)] }),
-                        ]
-                    }))
-                ],
+async function generateWordDocument() {
+    // Verifica se a biblioteca foi carregada
+    if (typeof window.docx === 'undefined') {
+        alert('Erro Crítico: A biblioteca docx não foi carregada.');
+        return;
+    }
+
+    const { Document, Packer, Paragraph, TextRun, AlignmentType, ImageRun, PageBreak, HeadingLevel, Table, TableCell, TableRow, WidthType, VerticalAlign, BorderStyle, PageOrientation } = window.docx;
+    const unidade = responsibleInput.value || 'Todas as Unidades';
+
+    try {
+        const docChildren = [];
+
+        // --- 1. TÍTULO ---
+        docChildren.push(
+            new Paragraph({ text: 'Relatório de Visita da Qualidade', heading: HeadingLevel.HEADING_1, alignment: AlignmentType.CENTER }),
+            new Paragraph({ text: `Unidade: ${unidade}`, heading: HeadingLevel.HEADING_2, alignment: AlignmentType.CENTER }),
+            new Paragraph({ text: `Data: ${new Date().toLocaleDateString()}`, alignment: AlignmentType.CENTER, spacing: { after: 400 } })
+        );
+
+        // --- 2. TABELA DE DADOS ---
+        if (currentMinutesData.length > 0) {
+            const createCellParagraphs = (text) => {
+                const textValue = text || '';
+                return String(textValue).split('\n').map(line => new Paragraph({ children: [new TextRun({ text: line, size: 16 })] }));
+            };
+            const columnWidthsPct = [9.5, 13, 7.5, 4, 11, 4.5, 11, 5.5, 5.5, 9.5, 9.5, 9.5];
+            const headers = ["Responsável", "Seção", "Tema", "Item", "Descrição do Item", "Subitem", "Descrição do Subitem", "Nível de Exigência", "Avaliação", "Evidências", "Propostas", "Observações"];
+            const headerRow = new TableRow({
+                children: headers.map((text, index) => new TableCell({
+                    children: [new Paragraph({ children: [new TextRun({ text, bold: true, size: 16, color: "FFFFFF" })], alignment: AlignmentType.CENTER })],
+                    shading: { fill: "287EB8" }, verticalAlign: VerticalAlign.CENTER,
+                    width: { size: columnWidthsPct[index], type: WidthType.PERCENTAGE },
+                })),
             });
-            children.push(table);
+            const dataRows = currentMinutesData.map(item => {
+                const itemData = [item.responsible, item.section, item.theme, item.item_number, item.description, item.subitem_number, item.subitem_description, item.exigency_level, item.evaluation, item.evidences, item.proposals, item.observations];
+                return new TableRow({
+                    children: itemData.map((text, index) => new TableCell({
+                        children: createCellParagraphs(text), verticalAlign: VerticalAlign.CENTER,
+                        width: { size: columnWidthsPct[index], type: WidthType.PERCENTAGE },
+                    })),
+                });
+            });
+            const table = new Table({ rows: [headerRow, ...dataRows], width: { size: 100, type: WidthType.PERCENTAGE } });
+            docChildren.push(table);
         }
 
-        // ✨ NOVO: Processa e adiciona imagens ao documento
-        if (images.length > 0) {
-            children.push(new Paragraph({ text: '' })); // Espaçamento
-            children.push(new Paragraph({
-                children: [new TextRun({ text: 'FOTOS', size: FONT_SIZE_TITLE, bold: true })],
-                alignment: AlignmentType.CENTER
+        // --- 3. FOTOS (LÓGICA FINAL E CORRIGIDA) ---
+        if (uploadedImages.length > 0) {
+            docChildren.push(new Paragraph({ children: [new PageBreak()] }));
+            docChildren.push(new Paragraph({
+                children: [new TextRun({ text: "FOTOS", bold: true, size: 32, color: "287eb8" })],
+                alignment: AlignmentType.CENTER,
+                spacing: { after: 400 }
             }));
+            
+            const imageBuffers = await Promise.all(
+                uploadedImages.map(async (imgDataUrl) => {
+                    const response = await fetch(imgDataUrl);
+                    return await response.arrayBuffer();
+                })
+            );
 
-            for (const imageUrl of images) {
-                const response = await fetch(imageUrl);
-                const imageBuffer = await response.arrayBuffer();
-                children.push(new Paragraph({
-                    children: [
-                        new ImageRun({
-                            data: imageBuffer,
-                            transformation: {
-                                width: 400, // Ajuste a largura conforme necessário
-                                height: 300, // Ajuste a altura conforme necessário
-                            },
-                        }),
-                    ],
-                    alignment: AlignmentType.CENTER
+            // Configurações da Grade de Fotos em Paisagem
+            const imagesPerRow = 3;
+            const imageSize = { width: 220, height: 165 }; // Imagens grandes para a página larga
+
+            const photoRows = [];
+            for (let i = 0; i < imageBuffers.length; i += imagesPerRow) {
+                const rowChunk = imageBuffers.slice(i, i + imagesPerRow);
+                
+                const tableCells = rowChunk.map(buffer => new TableCell({
+                    children: [new Paragraph({
+                        children: [new ImageRun({ data: buffer, transformation: imageSize })],
+                        alignment: AlignmentType.CENTER,
+                    })],
+                    borders: { top: { style: BorderStyle.NONE }, bottom: { style: BorderStyle.NONE }, left: { style: BorderStyle.NONE }, right: { style: BorderStyle.NONE } },
                 }));
+
+                while (tableCells.length < imagesPerRow) {
+                    tableCells.push(new TableCell({ children: [new Paragraph('')], borders: { top: { style: BorderStyle.NONE }, bottom: { style: BorderStyle.NONE }, left: { style: BorderStyle.NONE }, right: { style: BorderStyle.NONE } } }));
+                }
+
+                photoRows.push(new TableRow({ children: tableCells }));
             }
+
+            const photoTable = new Table({
+                rows: photoRows,
+                width: { size: 100, type: WidthType.PERCENTAGE },
+                // Margens para criar espaçamento vertical e horizontal
+                cellMargin: { top: 200, bottom: 200, left: 100, right: 100 },
+                borders: {
+                    top: { style: BorderStyle.NONE }, bottom: { style: BorderStyle.NONE },
+                    left: { style: BorderStyle.NONE }, right: { style: BorderStyle.NONE },
+                    insideHorizontal: { style: BorderStyle.NONE }, insideVertical: { style: BorderStyle.NONE },
+                },
+            });
+
+            docChildren.push(photoTable);
         }
-        
+
+        // --- 4. GERA O DOCUMENTO EM MODO PAISAGEM ---
         const doc = new Document({
             sections: [{
                 properties: {
-                    page: { margin: { top: 1440, right: 1440, bottom: 1440, left: 1440 } },
+                    page: {
+                        margin: { top: 1440, right: 1440, bottom: 1440, left: 1440 },
+                        orientation: PageOrientation.LANDSCAPE,
+                    }
                 },
-                children: children,
+                children: docChildren,
             }]
         });
-
+        
         Packer.toBlob(doc).then(blob => {
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
-            a.download = `ata_reuniao_${responsibleInput.value || 'todos'}.docx`;
+            a.download = `relatorio_visita_${unidade.replace(/\s+/g, '_')}.docx`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
+        }).catch(err => {
+            console.error("Erro ao empacotar o DOCX:", err);
+            alert("Erro ao criar o arquivo DOCX. Verifique o console.");
         });
+
+    } catch (error) {
+        console.error("Erro ao gerar o documento .docx:", error);
+        alert("Erro ao gerar o arquivo Word. Veja o console (F12).");
     }
+}
 
  function generatePdfDocument() {
     try {
