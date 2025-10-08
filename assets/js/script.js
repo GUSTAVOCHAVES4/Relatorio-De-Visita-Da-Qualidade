@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadDataAndInitialize() {
         try {
-            const response = await fetch('data/data.json');
+            const response = await fetch('assets/data/data.json');
             if (!response.ok) {
                 throw new Error(`Erro ao carregar o arquivo: ${response.statusText}`);
             }
