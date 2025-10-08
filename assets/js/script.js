@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ✨ ALTERAÇÃO: Adicionada referência ao formulário e aos novos elementos de imagem
+    // Adicionada referência ao formulário e aos novos elementos de imagem
     const evaluationForm = document.getElementById('evaluation-form');
     const responsibleInput = document.getElementById('responsible-input');
     const responsibleList = document.getElementById('responsible-list');
@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const tableBody = document.querySelector('#action-items-table tbody');
     const minutesOutput = document.getElementById('minutes-output');
 
-    // ✨ NOVO: Referências para o upload de imagens
+    // Referências para o upload de imagens
     const imageUploadInput = document.getElementById('image-upload');
     const imagePreviewContainer = document.getElementById('image-preview-container');
 
     let meetingItems = [];
     let currentMinutesData = [];
-    let uploadedImages = []; // ✨ NOVO: Array para armazenar os dados das imagens
+    let uploadedImages = []; // Array para armazenar os dados das imagens
 
     // --- FUNÇÕES DE LÓGICA ---
 
@@ -141,14 +141,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // ✨ CÓDIGO CORRIGIDO E ADICIONADO NO LUGAR CERTO ✨
-        // --- Adiciona a funcionalidade de auto-crescimento aos campos de texto ---
+        // --- Funcionalidade de auto-crescimento nos campos de texto ---
         tableBody.querySelectorAll('textarea').forEach(textarea => {
             // Ajusta a altura inicial com base no placeholder
             textarea.style.height = 'auto';
             textarea.style.height = (textarea.scrollHeight) + 'px';
 
-            // Adiciona o evento que faz o campo crescer ao digitar
+            // Evento que faz o campo crescer ao digitar
             textarea.addEventListener('input', function() {
                 this.style.height = 'auto'; // Reseta a altura para recalcular
                 this.style.height = (this.scrollHeight) + 'px'; // Ajusta a altura ao conteúdo
@@ -219,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
 
-            // ✨ NOVO: Adiciona a seção de fotos se houver imagens
+            // Adiciona a seção de fotos se tiver imagens
             if (uploadedImages.length > 0) {
                 minutesTableHTML += `
                     <div class="minutes-photos-section">
@@ -251,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // --- ✨ NOVAS FUNÇÕES PARA MANIPULAR IMAGENS ---
+    // --- FUNÇÕES PARA MANIPULAR IMAGENS ---
 
     function handleImageUpload(event) {
         const files = event.target.files;
@@ -503,8 +502,8 @@ async function generateWordDocument() {
             doc.setTextColor(0, 0, 0); 
             photoY += 15;
 
-            // ✨ CONFIGURAÇÕES DA GRADE DE FOTOS (você pode alterar aqui) ✨
-            const imagesPerRow = 3; // Quantas imagens você quer por linha
+            // CONFIGURAÇÕES DA GRADE DE FOTOS
+            const imagesPerRow = 3; // Quantas imagens por linha
             const imgWidth = 85;   // Largura de cada imagem em mm
             const imgHeight = 64;  // Altura de cada imagem em mm (mantendo proporção 4:3)
             const horizontalGap = 5; // Espaço horizontal entre as imagens
@@ -540,7 +539,7 @@ async function generateWordDocument() {
         alert("Ocorreu um erro inesperado ao gerar o PDF. Verifique o console (F12).");
     }
 }
-    // ... (Sua função highlightEmptyEvaluations permanece a mesma)
+
     function highlightEmptyEvaluations() {
         const allRows = Array.from(tableBody.querySelectorAll('tr:not(.section-header):not(.theme-header)'));
         let firstEmptyRow = null;
@@ -563,7 +562,6 @@ async function generateWordDocument() {
 
 
     // --- EVENT LISTENERS ---
-
     responsibleInput.addEventListener('input', (event) => {
         const searchText = event.target.value.toUpperCase();
         
@@ -581,13 +579,13 @@ async function generateWordDocument() {
         responsibleInput.value = '';
         tableBody.innerHTML = '';
         minutesOutput.innerHTML = '';
-        // ✨ NOVO: Limpa também as imagens
+        // Limpa também as imagens
         uploadedImages = [];
         renderImagePreviews();
         responsibleInput.focus();
     });
 
-    // ✨ NOVO: Event listener para o input de imagens
+    // Eventlistener para o input de imagens
     imageUploadInput.addEventListener('change', handleImageUpload);
 
 

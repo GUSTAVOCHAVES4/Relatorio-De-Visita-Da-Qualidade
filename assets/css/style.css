@@ -69,7 +69,7 @@ th, td {
     border: 1px solid #000000;
     padding: 12px;
     text-align: left;
-    vertical-align: middle; /* Essencial para alinhar o container DIV */
+    vertical-align: middle; /* Alinhando o container DIV */
     white-space: normal;
     word-wrap: break-word;
 }
@@ -123,19 +123,19 @@ textarea {
     font-family: Arial, sans-serif;
     font-size: 14px;
     line-height: 1.5;
-    background-color: #fdfdfd; /* Fundo ligeiramente off-white */
+    background-color: #fdfdfd; /* Fundo um pouquinho off-white */
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     overflow-y: hidden;
 }
 
 textarea::placeholder {
   color: #a0a0a0;         /* Deixa o texto com um tom de cinza mais suave */
-  font-style: italic;       /* Deixa o texto em itálico */
-  text-transform: uppercase;     /* Deixa o texto em itálico */
+  font-style: italic;       
+  text-transform: uppercase;    
   font-weight: 100;       /* Deixa a fonte um pouco mais fina */
 }
 
-/* Efeito de FOCO: acontece quando você clica no campo para digitar */
+/* Efeito de Foco */
 textarea:focus {
     outline: none; /* Remove a borda padrão do navegador */
     border-color: #287eb8; /* Borda fica azul, combinando com o tema */
@@ -241,7 +241,7 @@ button {
     background-color: #003366;
 }
 
-/* --- Estilos Específicos para Lógicas JS --- */
+/* --- Estilos Específicos para as Lógicas JS --- */
 
 /* Estilo para linhas filtradas */
 tr.linha-filtrada {
@@ -279,7 +279,7 @@ tr.linha-destacada td {
     background-color: #fff;
 }
 
-/* ✨ NOVO: Estilo para destacar linhas com avaliação pendente */
+/* Estilo para destacar linhas com avaliação pendente */
 tr.avaliacao-pendente td {
     background-color: #fffbe6 !important; /* Um amarelo bem claro */
     transition: background-color 0.5s ease;
