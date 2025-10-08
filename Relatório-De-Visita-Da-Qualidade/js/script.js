@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadDataAndInitialize() {
         try {
-            const response = await fetch('data.json');
+            const response = await fetch('data/data.json');
             if (!response.ok) {
                 throw new Error(`Erro ao carregar o arquivo: ${response.statusText}`);
             }
@@ -43,8 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // ... (Sua função renderTable original permanece a mesma)
-    function renderTable(items) {
+   function renderTable(items) {
         tableBody.innerHTML = '';
         let currentSection = '';
         let currentTheme = '';
@@ -141,6 +140,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 tableBody.appendChild(subitemRow);
             });
         }
+
+        // ✨ CÓDIGO CORRIGIDO E ADICIONADO NO LUGAR CERTO ✨
+        // --- Adiciona a funcionalidade de auto-crescimento aos campos de texto ---
+        tableBody.querySelectorAll('textarea').forEach(textarea => {
+            // Ajusta a altura inicial com base no placeholder
+            textarea.style.height = 'auto';
+            textarea.style.height = (textarea.scrollHeight) + 'px';
+
+            // Adiciona o evento que faz o campo crescer ao digitar
+            textarea.addEventListener('input', function() {
+                this.style.height = 'auto'; // Reseta a altura para recalcular
+                this.style.height = (this.scrollHeight) + 'px'; // Ajusta a altura ao conteúdo
+            }, false);
+        });
     }
 
 

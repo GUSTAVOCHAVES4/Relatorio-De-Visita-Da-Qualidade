@@ -119,12 +119,20 @@ textarea {
     box-sizing: border-box;
     border: 1px solid #999; /* Borda um pouco mais escura */
     border-radius: 6px;
-    resize: vertical;
+    resize: none;
     font-family: Arial, sans-serif;
     font-size: 14px;
     line-height: 1.5;
     background-color: #fdfdfd; /* Fundo ligeiramente off-white */
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    overflow-y: hidden;
+}
+
+textarea::placeholder {
+  color: #a0a0a0;         /* Deixa o texto com um tom de cinza mais suave */
+  font-style: italic;       /* Deixa o texto em itálico */
+  text-transform: uppercase;     /* Deixa o texto em itálico */
+  font-weight: 100;       /* Deixa a fonte um pouco mais fina */
 }
 
 /* Efeito de FOCO: acontece quando você clica no campo para digitar */
