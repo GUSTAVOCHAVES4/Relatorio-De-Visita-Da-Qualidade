@@ -1,35 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Adicionada referência ao formulário e aos novos elementos de imagem
     const evaluationForm = document.getElementById('evaluation-form');
     const responsibleInput = document.getElementById('responsible-input');
     const responsibleList = document.getElementById('responsible-list');
     const clearSearchBtn = document.getElementById('clear-search-btn');
     const tableBody = document.querySelector('#action-items-table tbody');
     const minutesOutput = document.getElementById('minutes-output');
-
-    // Referências para o upload de imagens
     const imageUploadInput = document.getElementById('image-upload');
     const imagePreviewContainer = document.getElementById('image-preview-container');
 
     let meetingItems = [];
     let currentMinutesData = [];
-    let uploadedImages = []; // Array para armazenar os dados das imagens
+    let uploadedImages = [];
 
-    // --- FUNÇÕES DE LÓGICA ---
+    // 🔹 ALTERAÇÃO: Função debounce para evitar travamento ao digitar
+    function debounce(func, delay = 300) {
+        let timer;
+        return (...args) => {
+            clearTimeout(timer);
+            timer = setTimeout(() => func.apply(this, args), delay);
+        };
+    }
 
     async function loadDataAndInitialize() {
         try {
             const response = await fetch('assets/data/data.json');
-            if (!response.ok) {
-                throw new Error(`Erro ao carregar o arquivo: ${response.statusText}`);
-            }
+            if (!response.ok) throw new Error(`Erro ao carregar o arquivo: ${response.statusText}`);
             meetingItems = await response.json();
-            
             populateResponsibleDatalist();
             tableBody.innerHTML = '';
         } catch (error) {
             console.error('Erro ao carregar os dados:', error);
-            minutesOutput.textContent = 'Não foi possível carregar os dados. Verifique se o arquivo data.json existe e o servidor local está rodando.';
+            minutesOutput.textContent = 'Não foi possível carregar os dados. Verifique se o arquivo data.json existe.';
         }
     }
 
@@ -42,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
             responsibleList.appendChild(option);
         });
     }
-    
-   function renderTable(items) {
+
+    function renderTable(items) {
         tableBody.innerHTML = '';
         let currentSection = '';
         let currentTheme = '';
@@ -65,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (const key in groupedItems) {
             const group = groupedItems[key];
-            
             if (group.section !== currentSection) {
                 const sectionRow = document.createElement('tr');
                 sectionRow.classList.add('section-header');
@@ -94,7 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${group.item_number || ''}</td>
                 <td class="truncate-text">${group.description || ''}</td>
                 <td></td>
-                <td></td> <td>${group.exigency_level || ''}</td>
+                <td></td> 
+                <td>${group.exigency_level || ''}</td>
                 <td>
                     <div class="evaluation-cell">
                         <input type="radio" id="eval-sim-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Sim">
@@ -110,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td><textarea name="observations" placeholder="Observações..."></textarea></td>
             `;
             tableBody.appendChild(mainRow);
-            
+
             group.subitems.forEach(subitem => {
                 uniqueIdCounter++;
                 const subitemRow = document.createElement('tr');
@@ -121,8 +122,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td>${subitem.section || ''}</td>
                     <td>${subitem.theme || ''}</td>
                     <td>${subitem.item_number || ''}</td>
-                    <td class="truncate-text">${group.description || ''}</td> <td>${subitem.subitem_number || ''}</td>
-                    <td class="truncate-text">${subitem.subitem_description || ''}</td> <td>${subitem.exigency_level || ''}</td>
+                    <td class="truncate-text">${group.description || ''}</td> 
+                    <td>${subitem.subitem_number || ''}</td>
+                    <td class="truncate-text">${subitem.subitem_description || ''}</td> 
+                    <td>${subitem.exigency_level || ''}</td>
                     <td>
                         <div class="evaluation-cell">
                             <input type="radio" id="eval-sim-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Sim">
@@ -155,7 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
    function generateMinutes(allRows) {
         try {
             minutesOutput.innerHTML = '<p>Processando e gerando a ata, por favor aguarde...</p>';
@@ -187,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.observations.trim() !== ''
             );
 
-            if (currentMinutesData.length === 0 && uploadedImages.length === 0) { // ✨ ALTERAÇÃO: Verifica também se há imagens
+            if (currentMinutesData.length === 0 && uploadedImages.length === 0) { // Verifica também se há imagens
                 minutesOutput.textContent = 'Nenhum item preenchido ou imagem anexada para gerar a ata.';
                 return;
             }
@@ -562,54 +564,46 @@ async function generateWordDocument() {
 
 
     // --- EVENT LISTENERS ---
-    responsibleInput.addEventListener('input', (event) => {
+     // Campo de busca com debounce para não travar
+    responsibleInput.addEventListener('input', debounce((event) => {
         const searchText = event.target.value.toUpperCase();
-        
         if (searchText) {
-            const filteredItems = meetingItems.filter(item => 
+            const filteredItems = meetingItems.filter(item =>
                 item.responsible && item.responsible.toUpperCase().includes(searchText)
             );
             renderTable(filteredItems);
         } else {
             tableBody.innerHTML = '';
         }
-    });
+    }, 300));
 
     clearSearchBtn.addEventListener('click', () => {
         responsibleInput.value = '';
         tableBody.innerHTML = '';
         minutesOutput.innerHTML = '';
-        // Limpa também as imagens
         uploadedImages = [];
         renderImagePreviews();
         responsibleInput.focus();
     });
 
-    // Eventlistener para o input de imagens
     imageUploadInput.addEventListener('change', handleImageUpload);
-
-
     evaluationForm.addEventListener('submit', (event) => {
         event.preventDefault(); 
         const allRows = Array.from(tableBody.querySelectorAll('tr:not(.section-header):not(.theme-header)'));
-
         if (allRows.length === 0) {
             alert('Filtre por um responsável para exibir os itens antes de gerar a ata.');
             return;
         }
-
         const allEvaluationsAreFilled = allRows.every(row => {
             return row.querySelector('input[name^="evaluation-"]:checked') !== null;
         });
-
         if (!allEvaluationsAreFilled) {
             const confirmContinue = confirm('Atenção: Nem todos os itens foram avaliados. Deseja gerar a ata mesmo assim com os itens preenchidos?');
             if (!confirmContinue) {
-                highlightEmptyEvaluations(); // Destaca os itens vazios
+                highlightEmptyEvaluations();
                 return;
             }
         }
-
         generateMinutes(allRows);      
     });
 
