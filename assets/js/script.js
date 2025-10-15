@@ -7,10 +7,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const minutesOutput = document.getElementById('minutes-output');
     const imageUploadInput = document.getElementById('image-upload');
     const imagePreviewContainer = document.getElementById('image-preview-container');
+    const visitLocalInput = document.getElementById('visit-local');
+    const visitDateInput = document.getElementById('visit-date');
+    const visitTimeInput = document.getElementById('visit-time');
+    const meetingParticipantsInput = document.getElementById('meeting-participants');
+    const groupPhotoUploadInput = document.getElementById('group-photo-upload');
+    const groupPhotoPreviewContainer = document.getElementById('group-photo-preview');
+    const nextVisitDateInput = document.getElementById('next-visit-date');
+    const nextVisitTimeInput = document.getElementById('next-visit-time');
+    const nextVisitLocalInput = document.getElementById('next-visit-local');
+    const actionPlanTableBody = document.querySelector('#action-plan-table tbody');
+
 
     let meetingItems = [];
     let currentMinutesData = [];
     let uploadedImages = [];
+    let groupPhotoImageData = null; // Variável para a foto da equipe
 
     // 🔹 ALTERAÇÃO: Função debounce para evitar travamento ao digitar
     function debounce(func, delay = 300) {
@@ -69,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (group.section !== currentSection) {
                 const sectionRow = document.createElement('tr');
                 sectionRow.classList.add('section-header');
-                sectionRow.innerHTML = `<td colspan="12"><strong>${group.section}</strong></td>`;
+                sectionRow.innerHTML = `<td colspan="11"><strong>${group.section}</strong></td>`;
                 tableBody.appendChild(sectionRow);
                 currentSection = group.section;
                 currentTheme = '';
@@ -78,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (group.theme && group.theme !== currentTheme) {
                 const themeRow = document.createElement('tr');
                 themeRow.classList.add('theme-header');
-                themeRow.innerHTML = `<td colspan="12"><strong>Tema: ${group.theme}</strong></td>`;
+                themeRow.innerHTML = `<td colspan="11"><strong>Tema: ${group.theme}</strong></td>`;
                 tableBody.appendChild(themeRow);
                 currentTheme = group.theme;
             }
@@ -108,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 </td>
                 <td><textarea name="evidences" placeholder="Evidências..."></textarea></td>
                 <td><textarea name="proposals" placeholder="Propostas..."></textarea></td>
-                <td><textarea name="observations" placeholder="Observações..."></textarea></td>
             `;
             tableBody.appendChild(mainRow);
 
@@ -138,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     </td>
                     <td><textarea name="evidences" placeholder="Evidências..."></textarea></td>
                     <td><textarea name="proposals" placeholder="Propostas..."></textarea></td>
-                    <td><textarea name="observations" placeholder="Observações..."></textarea></td>
                 `;
                 tableBody.appendChild(subitemRow);
             });
@@ -151,107 +161,124 @@ document.addEventListener('DOMContentLoaded', () => {
             textarea.style.height = (textarea.scrollHeight) + 'px';
 
             // Evento que faz o campo crescer ao digitar
-            textarea.addEventListener('input', function() {
+            textarea.addEventListener('input', function () {
                 this.style.height = 'auto'; // Reseta a altura para recalcular
                 this.style.height = (this.scrollHeight) + 'px'; // Ajusta a altura ao conteúdo
             }, false);
         });
     }
 
-   function generateMinutes(allRows) {
-        try {
-            minutesOutput.innerHTML = '<p>Processando e gerando a ata, por favor aguarde...</p>';
+    function generateMinutes(allRows) {
+    try {
+        minutesOutput.innerHTML = '<p>Processando e gerando a ata, por favor aguarde...</p>';
+        
+        const visitObservationsTextarea = document.getElementById('visit-observations-textarea');
 
-            const filledItems = allRows.map(row => {
-                const cells = row.querySelectorAll('td');
-                const evaluation = cells[8].querySelector('input:checked');
-                
-                return {
-                    description: row.dataset.mainDescription,
-                    responsible: cells[0].textContent,
-                    section: cells[1].textContent,
-                    theme: cells[2].textContent,
-                    item_number: cells[3].textContent,
-                    subitem_number: cells[5].textContent,
-                    subitem_description: cells[6].textContent,
-                    exigency_level: cells[7].textContent,
-                    evaluation: evaluation ? evaluation.value : 'Não avaliado',
-                    evidences: cells[9].querySelector('textarea').value,
-                    proposals: cells[10].querySelector('textarea').value,
-                    observations: cells[11].querySelector('textarea').value,
-                };
-            });
+        const filledItems = allRows.map(row => {
+            const cells = row.querySelectorAll('td');
+            const evaluation = cells[8].querySelector('input:checked');
+            
+            // Verifica se os seletores encontram os textareas antes de acessar .value
+            // Isso torna o código mais seguro contra erros.
+            const evidencesTextarea = cells[9] ? cells[9].querySelector('textarea') : null;
+            const proposalsTextarea = cells[10] ? cells[10].querySelector('textarea') : null;
 
-            currentMinutesData = filledItems.filter(item => 
-                item.evaluation !== 'Não avaliado' ||
-                item.evidences.trim() !== '' ||
-                item.proposals.trim() !== '' ||
-                item.observations.trim() !== ''
-            );
+            return {
+                description: row.dataset.mainDescription,
+                responsible: cells[0].textContent,
+                section: cells[1].textContent,
+                theme: cells[2].textContent,
+                item_number: cells[3].textContent,
+                subitem_number: cells[5].textContent,
+                subitem_description: cells[6].textContent,
+                exigency_level: cells[7].textContent,
+                evaluation: evaluation ? evaluation.value : 'Não avaliado',
+                // Agora lemos de forma segura, retornando '' se o textarea não for encontrado
+                evidences: evidencesTextarea ? evidencesTextarea.value : '',
+                proposals: proposalsTextarea ? proposalsTextarea.value : '',
+            };
+        });
+        
+        currentMinutesData = filledItems.filter(item => 
+             item.evaluation !== 'Não avaliado' ||
+             item.evidences.trim() !== '' ||
+             item.proposals.trim() !== ''
+        );
 
-            if (currentMinutesData.length === 0 && uploadedImages.length === 0) { // Verifica também se há imagens
-                minutesOutput.textContent = 'Nenhum item preenchido ou imagem anexada para gerar a ata.';
-                return;
+        const actionPlanItems = [];
+        const actionPlanRows = actionPlanTableBody.querySelectorAll('tr');
+        actionPlanRows.forEach(row => {
+            const cells = row.querySelectorAll('td');
+            const responsible = cells[1].querySelector('input').value;
+            const sector = cells[2].querySelector('input').value;
+            if (responsible.trim() || sector.trim()) {
+                actionPlanItems.push({
+                    action: cells[0].textContent,
+                    responsible: responsible,
+                    sector: sector,
+                    deadline: cells[3].textContent
+                });
             }
+        });
 
-            let minutesTableHTML = `
-                <h3>Ata de Reunião - ${responsibleInput.value || 'Todos'}</h3>
-                <div id="minutes-content-wrapper"> <div id="minutes-table-wrapper">
-                        <table class="minutes-table">
-                            <thead>
-                                <tr>
-                                    <th>Responsável</th> <th>Seção</th> <th>Tema</th>
-                                    <th>Item</th> <th>Descrição do Item</th> <th>Subitem</th>
-                                    <th>Descrição do Subitem</th> <th>Nível de Exigência</th> <th>Avaliação</th>
-                                    <th>Evidências</th> <th>Propostas</th> <th>Observações</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${currentMinutesData.map(item => `
-                                    <tr>
-                                        <td>${item.responsible}</td> <td>${item.section}</td> <td>${item.theme}</td>
-                                        <td>${item.item_number}</td> <td>${item.description}</td> <td>${item.subitem_number}</td>
-                                        <td>${item.subitem_description}</td> <td>${item.exigency_level}</td> <td>${item.evaluation}</td>
-                                        <td>${item.evidences}</td> <td>${item.proposals}</td> <td>${item.observations}</td>
-                                    </tr>
-                                `).join('')}
-                            </tbody>
-                        </table>
-                    </div>
-                `;
+        const fullReportData = {
+            visitLocal: visitLocalInput.value,
+            visitDate: visitDateInput.value ? new Date(visitDateInput.value).toLocaleDateString('pt-BR', { timeZone: 'UTC' }) : '',
+            visitTime: visitTimeInput.value,
+            participants: meetingParticipantsInput.value,
+            nextVisit: `Dia ${nextVisitDateInput.value ? new Date(nextVisitDateInput.value).toLocaleDateString('pt-BR', { timeZone: 'UTC' }) : '__/__/____'} com a ${nextVisitLocalInput.value || '(setor não definido)'} às ${nextVisitTimeInput.value || '__:__'} horas`,
+            tableData: currentMinutesData,
+            actionPlan: actionPlanItems,
+            groupPhoto: groupPhotoImageData,
+            evidencePhotos: uploadedImages,
+            visitObservations: visitObservationsTextarea.value 
+        };
 
-            // Adiciona a seção de fotos se tiver imagens
-            if (uploadedImages.length > 0) {
-                minutesTableHTML += `
-                    <div class="minutes-photos-section">
-                        <div style="text-align: center;"><h3>FOTOS</h3></div>
-                        <div class="minutes-photo-grid">
-                            ${uploadedImages.map(imgData => `<img src="${imgData}" alt="Evidência fotográfica">`).join('')}
-                        </div>
-                    </div>
-                `;
-            }
+        minutesOutput.innerHTML = generateMinutesHTML(fullReportData);
+        document.getElementById('download-pdf-btn').addEventListener('click', () => generatePdfDocument(fullReportData));
 
-            minutesTableHTML += `</div>`; // Fecha o minutes-content-wrapper
+    } catch (error) {
+        // O console.error agora mostrará o erro original com mais detalhes
+        console.error("ERRO AO GERAR A ATA:", error);
+        minutesOutput.innerHTML = `<p style="color: red; font-weight: bold;">Ocorreu um erro ao gerar a ata. Verifique o console (F12).</p>`;
+    }
+}
 
-            minutesTableHTML += `
-                <div id="download-buttons" style="margin-top: 20px;">
-                    <button id="download-word-btn">Baixar .docx</button>
-                    <button id="download-pdf-btn">Baixar .pdf</button>
-                </div>
-            `;
+// Nova função para gerar apenas o HTML (para organizar melhor)
+function generateMinutesHTML(data) {
+    // Aqui você pode criar um HTML mais simples para a visualização na página,
+    // já que o layout complexo será gerado no arquivo PDF.
+    
+    let html = `<h3>Visualização da Ata Gerada</h3>`;
+    html += `<p><strong>Local:</strong> ${data.visitLocal || 'Não informado'}</p>`;
+    html += `<p><strong>Data:</strong> ${data.visitDate || 'Não informada'}</p>`;
+    html += `<p><strong>Participantes:</strong> ${data.participants || 'Não informados'}</p>`;
+    html += `<p><strong>Próxima Visita:</strong> ${data.nextVisit}</p>`;
 
-            minutesOutput.innerHTML = minutesTableHTML;
+    if (data.groupPhoto) {
+        html += `<h4>Foto da Equipe</h4><img src="${data.groupPhoto}" style="max-width: 300px; border-radius: 8px;">`;
+    }
 
-            document.getElementById('download-word-btn').addEventListener('click', () => generateWordDocument(currentMinutesData, uploadedImages));
-            document.getElementById('download-pdf-btn').addEventListener('click', () => generatePdfDocument());
+    if (data.tableData.length > 0) {
+        html += `<h4>Itens de Ação</h4><p>${data.tableData.length} itens registrados.</p>`;
+    }
 
-        } catch (error) {
-            console.error("ERRO AO GERAR A ATA:", error);
-            minutesOutput.innerHTML = `<p style="color: red; font-weight: bold;">Ocorreu um erro ao gerar a ata. Verifique o console (F12).</p>`;
-        }
+    if (data.actionPlan.length > 0) {
+        html += `<h4>Plano de Ação</h4><p>${data.actionPlan.length} ações definidas.</p>`;
     }
     
+    if (data.evidencePhotos.length > 0) {
+        html += `<h4>Fotos de Evidência</h4><p>${data.evidencePhotos.length} fotos anexadas.</p>`;
+    }
+    
+    html += `
+        <div id="download-buttons" style="margin-top: 20px;">
+            <button id="download-pdf-btn">Baixar .pdf</button>
+        </div>`;
+        
+    return html;
+}
+
     // --- FUNÇÕES PARA MANIPULAR IMAGENS ---
 
     function handleImageUpload(event) {
@@ -273,11 +300,11 @@ document.addEventListener('DOMContentLoaded', () => {
         uploadedImages.forEach((imageData, index) => {
             const wrapper = document.createElement('div');
             wrapper.classList.add('image-preview-wrapper');
-            
+
             const img = document.createElement('img');
             img.src = imageData;
             img.alt = `Pré-visualização da imagem ${index + 1}`;
-            
+
             const removeBtn = document.createElement('button');
             removeBtn.classList.add('remove-image-btn');
             removeBtn.innerHTML = '&times;'; // 'x' character
@@ -286,162 +313,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 uploadedImages.splice(index, 1); // Remove do array
                 renderImagePreviews(); // Re-renderiza as prévias
             };
-            
+
             wrapper.appendChild(img);
             wrapper.appendChild(removeBtn);
             imagePreviewContainer.appendChild(wrapper);
         });
     }
-
-   // --- GARANTE QUE A BIBLIOTECA DOCX FOI CARREGADA ---
-const docx = window.docx || undefined;
-
-if (!docx) {
-    console.error("❌ A biblioteca docx não foi carregada. Verifique a tag <script> no index.html.");
-}
-
-// --- FUNÇÕES DE DOWNLOAD ---
-const createSizedText = (text, size = 22, bold = false) => {
-    return new docx.Paragraph({
-        children: [new docx.TextRun({ text, size, bold })]
-    });
-};
-
-async function generateWordDocument() {
-    // Verifica se a biblioteca foi carregada
-    if (typeof window.docx === 'undefined') {
-        alert('Erro Crítico: A biblioteca docx não foi carregada.');
-        return;
-    }
-
-    const { Document, Packer, Paragraph, TextRun, AlignmentType, ImageRun, PageBreak, HeadingLevel, Table, TableCell, TableRow, WidthType, VerticalAlign, BorderStyle, PageOrientation } = window.docx;
-    const unidade = responsibleInput.value || 'Todas as Unidades';
-
+    
+/**
+ * Gera um documento PDF completo da visita, estruturado em várias páginas.
+ * @param {object} data O objeto fullReportData contendo todas as informações da visita.
+ */
+function generatePdfDocument(data) {
     try {
-        const docChildren = [];
-
-        // --- 1. TÍTULO ---
-        docChildren.push(
-            new Paragraph({ text: 'Relatório de Visita da Qualidade', heading: HeadingLevel.HEADING_1, alignment: AlignmentType.CENTER }),
-            new Paragraph({ text: `Unidade: ${unidade}`, heading: HeadingLevel.HEADING_2, alignment: AlignmentType.CENTER }),
-            new Paragraph({ text: `Data: ${new Date().toLocaleDateString()}`, alignment: AlignmentType.CENTER, spacing: { after: 400 } })
-        );
-
-        // --- 2. TABELA DE DADOS ---
-        if (currentMinutesData.length > 0) {
-            const createCellParagraphs = (text) => {
-                const textValue = text || '';
-                return String(textValue).split('\n').map(line => new Paragraph({ children: [new TextRun({ text: line, size: 16 })] }));
-            };
-            const columnWidthsPct = [9.5, 13, 7.5, 4, 11, 4.5, 11, 5.5, 5.5, 9.5, 9.5, 9.5];
-            const headers = ["Responsável", "Seção", "Tema", "Item", "Descrição do Item", "Subitem", "Descrição do Subitem", "Nível de Exigência", "Avaliação", "Evidências", "Propostas", "Observações"];
-            const headerRow = new TableRow({
-                children: headers.map((text, index) => new TableCell({
-                    children: [new Paragraph({ children: [new TextRun({ text, bold: true, size: 16, color: "FFFFFF" })], alignment: AlignmentType.CENTER })],
-                    shading: { fill: "287EB8" }, verticalAlign: VerticalAlign.CENTER,
-                    width: { size: columnWidthsPct[index], type: WidthType.PERCENTAGE },
-                })),
-            });
-            const dataRows = currentMinutesData.map(item => {
-                const itemData = [item.responsible, item.section, item.theme, item.item_number, item.description, item.subitem_number, item.subitem_description, item.exigency_level, item.evaluation, item.evidences, item.proposals, item.observations];
-                return new TableRow({
-                    children: itemData.map((text, index) => new TableCell({
-                        children: createCellParagraphs(text), verticalAlign: VerticalAlign.CENTER,
-                        width: { size: columnWidthsPct[index], type: WidthType.PERCENTAGE },
-                    })),
-                });
-            });
-            const table = new Table({ rows: [headerRow, ...dataRows], width: { size: 100, type: WidthType.PERCENTAGE } });
-            docChildren.push(table);
-        }
-
-        // --- 3. FOTOS (LÓGICA FINAL E CORRIGIDA) ---
-        if (uploadedImages.length > 0) {
-            docChildren.push(new Paragraph({ children: [new PageBreak()] }));
-            docChildren.push(new Paragraph({
-                children: [new TextRun({ text: "FOTOS", bold: true, size: 32, color: "287eb8" })],
-                alignment: AlignmentType.CENTER,
-                spacing: { after: 400 }
-            }));
-            
-            const imageBuffers = await Promise.all(
-                uploadedImages.map(async (imgDataUrl) => {
-                    const response = await fetch(imgDataUrl);
-                    return await response.arrayBuffer();
-                })
-            );
-
-            // Configurações da Grade de Fotos em Paisagem
-            const imagesPerRow = 3;
-            const imageSize = { width: 220, height: 165 }; // Imagens grandes para a página larga
-
-            const photoRows = [];
-            for (let i = 0; i < imageBuffers.length; i += imagesPerRow) {
-                const rowChunk = imageBuffers.slice(i, i + imagesPerRow);
-                
-                const tableCells = rowChunk.map(buffer => new TableCell({
-                    children: [new Paragraph({
-                        children: [new ImageRun({ data: buffer, transformation: imageSize })],
-                        alignment: AlignmentType.CENTER,
-                    })],
-                    borders: { top: { style: BorderStyle.NONE }, bottom: { style: BorderStyle.NONE }, left: { style: BorderStyle.NONE }, right: { style: BorderStyle.NONE } },
-                }));
-
-                while (tableCells.length < imagesPerRow) {
-                    tableCells.push(new TableCell({ children: [new Paragraph('')], borders: { top: { style: BorderStyle.NONE }, bottom: { style: BorderStyle.NONE }, left: { style: BorderStyle.NONE }, right: { style: BorderStyle.NONE } } }));
-                }
-
-                photoRows.push(new TableRow({ children: tableCells }));
-            }
-
-            const photoTable = new Table({
-                rows: photoRows,
-                width: { size: 100, type: WidthType.PERCENTAGE },
-                // Margens para criar espaçamento vertical e horizontal
-                cellMargin: { top: 200, bottom: 200, left: 100, right: 100 },
-                borders: {
-                    top: { style: BorderStyle.NONE }, bottom: { style: BorderStyle.NONE },
-                    left: { style: BorderStyle.NONE }, right: { style: BorderStyle.NONE },
-                    insideHorizontal: { style: BorderStyle.NONE }, insideVertical: { style: BorderStyle.NONE },
-                },
-            });
-
-            docChildren.push(photoTable);
-        }
-
-        // --- 4. GERA O DOCUMENTO EM MODO PAISAGEM ---
-        const doc = new Document({
-            sections: [{
-                properties: {
-                    page: {
-                        margin: { top: 1440, right: 1440, bottom: 1440, left: 1440 },
-                        orientation: PageOrientation.LANDSCAPE,
-                    }
-                },
-                children: docChildren,
-            }]
-        });
-        
-        Packer.toBlob(doc).then(blob => {
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = `relatorio_visita_${unidade.replace(/\s+/g, '_')}.docx`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        }).catch(err => {
-            console.error("Erro ao empacotar o DOCX:", err);
-            alert("Erro ao criar o arquivo DOCX. Verifique o console.");
-        });
-
-    } catch (error) {
-        console.error("Erro ao gerar o documento .docx:", error);
-        alert("Erro ao gerar o arquivo Word. Veja o console (F12).");
-    }
-}
-
- function generatePdfDocument() {
-    try {
+        // --- 1. VERIFICAÇÃO INICIAL E CONFIGURAÇÃO DO DOCUMENTO ---
         if (typeof window.jspdf.jsPDF.API.autoTable !== 'function') {
             alert('Erro Crítico: A biblioteca jsPDF-AutoTable não foi carregada.');
             return;
@@ -450,98 +335,212 @@ async function generateWordDocument() {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF('l', 'mm', 'a4');
 
-        const table = document.querySelector('#minutes-output .minutes-table');
-        const tableHasRows = table ? table.querySelectorAll('tbody tr').length > 0 : false;
-        const images = uploadedImages;
-
-        if (!tableHasRows && images.length === 0) {
-            alert("Nada para gerar no PDF. Por favor, preencha a tabela ou adicione imagens.");
-            return;
-        }
-
         const pageHeight = doc.internal.pageSize.getHeight();
         const pageWidth = doc.internal.pageSize.getWidth();
         const margin = 15;
-        let y = 15;
 
-        // --- TÍTULO ---
-        doc.setFontSize(18);
-        doc.text('Relatório de Visita da Qualidade', pageWidth / 2, y, { align: 'center' });
-        y += 8;
-        doc.setFontSize(14);
-        const unidade = responsibleInput.value || 'Todas as Unidades';
-        doc.text(`Unidade: ${unidade}`, pageWidth / 2, y, { align: 'center' });
-        y += 7;
+        // --- PÁGINA 1: CAPA (sem alterações) ---
+        // (Todo o seu código da capa continua aqui)
+        const laranjaPrincipal = [245, 127, 23];
+        const verdeEscurecido = [180, 230, 140];
+        const cinzaSombra = [189, 189, 189];
+        const azulFundo = [227, 242, 253]; 
+        doc.setFillColor.apply(null, azulFundo);
+        doc.rect(0, 0, pageWidth, pageHeight / 2, 'F');
+        const logoHSPM = 'assets/images/logo-hspm.jpg';
+        const logoSP = 'assets/images/logo-prefeitura-sp.jpg';
+        doc.addImage(logoHSPM, 'JPG', margin, 8, 30, 15);
+        doc.addImage(logoSP, 'JPG', pageWidth - margin - 25, 8, 25, 25);
+        doc.setFontSize(12);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont('helvetica', 'bold');
+        doc.text('HOSPITAL DO SERVIDOR PÚBLICO MUNICIPAL', pageWidth / 2, 15, { align: 'center' });
         doc.setFontSize(10);
-        doc.text(`Data: ${new Date().toLocaleDateString()}`, pageWidth / 2, y, { align: 'center' });
-        y += 10;
+        doc.setFont('helvetica', 'normal');
+        doc.text('ASSESSORIA DE PLANEJAMENTO ESTRATÉGICO E QUALIDADE', pageWidth / 2, 21, { align: 'center' });
+        doc.setFillColor.apply(null, cinzaSombra);
+        doc.circle(pageWidth / 2 + 2, pageHeight / 2 + 2, 80, 'F');
+        doc.setFillColor.apply(null, laranjaPrincipal);
+        doc.circle(pageWidth / 2, pageHeight / 2, 80, 'F');
+        doc.setFillColor.apply(null, verdeEscurecido);
+        const retanguloVerdeY = pageHeight / 2 - 8;
+        doc.rect(margin + 30, retanguloVerdeY, pageWidth - (margin * 2) - 60, 12, 'F');
+        doc.setFontSize(32);
+        doc.setTextColor(255, 255, 255);
+        doc.setFont('helvetica', 'bold');
+        doc.text('AUTO AVALIAÇÃO', pageWidth / 2, pageHeight / 2 - 20, { align: 'center' });
+        doc.setFontSize(12);
+        doc.setTextColor(51, 51, 51);
+        doc.setFont('helvetica', 'normal');
+        doc.text('ATA DE REGISTRO DA VISITA DE QUALIDADE', pageWidth / 2, pageHeight / 2 - 2, { align: 'center' });
+        doc.setFontSize(12);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont('helvetica', 'bold');
+        doc.text(`LOCAL: ${data.visitLocal || 'Não informado'}`, pageWidth / 2, pageHeight / 2 + 25, { align: 'center' });
+        doc.text(`DATA: ${data.visitDate || 'Não informada'}`, pageWidth / 2, pageHeight / 2 + 33, { align: 'center' });
+        doc.text(`HORÁRIO: ${data.visitTime || 'Não informado'}`, pageWidth / 2, pageHeight / 2 + 41, { align: 'center' });
 
-        // --- TABELA ---
-        if (tableHasRows) {
+        // --- PÁGINA 2: DETALHES, TABELA PRINCIPAL E OBSERVAÇÕES ---
+        doc.addPage();
+        let y = margin;
+
+        // Detalhes da Reunião (sem alterações)
+        doc.setFontSize(12);
+        doc.setFont('helvetica', 'bold');
+        doc.text('PARTICIPANTES:', margin, y);
+        doc.setFont('helvetica', 'normal');
+        const participantsText = doc.splitTextToSize(data.participants || 'Nenhum participante listado.', pageWidth - (margin * 2));
+        doc.text(participantsText, margin, y + 6);
+        y += participantsText.length * 5 + 10;
+        if (data.groupPhoto) {
+            doc.setFontSize(12);
+            doc.setFont('helvetica', 'bold');
+            doc.text('FOTO DA EQUIPE:', pageWidth / 2, y, { align: 'center' });
+            y += 8;
+            const imgWidth = 80;
+            const imgHeight = 60;
+            const imgX = (pageWidth - imgWidth) / 2;
+            doc.addImage(data.groupPhoto, 'PNG', imgX, y, imgWidth, imgHeight);
+            y += imgHeight + 10;
+        }
+        doc.setFontSize(12);
+        doc.setFont('helvetica', 'bold');
+        doc.text('PRÓXIMA VISITA:', margin, y);
+        doc.setFont('helvetica', 'normal');
+        doc.text(data.nextVisit || 'Não definida.', margin, y + 6);
+        
+        let finalY = doc.autoTable.previous.finalY || y + 15;
+
+        // Tabela Principal (agora com "Evidências" e sem "Observações")
+        if (data.tableData.length > 0) {
             doc.autoTable({
-                html: table,
-                startY: y,
+                startY: finalY,
+                // Cabeçalho com 11 colunas, corrigido
+                head: [['Responsável', 'Seção', 'Tema', 'Item', 'Descrição do Item', 'Subitem', 'Descrição do Subitem', 'Nível de Exigência', 'Avaliação', 'Evidências', 'Propostas']],
+                // Body com 11 colunas, corrigido
+                body: data.tableData.map(item => [
+                    item.responsible, item.section, item.theme, item.item_number,
+                    item.description, item.subitem_number, item.subitem_description,
+                    item.exigency_level, item.evaluation,
+                    item.evidences.split('\n'),
+                    item.proposals.split('\n')
+                ]),
                 theme: 'grid',
-                headStyles: { fillColor: [40, 126, 184], textColor: 255, fontSize: 8, halign: 'center' },
-                styles: { fontSize: 8, cellPadding: 2, overflow: 'linebreak' },
+                headStyles: { fillColor: [40, 126, 184], fontSize: 10 },
+                styles: { fontSize: 9, cellPadding: 3, overflow: 'linebreak' },
+                // Larguras das colunas ajustadas para a nova estrutura
                 columnStyles: {
-                    0: { cellWidth: 25 }, 1: { cellWidth: 35 }, 2: { cellWidth: 20 },
+                    0: { cellWidth: 24 }, 1: { cellWidth: 27 }, 2: { cellWidth: 20 },
                     3: { cellWidth: 10 }, 4: { cellWidth: 30 }, 5: { cellWidth: 12 },
                     6: { cellWidth: 30 }, 7: { cellWidth: 15 }, 8: { cellWidth: 15 },
-                    9: { cellWidth: 25 }, 10: { cellWidth: 25 }, 11: { cellWidth: 25 },
+                    9: { cellWidth: 41 }, 10: { cellWidth: 41 },
+                },
+                didDrawPage: (hookData) => { finalY = hookData.cursor.y; }
+            });
+        }
+        
+        // Seção "OBSERVAÇÕES DA VISITA" (a lógica aqui continua perfeita)
+        if (data.visitObservations && data.visitObservations.trim() !== '') {
+            finalY += 10; 
+
+            if (finalY > pageHeight - 40) {
+                doc.addPage();
+                finalY = margin;
+            }
+
+            const azulTitulo = [38, 108, 147];
+            doc.setFillColor.apply(null, azulTitulo);
+            doc.roundedRect(margin, finalY, pageWidth - (margin * 2), 12, 3, 3, 'F');
+            doc.setFontSize(16);
+            doc.setTextColor(255, 255, 255);
+            doc.setFont('helvetica', 'bold');
+            doc.text('OBSERVAÇÕES DA VISITA :', margin + 5, finalY + 8);
+            finalY += 20;
+
+            doc.setFontSize(11);
+            doc.setTextColor(0, 0, 0);
+            doc.setFont('helvetica', 'normal');
+            const lines = data.visitObservations.split('\n');
+            lines.forEach(line => {
+                if (line.trim() !== '') {
+                    if (finalY > pageHeight - margin) {
+                        doc.addPage();
+                        finalY = margin;
+                    }
+                    const textLines = doc.splitTextToSize(`• ${line.trim()}`, pageWidth - (margin * 2) - 5);
+                    doc.text(textLines, margin + 5, finalY);
+                    finalY += textLines.length * 6;
                 }
             });
         }
 
-        // --- 3. ADICIONA AS IMAGENS EM FORMATO DE GRADE ---
-        if (images.length > 0) {
-            doc.addPage();
-            let photoY = margin;
 
-            doc.setTextColor(40, 126, 184);
-            doc.setFontSize(16);
-            doc.text('FOTOS', pageWidth / 2, photoY, { align: 'center' });
-            doc.setTextColor(0, 0, 0); 
-            photoY += 15;
+        // --- PÁGINA FINAL: FOTOS E PLANO DE AÇÃO ---
+        doc.addPage();
+        y = margin;
 
-            // CONFIGURAÇÕES DA GRADE DE FOTOS
-            const imagesPerRow = 3; // Quantas imagens por linha
-            const imgWidth = 85;   // Largura de cada imagem em mm
-            const imgHeight = 64;  // Altura de cada imagem em mm (mantendo proporção 4:3)
-            const horizontalGap = 5; // Espaço horizontal entre as imagens
-            const verticalGap = 10;   // Espaço vertical entre as linhas de imagens
-
+        // Fotos de Evidência
+        if (data.evidencePhotos.length > 0) {
+            doc.setFontSize(18);
+            doc.setFont('helvetica', 'bold');
+            doc.text('FOTOS DE EVIDÊNCIA', pageWidth / 2, y, { align: 'center' });
+            y += 15;
+            const imagesPerRow = 3;
+            const imgWidth = 85;
+            const imgHeight = 64;
+            const horizontalGap = 5;
+            const verticalGap = 10;
             let photoX = margin;
-
-            images.forEach((imgData, index) => {
-                // Se for a primeira imagem de uma nova linha, verifica se a linha cabe na página
-                if (index % imagesPerRow === 0 && index > 0) {
-                    photoX = margin; // Volta para a margem esquerda
-                    photoY += imgHeight + verticalGap; // Move para a linha de baixo
+            data.evidencePhotos.forEach((imgData, index) => {
+                if (index > 0 && index % imagesPerRow === 0) {
+                    photoX = margin;
+                    y += imgHeight + verticalGap;
                 }
-                
-                // Se a nova linha de fotos for passar do fim da página, cria uma nova página
-                if (photoY + imgHeight > pageHeight - margin) {
+                if (y + imgHeight > pageHeight - margin) {
                     doc.addPage();
-                    photoY = margin;
+                    y = margin;
+                    doc.setFontSize(18);
+                    doc.setFont('helvetica', 'bold');
+                    doc.text('FOTOS DE EVIDÊNCIA (continuação)', pageWidth / 2, y, { align: 'center' });
+                    y += 15;
+                    photoX = margin;
                 }
-                
-                // Adiciona a imagem na posição calculada
-                doc.addImage(imgData, 'PNG', photoX, photoY, imgWidth, imgHeight);
-                
-                // Move a posição X para a próxima imagem na mesma linha
+                doc.addImage(imgData, 'PNG', photoX, y, imgWidth, imgHeight);
                 photoX += imgWidth + horizontalGap;
             });
+            const numRows = Math.ceil(data.evidencePhotos.length / imagesPerRow);
+            y = margin + 15 + (numRows * (imgHeight + verticalGap));
         }
 
-        doc.save(`ata_reuniao_${responsibleInput.value || 'todos'}.pdf`);
+        // Plano de Ação
+        if (data.actionPlan.length > 0) {
+            if (y > pageHeight - 60) {
+                doc.addPage();
+                y = margin;
+            } else {
+                y += 15;
+            }
+            doc.setFontSize(18);
+            doc.setFont('helvetica', 'bold');
+            doc.text('PLANO DE AÇÃO', pageWidth / 2, y, { align: 'center' });
+            y += 10;
+            doc.autoTable({
+                startY: y,
+                head: [['AÇÃO', 'RESPONSÁVEL', 'SETOR', 'PRAZO PARA FINALIZAÇÃO']],
+                body: data.actionPlan.map(item => [item.action, item.responsible, item.sector, item.deadline]),
+                theme: 'grid',
+                headStyles: { fillColor: [0, 69, 133], fontSize: 10 },
+                styles: { fontSize: 9, cellPadding: 3 },
+            });
+        }
+        
+        doc.save(`relatorio_visita_${data.visitLocal.replace(/\s+/g, '_') || 'geral'}.pdf`);
 
     } catch (error) {
         console.error("Erro detalhado ao gerar o PDF:", error);
         alert("Ocorreu um erro inesperado ao gerar o PDF. Verifique o console (F12).");
     }
 }
-
     function highlightEmptyEvaluations() {
         const allRows = Array.from(tableBody.querySelectorAll('tr:not(.section-header):not(.theme-header)'));
         let firstEmptyRow = null;
@@ -564,7 +563,7 @@ async function generateWordDocument() {
 
 
     // --- EVENT LISTENERS ---
-     // Campo de busca com debounce para não travar
+    // Campo de busca com debounce para não travar
     responsibleInput.addEventListener('input', debounce((event) => {
         const searchText = event.target.value.toUpperCase();
         if (searchText) {
@@ -588,7 +587,7 @@ async function generateWordDocument() {
 
     imageUploadInput.addEventListener('change', handleImageUpload);
     evaluationForm.addEventListener('submit', (event) => {
-        event.preventDefault(); 
+        event.preventDefault();
         const allRows = Array.from(tableBody.querySelectorAll('tr:not(.section-header):not(.theme-header)'));
         if (allRows.length === 0) {
             alert('Filtre por um responsável para exibir os itens antes de gerar a ata.');
@@ -604,7 +603,26 @@ async function generateWordDocument() {
                 return;
             }
         }
-        generateMinutes(allRows);      
+        generateMinutes(allRows);
+    });
+
+    groupPhotoUploadInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (!file) {
+            groupPhotoImageData = null;
+            groupPhotoPreviewContainer.innerHTML = '';
+            return;
+        }
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            groupPhotoImageData = e.target.result;
+            groupPhotoPreviewContainer.innerHTML = `
+            <div class="image-preview-wrapper">
+                <img src="${groupPhotoImageData}" alt="Foto da equipe">
+            </div>
+        `;
+        };
+        reader.readAsDataURL(file);
     });
 
     loadDataAndInitialize();

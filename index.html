@@ -12,6 +12,24 @@
     <header>
         <h1>RELATÓRIO DE VISITA DA QUALIDADE</h1>
     </header>
+
+    <div class="visit-details-container">
+    <h2>Informações da Visita</h2>
+    <div class="details-form">
+        <div class="form-group">
+            <label for="visit-local">Local:</label>
+            <input type="text" id="visit-local" placeholder="Ex: UTI 10º Andar e Empresa Contratada">
+        </div>
+        <div class="form-group">
+            <label for="visit-date">Data:</label>
+            <input type="date" id="visit-date">
+        </div>
+        <div class="form-group">
+            <label for="visit-time">Horário:</label>
+            <input type="time" id="visit-time">
+            </div>
+        </div>
+    </div>
         
    <main>
     <div class="content-wrapper">
@@ -28,6 +46,78 @@
             <input type="file" id="image-upload" multiple accept="image/*">
             <div id="image-preview-container" title="Pré-visualização das imagens selecionadas"></div>
         </section>
+
+        <section class="meeting-details-section">
+    <h3>Detalhes da Reunião</h3>
+    <div class="meeting-form">
+        <div class="form-group full-width">
+            <label for="meeting-participants">Participantes:</label>
+            <textarea id="meeting-participants" rows="3" placeholder="Liste os nomes dos participantes separados por vírgula. Ex: Enf. Gerson, Dr. Caio..."></textarea>
+        </div>
+
+        <div class="form-group full-width">
+            <label for="group-photo-upload">Foto da Equipe (Opcional):</label>
+            <input type="file" id="group-photo-upload" accept="image/*">
+            <div id="group-photo-preview" class="group-photo-preview-container"></div>
+        </div>
+        
+        <h4>Próxima Visita</h4>
+        <div class="form-group">
+            <label for="next-visit-date">Data:</label>
+            <input type="date" id="next-visit-date">
+        </div>
+        <div class="form-group">
+            <label for="next-visit-time">Horário:</label>
+            <input type="time" id="next-visit-time">
+        </div>
+        <div class="form-group">
+            <label for="next-visit-local">Setor:</label>
+            <input type="text" id="next-visit-local" placeholder="Ex: Centro Cirúrgico">
+            </div>
+        </div>
+        </section>
+
+        <section class="visit-observations-section">
+    <h3>Observações Gerais da Visita</h3>
+    <div class="form-group full-width">
+        <label for="visit-observations-textarea">Digite aqui as observações gerais, usando "Enter" para separar os itens da lista:</label>
+        <textarea id="visit-observations-textarea" rows="8" placeholder="Ex: Telas com buracos..."></textarea>
+        </div>
+        </section>
+
+<section class="action-plan-section">
+    <h3>Sugestões da APEQ: "Dando um passo adiante" (Plano de Ação)</h3>
+    <table id="action-plan-table">
+        <thead>
+            <tr>
+                <th>Ação</th>
+                <th>Responsável</th>
+                <th>Setor</th>
+                <th>Prazo para Finalização</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Nos gráficos da unidade, fazer comparativos com outro hospital e colocar metas.</td>
+                <td><input type="text" placeholder="Nome do responsável..."></td>
+                <td><input type="text" placeholder="Setor responsável..."></td>
+                <td>SETEMBRO/2026</td>
+            </tr>
+            <tr>
+                <td>Elaborar o Mapeamento dos Processos (processos principais).</td>
+                <td><input type="text" placeholder="Nome do responsável..."></td>
+                <td><input type="text" placeholder="Setor responsável..."></td>
+                <td>SETEMBRO/2026</td>
+            </tr>
+             <tr>
+                <td>Fazer Gestão de Riscos (ex: falta de materiais, o que fazer?).</td>
+                <td><input type="text" placeholder="Nome do responsável..."></td>
+                <td><input type="text" placeholder="Setor responsável..."></td>
+                <td>SETEMBRO/2026</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
         <form id="evaluation-form">
             <section class="table-container">
@@ -46,7 +136,6 @@
                             <th>Avaliação</th>
                             <th>Evidências</th>
                             <th>Propostas</th>
-                            <th>Observações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,7 +150,6 @@
     </div>
 </main>
 
-    <script src="assets/js/libs/docx.min.js"></script>
     <script src="assets/js/libs/jspdf.min.js"></script>
     <script src="assets/js/libs/jspdf-autotable.min.js"></script>
     <script src="assets/js/libs/html2canvas.min.js"></script>
