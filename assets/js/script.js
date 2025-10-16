@@ -344,38 +344,46 @@ function generatePdfDocument(data) {
         const laranjaPrincipal = [245, 127, 23];
         const verdeEscurecido = [180, 230, 140];
         const cinzaSombra = [189, 189, 189];
-        const azulFundo = [227, 242, 253]; 
-        doc.setFillColor.apply(null, azulFundo);
-        doc.rect(0, 0, pageWidth, pageHeight / 2, 'F');
+
         const logoHSPM = 'assets/images/logo-hspm.jpg';
         const logoSP = 'assets/images/logo-prefeitura-sp.jpg';
+
         doc.addImage(logoHSPM, 'JPG', margin, 8, 30, 15);
         doc.addImage(logoSP, 'JPG', pageWidth - margin - 25, 8, 25, 25);
+
         doc.setFontSize(12);
         doc.setTextColor(0, 0, 0);
         doc.setFont('helvetica', 'bold');
         doc.text('HOSPITAL DO SERVIDOR PÚBLICO MUNICIPAL', pageWidth / 2, 15, { align: 'center' });
+
         doc.setFontSize(10);
         doc.setFont('helvetica', 'normal');
         doc.text('ASSESSORIA DE PLANEJAMENTO ESTRATÉGICO E QUALIDADE', pageWidth / 2, 21, { align: 'center' });
+
         doc.setFillColor.apply(null, cinzaSombra);
         doc.circle(pageWidth / 2 + 2, pageHeight / 2 + 2, 80, 'F');
+
         doc.setFillColor.apply(null, laranjaPrincipal);
         doc.circle(pageWidth / 2, pageHeight / 2, 80, 'F');
+
         doc.setFillColor.apply(null, verdeEscurecido);
         const retanguloVerdeY = pageHeight / 2 - 8;
         doc.rect(margin + 30, retanguloVerdeY, pageWidth - (margin * 2) - 60, 12, 'F');
+
         doc.setFontSize(32);
         doc.setTextColor(255, 255, 255);
         doc.setFont('helvetica', 'bold');
         doc.text('AUTO AVALIAÇÃO', pageWidth / 2, pageHeight / 2 - 20, { align: 'center' });
+
         doc.setFontSize(12);
         doc.setTextColor(51, 51, 51);
         doc.setFont('helvetica', 'normal');
         doc.text('ATA DE REGISTRO DA VISITA DE QUALIDADE', pageWidth / 2, pageHeight / 2 - 2, { align: 'center' });
+
         doc.setFontSize(12);
         doc.setTextColor(0, 0, 0);
         doc.setFont('helvetica', 'bold');
+
         doc.text(`LOCAL: ${data.visitLocal || 'Não informado'}`, pageWidth / 2, pageHeight / 2 + 25, { align: 'center' });
         doc.text(`DATA: ${data.visitDate || 'Não informada'}`, pageWidth / 2, pageHeight / 2 + 33, { align: 'center' });
         doc.text(`HORÁRIO: ${data.visitTime || 'Não informado'}`, pageWidth / 2, pageHeight / 2 + 41, { align: 'center' });
