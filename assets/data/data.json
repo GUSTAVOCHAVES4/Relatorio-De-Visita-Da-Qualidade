@@ -1000,6 +1000,39 @@
    "exigency_level": "**",
    "responsible": "O&M"
  },
+  {
+   "master_id": "90cefc91-2810-4ea5-a123-8b0fd0e122c0",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "NEPI"
+ },
+ {
+   "master_id": "97938c6c-54e3-4c11-b28c-9fb9ae1fc491",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "NEPI"
+ },
+  {
+   "master_id": "88689e73-a192-48cf-b1de-44ebe6c9e98f",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "NEPI"
+ },
  {
    "master_id": "00737c8e-1ca3-45ea-90c4-92c912ad922f",
    "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",

@@ -211,12 +211,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const cells = row.querySelectorAll('td');
             const responsible = cells[1].querySelector('input').value;
             const sector = cells[2].querySelector('input').value;
+            // Lê o valor do input na quarta coluna (índice 3)
+            const deadline = cells[3].querySelector('input').value;
             if (responsible.trim() || sector.trim()) {
                 actionPlanItems.push({
                     action: cells[0].textContent,
                     responsible: responsible,
                     sector: sector,
-                    deadline: cells[3].textContent
+                    deadline: deadline
                 });
             }
         });
@@ -226,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
             visitDate: visitDateInput.value ? new Date(visitDateInput.value).toLocaleDateString('pt-BR', { timeZone: 'UTC' }) : '',
             visitTime: visitTimeInput.value,
             participants: meetingParticipantsInput.value,
-            nextVisit: `Dia ${nextVisitDateInput.value ? new Date(nextVisitDateInput.value).toLocaleDateString('pt-BR', { timeZone: 'UTC' }) : '__/__/____'} com a ${nextVisitLocalInput.value || '(setor não definido)'} às ${nextVisitTimeInput.value || '__:__'} horas`,
+            nextVisit: `Dia ${nextVisitDateInput.value ? new Date(nextVisitDateInput.value).toLocaleDateString('pt-BR', { timeZone: 'UTC' }) : '__/__/____'} com ${nextVisitLocalInput.value || '(setor não definido)'} às ${nextVisitTimeInput.value || '__:__'} horas`,
             tableData: currentMinutesData,
             actionPlan: actionPlanItems,
             groupPhoto: groupPhotoImageData,
@@ -326,7 +328,6 @@ function generateMinutesHTML(data) {
  */
 function generatePdfDocument(data) {
     try {
-        // --- 1. VERIFICAÇÃO INICIAL E CONFIGURAÇÃO DO DOCUMENTO ---
         if (typeof window.jspdf.jsPDF.API.autoTable !== 'function') {
             alert('Erro Crítico: A biblioteca jsPDF-AutoTable não foi carregada.');
             return;
@@ -340,7 +341,6 @@ function generatePdfDocument(data) {
         const margin = 15;
 
         // --- PÁGINA 1: CAPA (sem alterações) ---
-        // (Todo o seu código da capa continua aqui)
         const laranjaPrincipal = [245, 127, 23];
         const verdeEscurecido = [180, 230, 140];
         const cinzaSombra = [189, 189, 189];
@@ -388,11 +388,12 @@ function generatePdfDocument(data) {
         doc.text(`DATA: ${data.visitDate || 'Não informada'}`, pageWidth / 2, pageHeight / 2 + 33, { align: 'center' });
         doc.text(`HORÁRIO: ${data.visitTime || 'Não informado'}`, pageWidth / 2, pageHeight / 2 + 41, { align: 'center' });
 
-        // --- PÁGINA 2: DETALHES, TABELA PRINCIPAL E OBSERVAÇÕES ---
+
+        // --- PÁGINA 2: DETALHES, COM NOVOS TEXTOS FIXOS ---
         doc.addPage();
         let y = margin;
 
-        // Detalhes da Reunião (sem alterações)
+        // Participantes (sem alterações)
         doc.setFontSize(12);
         doc.setFont('helvetica', 'bold');
         doc.text('PARTICIPANTES:', margin, y);
@@ -400,17 +401,51 @@ function generatePdfDocument(data) {
         const participantsText = doc.splitTextToSize(data.participants || 'Nenhum participante listado.', pageWidth - (margin * 2));
         doc.text(participantsText, margin, y + 6);
         y += participantsText.length * 5 + 10;
+
+        // Assunto da Reunião
+        doc.setFontSize(12);
+        doc.setFont('helvetica', 'bold');
+        doc.text('ASSUNTO DA REUNIÃO:', margin, y);
+        doc.setFont('helvetica', 'normal');
+        doc.text('Visita para auditoria de itens Roteiro do CQH', margin, y + 6);
+        y += 12;
+
+        // Foto da Equipe (sem alterações)
         if (data.groupPhoto) {
             doc.setFontSize(12);
             doc.setFont('helvetica', 'bold');
             doc.text('FOTO DA EQUIPE:', pageWidth / 2, y, { align: 'center' });
             y += 8;
-            const imgWidth = 80;
-            const imgHeight = 60;
+            const imgWidth = 120;
+            const imgHeight = 80;
             const imgX = (pageWidth - imgWidth) / 2;
             doc.addImage(data.groupPhoto, 'PNG', imgX, y, imgWidth, imgHeight);
             y += imgHeight + 10;
         }
+
+        // Roteiro
+        doc.setFontSize(12);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Roteiro:', margin, y);
+        doc.setFont('helvetica', 'normal');
+        doc.text('Em anexo', margin, y + 6);
+        y += 12;
+
+        // Fotos
+        doc.setFontSize(12);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Fotos:', margin, y);
+        doc.setFont('helvetica', 'normal');
+        doc.text('Em anexo', margin, y + 6);
+        y += 12;
+        
+        // Parágrafo descritivo
+        const paragraph = "A reunião teve início com a avaliação dos itens pertinentes ao Roteiro do CQH. Foram mostradas evidências dos itens, conforme descrito abaixo e anexamos uma proposta para dar um passo adiante para a próxima visita.";
+        const paragraphLines = doc.splitTextToSize(paragraph, pageWidth - (margin * 2));
+        doc.text(paragraphLines, margin, y);
+        y += paragraphLines.length * 6 + 10;
+
+        // Próxima Visita (sem alterações)
         doc.setFontSize(12);
         doc.setFont('helvetica', 'bold');
         doc.text('PRÓXIMA VISITA:', margin, y);
@@ -419,35 +454,51 @@ function generatePdfDocument(data) {
         
         let finalY = doc.autoTable.previous.finalY || y + 15;
 
-        // Tabela Principal (agora com "Evidências" e sem "Observações")
+        // --- TABELA PRINCIPAL COM NOVAS REGRAS DE ESTILO E LISTAS ---
         if (data.tableData.length > 0) {
             doc.autoTable({
                 startY: finalY,
-                // Cabeçalho com 11 colunas, corrigido
                 head: [['Responsável', 'Seção', 'Tema', 'Item', 'Descrição do Item', 'Subitem', 'Descrição do Subitem', 'Nível de Exigência', 'Avaliação', 'Evidências', 'Propostas']],
-                // Body com 11 colunas, corrigido
                 body: data.tableData.map(item => [
-                    item.responsible, item.section, item.theme, item.item_number,
-                    item.description, item.subitem_number, item.subitem_description,
-                    item.exigency_level, item.evaluation,
-                    item.evidences.split('\n'),
-                    item.proposals.split('\n')
+                    item.responsible,
+                    item.section,
+                    item.theme,
+                    item.item_number,
+                    item.description,
+                    item.subitem_number,
+                    item.subitem_description,
+                    item.exigency_level,
+                    item.evaluation,
+                    // --- AQUI É ONDE FORMATAMOS AS LISTAS ---
+                    item.evidences.split('\n').filter(line => line.trim() !== '').map(line => `• ${line.trim()}`).join('\n'),
+                    item.proposals.split('\n').filter(line => line.trim() !== '').map(line => `• ${line.trim()}`).join('\n')
                 ]),
                 theme: 'grid',
-                headStyles: { fillColor: [40, 126, 184], fontSize: 10 },
-                styles: { fontSize: 9, cellPadding: 3, overflow: 'linebreak' },
-                // Larguras das colunas ajustadas para a nova estrutura
+                headStyles: { 
+                    fillColor: [40, 126, 184], 
+                    fontSize: 10,
+                    halign: 'center', // Centraliza o cabeçalho
+                    valign: 'middle'  // Centraliza verticalmente o cabeçalho
+                },
+                styles: { 
+                    fontSize: 9, 
+                    cellPadding: 3, 
+                    overflow: 'linebreak',
+                    halign: 'center', // --- CENTRALIZA TODO O TEXTO DA TABELA ---
+                    valign: 'middle'  // --- CENTRALIZA VERTICALMENTE TODO O TEXTO DA TABELA ---
+                },
                 columnStyles: {
                     0: { cellWidth: 24 }, 1: { cellWidth: 27 }, 2: { cellWidth: 20 },
                     3: { cellWidth: 10 }, 4: { cellWidth: 30 }, 5: { cellWidth: 12 },
                     6: { cellWidth: 30 }, 7: { cellWidth: 15 }, 8: { cellWidth: 15 },
-                    9: { cellWidth: 41 }, 10: { cellWidth: 41 },
+                    9: { cellWidth: 41, halign: 'left' }, // Alinha Evidências à esquerda para a lista
+                    10: { cellWidth: 41, halign: 'left' }, // Alinha Propostas à esquerda para a lista
                 },
                 didDrawPage: (hookData) => { finalY = hookData.cursor.y; }
             });
         }
         
-        // Seção "OBSERVAÇÕES DA VISITA" (a lógica aqui continua perfeita)
+        // Seção "OBSERVAÇÕES DA VISITA" (sem alterações)
         if (data.visitObservations && data.visitObservations.trim() !== '') {
             finalY += 10; 
 
@@ -483,7 +534,7 @@ function generatePdfDocument(data) {
         }
 
 
-        // --- PÁGINA FINAL: FOTOS E PLANO DE AÇÃO ---
+        // --- PÁGINA FINAL: FOTOS E PLANO DE AÇÃO (sem alterações) ---
         doc.addPage();
         y = margin;
 
@@ -537,8 +588,8 @@ function generatePdfDocument(data) {
                 head: [['AÇÃO', 'RESPONSÁVEL', 'SETOR', 'PRAZO PARA FINALIZAÇÃO']],
                 body: data.actionPlan.map(item => [item.action, item.responsible, item.sector, item.deadline]),
                 theme: 'grid',
-                headStyles: { fillColor: [0, 69, 133], fontSize: 10 },
-                styles: { fontSize: 9, cellPadding: 3 },
+                headStyles: { fillColor: [0, 69, 133], fontSize: 10, halign: 'center', valign: 'middle' },
+                styles: { fontSize: 9, cellPadding: 3, halign: 'center', valign: 'middle' },
             });
         }
         
