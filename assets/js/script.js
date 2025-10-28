@@ -328,6 +328,7 @@ function generateMinutesHTML(data) {
  */
 function generatePdfDocument(data) {
     try {
+        // --- 1. VERIFICAÇÃO INICIAL E CONFIGURAÇÃO DO DOCUMENTO ---
         if (typeof window.jspdf.jsPDF.API.autoTable !== 'function') {
             alert('Erro Crítico: A biblioteca jsPDF-AutoTable não foi carregada.');
             return;
@@ -344,155 +345,98 @@ function generatePdfDocument(data) {
         const laranjaPrincipal = [245, 127, 23];
         const verdeEscurecido = [180, 230, 140];
         const cinzaSombra = [189, 189, 189];
-
-        const logoHSPM = 'assets/images/logo-hspm.jpg';
-        const logoSP = 'assets/images/logo-prefeitura-sp.jpg';
-
+        const logoHSPM = 'assets/images/logo-hspm.jpg'; // Verifique o caminho
+        const logoSP = 'assets/images/logo-prefeitura-sp.jpg'; // Verifique o caminho
         doc.addImage(logoHSPM, 'JPG', margin, 8, 30, 15);
         doc.addImage(logoSP, 'JPG', pageWidth - margin - 25, 8, 25, 25);
-
-        doc.setFontSize(12);
-        doc.setTextColor(0, 0, 0);
-        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(12); doc.setTextColor(0, 0, 0); doc.setFont('helvetica', 'bold');
         doc.text('HOSPITAL DO SERVIDOR PÚBLICO MUNICIPAL', pageWidth / 2, 15, { align: 'center' });
-
-        doc.setFontSize(10);
-        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(10); doc.setFont('helvetica', 'normal');
         doc.text('ASSESSORIA DE PLANEJAMENTO ESTRATÉGICO E QUALIDADE', pageWidth / 2, 21, { align: 'center' });
-
-        doc.setFillColor.apply(null, cinzaSombra);
-        doc.circle(pageWidth / 2 + 2, pageHeight / 2 + 2, 80, 'F');
-
-        doc.setFillColor.apply(null, laranjaPrincipal);
-        doc.circle(pageWidth / 2, pageHeight / 2, 80, 'F');
-
-        doc.setFillColor.apply(null, verdeEscurecido);
-        const retanguloVerdeY = pageHeight / 2 - 8;
+        doc.setFillColor.apply(null, cinzaSombra); doc.circle(pageWidth / 2 + 2, pageHeight / 2 + 2, 80, 'F');
+        doc.setFillColor.apply(null, laranjaPrincipal); doc.circle(pageWidth / 2, pageHeight / 2, 80, 'F');
+        doc.setFillColor.apply(null, verdeEscurecido); const retanguloVerdeY = pageHeight / 2 - 8;
         doc.rect(margin + 30, retanguloVerdeY, pageWidth - (margin * 2) - 60, 12, 'F');
-
-        doc.setFontSize(32);
-        doc.setTextColor(255, 255, 255);
-        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(32); doc.setTextColor(255, 255, 255); doc.setFont('helvetica', 'bold');
         doc.text('AUTO AVALIAÇÃO', pageWidth / 2, pageHeight / 2 - 20, { align: 'center' });
-
-        doc.setFontSize(12);
-        doc.setTextColor(51, 51, 51);
-        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(12); doc.setTextColor(51, 51, 51); doc.setFont('helvetica', 'normal');
         doc.text('ATA DE REGISTRO DA VISITA DE QUALIDADE', pageWidth / 2, pageHeight / 2 - 2, { align: 'center' });
-
-        doc.setFontSize(12);
-        doc.setTextColor(0, 0, 0);
-        doc.setFont('helvetica', 'bold');
-
+        doc.setFontSize(12); doc.setTextColor(0, 0, 0); doc.setFont('helvetica', 'bold');
         doc.text(`LOCAL: ${data.visitLocal || 'Não informado'}`, pageWidth / 2, pageHeight / 2 + 25, { align: 'center' });
         doc.text(`DATA: ${data.visitDate || 'Não informada'}`, pageWidth / 2, pageHeight / 2 + 33, { align: 'center' });
         doc.text(`HORÁRIO: ${data.visitTime || 'Não informado'}`, pageWidth / 2, pageHeight / 2 + 41, { align: 'center' });
 
 
-        // --- PÁGINA 2: DETALHES, COM NOVOS TEXTOS FIXOS ---
+        // --- PÁGINA 2: DETALHES, TABELA PRINCIPAL (OTIMIZADA) E OBSERVAÇÕES ---
         doc.addPage();
         let y = margin;
-
-        // Participantes (sem alterações)
-        doc.setFontSize(12);
-        doc.setFont('helvetica', 'bold');
-        doc.text('PARTICIPANTES:', margin, y);
-        doc.setFont('helvetica', 'normal');
-        const participantsText = doc.splitTextToSize(data.participants || 'Nenhum participante listado.', pageWidth - (margin * 2));
-        doc.text(participantsText, margin, y + 6);
-        y += participantsText.length * 5 + 10;
-
-        // Assunto da Reunião
-        doc.setFontSize(12);
-        doc.setFont('helvetica', 'bold');
-        doc.text('ASSUNTO DA REUNIÃO:', margin, y);
-        doc.setFont('helvetica', 'normal');
-        doc.text('Visita para auditoria de itens Roteiro do CQH', margin, y + 6);
-        y += 12;
-
-        // Foto da Equipe (sem alterações)
-        if (data.groupPhoto) {
-            doc.setFontSize(12);
-            doc.setFont('helvetica', 'bold');
-            doc.text('FOTO DA EQUIPE:', pageWidth / 2, y, { align: 'center' });
-            y += 8;
-            const imgWidth = 120;
-            const imgHeight = 80;
-            const imgX = (pageWidth - imgWidth) / 2;
-            doc.addImage(data.groupPhoto, 'PNG', imgX, y, imgWidth, imgHeight);
-            y += imgHeight + 10;
-        }
-
-        // Roteiro
-        doc.setFontSize(12);
-        doc.setFont('helvetica', 'bold');
-        doc.text('Roteiro:', margin, y);
-        doc.setFont('helvetica', 'normal');
-        doc.text('Em anexo', margin, y + 6);
-        y += 12;
-
-        // Fotos
-        doc.setFontSize(12);
-        doc.setFont('helvetica', 'bold');
-        doc.text('Fotos:', margin, y);
-        doc.setFont('helvetica', 'normal');
-        doc.text('Em anexo', margin, y + 6);
-        y += 12;
         
-        // Parágrafo descritivo
-        const paragraph = "A reunião teve início com a avaliação dos itens pertinentes ao Roteiro do CQH. Foram mostradas evidências dos itens, conforme descrito abaixo e anexamos uma proposta para dar um passo adiante para a próxima visita.";
-        const paragraphLines = doc.splitTextToSize(paragraph, pageWidth - (margin * 2));
-        doc.text(paragraphLines, margin, y);
-        y += paragraphLines.length * 6 + 10;
-
-        // Próxima Visita (sem alterações)
-        doc.setFontSize(12);
-        doc.setFont('helvetica', 'bold');
-        doc.text('PRÓXIMA VISITA:', margin, y);
-        doc.setFont('helvetica', 'normal');
-        doc.text(data.nextVisit || 'Não definida.', margin, y + 6);
+        // Detalhes, Foto, Textos Fixos (sem alterações)
+        doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.text('PARTICIPANTES:', margin, y);
+        doc.setFont('helvetica', 'normal'); const participantsText = doc.splitTextToSize(data.participants || 'Nenhum participante listado.', pageWidth - (margin * 2));
+        doc.text(participantsText, margin, y + 6); y += participantsText.length * 5 + 10;
+        doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.text('ASSUNTO DA REUNIÃO:', margin, y);
+        doc.setFont('helvetica', 'normal'); doc.text('Visita para auditoria de itens Roteiro do CQH', margin, y + 6); y += 12;
+        if (data.groupPhoto) { 
+            doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.text('FOTO DA EQUIPE:', pageWidth / 2, y, { align: 'center' });
+            y += 8; const imgWidth = 120; const imgHeight = 90; const imgX = (pageWidth - imgWidth) / 2;
+            doc.addImage(data.groupPhoto, 'PNG', imgX, y, imgWidth, imgHeight); y += imgHeight + 15;
+        }
+        doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.text('Roteiro:', margin, y);
+        doc.setFont('helvetica', 'normal'); doc.text('Em anexo', margin, y + 6); y += 12;
+        doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.text('Fotos:', margin, y);
+        doc.setFont('helvetica', 'normal'); doc.text('Em anexo', margin, y + 6); y += 12;
+        const paragraph = "A reunião teve início..."; const paragraphLines = doc.splitTextToSize(paragraph, pageWidth - (margin * 2));
+        doc.text(paragraphLines, margin, y); y += paragraphLines.length * 6 + 10;
+        doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.text('PRÓXIMA VISITA:', margin, y);
+        doc.setFont('helvetica', 'normal'); doc.text(data.nextVisit || 'Não definida.', margin, y + 6);
         
         let finalY = doc.autoTable.previous.finalY || y + 15;
 
-        // --- TABELA PRINCIPAL COM NOVAS REGRAS DE ESTILO E LISTAS ---
+        // Tabela Principal (Com otimizações de tamanho e formatação de lista)
         if (data.tableData.length > 0) {
             doc.autoTable({
                 startY: finalY,
                 head: [['Responsável', 'Seção', 'Tema', 'Item', 'Descrição do Item', 'Subitem', 'Descrição do Subitem', 'Nível de Exigência', 'Avaliação', 'Evidências', 'Propostas']],
-                body: data.tableData.map(item => [
-                    item.responsible,
-                    item.section,
-                    item.theme,
-                    item.item_number,
-                    item.description,
-                    item.subitem_number,
-                    item.subitem_description,
-                    item.exigency_level,
-                    item.evaluation,
-                    // --- AQUI É ONDE FORMATAMOS AS LISTAS ---
-                    item.evidences.split('\n').filter(line => line.trim() !== '').map(line => `• ${line.trim()}`).join('\n'),
-                    item.proposals.split('\n').filter(line => line.trim() !== '').map(line => `• ${line.trim()}`).join('\n')
-                ]),
+                body: data.tableData.map(item => {
+                    // Função auxiliar para formatar texto como lista
+                    const formatAsList = (text) => {
+                        if (!text || text.trim() === '') return ''; 
+                        return text.split('\n')
+                                   .map(line => line.trim()) 
+                                   .filter(line => line !== '') 
+                                   .map(line => `• ${line}`) 
+                                   .join('\n'); 
+                    };
+
+                    return [
+                        item.responsible, item.section, item.theme, item.item_number,
+                        item.description, item.subitem_number, item.subitem_description,
+                        item.exigency_level, item.evaluation,
+                        formatAsList(item.evidences), // Usa a função auxiliar
+                        formatAsList(item.proposals)  // Usa a função auxiliar
+                    ];
+                }),
                 theme: 'grid',
+                // --- ESTILOS MEIO-TERMO PARA LEITURA E COMPACTAÇÃO ---
                 headStyles: { 
                     fillColor: [40, 126, 184], 
-                    fontSize: 10,
-                    halign: 'center', // Centraliza o cabeçalho
-                    valign: 'middle'  // Centraliza verticalmente o cabeçalho
+                    fontSize: 9, 
+                    halign: 'center', valign: 'middle'
                 },
                 styles: { 
-                    fontSize: 9, 
-                    cellPadding: 3, 
+                    fontSize: 8, 
+                    cellPadding: 2.5, 
                     overflow: 'linebreak',
-                    halign: 'center', // --- CENTRALIZA TODO O TEXTO DA TABELA ---
-                    valign: 'middle'  // --- CENTRALIZA VERTICALMENTE TODO O TEXTO DA TABELA ---
+                    halign: 'center', valign: 'middle'
                 },
+                // --- LARGURAS DE COLUNA OTIMIZADAS ---
                 columnStyles: {
-                    0: { cellWidth: 24 }, 1: { cellWidth: 27 }, 2: { cellWidth: 20 },
-                    3: { cellWidth: 10 }, 4: { cellWidth: 30 }, 5: { cellWidth: 12 },
-                    6: { cellWidth: 30 }, 7: { cellWidth: 15 }, 8: { cellWidth: 15 },
-                    9: { cellWidth: 41, halign: 'left' }, // Alinha Evidências à esquerda para a lista
-                    10: { cellWidth: 41, halign: 'left' }, // Alinha Propostas à esquerda para a lista
+                    0: { cellWidth: 20 }, 1: { cellWidth: 25 }, 2: { cellWidth: 18 },
+                    3: { cellWidth: 8 },  4: { cellWidth: 35 }, 5: { cellWidth: 10 },
+                    6: { cellWidth: 35 }, 7: { cellWidth: 12 }, 8: { cellWidth: 12 },
+                    9: { cellWidth: 45, halign: 'left' }, 
+                    10: { cellWidth: 45, halign: 'left' },
                 },
                 didDrawPage: (hookData) => { finalY = hookData.cursor.y; }
             });
@@ -501,34 +445,19 @@ function generatePdfDocument(data) {
         // Seção "OBSERVAÇÕES DA VISITA" (sem alterações)
         if (data.visitObservations && data.visitObservations.trim() !== '') {
             finalY += 10; 
-
-            if (finalY > pageHeight - 40) {
-                doc.addPage();
-                finalY = margin;
-            }
-
+            if (finalY > pageHeight - 40) { doc.addPage(); finalY = margin; }
             const azulTitulo = [38, 108, 147];
             doc.setFillColor.apply(null, azulTitulo);
             doc.roundedRect(margin, finalY, pageWidth - (margin * 2), 12, 3, 3, 'F');
-            doc.setFontSize(16);
-            doc.setTextColor(255, 255, 255);
-            doc.setFont('helvetica', 'bold');
-            doc.text('OBSERVAÇÕES DA VISITA :', margin + 5, finalY + 8);
-            finalY += 20;
-
-            doc.setFontSize(11);
-            doc.setTextColor(0, 0, 0);
-            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(16); doc.setTextColor(255, 255, 255); doc.setFont('helvetica', 'bold');
+            doc.text('OBSERVAÇÕES DA VISITA :', margin + 5, finalY + 8); finalY += 20;
+            doc.setFontSize(11); doc.setTextColor(0, 0, 0); doc.setFont('helvetica', 'normal');
             const lines = data.visitObservations.split('\n');
             lines.forEach(line => {
                 if (line.trim() !== '') {
-                    if (finalY > pageHeight - margin) {
-                        doc.addPage();
-                        finalY = margin;
-                    }
+                    if (finalY > pageHeight - margin) { doc.addPage(); finalY = margin; }
                     const textLines = doc.splitTextToSize(`• ${line.trim()}`, pageWidth - (margin * 2) - 5);
-                    doc.text(textLines, margin + 5, finalY);
-                    finalY += textLines.length * 6;
+                    doc.text(textLines, margin + 5, finalY); finalY += textLines.length * 6;
                 }
             });
         }
@@ -538,51 +467,27 @@ function generatePdfDocument(data) {
         doc.addPage();
         y = margin;
 
-        // Fotos de Evidência
         if (data.evidencePhotos.length > 0) {
-            doc.setFontSize(18);
-            doc.setFont('helvetica', 'bold');
-            doc.text('FOTOS DE EVIDÊNCIA', pageWidth / 2, y, { align: 'center' });
-            y += 15;
-            const imagesPerRow = 3;
-            const imgWidth = 85;
-            const imgHeight = 64;
-            const horizontalGap = 5;
-            const verticalGap = 10;
-            let photoX = margin;
+            doc.setFontSize(18); doc.setFont('helvetica', 'bold');
+            doc.text('FOTOS DE EVIDÊNCIA', pageWidth / 2, y, { align: 'center' }); y += 15;
+            const imagesPerRow = 3; const imgWidth = 85; const imgHeight = 64;
+            const horizontalGap = 5; const verticalGap = 10; let photoX = margin;
             data.evidencePhotos.forEach((imgData, index) => {
-                if (index > 0 && index % imagesPerRow === 0) {
-                    photoX = margin;
-                    y += imgHeight + verticalGap;
-                }
+                if (index > 0 && index % imagesPerRow === 0) { photoX = margin; y += imgHeight + verticalGap; }
                 if (y + imgHeight > pageHeight - margin) {
-                    doc.addPage();
-                    y = margin;
-                    doc.setFontSize(18);
-                    doc.setFont('helvetica', 'bold');
-                    doc.text('FOTOS DE EVIDÊNCIA (continuação)', pageWidth / 2, y, { align: 'center' });
-                    y += 15;
-                    photoX = margin;
+                    doc.addPage(); y = margin; doc.setFontSize(18); doc.setFont('helvetica', 'bold');
+                    doc.text('FOTOS DE EVIDÊNCIA (continuação)', pageWidth / 2, y, { align: 'center' }); y += 15; photoX = margin;
                 }
-                doc.addImage(imgData, 'PNG', photoX, y, imgWidth, imgHeight);
-                photoX += imgWidth + horizontalGap;
+                doc.addImage(imgData, 'PNG', photoX, y, imgWidth, imgHeight); photoX += imgWidth + horizontalGap;
             });
             const numRows = Math.ceil(data.evidencePhotos.length / imagesPerRow);
             y = margin + 15 + (numRows * (imgHeight + verticalGap));
         }
 
-        // Plano de Ação
         if (data.actionPlan.length > 0) {
-            if (y > pageHeight - 60) {
-                doc.addPage();
-                y = margin;
-            } else {
-                y += 15;
-            }
-            doc.setFontSize(18);
-            doc.setFont('helvetica', 'bold');
-            doc.text('PLANO DE AÇÃO', pageWidth / 2, y, { align: 'center' });
-            y += 10;
+            if (y > pageHeight - 60) { doc.addPage(); y = margin; } else { y += 15; }
+            doc.setFontSize(18); doc.setFont('helvetica', 'bold');
+            doc.text('PLANO DE AÇÃO', pageWidth / 2, y, { align: 'center' }); y += 10;
             doc.autoTable({
                 startY: y,
                 head: [['AÇÃO', 'RESPONSÁVEL', 'SETOR', 'PRAZO PARA FINALIZAÇÃO']],
