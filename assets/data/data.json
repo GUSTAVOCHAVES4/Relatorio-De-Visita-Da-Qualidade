@@ -217,7 +217,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "946fdcfe-df89-49ff-a7b0-0ae2927eb325",
@@ -679,7 +679,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "**",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "1ef3e0ba-73f8-440c-8a6d-cee55ce03d7a",
@@ -690,7 +690,7 @@
    "subitem_number": 1,
    "subitem_description": "Licença de funcionamento",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "5a8e2f67-37b3-4b52-93dd-5590941a6ac7",
@@ -701,7 +701,7 @@
    "subitem_number": 2,
    "subitem_description": "Cadastros da força de trabalho",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "c144d413-3754-4ea5-80c0-872637443c1b",
@@ -712,7 +712,7 @@
    "subitem_number": 3,
    "subitem_description": "Manuais de rotinas e procedimentos",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "9c356b48-ffe2-4c9b-aaaf-b8ab45ce1f9b",
@@ -723,7 +723,7 @@
    "subitem_number": 4,
    "subitem_description": "Registros de treinamentos",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "f11a4abd-ad18-4b25-ab5b-84da2b3ec08b",
@@ -734,7 +734,7 @@
    "subitem_number": 5,
    "subitem_description": "Escalas de trabalho",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "feb26b8d-e119-4f4e-a462-70f78bafe42e",
@@ -745,7 +745,7 @@
    "subitem_number": 6,
    "subitem_description": "Documentação relacionada com a saúde ocupacional (Atestado de Saúde Ocupacional ASO, PGR, PCMSO)",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "27e90b63-00c4-4682-a658-cd8249ec1132",
@@ -756,7 +756,7 @@
    "subitem_number": 7,
    "subitem_description": "Requisitos e/ou metas desejadas pelo hospital",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "594c9e18-10bf-4cd1-b90b-0bd574f76342",
@@ -767,7 +767,7 @@
    "subitem_number": 8,
    "subitem_description": "Declaração de regularidade com os requisitos legais aplicáveis às questões socioambientais",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "28b59ddb-a7fe-44e7-9f73-b929d788bfb9",
@@ -778,7 +778,7 @@
    "subitem_number": 9,
    "subitem_description": "Cronograma de manutenção preventiva de equipamentos",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "1e7e315d-237f-461a-b508-8698ded19a2d",
@@ -789,7 +789,7 @@
    "subitem_number": 10,
    "subitem_description": "Supervisão do processo",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "d3c8566d-fc53-40ff-b530-317c99acd277",
@@ -800,7 +800,7 @@
    "subitem_number": 11,
    "subitem_description": "Solidez financeira",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "c432ae05-a7bd-493b-b1e5-5b0b7e9e9dec",
@@ -811,7 +811,7 @@
    "subitem_number": 12,
    "subitem_description": "Não usar mão de obra infantil ou escrava (comprovante)",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "2a6d60c1-6851-4375-a3ad-a78a98816fcc",
@@ -1032,6 +1032,39 @@
    "subitem_description": "",
    "exigency_level": "**",
    "responsible": "NEPI"
+ },
+  {
+   "master_id": "ec66ce2c-e5db-4158-9201-90a6cddd77f7",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "DAC"
+ },
+ {
+   "master_id": "ae15a10d-70d4-4bd9-b6aa-70e751f773dc",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "DAC"
+ },
+  {
+   "master_id": "e0498b6e-0ef9-47b7-831f-995849071de2",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "DAC"
  },
  {
    "master_id": "00737c8e-1ca3-45ea-90c4-92c912ad922f",
@@ -1262,7 +1295,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "*",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "6f2fade8-dd02-4feb-9dae-4f4ab1fc1aed",
@@ -1438,7 +1471,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "3e40ae54-3961-4188-9e93-8297e0648e1a",
@@ -1460,7 +1493,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "1ffc4dfe-0ca1-4fe4-92cd-c2311a48af7c",
@@ -1834,7 +1867,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "33b3c3f8-c27a-472f-a40f-106ee049b534",
@@ -1900,7 +1933,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "deb4348d-7efe-4f80-b796-927c4ba9dff2",
@@ -1955,7 +1988,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "8633843b-5c85-4b8e-a910-d3f83c2d790c",
@@ -2296,7 +2329,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "d2635caa-faa0-4cc0-974e-e132e1a3858f",
@@ -2351,7 +2384,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "7d9b94b9-7ca1-4353-9506-984697035d81",
@@ -2747,7 +2780,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "1ace09c0-963b-4254-8cf4-9e4ad8ce22b7",
@@ -2791,7 +2824,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "*",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "f07b17ff-0537-4acf-b038-6913ba650572",
@@ -2835,7 +2868,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "9c9a9ebf-2342-4c8e-b47e-1c178dc87518",
@@ -3143,7 +3176,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "86850fd9-515d-499f-8238-d0e69c6618c3",
@@ -3154,7 +3187,7 @@
    "subitem_number": 1,
    "subitem_description": "Edição de novos padrões de trabalho (divulgação interna dos manuais de normas e procedimentos do hospital, alterados a partir de novos conhecimentos)",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "faf5e147-1d22-441a-8a52-bc4b0178bfda",
@@ -3165,7 +3198,7 @@
    "subitem_number": 2,
    "subitem_description": "Capacitação interna (cursos e/ou seminários internos realizados por profissionais do próprio hospital)",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "d04adeb0-c572-4f7c-bb7d-956bdda8f02b",
@@ -3176,7 +3209,7 @@
    "subitem_number": 3,
    "subitem_description": "Divulgação de boletins técnicos",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "170c8cb5-f467-42a4-ace5-196183682eee",
@@ -3187,7 +3220,7 @@
    "subitem_number": 4,
    "subitem_description": "Disseminação interna das boas práticas do hospital",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "a1ac418a-18a2-4645-8038-be411c004e0f",
@@ -3198,7 +3231,7 @@
    "subitem_number": 5,
    "subitem_description": "Banco de dados de conhecimento (atas de reuniões técnicas)",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "680a2531-aa62-45c5-9801-fbf8a839b0b1",
@@ -3242,7 +3275,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "8f4bb0a8-8517-4b38-b008-c49bfce7405e",
@@ -3308,7 +3341,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "cae7b3b1-96fa-4e8e-b320-afe98ccc29af",
@@ -3407,7 +3440,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "d750d163-7cef-4a72-a48d-bc932161ede1",
@@ -3462,7 +3495,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "f26d5bb4-0839-4632-9084-2804c3dc65af",
@@ -3627,7 +3660,7 @@
    "subitem_number": 6,
    "subitem_description": "De terceirização",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "75634a3c-52dd-4269-b9ec-bb1046ba3fde",
@@ -3682,7 +3715,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "**",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "fd74d7e7-eda1-43a0-bfa7-48eda797e895",
@@ -3748,7 +3781,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "537ed540-1857-4980-88f1-ce9266664104",
@@ -4375,7 +4408,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "*",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "8abc4c28-cce2-422f-af03-669e503f8dea",
@@ -4485,7 +4518,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "88ed2d46-7213-4855-b8a7-55acc6c24d34",
@@ -4540,7 +4573,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "b7e21809-801c-4f3c-b7af-a1dac71321cb",
@@ -4595,7 +4628,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "77eff909-e930-4623-8a2c-2e320f12d1af",
@@ -4628,7 +4661,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "24cef085-867d-4040-a5bf-7f9f5b69e4de",
@@ -4683,7 +4716,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "1d6cf8f7-97d4-40cf-8284-34f3d429ffb4",
@@ -4760,7 +4793,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "2946b5a5-c246-4e5f-829d-71b0fedf0602",
@@ -4771,7 +4804,7 @@
    "subitem_number": 1,
    "subitem_description": "Reuniões específicas para aprendizado",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "df4e8998-9557-4747-b5f4-b2f02a8890a2",
@@ -4782,7 +4815,7 @@
    "subitem_number": 2,
    "subitem_description": "Correlações entre seus indicadores",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "d8011842-03f3-4895-932a-ff4426a3dd0e",
@@ -4793,7 +4826,7 @@
    "subitem_number": 3,
    "subitem_description": "Ferramentas da Qualidade (gráfico de Pareto, 5W2H, Brainstorming)",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "77423a13-bf60-450d-98da-91482129e824",
@@ -4936,7 +4969,7 @@
    "subitem_number": 5,
    "subitem_description": "Autoavaliação",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "32cbf002-507d-4868-a279-8036e20f2556",
@@ -5019,7 +5052,7 @@
    "master_id": "bd9fbedf-6bbc-4d3b-aa3e-9c28d02ad55f",
    "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
    "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "Identifica todos os pacientes, em todas as fases do atendimento, com nome associado a no mínimo mais uma informação (data de nascimento, nome da mãe, número do atendimento)?",
+   "description": "Identifica todos os pacientes, em todas as fases do atendimento, com nome associado a no mínimo mais uma informação (DACa de nascimento, nome da mãe, número do atendimento)?",
    "item_number": 15,
    "subitem_number": null,
    "subitem_description": "",
@@ -5030,7 +5063,7 @@
    "master_id": "5e6f49d0-64d2-46fc-86f7-74b17df3a44a",
    "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
    "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "Identifica todos os pacientes, em todas as fases do atendimento, com nome associado a no mínimo mais uma informação (data de nascimento, nome da mãe, número do atendimento)?",
+   "description": "Identifica todos os pacientes, em todas as fases do atendimento, com nome associado a no mínimo mais uma informação (DACa de nascimento, nome da mãe, número do atendimento)?",
    "item_number": 15,
    "subitem_number": null,
    "subitem_description": "",
@@ -6344,7 +6377,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "8b0b1c9f-8527-4ed1-975c-12304461b21d",
@@ -6553,7 +6586,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "d0d275df-daa8-405e-8a94-ca8382895f18",
@@ -6586,13 +6619,13 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "11c84087-d69e-4c77-a25a-43ae4c092445",
    "section": "FUNDAMENTO 7 - PROCESSO MATERNO INFANTIL",
    "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "Todos os binômios mãe e recém-nascido (2 pulseiras) permanecem identificados em todas as fases do atendimento, com nome associado a no mínimo mais uma informação (data de nascimento, nome da mãe, número do atendimento)?",
+   "description": "Todos os binômios mãe e recém-nascido (2 pulseiras) permanecem identificados em todas as fases do atendimento, com nome associado a no mínimo mais uma informação (DACa de nascimento, nome da mãe, número do atendimento)?",
    "item_number": 58,
    "subitem_number": null,
    "subitem_description": "",
@@ -6603,7 +6636,7 @@
    "master_id": "3bdca363-91db-43ec-b271-c8c5f32926b1",
    "section": "FUNDAMENTO 7 - PROCESSO MATERNO INFANTIL",
    "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "Todos os binômios mãe e recém-nascido (2 pulseiras) permanecem identificados em todas as fases do atendimento, com nome associado a no mínimo mais uma informação (data de nascimento, nome da mãe, número do atendimento)?",
+   "description": "Todos os binômios mãe e recém-nascido (2 pulseiras) permanecem identificados em todas as fases do atendimento, com nome associado a no mínimo mais uma informação (DACa de nascimento, nome da mãe, número do atendimento)?",
    "item_number": 58,
    "subitem_number": null,
    "subitem_description": "",
@@ -9342,7 +9375,7 @@
    "master_id": "87507224-a564-423b-a0f5-c38be6392860",
    "section": "FUNDAMENTO 7 - PROCESSO DIAGNÓSTICO POR IMAGEM",
    "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "Todos os exames de imagem processados têm identificação, contendo nome, registro do paciente e data?",
+   "description": "Todos os exames de imagem processados têm identificação, contendo nome, registro do paciente e DACa?",
    "item_number": 126,
    "subitem_number": null,
    "subitem_description": "",
@@ -9677,7 +9710,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT / DAI / DAS"
+   "responsible": "DAC / DAI / DAS"
  },
  {
    "master_id": "2472ffb0-7717-43da-b560-b9fec70a475d",
@@ -9688,7 +9721,7 @@
    "subitem_number": 1,
    "subitem_description": "Profissionais de Laboratório",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "2055de22-4cf5-4ac1-92f6-0512ff4a84be",
@@ -9699,7 +9732,7 @@
    "subitem_number": 2,
    "subitem_description": "Profissionais da Radiologia, incluindo médicos",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "9290c43b-4a38-45ca-b6da-f33a46d757bd",
@@ -9796,7 +9829,7 @@
    "description": "",
    "item_number": 150,
    "subitem_number": 1,
-   "subitem_description": "Folhas datadas",
+   "subitem_description": "Folhas DACadas",
    "exigency_level": "",
    "responsible": "SAME"
  },
@@ -9895,7 +9928,7 @@
    "description": "",
    "item_number": 150,
    "subitem_number": 1,
-   "subitem_description": "Folhas datadas",
+   "subitem_description": "Folhas DACadas",
    "exigency_level": "",
    "responsible": "COMISSÃO DE PRONTUÁRIO"
  },
@@ -9994,7 +10027,7 @@
    "description": "",
    "item_number": 150,
    "subitem_number": 1,
-   "subitem_description": "Folhas datadas",
+   "subitem_description": "Folhas DACadas",
    "exigency_level": "",
    "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
  },
@@ -10920,7 +10953,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "652f18cb-9c6f-4f2a-af2a-a0a2ee287327",
@@ -11613,7 +11646,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "a1d7d7dd-45ea-42c7-83df-9ed98ae06765",
@@ -12251,7 +12284,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "9dd253c6-c90a-453f-a785-87d657aa4d6f",
@@ -12295,7 +12328,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "72e6482e-e579-4fd1-b2a4-8ab315ba5403",
@@ -12339,7 +12372,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAT"
+   "responsible": "DAC"
  },
  {
    "master_id": "cf44c303-ee46-4d88-b607-c53477b472f1",

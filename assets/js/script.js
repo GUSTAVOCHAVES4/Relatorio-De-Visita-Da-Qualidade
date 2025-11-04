@@ -341,12 +341,16 @@ function generatePdfDocument(data) {
         const pageWidth = doc.internal.pageSize.getWidth();
         const margin = 15;
 
+        // Cores padrão para títulos destacados
+        const azulTitulo = [38, 108, 147]; // Azul escuro
+        const brancoTexto = [255, 255, 255]; // Texto branco
+
         // --- PÁGINA 1: CAPA (sem alterações) ---
         const laranjaPrincipal = [245, 127, 23];
         const verdeEscurecido = [180, 230, 140];
         const cinzaSombra = [189, 189, 189];
-        const logoHSPM = 'assets/images/logo-hspm.jpg'; // Verifique o caminho
-        const logoSP = 'assets/images/logo-prefeitura-sp.jpg'; // Verifique o caminho
+        const logoHSPM = 'assets/images/logo-hspm.jpg';
+        const logoSP = 'assets/images/logo-prefeitura-sp.jpg';
         doc.addImage(logoHSPM, 'JPG', margin, 8, 30, 15);
         doc.addImage(logoSP, 'JPG', pageWidth - margin - 25, 8, 25, 25);
         doc.setFontSize(12); doc.setTextColor(0, 0, 0); doc.setFont('helvetica', 'bold');
@@ -367,39 +371,101 @@ function generatePdfDocument(data) {
         doc.text(`HORÁRIO: ${data.visitTime || 'Não informado'}`, pageWidth / 2, pageHeight / 2 + 41, { align: 'center' });
 
 
-        // --- PÁGINA 2: DETALHES, TABELA PRINCIPAL (OTIMIZADA) E OBSERVAÇÕES ---
+        // --- PÁGINA 2: DETALHES (COM LAYOUT E ESTILO CORRIGIDOS) ---
         doc.addPage();
         let y = margin;
         
-        // Detalhes, Foto, Textos Fixos (sem alterações)
-        doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.text('PARTICIPANTES:', margin, y);
-        doc.setFont('helvetica', 'normal'); const participantsText = doc.splitTextToSize(data.participants || 'Nenhum participante listado.', pageWidth - (margin * 2));
-        doc.text(participantsText, margin, y + 6); y += participantsText.length * 5 + 10;
-        doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.text('ASSUNTO DA REUNIÃO:', margin, y);
-        doc.setFont('helvetica', 'normal'); doc.text('Visita para auditoria de itens Roteiro do CQH', margin, y + 6); y += 12;
-        if (data.groupPhoto) { 
-            doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.text('FOTO DA EQUIPE:', pageWidth / 2, y, { align: 'center' });
-            y += 8; const imgWidth = 120; const imgHeight = 90; const imgX = (pageWidth - imgWidth) / 2;
-            doc.addImage(data.groupPhoto, 'PNG', imgX, y, imgWidth, imgHeight); y += imgHeight + 15;
-        }
-        doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.text('Roteiro:', margin, y);
-        doc.setFont('helvetica', 'normal'); doc.text('Em anexo', margin, y + 6); y += 12;
-        doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.text('Fotos:', margin, y);
-        doc.setFont('helvetica', 'normal'); doc.text('Em anexo', margin, y + 6); y += 12;
-        const paragraph = "A reunião teve início..."; const paragraphLines = doc.splitTextToSize(paragraph, pageWidth - (margin * 2));
-        doc.text(paragraphLines, margin, y); y += paragraphLines.length * 6 + 10;
-        doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.text('PRÓXIMA VISITA:', margin, y);
-        doc.setFont('helvetica', 'normal'); doc.text(data.nextVisit || 'Não definida.', margin, y + 6);
-        
-        let finalY = doc.autoTable.previous.finalY || y + 15;
+        // Constantes para o layout da página 2
+        const barHeight = 10;
+        const textPadding = 7; // Espaço vertical entre o fim da barra e o início do texto
+        const blockSpacing = 12; // Espaço entre o fim de um bloco de texto e o início do próximo título
 
-        // Tabela Principal (Com otimizações de tamanho e formatação de lista)
+        // --- PARTICIPANTES ---
+        doc.setFillColor.apply(null, azulTitulo);
+        doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 3, 3, 'F');
+        doc.setFontSize(12); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
+        doc.text('PARTICIPANTES:', margin + 5, y + 6.5); // Centralizado verticalmente na barra
+        
+        y += barHeight + textPadding; // Move 'y' para DEPOIS da barra + padding
+
+        doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); // Conteúdo em negrito
+        const participantsText = doc.splitTextToSize(data.participants || 'Nenhum participante listado.', pageWidth - (margin * 2) - 10); // -10 para padding
+        doc.text(participantsText, margin + 5, y); 
+        y += participantsText.length * 5 + blockSpacing; // Incrementa pelo tamanho do texto + espaçamento do bloco
+
+        // --- ASSUNTO DA REUNIÃO ---
+        doc.setFillColor.apply(null, azulTitulo);
+        doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 3, 3, 'F');
+        doc.setFontSize(12); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
+        doc.text('ASSUNTO DA REUNIÃO:', margin + 5, y + 6.5);
+        
+        y += barHeight + textPadding; // Move 'y' para DEPOIS da barra + padding
+
+        doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); // Conteúdo em negrito
+        doc.text('Visita para auditoria de itens Roteiro do CQH', margin + 5, y); 
+        y += 7 + blockSpacing; // Incrementa por 1 linha de texto + espaçamento do bloco
+
+        // --- FOTO DA EQUIPE ---
+        if (data.groupPhoto) {
+            const imgExpectedHeight = 90 + 20; 
+            if (y + imgExpectedHeight > pageHeight - margin) {
+                doc.addPage();
+                y = margin;
+            }
+            doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0);
+            doc.text('FOTO DA EQUIPE:', pageWidth / 2, y, { align: 'center' });
+            y += 8;
+            const imgWidth = 120;
+            const imgHeight = 90;
+            const imgX = (pageWidth - imgWidth) / 2;
+            doc.addImage(data.groupPhoto, 'PNG', imgX, y, imgWidth, imgHeight);
+            y += imgHeight + 15; 
+        }
+        
+        // --- Roteiro, Fotos, Parágrafo (com alinhamento corrigido) ---
+        doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0);
+        doc.text('Roteiro:', margin, y);
+        doc.setFont('helvetica', 'normal');
+        doc.text('Em anexo', margin + 25, y); // Texto ao lado
+        y += 7;
+
+        doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0);
+        doc.text('Fotos:', margin, y);
+        doc.setFont('helvetica', 'normal');
+        doc.text('Em anexo', margin + 25, y); // Texto ao lado
+        y += 10;
+        
+        const paragraph = "A reunião teve início com a avaliação dos itens pertinentes ao Roteiro do CQH. Foram mostradas evidências dos itens, conforme descrito abaixo e anexamos uma proposta para dar um passo adiante para a próxima visita.";
+        const paragraphLines = doc.splitTextToSize(paragraph, pageWidth - (margin * 2));
+        doc.setFont('helvetica', 'normal'); // Parágrafo com fonte normal
+        doc.text(paragraphLines, margin, y);
+        y += paragraphLines.length * 6 + blockSpacing;
+
+        // --- PRÓXIMA VISITA ---
+        if (y + 40 > pageHeight - margin) { // Verifica espaço
+            doc.addPage();
+            y = margin;
+        }
+        doc.setFillColor.apply(null, azulTitulo);
+        doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 3, 3, 'F');
+        doc.setFontSize(12); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
+        doc.text('PRÓXIMA VISITA:', margin + 5, y + 6.5);
+        
+        y += barHeight + textPadding; // Move 'y' para DEPOIS da barra + padding
+
+        doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); // Conteúdo em negrito
+        doc.text(data.nextVisit || 'Não definida.', margin + 5, y); 
+        y += 15; // Espaço após o texto
+        
+        let finalY = y + 5; // Espaço final antes da tabela
+
+
+        // Tabela Principal (sem alterações na lógica)
         if (data.tableData.length > 0) {
             doc.autoTable({
                 startY: finalY,
                 head: [['Responsável', 'Seção', 'Tema', 'Item', 'Descrição do Item', 'Subitem', 'Descrição do Subitem', 'Nível de Exigência', 'Avaliação', 'Evidências', 'Propostas']],
                 body: data.tableData.map(item => {
-                    // Função auxiliar para formatar texto como lista
                     const formatAsList = (text) => {
                         if (!text || text.trim() === '') return ''; 
                         return text.split('\n')
@@ -408,17 +474,15 @@ function generatePdfDocument(data) {
                                    .map(line => `• ${line}`) 
                                    .join('\n'); 
                     };
-
                     return [
                         item.responsible, item.section, item.theme, item.item_number,
                         item.description, item.subitem_number, item.subitem_description,
                         item.exigency_level, item.evaluation,
-                        formatAsList(item.evidences), // Usa a função auxiliar
-                        formatAsList(item.proposals)  // Usa a função auxiliar
+                        formatAsList(item.evidences), 
+                        formatAsList(item.proposals) 
                     ];
                 }),
                 theme: 'grid',
-                // --- ESTILOS MEIO-TERMO PARA LEITURA E COMPACTAÇÃO ---
                 headStyles: { 
                     fillColor: [40, 126, 184], 
                     fontSize: 9, 
@@ -430,7 +494,6 @@ function generatePdfDocument(data) {
                     overflow: 'linebreak',
                     halign: 'center', valign: 'middle'
                 },
-                // --- LARGURAS DE COLUNA OTIMIZADAS ---
                 columnStyles: {
                     0: { cellWidth: 20 }, 1: { cellWidth: 25 }, 2: { cellWidth: 18 },
                     3: { cellWidth: 8 },  4: { cellWidth: 35 }, 5: { cellWidth: 10 },
@@ -438,7 +501,9 @@ function generatePdfDocument(data) {
                     9: { cellWidth: 45, halign: 'left' }, 
                     10: { cellWidth: 45, halign: 'left' },
                 },
-                didDrawPage: (hookData) => { finalY = hookData.cursor.y; }
+                didDrawPage: (hookData) => { 
+                    finalY = hookData.cursor.y;
+                }
             });
         }
         
@@ -446,7 +511,6 @@ function generatePdfDocument(data) {
         if (data.visitObservations && data.visitObservations.trim() !== '') {
             finalY += 10; 
             if (finalY > pageHeight - 40) { doc.addPage(); finalY = margin; }
-            const azulTitulo = [38, 108, 147];
             doc.setFillColor.apply(null, azulTitulo);
             doc.roundedRect(margin, finalY, pageWidth - (margin * 2), 12, 3, 3, 'F');
             doc.setFontSize(16); doc.setTextColor(255, 255, 255); doc.setFont('helvetica', 'bold');
