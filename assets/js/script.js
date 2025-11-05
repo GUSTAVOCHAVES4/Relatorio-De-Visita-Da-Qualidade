@@ -340,6 +340,7 @@ function generatePdfDocument(data) {
         const pageHeight = doc.internal.pageSize.getHeight();
         const pageWidth = doc.internal.pageSize.getWidth();
         const margin = 15;
+        const pageBottom = pageHeight - margin; // Limite inferior da página
 
         // Cores padrão para títulos destacados
         const azulTitulo = [38, 108, 147]; // Azul escuro
@@ -371,44 +372,41 @@ function generatePdfDocument(data) {
         doc.text(`HORÁRIO: ${data.visitTime || 'Não informado'}`, pageWidth / 2, pageHeight / 2 + 41, { align: 'center' });
 
 
-        // --- PÁGINA 2: DETALHES (COM LAYOUT E ESTILO CORRIGIDOS) ---
+        // --- PÁGINA 2: DETALHES (COM LAYOUT E LÓGICA DE PÁGINA CORRIGIDOS) ---
         doc.addPage();
         let y = margin;
         
-        // Constantes para o layout da página 2
         const barHeight = 10;
-        const textPadding = 7; // Espaço vertical entre o fim da barra e o início do texto
-        const blockSpacing = 12; // Espaço entre o fim de um bloco de texto e o início do próximo título
+        const textPadding = 5; 
+        const blockSpacing = 8; 
 
         // --- PARTICIPANTES ---
         doc.setFillColor.apply(null, azulTitulo);
         doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 3, 3, 'F');
         doc.setFontSize(12); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
-        doc.text('PARTICIPANTES:', margin + 5, y + 6.5); // Centralizado verticalmente na barra
-        
-        y += barHeight + textPadding; // Move 'y' para DEPOIS da barra + padding
-
-        doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); // Conteúdo em negrito
-        const participantsText = doc.splitTextToSize(data.participants || 'Nenhum participante listado.', pageWidth - (margin * 2) - 10); // -10 para padding
+        doc.text('PARTICIPANTES:', margin + 5, y + 6.5); 
+        y += barHeight + textPadding; 
+        doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); 
+        const participantsText = doc.splitTextToSize(data.participants || 'Nenhum participante listado.', pageWidth - (margin * 2) - 10); 
         doc.text(participantsText, margin + 5, y); 
-        y += participantsText.length * 5 + blockSpacing; // Incrementa pelo tamanho do texto + espaçamento do bloco
+        y += participantsText.length * 5 + blockSpacing; 
 
         // --- ASSUNTO DA REUNIÃO ---
         doc.setFillColor.apply(null, azulTitulo);
         doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 3, 3, 'F');
         doc.setFontSize(12); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
         doc.text('ASSUNTO DA REUNIÃO:', margin + 5, y + 6.5);
-        
-        y += barHeight + textPadding; // Move 'y' para DEPOIS da barra + padding
-
-        doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); // Conteúdo em negrito
+        y += barHeight + textPadding; 
+        doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); 
         doc.text('Visita para auditoria de itens Roteiro do CQH', margin + 5, y); 
-        y += 7 + blockSpacing; // Incrementa por 1 linha de texto + espaçamento do bloco
+        y += 7 + blockSpacing; 
 
         // --- FOTO DA EQUIPE ---
         if (data.groupPhoto) {
-            const imgExpectedHeight = 90 + 20; 
-            if (y + imgExpectedHeight > pageHeight - margin) {
+            const imgTitleHeight = 15;
+            const imgHeight = 90;
+            // Verifica se o título da imagem + a imagem cabem na página
+            if (y + imgTitleHeight + imgHeight > pageBottom) {
                 doc.addPage();
                 y = margin;
             }
@@ -416,49 +414,49 @@ function generatePdfDocument(data) {
             doc.text('FOTO DA EQUIPE:', pageWidth / 2, y, { align: 'center' });
             y += 8;
             const imgWidth = 120;
-            const imgHeight = 90;
             const imgX = (pageWidth - imgWidth) / 2;
             doc.addImage(data.groupPhoto, 'PNG', imgX, y, imgWidth, imgHeight);
-            y += imgHeight + 15; 
+            y += imgHeight + 10; 
         }
         
-        // --- Roteiro, Fotos, Parágrafo (com alinhamento corrigido) ---
+        // --- Roteiro, Fotos, Parágrafo (com verificação de quebra de página) ---
+        if (y + 30 > pageBottom) { doc.addPage(); y = margin; } // Verifica espaço para os próximos 3 blocos
         doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0);
         doc.text('Roteiro:', margin, y);
         doc.setFont('helvetica', 'normal');
-        doc.text('Em anexo', margin + 25, y); // Texto ao lado
+        doc.text('Em anexo', margin + 25, y); 
         y += 7;
 
         doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0);
         doc.text('Fotos:', margin, y);
         doc.setFont('helvetica', 'normal');
-        doc.text('Em anexo', margin + 25, y); // Texto ao lado
-        y += 10;
+        doc.text('Em anexo', margin + 25, y); 
+        y += 8;
         
         const paragraph = "A reunião teve início com a avaliação dos itens pertinentes ao Roteiro do CQH. Foram mostradas evidências dos itens, conforme descrito abaixo e anexamos uma proposta para dar um passo adiante para a próxima visita.";
         const paragraphLines = doc.splitTextToSize(paragraph, pageWidth - (margin * 2));
-        doc.setFont('helvetica', 'normal'); // Parágrafo com fonte normal
+        const paragraphHeight = paragraphLines.length * 6;
+        if (y + paragraphHeight > pageBottom) { doc.addPage(); y = margin; } // Verifica espaço
+        doc.setFont('helvetica', 'bold'); 
+        doc.setTextColor(0, 0, 0);
         doc.text(paragraphLines, margin, y);
-        y += paragraphLines.length * 6 + blockSpacing;
+        y += paragraphHeight + blockSpacing;
 
         // --- PRÓXIMA VISITA ---
-        if (y + 40 > pageHeight - margin) { // Verifica espaço
-            doc.addPage();
-            y = margin;
-        }
+        const proximaVisitaHeight = barHeight + textPadding + 7 + blockSpacing;
+        if (y + proximaVisitaHeight > pageBottom) { doc.addPage(); y = margin; } // Verifica espaço
+        
         doc.setFillColor.apply(null, azulTitulo);
         doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 3, 3, 'F');
         doc.setFontSize(12); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
         doc.text('PRÓXIMA VISITA:', margin + 5, y + 6.5);
-        
-        y += barHeight + textPadding; // Move 'y' para DEPOIS da barra + padding
-
-        doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); // Conteúdo em negrito
+        y += barHeight + textPadding; 
+        doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); 
         doc.text(data.nextVisit || 'Não definida.', margin + 5, y); 
-        y += 15; // Espaço após o texto
         
-        let finalY = y + 5; // Espaço final antes da tabela
-
+        // --- INÍCIO DA TABELA (SEMPRE EM PÁGINA NOVA) ---
+        doc.addPage(); // Força uma nova página para a tabela
+        let finalY = margin; // Tabela começa no topo da nova página
 
         // Tabela Principal (sem alterações na lógica)
         if (data.tableData.length > 0) {
@@ -468,11 +466,7 @@ function generatePdfDocument(data) {
                 body: data.tableData.map(item => {
                     const formatAsList = (text) => {
                         if (!text || text.trim() === '') return ''; 
-                        return text.split('\n')
-                                   .map(line => line.trim()) 
-                                   .filter(line => line !== '') 
-                                   .map(line => `• ${line}`) 
-                                   .join('\n'); 
+                        return text.split('\n').map(line => line.trim()).filter(line => line !== '').map(line => `• ${line}`).join('\n'); 
                     };
                     return [
                         item.responsible, item.section, item.theme, item.item_number,
@@ -484,15 +478,12 @@ function generatePdfDocument(data) {
                 }),
                 theme: 'grid',
                 headStyles: { 
-                    fillColor: [40, 126, 184], 
-                    fontSize: 9, 
+                    fillColor: [40, 126, 184], fontSize: 9, 
                     halign: 'center', valign: 'middle'
                 },
                 styles: { 
-                    fontSize: 8, 
-                    cellPadding: 2.5, 
-                    overflow: 'linebreak',
-                    halign: 'center', valign: 'middle'
+                    fontSize: 8, cellPadding: 2.5, 
+                    overflow: 'linebreak', halign: 'center', valign: 'middle'
                 },
                 columnStyles: {
                     0: { cellWidth: 20 }, 1: { cellWidth: 25 }, 2: { cellWidth: 18 },
@@ -525,7 +516,6 @@ function generatePdfDocument(data) {
                 }
             });
         }
-
 
         // --- PÁGINA FINAL: FOTOS E PLANO DE AÇÃO (sem alterações) ---
         doc.addPage();
