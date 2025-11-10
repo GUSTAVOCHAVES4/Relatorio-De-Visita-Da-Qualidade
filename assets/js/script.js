@@ -340,7 +340,6 @@ function generatePdfDocument(data) {
         const pageHeight = doc.internal.pageSize.getHeight();
         const pageWidth = doc.internal.pageSize.getWidth();
         const margin = 15;
-        const pageBottom = pageHeight - margin; // Limite inferior da página
 
         // Cores padrão para títulos destacados
         const azulTitulo = [38, 108, 147]; // Azul escuro
@@ -376,11 +375,20 @@ function generatePdfDocument(data) {
         doc.addPage();
         let y = margin;
         
+        const checkAddPage = (currentY, requiredHeight) => {
+            if (currentY + requiredHeight > pageHeight - margin) {
+                doc.addPage();
+                return margin; 
+            }
+            return currentY; 
+        };
+
         const barHeight = 10;
-        const textPadding = 5; 
-        const blockSpacing = 8; 
+        const textPadding = 7; 
+        const blockSpacing = 12; 
 
         // --- PARTICIPANTES ---
+        y = checkAddPage(y, barHeight + textPadding + 5 + blockSpacing); 
         doc.setFillColor.apply(null, azulTitulo);
         doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 3, 3, 'F');
         doc.setFontSize(12); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
@@ -392,6 +400,7 @@ function generatePdfDocument(data) {
         y += participantsText.length * 5 + blockSpacing; 
 
         // --- ASSUNTO DA REUNIÃO ---
+        y = checkAddPage(y, barHeight + textPadding + 7 + blockSpacing);
         doc.setFillColor.apply(null, azulTitulo);
         doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 3, 3, 'F');
         doc.setFontSize(12); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
@@ -403,24 +412,18 @@ function generatePdfDocument(data) {
 
         // --- FOTO DA EQUIPE ---
         if (data.groupPhoto) {
-            const imgTitleHeight = 15;
-            const imgHeight = 90;
-            // Verifica se o título da imagem + a imagem cabem na página
-            if (y + imgTitleHeight + imgHeight > pageBottom) {
-                doc.addPage();
-                y = margin;
-            }
+            const imgExpectedHeight = 90 + 20 + 15; 
+            y = checkAddPage(y, imgExpectedHeight);
             doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0);
             doc.text('FOTO DA EQUIPE:', pageWidth / 2, y, { align: 'center' });
             y += 8;
-            const imgWidth = 120;
-            const imgX = (pageWidth - imgWidth) / 2;
+            const imgWidth = 120; const imgHeight = 90; const imgX = (pageWidth - imgWidth) / 2;
             doc.addImage(data.groupPhoto, 'PNG', imgX, y, imgWidth, imgHeight);
-            y += imgHeight + 10; 
+            y += imgHeight + 15; 
         }
         
-        // --- Roteiro, Fotos, Parágrafo (com verificação de quebra de página) ---
-        if (y + 30 > pageBottom) { doc.addPage(); y = margin; } // Verifica espaço para os próximos 3 blocos
+        // --- Roteiro, Fotos, Parágrafo (COM VERIFICAÇÃO DE PÁGINA) ---
+        y = checkAddPage(y, 30); 
         doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0);
         doc.text('Roteiro:', margin, y);
         doc.setFont('helvetica', 'normal');
@@ -431,20 +434,20 @@ function generatePdfDocument(data) {
         doc.text('Fotos:', margin, y);
         doc.setFont('helvetica', 'normal');
         doc.text('Em anexo', margin + 25, y); 
-        y += 8;
+        y += 10;
         
         const paragraph = "A reunião teve início com a avaliação dos itens pertinentes ao Roteiro do CQH. Foram mostradas evidências dos itens, conforme descrito abaixo e anexamos uma proposta para dar um passo adiante para a próxima visita.";
         const paragraphLines = doc.splitTextToSize(paragraph, pageWidth - (margin * 2));
-        const paragraphHeight = paragraphLines.length * 6;
-        if (y + paragraphHeight > pageBottom) { doc.addPage(); y = margin; } // Verifica espaço
+        const paragraphHeight = paragraphLines.length * 6 + blockSpacing;
+        y = checkAddPage(y, paragraphHeight); 
         doc.setFont('helvetica', 'bold'); 
         doc.setTextColor(0, 0, 0);
         doc.text(paragraphLines, margin, y);
-        y += paragraphHeight + blockSpacing;
+        y += paragraphHeight; 
 
         // --- PRÓXIMA VISITA ---
         const proximaVisitaHeight = barHeight + textPadding + 7 + blockSpacing;
-        if (y + proximaVisitaHeight > pageBottom) { doc.addPage(); y = margin; } // Verifica espaço
+        y = checkAddPage(y, proximaVisitaHeight);
         
         doc.setFillColor.apply(null, azulTitulo);
         doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 3, 3, 'F');
@@ -453,12 +456,13 @@ function generatePdfDocument(data) {
         y += barHeight + textPadding; 
         doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); 
         doc.text(data.nextVisit || 'Não definida.', margin + 5, y); 
+        y += 15; 
         
         // --- INÍCIO DA TABELA (SEMPRE EM PÁGINA NOVA) ---
-        doc.addPage(); // Força uma nova página para a tabela
-        let finalY = margin; // Tabela começa no topo da nova página
+        doc.addPage(); 
+        let finalY = margin; 
 
-        // Tabela Principal (sem alterações na lógica)
+        // Tabela Principal
         if (data.tableData.length > 0) {
             doc.autoTable({
                 startY: finalY,
@@ -485,20 +489,24 @@ function generatePdfDocument(data) {
                     fontSize: 8, cellPadding: 2.5, 
                     overflow: 'linebreak', halign: 'center', valign: 'middle'
                 },
+                
+                // --- MUDANÇA PRINCIPAL AQUI ---
+                // Removemos todas as larguras fixas ('cellWidth')
+                // Deixamos a biblioteca 'autoTable' decidir a melhor distribuição
                 columnStyles: {
-                    0: { cellWidth: 20 }, 1: { cellWidth: 25 }, 2: { cellWidth: 18 },
-                    3: { cellWidth: 8 },  4: { cellWidth: 35 }, 5: { cellWidth: 10 },
-                    6: { cellWidth: 35 }, 7: { cellWidth: 12 }, 8: { cellWidth: 12 },
-                    9: { cellWidth: 45, halign: 'left' }, 
-                    10: { cellWidth: 45, halign: 'left' },
+                    // Apenas forçamos o alinhamento das listas
+                    9: { halign: 'left' }, 
+                    10: { halign: 'left' },
                 },
+                // --- FIM DA MUDANÇA ---
+                
                 didDrawPage: (hookData) => { 
                     finalY = hookData.cursor.y;
                 }
             });
         }
         
-        // Seção "OBSERVAÇÕES DA VISITA" (sem alterações)
+        // Seção "OBSERVAÇÕES DA VISITA"
         if (data.visitObservations && data.visitObservations.trim() !== '') {
             finalY += 10; 
             if (finalY > pageHeight - 40) { doc.addPage(); finalY = margin; }
@@ -517,7 +525,7 @@ function generatePdfDocument(data) {
             });
         }
 
-        // --- PÁGINA FINAL: FOTOS E PLANO DE AÇÃO (sem alterações) ---
+        // --- PÁGINA FINAL: FOTOS E PLANO DE AÇÃO ---
         doc.addPage();
         y = margin;
 
@@ -530,7 +538,6 @@ function generatePdfDocument(data) {
                 if (index > 0 && index % imagesPerRow === 0) { photoX = margin; y += imgHeight + verticalGap; }
                 if (y + imgHeight > pageHeight - margin) {
                     doc.addPage(); y = margin; doc.setFontSize(18); doc.setFont('helvetica', 'bold');
-                    doc.text('FOTOS DE EVIDÊNCIA (continuação)', pageWidth / 2, y, { align: 'center' }); y += 15; photoX = margin;
                 }
                 doc.addImage(imgData, 'PNG', photoX, y, imgWidth, imgHeight); photoX += imgWidth + horizontalGap;
             });
