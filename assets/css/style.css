@@ -563,3 +563,133 @@ tr.avaliacao-pendente .evaluation-cell div {
     border-color: #287eb8;
     outline: none;
 }
+
+/* --- Estilos do Modal da Câmera (Atualizado) --- */
+
+.camera-btn {
+    background-color: #287eb8; /* 1. Alterado para o azul do seu tema */
+    margin-top: 10px; /* 3. Adiciona espaço acima do botão */
+    margin-left: 0; /* Garante que não tenha margem esquerda desnecessária */
+    padding: 12px 24px; /* Adiciona um padding padrão para ficar igual aos outros botões */
+    font-size: 16px; /* Garante o tamanho da fonte */
+    font-weight: bold; /* Garante o peso da fonte */
+    color: white; /* Garante o texto branco */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.camera-btn:hover {
+    background-color: #004585; /* Azul mais escuro */
+}
+
+/* Garante que o input de arquivo e o botão da câmera fiquem em linhas separadas */
+#image-upload,
+#group-photo-upload {
+    display: block;
+    width: fit-content; /* Ajusta a largura */
+    margin: 0 auto 10px auto; /* Centraliza e adiciona espaço abaixo */
+}
+
+.camera-modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Fica sobre toda a página */
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
+    display: none; /* MUDADO: Controlado por JS */
+    justify-content: center;
+    align-items: center;
+}
+
+.camera-modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 640px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+#camera-feed,
+#camera-snapshot {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    border-radius: 5px;
+    background-color: #333;
+    margin-bottom: 15px;
+}
+
+.camera-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Estilos dos botões de controle dentro do modal */
+.camera-controls button {
+    /* Herda o estilo do botão principal, mas podemos redefinir */
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+.camera-controls #capture-btn {
+    background-color: #c63321; /* Vermelho */
+}
+.camera-controls #use-single-photo-btn,
+.camera-controls #done-multi-shot-btn {
+    background-color: #008f51; /* Verde */
+}
+.camera-controls #retake-single-photo-btn,
+.camera-controls #close-modal-btn {
+    background-color: #6c757d; /* Cinza */
+}
+
+
+/* --- Estilos para o Modal de Multi-Fotos --- */
+
+/* Container para a "tira de filme" de fotos capturadas */
+#film-strip-container {
+    display: none; /* Escondido por padrão */
+    background-color: #f0f4f8;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px; /* Adicionado espaço abaixo */
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap; /* Impede que as imagens quebrem a linha */
+    overflow-x: auto; /* Permite rolagem horizontal */
+    min-height: 80px;
+    text-align: left;
+}
+
+#film-strip-container img {
+    height: 60px;
+    width: auto;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    margin-right: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Mensagem quando a tira de filme está vazia */
+#film-strip-container:empty::before {
+    content: "Nenhuma foto capturada ainda.";
+    color: #888;
+    font-style: italic;
+    padding-left: 10px;
+    /* Adicionado para centralizar verticalmente o placeholder */
+    display: flex;
+    align-items: center;
+    height: 60px; 
+}

@@ -17,8 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextVisitTimeInput = document.getElementById('next-visit-time');
     const nextVisitLocalInput = document.getElementById('next-visit-local');
     const actionPlanTableBody = document.querySelector('#action-plan-table tbody');
+    const cameraModal = document.getElementById('camera-modal');
+    const videoFeed = document.getElementById('camera-feed');
+    const snapshotCanvas = document.getElementById('camera-snapshot');
+    const captureBtn = document.getElementById('capture-btn');
+    const usePhotoBtn = document.getElementById('use-photo-btn');
+    const retakePhotoBtn = document.getElementById('retake-photo-btn');
+    const cancelCameraBtn = document.getElementById('cancel-camera-btn');
+    const openEvidenceCameraBtn = document.getElementById('open-evidence-camera-btn');
+    const openGroupCameraBtn = document.getElementById('open-group-camera-btn');
 
-
+    let currentStream = null;
+    let currentCameraTarget = null; // 'evidence' ou 'group'
     let meetingItems = [];
     let currentMinutesData = [];
     let uploadedImages = [];
@@ -648,6 +658,117 @@ function generatePdfDocument(data) {
         `;
         };
         reader.readAsDataURL(file);
+    });
+
+    // --- LÓGICA DA CÂMERA ---
+
+    /**
+     * Tenta abrir a câmera do dispositivo
+     */
+    async function openCamera(target) {
+        // Reseta a visualização
+        videoFeed.style.display = 'block';
+        snapshotCanvas.style.display = 'none';
+        captureBtn.style.display = 'inline-block';
+        usePhotoBtn.style.display = 'none';
+        retakePhotoBtn.style.display = 'none';
+
+        currentCameraTarget = target; // Define onde a foto será usada
+
+        try {
+            // Pede permissão para usar a câmera
+            currentStream = await navigator.mediaDevices.getUserMedia({ 
+                video: { facingMode: "environment" } // Prioriza a câmera traseira
+            });
+            videoFeed.srcObject = currentStream;
+            cameraModal.style.display = 'flex'; // Mostra o modal
+        } catch (err) {
+            console.error("Erro ao acessar a câmera: ", err);
+            // Se falhar (ex: câmera traseira não existe), tenta a câmera frontal
+            try {
+                currentStream = await navigator.mediaDevices.getUserMedia({ video: true });
+                videoFeed.srcObject = currentStream;
+                cameraModal.style.display = 'flex'; // Mostra o modal
+            } catch (err2) {
+                console.error("Erro ao acessar qualquer câmera: ", err2);
+                alert("Não foi possível acessar a câmera. Verifique as permissões do navegador.");
+            }
+        }
+    }
+
+    /**
+     * Para todos os feeds da câmera e fecha o modal
+     */
+    function closeCamera() {
+        if (currentStream) {
+            currentStream.getTracks().forEach(track => track.stop());
+        }
+        cameraModal.style.display = 'none';
+        currentCameraTarget = null;
+    }
+
+    /**
+     * Tira a foto: desenha o vídeo no canvas
+     */
+    function capturePhoto() {
+        const context = snapshotCanvas.getContext('2d');
+        // Define o tamanho do canvas para ser igual ao do vídeo
+        snapshotCanvas.width = videoFeed.videoWidth;
+        snapshotCanvas.height = videoFeed.videoHeight;
+        
+        // Desenha o frame atual do vídeo no canvas
+        context.drawImage(videoFeed, 0, 0, snapshotCanvas.width, snapshotCanvas.height);
+        
+        // Esconde o vídeo e mostra o snapshot
+        videoFeed.style.display = 'none';
+        snapshotCanvas.style.display = 'block';
+        
+        // Altera os botões
+        captureBtn.style.display = 'none';
+        usePhotoBtn.style.display = 'inline-block';
+        retakePhotoBtn.style.display = 'inline-block';
+    }
+
+    /**
+     * Pega a foto do canvas e a utiliza na aplicação
+     */
+    function useCapturedPhoto() {
+        // Converte o canvas para uma imagem base64
+        const imageDataUrl = snapshotCanvas.toDataURL('image/jpeg', 0.9); // 90% de qualidade
+
+        if (currentCameraTarget === 'evidence') {
+            // Adiciona na galeria de evidências
+            uploadedImages.push(imageDataUrl);
+            renderImagePreviews(); // Sua função existente para renderizar
+        } else if (currentCameraTarget === 'group') {
+            // Define como foto da equipe
+            groupPhotoImageData = imageDataUrl;
+            // Atualiza o preview da foto da equipe
+            groupPhotoPreviewContainer.innerHTML = `
+                <div class="image-preview-wrapper">
+                    <img src="${groupPhotoImageData}" alt="Foto da equipe">
+                </div>
+            `;
+        }
+        closeCamera();
+    }
+
+    // --- Adiciona os Event Listeners para os botões da câmera ---
+
+    openEvidenceCameraBtn.addEventListener('click', () => openCamera('evidence'));
+    openGroupCameraBtn.addEventListener('click', () => openCamera('group'));
+    cancelCameraBtn.addEventListener('click', closeCamera);
+    captureBtn.addEventListener('click', capturePhoto);
+    usePhotoBtn.addEventListener('click', useCapturedPhoto);
+
+    // Botão para "Tirar Novamente"
+    retakePhotoBtn.addEventListener('click', () => {
+        // Apenas esconde o canvas, mostra o vídeo e troca os botões
+        videoFeed.style.display = 'block';
+        snapshotCanvas.style.display = 'none';
+        captureBtn.style.display = 'inline-block';
+        usePhotoBtn.style.display = 'none';
+        retakePhotoBtn.style.display = 'none';
     });
 
     loadDataAndInitialize();
