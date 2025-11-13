@@ -567,13 +567,13 @@ tr.avaliacao-pendente .evaluation-cell div {
 /* --- Estilos do Modal da Câmera (Atualizado) --- */
 
 .camera-btn {
-    background-color: #287eb8; /* 1. Alterado para o azul do seu tema */
-    margin-top: 10px; /* 3. Adiciona espaço acima do botão */
-    margin-left: 0; /* Garante que não tenha margem esquerda desnecessária */
-    padding: 12px 24px; /* Adiciona um padding padrão para ficar igual aos outros botões */
-    font-size: 16px; /* Garante o tamanho da fonte */
-    font-weight: bold; /* Garante o peso da fonte */
-    color: white; /* Garante o texto branco */
+    background-color: #287eb8; /* Cor azul */
+    margin-top: 10px; /* Espaço acima */
+    margin-left: 0;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -587,21 +587,20 @@ tr.avaliacao-pendente .evaluation-cell div {
 #image-upload,
 #group-photo-upload {
     display: block;
-    width: fit-content; /* Ajusta a largura */
+    width: fit-content;
     margin: 0 auto 10px auto; /* Centraliza e adiciona espaço abaixo */
 }
 
 .camera-modal {
-    display: none; /* Escondido por padrão */
-    position: fixed; /* Fica sobre toda a página */
+    display: none; /* Controlado por JS */
+    position: fixed;
     z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
-    display: none; /* MUDADO: Controlado por JS */
+    background-color: rgba(0, 0, 0, 0.7);
     justify-content: center;
     align-items: center;
 }
@@ -634,9 +633,7 @@ tr.avaliacao-pendente .evaluation-cell div {
     flex-wrap: wrap;
 }
 
-/* Estilos dos botões de controle dentro do modal */
 .camera-controls button {
-    /* Herda o estilo do botão principal, mas podemos redefinir */
     padding: 10px 20px;
     font-size: 14px;
 }
@@ -653,22 +650,25 @@ tr.avaliacao-pendente .evaluation-cell div {
     background-color: #6c757d; /* Cinza */
 }
 
+/* NOVO: Estilo para o botão de virar câmera */
+.camera-controls #flip-camera-btn {
+    background-color: #007bff; /* Azul */
+}
+
 
 /* --- Estilos para o Modal de Multi-Fotos --- */
-
-/* Container para a "tira de filme" de fotos capturadas */
 #film-strip-container {
-    display: none; /* Escondido por padrão */
+    display: none;
     background-color: #f0f4f8;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     padding: 10px;
     margin-top: 15px;
-    margin-bottom: 15px; /* Adicionado espaço abaixo */
+    margin-bottom: 15px;
     width: 100%;
     box-sizing: border-box;
-    white-space: nowrap; /* Impede que as imagens quebrem a linha */
-    overflow-x: auto; /* Permite rolagem horizontal */
+    white-space: nowrap;
+    overflow-x: auto;
     min-height: 80px;
     text-align: left;
 }
@@ -682,14 +682,100 @@ tr.avaliacao-pendente .evaluation-cell div {
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
-/* Mensagem quando a tira de filme está vazia */
 #film-strip-container:empty::before {
     content: "Nenhuma foto capturada ainda.";
     color: #888;
     font-style: italic;
     padding-left: 10px;
-    /* Adicionado para centralizar verticalmente o placeholder */
     display: flex;
     align-items: center;
     height: 60px; 
+}
+
+/* ============================================================
+                NOVO: RESPONSIVIDADE (Celular)
+============================================================
+*/
+@media (max-width: 768px) {
+    
+    /* --- Layout Geral --- */
+    body {
+        padding: 10px; /* Menos preenchimento em telas pequenas */
+    }
+
+    header h1 {
+        font-size: 1.5rem; /* Fonte menor no título principal */
+        word-break: break-word; /* Garante que o título quebre a linha */
+    }
+
+    /* --- Todos os Contâiners de Formulário --- */
+    .visit-details-container,
+    .meeting-details-section,
+    .visit-observations-section,
+    .action-plan-section {
+        padding: 15px;
+    }
+    
+    .details-form,
+    .meeting-form {
+        flex-direction: column; /* Empilha os campos */
+        gap: 15px;
+    }
+
+    /* --- Filtro --- */
+    .controls {
+        flex-direction: column; /* Empilha os itens do filtro */
+        align-items: stretch; /* Estica para largura total */
+    }
+
+    .controls #responsible-input {
+        width: 100%;
+        box-sizing: border-box; /* Garante que o padding não quebre o layout */
+    }
+
+    /* --- Botões da Câmera --- */
+    .camera-btn {
+        width: 100%; /* Botão "Tirar Foto" ocupa largura total */
+        box-sizing: border-box;
+    }
+
+    /* --- Tabela Principal --- */
+    .table-container {
+        max-height: 60vh; 
+    }
+    
+    /* Ajusta o tamanho da fonte da tabela em telas pequenas */
+    th, td {
+        padding: 8px;
+        font-size: 12px;
+    }
+    .radio-label {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+    textarea {
+        min-height: 60px;
+        font-size: 13px;
+    }
+
+    /* --- Modal da Câmera --- */
+    .camera-modal-content {
+        width: 95%; /* Modal ocupa quase toda a tela */
+        margin: 5% auto;
+        padding: 10px;
+    }
+
+    #camera-feed,
+    #camera-snapshot {
+        max-height: 60vh; /* Limita a altura do feed da câmera */
+    }
+
+    .camera-controls {
+        gap: 5px; /* Diminui o espaço entre os botões do modal */
+    }
+
+    .camera-controls button {
+        padding: 8px 12px;
+        font-size: 12px; /* Botões menores no modal */
+    }
 }

@@ -160,16 +160,23 @@
     <div class="camera-modal-content">
         <h2>Capturar Imagem</h2>
         <video id="camera-feed" autoplay playsinline></video>
-        
         <canvas id="camera-snapshot" style="display: none;"></canvas>
 
+        <!-- "Tira de Filme" para multi-fotos -->
+        <div id="film-strip-container"></div>
+
         <div class="camera-controls">
+            <!-- BOTÃO NOVO ADICIONADO AQUI -->
+            <button type="button" id="flip-camera-btn" style="display: none;">Virar Câmera</button>
+            
             <button type="button" id="capture-btn">Tirar Foto</button>
-            <button type="button" id="use-photo-btn" style="display: none;">Usar esta Foto</button>
-            <button type="button" id="retake-photo-btn" style="display: none;">Tirar Novamente</button>
-            <button type="button" id="cancel-camera-btn">Cancelar</button>
+            <button type="button" id="use-single-photo-btn" style="display: none;">Usar esta Foto</button>
+            <button type="button" id="retake-single-photo-btn" style="display: none;">Tirar Novamente</button>
+            <button type="button" id="done-multi-shot-btn" style="display: none;">Concluir e Anexar</button>
+            <button type="button" id="close-modal-btn">Cancelar</button>
         </div>
     </div>
 </div>
+
 </body>
 </html>

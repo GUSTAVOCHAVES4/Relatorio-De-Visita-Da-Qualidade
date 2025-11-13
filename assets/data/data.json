@@ -206,7 +206,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "789076dd-81eb-40b3-a8cd-16e0edd4140c",
@@ -250,7 +250,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "**",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "75f18610-b5ca-444d-a248-238106c029a2",
@@ -261,7 +261,7 @@
    "subitem_number": 1,
    "subitem_description": "Licença de funcionamento",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "85efd4c5-d544-4f39-886e-f06da1c3454d",
@@ -272,7 +272,7 @@
    "subitem_number": 2,
    "subitem_description": "Cadastros da força de trabalho",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "45342e89-6a34-4c4c-8f07-3a17dbe7e53c",
@@ -283,7 +283,7 @@
    "subitem_number": 3,
    "subitem_description": "Manuais de rotinas e procedimentos",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "fb466d69-f0fe-4fb8-bac5-ea528affc541",
@@ -294,7 +294,7 @@
    "subitem_number": 4,
    "subitem_description": "Registros de treinamentos",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "1d2ed8e2-0f61-4a2b-a40e-35ed26349935",
@@ -305,7 +305,7 @@
    "subitem_number": 5,
    "subitem_description": "Escalas de trabalho",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "b643d832-7a10-4103-a30b-eda349a7447e",
@@ -316,7 +316,7 @@
    "subitem_number": 6,
    "subitem_description": "Documentação relacionada com a saúde ocupacional (Atestado de Saúde Ocupacional ASO, PGR, PCMSO)",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "a283d312-e6cb-42c2-83f3-19e59b157a7a",
@@ -327,7 +327,7 @@
    "subitem_number": 7,
    "subitem_description": "Requisitos e/ou metas desejadas pelo hospital",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "16fb962f-7267-49a3-b91b-891c40e9cd32",
@@ -338,7 +338,7 @@
    "subitem_number": 8,
    "subitem_description": "Declaração de regularidade com os requisitos legais aplicáveis às questões socioambientais",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "bda2fc3a-448a-40bb-b0e1-cdef8405d68d",
@@ -349,7 +349,7 @@
    "subitem_number": 9,
    "subitem_description": "Cronograma de manutenção preventiva de equipamentos",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "068906d4-4a8c-4a49-ba33-11f9fa5e748a",
@@ -360,7 +360,7 @@
    "subitem_number": 10,
    "subitem_description": "Supervisão do processo",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "f87aeb12-1c8f-4c31-8eff-63245ae676b9",
@@ -371,7 +371,7 @@
    "subitem_number": 11,
    "subitem_description": "Solidez financeira",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "d4164d3a-1203-47a9-a309-9e205a855da5",
@@ -382,7 +382,7 @@
    "subitem_number": 12,
    "subitem_description": "Não usar mão de obra infantil ou escrava (comprovante)",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "36a81a75-b107-4934-98f6-6d5d8989deea",
@@ -1284,7 +1284,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "*",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "0febd9ee-b354-4870-9fad-6f83a891f47a",
@@ -1559,7 +1559,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "fcf27707-5715-4f85-b40f-a718ea7ada2c",
@@ -1856,7 +1856,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "563c2054-0dbf-4ae3-a557-32468e97816a",
@@ -1911,7 +1911,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "c132ad50-9184-4a17-9abf-ccb6e54118f9",
@@ -1966,7 +1966,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "6b8d6f4d-1c26-44a4-b46a-289a112d47e6",
@@ -2318,7 +2318,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "487731fa-3d4e-4835-9ce8-be6ff619cc8e",
@@ -2373,7 +2373,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "3b237a9d-9a69-4d73-a4a0-ad6007399bae",
@@ -2791,7 +2791,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "42ce89fd-28ec-4b72-9d32-3b3ba0a2e328",
@@ -2835,7 +2835,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "*",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "0ccccd37-ff1c-4fc0-a129-b86e6b88c100",
@@ -2879,7 +2879,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "6232a366-d78e-4204-8981-2845881a409a",
@@ -3110,7 +3110,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "14519e05-f4e5-4610-a55c-68f1ab63fa7c",
@@ -3121,7 +3121,7 @@
    "subitem_number": 1,
    "subitem_description": "Edição de novos padrões de trabalho (divulgação interna dos manuais de normas e procedimentos do hospital, alterados a partir de novos conhecimentos)",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "2f4f8ca0-64a7-4400-a39e-5c50f8a7e104",
@@ -3132,7 +3132,7 @@
    "subitem_number": 2,
    "subitem_description": "Capacitação interna (cursos e/ou seminários internos realizados por profissionais do próprio hospital)",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "134ad3e7-7452-4d14-be03-8b987047dcc2",
@@ -3143,7 +3143,7 @@
    "subitem_number": 3,
    "subitem_description": "Divulgação de boletins técnicos",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "b6de6d87-57bc-40bb-a528-0d63d1d2e42c",
@@ -3154,7 +3154,7 @@
    "subitem_number": 4,
    "subitem_description": "Disseminação interna das boas práticas do hospital",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "a70e2d34-404a-407a-84fc-ef3227375462",
@@ -3165,7 +3165,7 @@
    "subitem_number": 5,
    "subitem_description": "Banco de dados de conhecimento (atas de reuniões técnicas)",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "79e35a06-6151-48f1-b8bd-0672295a3a75",
@@ -3264,7 +3264,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "2debd556-d800-41a3-876e-31e46d4d7f60",
@@ -3308,7 +3308,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "5f707918-bef3-4969-b393-521b3fad5952",
@@ -3429,7 +3429,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "98f4ef25-2c17-4e4e-bd11-00645a5ef46a",
@@ -3484,7 +3484,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "8038d7b0-6aee-4f87-bc90-11c0054b0e2a",
@@ -3649,7 +3649,7 @@
    "subitem_number": 6,
    "subitem_description": "De terceirização",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "514af995-efb6-4175-b75e-00c74273370c",
@@ -3704,7 +3704,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "**",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "1c65d835-e8d4-4209-ae4b-acb473877bbc",
@@ -3770,7 +3770,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "0eb6ffd8-4d23-4b82-8265-f9064e8b223f",
@@ -4529,7 +4529,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "10a838c8-e4bf-4ce8-b7f7-ebc70c7731b8",
@@ -4584,7 +4584,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "136c20a3-e6f6-4f40-8215-7eda63af1e09",
@@ -4639,7 +4639,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "1f1e00c9-ec54-4b9b-ab03-2192cd212e10",
@@ -4683,7 +4683,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "51a33fe0-8349-4c54-a3b3-45ef84b73834",
@@ -4705,7 +4705,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "888bc848-94ae-442b-8f71-3e26939cc22e",
@@ -4749,7 +4749,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "4e3ec001-44a8-406c-a241-794c85d1657d",
@@ -4760,7 +4760,7 @@
    "subitem_number": 1,
    "subitem_description": "Reuniões específicas para aprendizado",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "17552af2-4402-459d-972a-fe67cdf18382",
@@ -4771,7 +4771,7 @@
    "subitem_number": 2,
    "subitem_description": "Correlações entre seus indicadores",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "d841ddbb-717d-43d8-8e85-a5784cefe703",
@@ -4782,7 +4782,7 @@
    "subitem_number": 3,
    "subitem_description": "Ferramentas da Qualidade (gráfico de Pareto, 5W2H, Brainstorming)",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "4fa60d89-4044-4392-97c1-dd7b2b635e51",
@@ -4958,7 +4958,7 @@
    "subitem_number": 5,
    "subitem_description": "Autoavaliação",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "b4a88844-5bf5-4ecb-a486-b295fcbf21f4",
@@ -6432,7 +6432,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "2bbce333-7f6a-4c29-9ba8-c2436b9cd66d",
@@ -9710,7 +9710,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAC / DAI / DAS"
+   "responsible": "DAC / DGA / DAS"
  },
  {
    "master_id": "2472ffb0-7717-43da-b560-b9fec70a475d",
@@ -9765,7 +9765,7 @@
    "subitem_number": 5,
    "subitem_description": "Equipe da Tecnologia da Informação",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "f2bb7404-fa6d-4746-a1c2-5fa7863d913b",
@@ -9787,7 +9787,7 @@
    "subitem_number": 7,
    "subitem_description": "Equipe de Engenharia Clínica e Manutenção",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "87e6b7b6-3045-4883-868c-485bba46bbcd",
@@ -10744,7 +10744,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "1ab2aec6-5d4b-4b87-9c1e-654ac874016f",
@@ -10766,7 +10766,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "9c6eff4a-b595-4109-910e-989519b03ba5",
@@ -10777,7 +10777,7 @@
    "subitem_number": 1,
    "subitem_description": "Ventilado",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "153a8e9b-d8ee-4760-8246-0b6976d8d91c",
@@ -10788,7 +10788,7 @@
    "subitem_number": 2,
    "subitem_description": "Fechado",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "bfbfd62a-2c4e-448e-bfee-e90c942255fa",
@@ -10799,7 +10799,7 @@
    "subitem_number": 3,
    "subitem_description": "Coberto",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "93705a03-15d8-44dc-a832-843867b6f42d",
@@ -10810,7 +10810,7 @@
    "subitem_number": 4,
    "subitem_description": "Exclusivo",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "8991eb9b-a0de-4757-b40d-cb4d29c7d86d",
@@ -10821,7 +10821,7 @@
    "subitem_number": 5,
    "subitem_description": "Lavável",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "df426d09-3b02-4e7a-83db-a25d84a583a9",
@@ -10832,7 +10832,7 @@
    "subitem_number": 6,
    "subitem_description": "Restrito à circulação de pessoas",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "11853bdc-4e4a-408d-ac98-e4cc226a5946",
@@ -10843,7 +10843,7 @@
    "subitem_number": 7,
    "subitem_description": "Para a separação do lixo comum do lixo infectado",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "dfcf8afc-b1b6-4225-9b09-df46bb1e5d64",
@@ -10942,7 +10942,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "74e1e6ec-4c32-44a9-8e7e-4c1053f8d65b",
@@ -11624,7 +11624,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "8627a141-2a57-42ad-a58f-14bb5050c621",
@@ -12262,7 +12262,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "2e3f5b23-a9d1-483b-9b73-77e3539f2000",
@@ -12306,7 +12306,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "087752e3-61aa-4b8e-82d9-1d7a0a4a2dda",
@@ -12350,7 +12350,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "DAI"
+   "responsible": "DGA"
  },
  {
    "master_id": "e8e50a40-524b-4b44-bf89-e6953d19ab65",
