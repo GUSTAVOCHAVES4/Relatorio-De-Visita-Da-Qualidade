@@ -129,8 +129,8 @@ textarea {
 }
 
 textarea::placeholder {
-  color: #a0a0a0;         /* Deixa o texto com um tom de cinza mais suave */
-  font-style: italic;       
+  color: #a0a0a0;       /* Deixa o texto com um tom de cinza mais suave */
+  font-style: italic;     
   text-transform: uppercase;    
   font-weight: 100;       /* Deixa a fonte um pouco mais fina */
 }
@@ -315,7 +315,7 @@ tr.avaliacao-pendente .evaluation-cell div {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* Cor específica para o botão do Word */
+/* Cor específica para o botão do Word (REMOVIDO, MAS MANTENDO O ESTILO CASO VOLTE) */
 #download-word-btn {
     background-color: #007dd1; /* Azul principal do tema */
 }
@@ -451,6 +451,7 @@ tr.avaliacao-pendente .evaluation-cell div {
 
 .visit-details-container,
 .meeting-details-section,
+.visit-observations-section, /* Estilo adicionado para o novo container */
 .action-plan-section {
     background-color: #fff;
     padding: 20px;
@@ -461,6 +462,7 @@ tr.avaliacao-pendente .evaluation-cell div {
 
 .visit-details-container h2,
 .meeting-details-section h3,
+.visit-observations-section h3, /* Estilo adicionado para o novo container */
 .action-plan-section h3 {
     color: #004585;
     margin-top: 0;
@@ -693,72 +695,92 @@ tr.avaliacao-pendente .evaluation-cell div {
 }
 
 /* ============================================================
-                NOVO: RESPONSIVIDADE (Celular)
-============================================================
-*/
+   ESTILOS DE RESPONSIVIDADE (CELULAR)
+============================================================ */
 @media (max-width: 768px) {
-    
-    /* --- Layout Geral --- */
+
+    /* --- 1. Layout Geral --- */
     body {
-        padding: 10px; /* Menos preenchimento em telas pequenas */
-    }
-
-    header h1 {
-        font-size: 1.5rem; /* Fonte menor no título principal */
-        word-break: break-word; /* Garante que o título quebre a linha */
-    }
-
-    /* --- Todos os Contâiners de Formulário --- */
-    .visit-details-container,
-    .meeting-details-section,
-    .visit-observations-section,
-    .action-plan-section {
-        padding: 15px;
+        padding: 10px; /* Adiciona um respiro nas bordas da tela */
+        -webkit-text-size-adjust: 100%; /* Impede o iOS de aumentar a fonte sozinho */
     }
     
+    header h1 {
+        font-size: 1.6rem; /* Diminui o título principal */
+    }
+    
+    /* --- 2. Formulários (Local, Data, Filtro) --- */
+    
+    /* Faz os campos de Local, Data e Horário ocuparem 100% da largura */
     .details-form,
     .meeting-form {
-        flex-direction: column; /* Empilha os campos */
+        flex-direction: column;
         gap: 15px;
     }
 
-    /* --- Filtro --- */
+    /* Faz o filtro de responsável empilhar e ocupar 100% */
     .controls {
-        flex-direction: column; /* Empilha os itens do filtro */
-        align-items: stretch; /* Estica para largura total */
+        flex-direction: column;
+        align-items: stretch;
     }
-
     .controls #responsible-input {
         width: 100%;
         box-sizing: border-box; /* Garante que o padding não quebre o layout */
     }
 
-    /* --- Botões da Câmera --- */
+    /* Melhora a legibilidade de TODOS os campos de texto no celular */
+    input[type="text"],
+    input[type="date"],
+    input[type="time"],
+    textarea,
+    select {
+        /* Aumenta a fonte para 16px. Isso impede o zoom automático chato no iOS */
+        font-size: 16px; 
+    }
+
+    /* --- 3. Tabelas (A correção mais importante) --- */
+
+    /* Força as duas tabelas a terem rolagem horizontal */
+    .table-container,
+    .action-plan-section {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* Rolagem suave no iOS */
+    }
+
+    /* Força a tabela do Plano de Ação a ser larga */
+    #action-plan-table {
+        min-width: 600px; /* Força uma largura mínima */
+    }
+
+    /* Força a tabela principal (Itens de Ação) a ser BEM larga */
+    #action-items-table {
+        min-width: 1200px; /* Força a tabela a ter 1200px, impedindo o texto de espremer */
+    }
+
+    /* Ajusta o tamanho da fonte da tabela para ler melhor */
+    #action-items-table th,
+    #action-items-table td {
+        font-size: 14px; /* Um pouco maior para leitura */
+    }
+    
+    /* --- 4. Correção dos Botões Sim/Não/N/A --- */
+    .evaluation-cell {
+        flex-wrap: wrap; /* PERMITE QUE OS BOTÕES QUEBREM A LINHA */
+        min-width: 110px; /* Dá espaço suficiente para os botões */
+        justify-content: center; /* Centraliza eles na célula */
+    }
+
+    .evaluation-cell .radio-label {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+
+    /* --- 5. Modal da Câmera --- */
     .camera-btn {
         width: 100%; /* Botão "Tirar Foto" ocupa largura total */
         box-sizing: border-box;
     }
-
-    /* --- Tabela Principal --- */
-    .table-container {
-        max-height: 60vh; 
-    }
     
-    /* Ajusta o tamanho da fonte da tabela em telas pequenas */
-    th, td {
-        padding: 8px;
-        font-size: 12px;
-    }
-    .radio-label {
-        padding: 4px 8px;
-        font-size: 12px;
-    }
-    textarea {
-        min-height: 60px;
-        font-size: 13px;
-    }
-
-    /* --- Modal da Câmera --- */
     .camera-modal-content {
         width: 95%; /* Modal ocupa quase toda a tela */
         margin: 5% auto;
