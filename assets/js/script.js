@@ -259,52 +259,63 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function generateMinutesHTML(data) {
-        let html = `<h3>Visualização da Ata Gerada</h3>`;
-        html += `<p><strong>Local:</strong> ${data.visitLocal || 'Não informado'}</p>`;
-        html += `<p><strong>Data:</strong> ${data.visitDate || 'Não informada'}</p>`;
-        html += `<p><strong>Participantes:</strong> ${data.participants || 'Não informados'}</p>`;
-        html += `<p><strong>Próxima Visita:</strong> ${data.nextVisit}</p>`;
-        if (data.groupPhoto) {
-            html += `<h4>Foto da Equipe</h4><img src="${data.groupPhoto}" style="max-width: 300px; border-radius: 8px;">`;
-        }
-        if (data.tableData.length > 0) {
-            html += `<h4>Itens de Ação</h4><p>${data.tableData.length} itens registrados.</p>`;
-        }
-        if (data.actionPlan.length > 0) {
-            html += `<h4>Plano de Ação</h4><p>${data.actionPlan.length} ações definidas.</p>`;
-        }
-        if (data.evidencePhotos.length > 0) {
-            html += `<h4>Fotos de Evidência</h4><p>${data.evidencePhotos.length} fotos anexadas.</p>`;
-        }
-        html += `
-            <div id="download-buttons" style="margin-top: 20px;">
-                <button id="download-pdf-btn">Baixar .pdf</button>
-            </div>`;
-        return html;
-    }
+    // gera apenas o HTML (para organizar melhor)
+function generateMinutesHTML(data) {
+    let html = `<h3>Visualização da Ata Gerada</h3>`;
+    html += `<p><strong>Local:</strong> ${data.visitLocal || 'Não informado'}</p>`;
+    html += `<p><strong>Data:</strong> ${data.visitDate || 'Não informada'}</p>`;
+    html += `<p><strong>Participantes:</strong> ${data.participants || 'Não informados'}</p>`;
+    html += `<p><strong>Próxima Visita:</strong> ${data.nextVisit}</p>`;
+
+    if (data.groupPhoto) {
+        html += `<h4>Foto da Equipe</h4><img src="${data.groupPhoto.url}" style="max-width: 300px; border-radius: 8px;">`;
+    }
+
+    if (data.tableData.length > 0) {
+        html += `<h4>Itens de Ação</h4><p>${data.tableData.length} itens registrados.</p>`;
+    }
+
+    if (data.actionPlan.length > 0) {
+        html += `<h4>Plano de Ação</h4><p>${data.actionPlan.length} ações definidas.</p>`;
+    }
+    
+    if (data.evidencePhotos.length > 0) {
+        html += `<h4>Fotos de Evidência</h4><p>${data.evidencePhotos.length} fotos anexadas.</p>`;
+        // O texto que causava o erro foi removido daqui.
+    }
+    
+    html += `
+        <div id="download-buttons" style="margin-top: 20px;">
+            <button id="download-pdf-btn">Baixar .pdf</button>
+        </div>`;
+        
+    return html;
+}
 
     function renderImagePreviews() {
-        imagePreviewContainer.innerHTML = '';
-        uploadedImages.forEach((imageData, index) => {
-            const wrapper = document.createElement('div');
-            wrapper.classList.add('image-preview-wrapper');
-            const img = document.createElement('img');
-            img.src = imageData;
-            img.alt = `Pré-visualização da imagem ${index + 1}`;
-            const removeBtn = document.createElement('button');
-            removeBtn.classList.add('remove-image-btn');
-            removeBtn.innerHTML = '&times;';
-            removeBtn.title = 'Remover imagem';
-            removeBtn.onclick = () => {
-                uploadedImages.splice(index, 1);
-                renderImagePreviews();
-            };
-            wrapper.appendChild(img);
-            wrapper.appendChild(removeBtn);
-            imagePreviewContainer.appendChild(wrapper);
-        });
-    }
+        imagePreviewContainer.innerHTML = ''; // Limpa as prévias existentes
+        uploadedImages.forEach((imageData, index) => { // imageData agora é {url, aspect}
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('image-preview-wrapper');
+
+            const img = document.createElement('img');
+            img.src = imageData.url; // (.url)
+            img.alt = `Pré-visualização da imagem ${index + 1}`;
+
+            const removeBtn = document.createElement('button');
+            removeBtn.classList.add('remove-image-btn');
+            removeBtn.innerHTML = '&times;'; // 'x' character
+            removeBtn.title = 'Remover imagem';
+            removeBtn.onclick = () => {
+                uploadedImages.splice(index, 1); // Remove do array
+                renderImagePreviews(); // Re-renderiza as prévias
+            };
+
+            wrapper.appendChild(img);
+            wrapper.appendChild(removeBtn);
+            imagePreviewContainer.appendChild(wrapper);
+        });
+    }
     
     function generatePdfDocument(data) {
         try {
@@ -532,7 +543,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     doc.addPage();
                     y = margin;
                     doc.setFontSize(18); doc.setFont('helvetica', 'bold');
-                    doc.text('FOTOS DE EVIDÊNCIA (continuação)', pageWidth / 2, y, { align: 'center' });
                     y += 15;
                     photoX = margin;
                     maxHeightInRow = 0;
@@ -756,17 +766,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Botão "Usar esta Foto" (foto única)
-     */
-    function useSingleCapturedPhoto() {
+     * Botão "Usar esta Foto" (para modo de foto única)
+     */
+    function useSingleCapturedPhoto() {
         const imageDataUrl = snapshotCanvas.toDataURL('image/jpeg', 0.9);
-
-        // Captura a proporção
         const aspectRatio = snapshotCanvas.width / snapshotCanvas.height;
-        groupPhotoImageData = { url: imageDataUrl, aspect: aspectRatio }; // <-- Salva o objeto
-        groupPhotoPreviewContainer.innerHTML = `
+        
+        groupPhotoImageData = { url: imageDataUrl, aspect: aspectRatio }; // Salva o objeto
+        
+        groupPhotoPreviewContainer.innerHTML = `
             <div class="image-preview-wrapper">
-                <img src="${groupPhotoImageData.url}" alt="Foto da equipe">             </div>
+                <img src="${groupPhotoImageData.url}" alt="Foto da equipe"> </div>
         `;
         closeModal();
     }
