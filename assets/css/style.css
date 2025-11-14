@@ -1,5 +1,4 @@
-/* --- Estilos Gerais e Layout --- */
-
+/* Geral e Layout */
 body {
     font-family: Arial, sans-serif;
     color: #333;
@@ -40,8 +39,7 @@ main {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* --- Estilo para a Tabela e Conteúdo --- */
-
+/* Tabela e Conteúdo */
 .table-container {
     background-color: rgba(245, 248, 255, 0.98);
     border-radius: 8px;
@@ -62,14 +60,18 @@ table {
     border-collapse: separate; 
     border-spacing: 0; 
     margin-top: 0; 
-    table-layout: fixed;
+}
+
+/* Layout automático para se ajustar (tabela principal) */
+#action-items-table {
+    table-layout: auto;
 }
 
 th, td {
     border: 1px solid #000000;
     padding: 12px;
     text-align: left;
-    vertical-align: middle; /* Alinhando o container DIV */
+    vertical-align: middle; 
     white-space: normal;
     word-wrap: break-word;
 }
@@ -110,57 +112,56 @@ tr:nth-child(odd) {
     background-color: #ffffff;
 }
 
-/* --- Estilos para Elementos de Formulário dentro da Tabela --- */
-
+/* Formulário dentro da tabela */
 textarea {
     width: 100%;
-    min-height: 80px; /* Aumenta a altura mínima inicial */
+    min-height: 80px;
     padding: 10px;
     box-sizing: border-box;
-    border: 1px solid #999; /* Borda um pouco mais escura */
+    border: 1px solid #999;
     border-radius: 6px;
     resize: none;
     font-family: Arial, sans-serif;
     font-size: 14px;
     line-height: 1.5;
-    background-color: #fdfdfd; /* Fundo um pouquinho off-white */
+    background-color: #fdfdfd;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     overflow-y: hidden;
 }
 
 textarea::placeholder {
-  color: #a0a0a0;       /* Deixa o texto com um tom de cinza mais suave */
+  color: #a0a0a0;
   font-style: italic;     
   text-transform: uppercase;    
-  font-weight: 100;       /* Deixa a fonte um pouco mais fina */
+  font-weight: 100;
 }
 
-/* Efeito de Foco */
 textarea:focus {
-    outline: none; /* Remove a borda padrão do navegador */
-    border-color: #287eb8; /* Borda fica azul, combinando com o tema */
-    box-shadow: 0 0 5px rgba(40, 126, 184, 0.5); /* Adiciona um brilho azul sutil */
+    outline: none;
+    border-color: #287eb8;
+    box-shadow: 0 0 5px rgba(40, 126, 184, 0.5);
 }
 
-#responsible-input {
+#responsible-select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 16px;
     width: 250px;
+    background-color: white;
+    flex-grow: 1;
 }
 
-/* --- Estilo para os Botões de Avaliação --- */
-
+/* Botões de avaliação */
 .evaluation-cell {
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center; 
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permite quebrar a linha (corrigido no @media) */
     gap: 5px;
     width: 100%;
-    height: 100%; /* Preenche a altura da célula */
+    height: 100%; 
 }
 
 .evaluation-cell input[type="radio"] {
@@ -203,9 +204,7 @@ textarea:focus {
     border-color: #000000;
 }
 
-
-/* --- Estilos para Botões Gerais --- */
-
+/* Botões Gerais */
 button {
     color: white;
     padding: 12px 24px;
@@ -231,8 +230,8 @@ button {
 }
 
 #generate-minutes-btn {
-    background-color: #004585; /* Cor primária mais escura */
-    display: block; /* Garante que o botão ocupe a largura */
+    background-color: #004585;
+    display: block;
     width: 100%;
     margin-top: 10px;
 }
@@ -241,27 +240,19 @@ button {
     background-color: #003366;
 }
 
-/* --- Estilos Específicos para as Lógicas JS --- */
-
-/* Estilo para linhas filtradas */
+/* Para as Lógicas JS */
 tr.linha-filtrada {
     background-color: #eaf5ff !important;
 }
-
 tr.linha-filtrada td {
     border-color: #000000 !important;
 }
-
-/* Estilo para destacar linhas de seções específicas */
 tr.linha-destacada {
     background-color: #eaf5ff !important;
 }
-
 tr.linha-destacada td {
     font-weight: 500;
 }
-
-/* Estilo para aumentar a fonte na exportação do PDF */
 .pdf-export-style,
 .pdf-export-style td,
 .pdf-export-style th {
@@ -269,8 +260,7 @@ tr.linha-destacada td {
     line-height: 1.4 !important;
 }
 
-/* --- Estilos para a Ata Gerada --- */
-
+/* Ata Gerada */
 .minutes-output {
     margin-top: 30px;
     padding: 20px;
@@ -279,53 +269,37 @@ tr.linha-destacada td {
     background-color: #fff;
 }
 
-/* Estilo para destacar linhas com avaliação pendente */
 tr.avaliacao-pendente td {
-    background-color: #fffbe6 !important; /* Um amarelo bem claro */
+    background-color: #fffbe6 !important;
     transition: background-color 0.5s ease;
 }
-
 tr.avaliacao-pendente .evaluation-cell div {
-    /* Adiciona um contorno vermelho na célula específica para chamar atenção */
     outline: 2px solid #e53e3e; 
     outline-offset: -2px;
     border-radius: 8px;
 }
 
-/* --- Estilos para os Botões de Download da Ata --- */
-
-/* Container que segura os botões */
+/* Botões de Download da Ata */
 #download-buttons {
-    text-align: center; /* Centraliza os botões */
-    margin-top: 25px;   /* Aumenta o espaço acima deles */
+    text-align: center;
+    margin-top: 25px;  
     padding-top: 20px;
-    border-top: 1px solid #ddd; /* Adiciona uma linha de separação */
+    border-top: 1px solid #ddd;
 }
-
-/* Estilo geral para os botões de download (aumenta o tamanho) */
 #download-buttons button {
     font-size: 16px;
     padding: 12px 28px;
-    margin: 0 10px; /* Adiciona um espaço entre os botões */
+    margin: 0 10px;
 }
-
-/* Efeito de elevação ao passar o mouse */
 #download-buttons button:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
-
-/* Cor específica para o botão do Word (REMOVIDO, MAS MANTENDO O ESTILO CASO VOLTE) */
-#download-word-btn {
-    background-color: #007dd1; /* Azul principal do tema */
-}
-
-/* Cor específica para o botão do PDF */
 #download-pdf-btn {
-    background-color: #c63321; /* Vermelho para diferenciar */
+    background-color: #c63321;
 }
 
-/* --- Estilos para a Seção de Upload de Imagens --- */
+/* Seção de Upload de Imagens */
 .image-upload-section {
     background-color: #fff;
     padding: 20px;
@@ -334,19 +308,16 @@ tr.avaliacao-pendente .evaluation-cell div {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
-
 .image-upload-section h3 {
     color: #004585;
     margin-top: 0;
     margin-bottom: 15px;
 }
-
 #image-upload {
     display: block;
     width: fit-content;
     margin: 0 auto 20px auto;
 }
-
 #image-preview-container {
     display: flex;
     flex-wrap: wrap;
@@ -360,8 +331,6 @@ tr.avaliacao-pendente .evaluation-cell div {
     align-items: center;
     position: relative;
 }
-
-/* Mensagem padrão quando o container estiver vazio */
 #image-preview-container:empty::before {
     content: "Nenhuma imagem selecionada.";
     color: #888;
@@ -371,7 +340,6 @@ tr.avaliacao-pendente .evaluation-cell div {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 .image-preview-wrapper {
     position: relative;
     width: 120px;
@@ -381,19 +349,17 @@ tr.avaliacao-pendente .evaluation-cell div {
     overflow: hidden;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
-
 .image-preview-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
-
 .image-preview-wrapper .remove-image-btn {
     position: absolute;
     top: 5px;
     right: 5px;
-    background-color: rgba(220, 53, 69, 0.8); /* Vermelho translúcido */
+    background-color: rgba(220, 53, 69, 0.8);
     color: white;
     border: none;
     border-radius: 50%;
@@ -408,19 +374,16 @@ tr.avaliacao-pendente .evaluation-cell div {
     transition: background-color 0.2s;
     line-height: 1;
 }
-
 .image-preview-wrapper .remove-image-btn:hover {
-    background-color: #dc3545; /* Vermelho sólido */
+    background-color: #dc3545;
 }
 
-
-/* --- Estilos para a seção de fotos na ata gerada --- */
+/* Seção de fotos na ata gerada */
 .minutes-photos-section {
     margin-top: 30px;
     padding-top: 20px;
     border-top: 2px solid #287eb8;
 }
-
 .minutes-photos-section h3 {
     text-align: center;
     color: #287eb8;
@@ -430,15 +393,12 @@ tr.avaliacao-pendente .evaluation-cell div {
     padding-bottom: 10px;
     display: inline-block;
 }
-
 .minutes-photo-grid {
     display: grid;
-    /* Tenta criar 4 colunas, mas se ajusta para telas menores */
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
     gap: 100px;
     justify-items: center;
 }
-
 .minutes-photo-grid img {
     width: 100%;
     height: auto;
@@ -447,11 +407,10 @@ tr.avaliacao-pendente .evaluation-cell div {
     box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
-/* --- Estilos para Novos Detalhes da Visita e Reunião --- */
-
+/* Novos detalhes da visita e reunião */
 .visit-details-container,
 .meeting-details-section,
-.visit-observations-section, /* Estilo adicionado para o novo container */
+.visit-observations-section,
 .action-plan-section {
     background-color: #fff;
     padding: 20px;
@@ -462,7 +421,7 @@ tr.avaliacao-pendente .evaluation-cell div {
 
 .visit-details-container h2,
 .meeting-details-section h3,
-.visit-observations-section h3, /* Estilo adicionado para o novo container */
+.visit-observations-section h3,
 .action-plan-section h3 {
     color: #004585;
     margin-top: 0;
@@ -508,7 +467,7 @@ tr.avaliacao-pendente .evaluation-cell div {
     box-sizing: border-box;
 }
 
-/* --- Estilo para Preview da Foto da Equipe --- */
+/* Prévia da foto da equipe */
 .group-photo-preview-container {
     margin-top: 10px;
     text-align: center;
@@ -521,24 +480,22 @@ tr.avaliacao-pendente .evaluation-cell div {
     align-items: center;
     position: relative;
 }
-
 .group-photo-preview-container:empty::before {
     content: "Nenhuma foto da equipe selecionada.";
     color: #888;
     font-style: italic;
 }
-
 .group-photo-preview-container .image-preview-wrapper {
-    width: 250px; /* Maior que as evidências */
+    width: 250px;
     height: auto;
 }
 
-
-/* --- Estilos para Tabela do Plano de Ação --- */
+/* Tabela do plano de ação */
 #action-plan-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 15px;
+    table-layout: fixed; /* Garante layout fixo para inputs */
 }
 
 #action-plan-table th, #action-plan-table td {
@@ -566,11 +523,10 @@ tr.avaliacao-pendente .evaluation-cell div {
     outline: none;
 }
 
-/* --- Estilos do Modal da Câmera (Atualizado) --- */
-
+/* Modal da câmera */
 .camera-btn {
-    background-color: #287eb8; /* Cor azul */
-    margin-top: 10px; /* Espaço acima */
+    background-color: #287eb8; 
+    margin-top: 10px; 
     margin-left: 0;
     padding: 12px 24px;
     font-size: 16px;
@@ -582,19 +538,18 @@ tr.avaliacao-pendente .evaluation-cell div {
     transition: background-color 0.3s ease;
 }
 .camera-btn:hover {
-    background-color: #004585; /* Azul mais escuro */
+    background-color: #004585; 
 }
 
-/* Garante que o input de arquivo e o botão da câmera fiquem em linhas separadas */
 #image-upload,
 #group-photo-upload {
     display: block;
     width: fit-content;
-    margin: 0 auto 10px auto; /* Centraliza e adiciona espaço abaixo */
+    margin: 0 auto 10px auto; 
 }
 
 .camera-modal {
-    display: none; /* Controlado por JS */
+    display: none; 
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -641,24 +596,21 @@ tr.avaliacao-pendente .evaluation-cell div {
 }
 
 .camera-controls #capture-btn {
-    background-color: #c63321; /* Vermelho */
+    background-color: #c63321;
 }
 .camera-controls #use-single-photo-btn,
 .camera-controls #done-multi-shot-btn {
-    background-color: #008f51; /* Verde */
+    background-color: #008f51;
 }
 .camera-controls #retake-single-photo-btn,
 .camera-controls #close-modal-btn {
-    background-color: #6c757d; /* Cinza */
+    background-color: #6c757d;
 }
-
-/* NOVO: Estilo para o botão de virar câmera */
 .camera-controls #flip-camera-btn {
-    background-color: #007bff; /* Azul */
+    background-color: #007bff;
 }
 
-
-/* --- Estilos para o Modal de Multi-Fotos --- */
+/* Modal de multi-fotos */
 #film-strip-container {
     display: none;
     background-color: #f0f4f8;
@@ -694,39 +646,35 @@ tr.avaliacao-pendente .evaluation-cell div {
     height: 60px; 
 }
 
-/* ============================================================
-   ESTILOS DE RESPONSIVIDADE (CELULAR)
-============================================================ */
+/* Responsividade */
 @media (max-width: 768px) {
 
-    /* --- 1. Layout Geral --- */
+    /* 1. Layout geral */
     body {
         padding: 10px; /* Adiciona um respiro nas bordas da tela */
         -webkit-text-size-adjust: 100%; /* Impede o iOS de aumentar a fonte sozinho */
     }
     
     header h1 {
-        font-size: 1.6rem; /* Diminui o título principal */
+        font-size: 1.6rem;
     }
     
-    /* --- 2. Formulários (Local, Data, Filtro) --- */
-    
-    /* Faz os campos de Local, Data e Horário ocuparem 100% da largura */
+    /* 2. Formulários (local, data, filtro) */
     .details-form,
     .meeting-form {
         flex-direction: column;
         gap: 15px;
     }
 
-    /* Faz o filtro de responsável empilhar e ocupar 100% */
     .controls {
         flex-direction: column;
         align-items: stretch;
     }
-    .controls #responsible-input {
+    
+    .controls #responsible-select {
         width: 100%;
-        box-sizing: border-box; /* Garante que o padding não quebre o layout */
-    }
+        box-sizing: border-box;
+        font-size: 16px;
 
     /* Melhora a legibilidade de TODOS os campos de texto no celular */
     input[type="text"],
@@ -734,40 +682,42 @@ tr.avaliacao-pendente .evaluation-cell div {
     input[type="time"],
     textarea,
     select {
-        /* Aumenta a fonte para 16px. Isso impede o zoom automático chato no iOS */
         font-size: 16px; 
     }
 
-    /* --- 3. Tabelas (A correção mais importante) --- */
-
+    /* 3. Tabelas */
     /* Força as duas tabelas a terem rolagem horizontal */
     .table-container,
     .action-plan-section {
         overflow-x: auto;
-        -webkit-overflow-scrolling: touch; /* Rolagem suave no iOS */
+        -webkit-overflow-scrolling: touch;
     }
 
-    /* Força a tabela do Plano de Ação a ser larga */
     #action-plan-table {
-        min-width: 600px; /* Força uma largura mínima */
+        min-width: 600px;
+        table-layout: auto; /* Permite que o navegador ajuste as colunas */
+    }
+    
+    #action-plan-table input[type="text"] {
+        font-size: 16px;
+        padding: 10px;
     }
 
-    /* Força a tabela principal (Itens de Ação) a ser BEM larga */
     #action-items-table {
-        min-width: 1200px; /* Força a tabela a ter 1200px, impedindo o texto de espremer */
+        min-width: 1200px;
     }
 
     /* Ajusta o tamanho da fonte da tabela para ler melhor */
     #action-items-table th,
     #action-items-table td {
-        font-size: 14px; /* Um pouco maior para leitura */
+        font-size: 14px;
     }
     
-    /* --- 4. Correção dos Botões Sim/Não/N/A --- */
+    /* 4. Correção dos botões Sim/Não/N/A */
     .evaluation-cell {
-        flex-wrap: wrap; /* PERMITE QUE OS BOTÕES QUEBREM A LINHA */
-        min-width: 110px; /* Dá espaço suficiente para os botões */
-        justify-content: center; /* Centraliza eles na célula */
+        flex-wrap: wrap;
+        min-width: 110px; 
+        justify-content: center; 
     }
 
     .evaluation-cell .radio-label {
@@ -775,9 +725,9 @@ tr.avaliacao-pendente .evaluation-cell div {
         font-size: 13px;
     }
 
-    /* --- 5. Modal da Câmera --- */
+    /* 5. Modal da câmera */
     .camera-btn {
-        width: 100%; /* Botão "Tirar Foto" ocupa largura total */
+        width: 100%;
         box-sizing: border-box;
     }
     
@@ -793,11 +743,12 @@ tr.avaliacao-pendente .evaluation-cell div {
     }
 
     .camera-controls {
-        gap: 5px; /* Diminui o espaço entre os botões do modal */
+        gap: 5px;
     }
 
     .camera-controls button {
         padding: 8px 12px;
-        font-size: 12px; /* Botões menores no modal */
+        font-size: 12px;
     }
+  }
 }

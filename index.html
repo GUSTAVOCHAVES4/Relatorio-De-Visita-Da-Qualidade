@@ -34,16 +34,16 @@
    <main>
     <div class="content-wrapper">
         <section class="controls">
-            <label for="responsible-input">Filtrar por Responsável:</label>
-            <input list="responsible-list" id="responsible-input" placeholder="Digite para pesquisar..." />
-            <datalist id="responsible-list">
-            </datalist>
-            <button id="clear-search-btn" title="Limpar pesquisa">X</button>
-        </section>
+            <label for="responsible-select">Filtrar por Responsável:</label>
+            <select id="responsible-select">
+                <option value="">-- Selecione um responsável --</option>
+                <!-- Lista é preenchida pelo JavaScript -->
+            </select>
+            <button id="clear-search-btn" title="Limpar pesquisa">X</button>
+        </section>
 
         <section class="image-upload-section">
     <h3>Anexar Fotos de Evidência</h3>
-    <input type="file" id="image-upload" multiple accept="image/*">
     <button type="button" id="open-evidence-camera-btn" class="camera-btn">Tirar Foto (Câmera)</button>
     <div id="image-preview-container" title="Pré-visualização das imagens selecionadas"></div>
         </section>
@@ -57,8 +57,7 @@
         </div>
 
         <div class="form-group full-width">
-    <label for="group-photo-upload">Foto da Equipe (Opcional):</label>
-    <input type="file" id="group-photo-upload" accept="image/*">
+    <label for="group-photo-upload">Foto da Equipe:</label>
     <button type="button" id="open-group-camera-btn" class="camera-btn">Tirar Foto da Equipe (Câmera)</button>
     <div id="group-photo-preview" class="group-photo-preview-container"></div>
     </div>
@@ -166,9 +165,7 @@
         <div id="film-strip-container"></div>
 
         <div class="camera-controls">
-            <!-- BOTÃO NOVO ADICIONADO AQUI -->
             <button type="button" id="flip-camera-btn" style="display: none;">Virar Câmera</button>
-            
             <button type="button" id="capture-btn">Tirar Foto</button>
             <button type="button" id="use-single-photo-btn" style="display: none;">Usar esta Foto</button>
             <button type="button" id="retake-single-photo-btn" style="display: none;">Tirar Novamente</button>

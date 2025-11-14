@@ -1,25 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Variáveis de Elementos do DOM ---
+    // Variáveis de Elementos do DOM
     const evaluationForm = document.getElementById('evaluation-form');
-    const responsibleInput = document.getElementById('responsible-input');
-    const responsibleList = document.getElementById('responsible-list');
+    const responsibleSelect = document.getElementById('responsible-select');
     const clearSearchBtn = document.getElementById('clear-search-btn');
     const tableBody = document.querySelector('#action-items-table tbody');
     const minutesOutput = document.getElementById('minutes-output');
-    const imageUploadInput = document.getElementById('image-upload');
     const imagePreviewContainer = document.getElementById('image-preview-container');
     const visitLocalInput = document.getElementById('visit-local');
     const visitDateInput = document.getElementById('visit-date');
     const visitTimeInput = document.getElementById('visit-time');
     const meetingParticipantsInput = document.getElementById('meeting-participants');
-    const groupPhotoUploadInput = document.getElementById('group-photo-upload');
     const groupPhotoPreviewContainer = document.getElementById('group-photo-preview');
     const nextVisitDateInput = document.getElementById('next-visit-date');
     const nextVisitTimeInput = document.getElementById('next-visit-time');
     const nextVisitLocalInput = document.getElementById('next-visit-local');
     const actionPlanTableBody = document.querySelector('#action-plan-table tbody');
     
-    // --- Variáveis da Câmera (Versão Atualizada) ---
+    // Variáveis da Câmera
     const cameraModal = document.getElementById('camera-modal');
     const videoFeed = document.getElementById('camera-feed');
     const snapshotCanvas = document.getElementById('camera-snapshot');
@@ -28,13 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const openGroupCameraBtn = document.getElementById('open-group-camera-btn');
     const flipCameraBtn = document.getElementById('flip-camera-btn');
     const filmStripContainer = document.getElementById('film-strip-container');
-    // Botões do modal (nomes atualizados)
+    // Botões do modal
     const useSinglePhotoBtn = document.getElementById('use-single-photo-btn');
     const retakeSinglePhotoBtn = document.getElementById('retake-single-photo-btn');
     const doneMultiShotBtn = document.getElementById('done-multi-shot-btn');
     const closeModalBtn = document.getElementById('close-modal-btn');
 
-    // --- Variáveis de Estado ---
+    // Variáveis de Estado
     let meetingItems = [];
     let currentMinutesData = [];
     let uploadedImages = [];
@@ -45,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentCameraTarget = null;
     let currentFacingMode = 'environment';
 
-    // 🔹 Função debounce
+    // Função debounce
     function debounce(func, delay = 300) {
         let timer;
         return (...args) => {
@@ -54,8 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // --- Funções Principais da Aplicação ---
-
+    // Funções Principais
     async function loadDataAndInitialize() {
         try {
             const response = await fetch('assets/data/data.json');
@@ -70,14 +66,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function populateResponsibleDatalist() {
-        const responsibles = [...new Set(meetingItems.map(item => item.responsible))].filter(Boolean).sort();
-        responsibleList.innerHTML = '';
-        responsibles.forEach(responsible => {
-            const option = document.createElement('option');
-            option.value = responsible;
-            responsibleList.appendChild(option);
-        });
-    }
+        const responsibles = [...new Set(meetingItems.map(item => item.responsible))].filter(Boolean).sort();
+        // Limpa o select, mantendo a primeira opção "Selecione"
+        responsibleSelect.innerHTML = '<option value="">-- Selecione um responsável --</option>';
+        responsibles.forEach(responsible => {
+            const option = document.createElement('option');
+            option.value = responsible;
+            option.textContent = responsible; // Mostra o nome
+            responsibleSelect.appendChild(option);
+        });
+    }
 
     function renderTable(items) {
         tableBody.innerHTML = '';
@@ -286,19 +284,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return html;
     }
 
-    function handleImageUpload(event) {
-        const files = event.target.files;
-        for (const file of files) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                uploadedImages.push(e.target.result);
-                renderImagePreviews();
-            };
-            reader.readAsDataURL(file);
-        }
-        event.target.value = null;
-    }
-
     function renderImagePreviews() {
         imagePreviewContainer.innerHTML = '';
         uploadedImages.forEach((imageData, index) => {
@@ -323,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function generatePdfDocument(data) {
         try {
-            // --- 1. VERIFICAÇÃO INICIAL E CONFIGURAÇÃO DO DOCUMENTO ---
+            // 1. VERIFICAÇÃO INICIAL E CONFIGURAÇÃO DO DOCUMENTO
             if (typeof window.jspdf.jsPDF.API.autoTable !== 'function') {
                 alert('Erro Crítico: A biblioteca jsPDF-AutoTable não foi carregada.');
                 return;
@@ -337,11 +322,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const margin = 15;
             const pageBottom = pageHeight - margin;
 
-            // Cores padrão para títulos destacados
             const azulTitulo = [38, 108, 147]; // Azul escuro
             const brancoTexto = [255, 255, 255]; // Texto branco
 
-            // --- PÁGINA 1: CAPA (sem alterações) ---
+            // PÁGINA 1: CAPA
             const laranjaPrincipal = [245, 127, 23];
             const verdeEscurecido = [180, 230, 140];
             const cinzaSombra = [189, 189, 189];
@@ -366,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
             doc.text(`DATA: ${data.visitDate || 'Não informada'}`, pageWidth / 2, pageHeight / 2 + 33, { align: 'center' });
             doc.text(`HORÁRIO: ${data.visitTime || 'Não informado'}`, pageWidth / 2, pageHeight / 2 + 41, { align: 'center' });
 
-            // --- PÁGINA 2: DETALHES (COM LAYOUT E LÓGICA DE PÁGINA CORRIGIDOS) ---
+            // PÁGINA 2: DETALHES
             doc.addPage();
             let y = margin;
             
@@ -382,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const textPadding = 7; 
             const blockSpacing = 12; 
 
-            // --- PARTICIPANTES ---
+            // PARTICIPANTES
             y = checkAddPage(y, barHeight + textPadding + 5 + blockSpacing); 
             doc.setFillColor.apply(null, azulTitulo);
             doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 3, 3, 'F');
@@ -394,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
             doc.text(participantsText, margin + 5, y); 
             y += participantsText.length * 5 + blockSpacing; 
 
-            // --- ASSUNTO DA REUNIÃO ---
+            // ASSUNTO DA REUNIÃO
             y = checkAddPage(y, barHeight + textPadding + 7 + blockSpacing);
             doc.setFillColor.apply(null, azulTitulo);
             doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 3, 3, 'F');
@@ -405,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
             doc.text('Visita para auditoria de itens Roteiro do CQH', margin + 5, y); 
             y += 7 + blockSpacing; 
 
-            // --- FOTO DA EQUIPE ---
+            // FOTO DA EQUIPE
             if (data.groupPhoto) {
                 const imgExpectedHeight = 90 + 20 + 15; 
                 y = checkAddPage(y, imgExpectedHeight);
@@ -417,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 y += imgHeight + 15; 
             }
             
-            // --- Roteiro, Fotos, Parágrafo (COM VERIFICAÇÃO DE PÁGINA) ---
+            // Roteiro, Fotos, Parágrafo (com verificação de página)
             y = checkAddPage(y, 30); 
             doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0);
             doc.text('Roteiro:', margin, y);
@@ -440,7 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
             doc.text(paragraphLines, margin, y);
             y += paragraphHeight; 
 
-            // --- PRÓXIMA VISITA ---
+            // PRÓXIMA VISITA
             const proximaVisitaHeight = barHeight + textPadding + 7 + blockSpacing;
             y = checkAddPage(y, proximaVisitaHeight);
             
@@ -453,7 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
             doc.text(data.nextVisit || 'Não definida.', margin + 5, y); 
             y += 15; 
             
-            // --- INÍCIO DA TABELA (SEMPRE EM PÁGINA NOVA) ---
+            // INÍCIO DA TABELA (sempre em uma nova página)
             doc.addPage(); 
             let finalY = margin; 
 
@@ -513,7 +497,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            // --- PÁGINA FINAL: FOTOS E PLANO DE AÇÃO ---
+            // PÁGINA FINAL: FOTOS E PLANO DE AÇÃO
             doc.addPage();
             y = margin;
 
@@ -526,7 +510,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (index > 0 && index % imagesPerRow === 0) { photoX = margin; y += imgHeight + verticalGap; }
                     if (y + imgHeight > pageHeight - margin) {
                         doc.addPage(); y = margin; doc.setFontSize(18); doc.setFont('helvetica', 'bold');
-                        doc.text('FOTOS DE EVIDÊNCIA (continuação)', pageWidth / 2, y, { align: 'center' }); y += 15; photoX = margin;
                     }
                     doc.addImage(imgData, 'PNG', photoX, y, imgWidth, imgHeight); photoX += imgWidth + horizontalGap;
                 });
@@ -577,29 +560,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- EVENT LISTENERS ---
-    responsibleInput.addEventListener('input', debounce((event) => {
-        const searchText = event.target.value.toUpperCase();
-        if (searchText) {
-            const filteredItems = meetingItems.filter(item =>
-                item.responsible && item.responsible.toUpperCase().includes(searchText)
-            );
-            renderTable(filteredItems);
-        } else {
-            tableBody.innerHTML = '';
-        }
-    }, 300));
+    // EVENT LISTENERS
+    responsibleSelect.addEventListener('change', (event) => {
+        const searchText = event.target.value.toUpperCase();
+        if (searchText) {
+            const filteredItems = meetingItems.filter(item =>
+                item.responsible && item.responsible.toUpperCase() === searchText // Busca exata
+            );
+            renderTable(filteredItems);
+        } else {
+            tableBody.innerHTML = '';
+        }
+    });
 
     clearSearchBtn.addEventListener('click', () => {
-        responsibleInput.value = '';
-        tableBody.innerHTML = '';
-        minutesOutput.innerHTML = '';
-        uploadedImages = [];
-        renderImagePreviews();
-        responsibleInput.focus();
-    });
+        responsibleSelect.value = ''; // Reseta o select
+        tableBody.innerHTML = '';
+        minutesOutput.innerHTML = '';
+        uploadedImages = [];
+        renderImagePreviews();
+        responsibleSelect.focus();
+    });
 
-    imageUploadInput.addEventListener('change', handleImageUpload);
     evaluationForm.addEventListener('submit', (event) => {
         event.preventDefault();
         const allRows = Array.from(tableBody.querySelectorAll('tr:not(.section-header):not(.theme-header)'));
@@ -620,26 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
         generateMinutes(allRows);
     });
 
-    groupPhotoUploadInput.addEventListener('change', (event) => {
-        const file = event.target.files[0];
-        if (!file) {
-            groupPhotoImageData = null;
-            groupPhotoPreviewContainer.innerHTML = '';
-            return;
-        }
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            groupPhotoImageData = e.target.result;
-            groupPhotoPreviewContainer.innerHTML = `
-            <div class="image-preview-wrapper">
-                <img src="${groupPhotoImageData}" alt="Foto da equipe">
-            </div>
-        `;
-        };
-        reader.readAsDataURL(file);
-    });
-
-    // --- LÓGICA DA CÂMERA (Refatorada para Virar Câmera e Multi-Shot) ---
+    // LÓGICA DA CÂMERA (Virar Câmera e Multi-Shot)
 
     /**
      * Inicia ou Reinicia o stream da câmera com o modo selecionado
@@ -747,7 +710,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Botão "Tirar Novamente" (para modo de foto única)
+     * Botão "Tirar Novamente" (foto única)
      */
     function retakeSinglePhoto() {
         videoFeed.style.display = 'block';
@@ -759,7 +722,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Botão "Usar esta Foto" (para modo de foto única)
+     * Botão "Usar esta Foto" (foto única)
      */
     function useSingleCapturedPhoto() {
         const imageDataUrl = snapshotCanvas.toDataURL('image/jpeg', 0.9);
@@ -774,7 +737,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Botão "Concluir" (para modo de múltiplas fotos)
+     * Botão "Concluir" (múltiplas fotos)
      */
     function saveMultiShotPhotos() {
         uploadedImages = [...uploadedImages, ...tempCapturedImages];
@@ -782,7 +745,7 @@ document.addEventListener('DOMContentLoaded', () => {
         closeModal();
     }
 
-    // --- Adiciona os Event Listeners para os botões da câmera ---
+    // Adiciona os Event Listeners para os botões da câmera
     openEvidenceCameraBtn.addEventListener('click', () => openCamera('evidence'));
     openGroupCameraBtn.addEventListener('click', () => openCamera('group'));
     
@@ -798,6 +761,5 @@ document.addEventListener('DOMContentLoaded', () => {
     retakeSinglePhotoBtn.addEventListener('click', retakeSinglePhoto);
     doneMultiShotBtn.addEventListener('click', saveMultiShotPhotos);
 
-    // --- Inicia a aplicação ---
     loadDataAndInitialize();
 });
