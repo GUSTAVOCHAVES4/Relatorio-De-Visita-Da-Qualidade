@@ -396,9 +396,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0);
                 doc.text('FOTO DA EQUIPE:', pageWidth / 2, y, { align: 'center' });
                 y += 8;
-                const imgWidth = 120; const imgHeight = 90; const imgX = (pageWidth - imgWidth) / 2;
-                doc.addImage(data.groupPhoto, 'PNG', imgX, y, imgWidth, imgHeight);
-                y += imgHeight + 15; 
+                const imgWidth = 120;
+            // Calcula a altura correta
+            // Se a proporção existir, calcula a altura, senão usa 90 como padrão.
+                const imgHeight = data.groupPhoto.aspect ? (imgWidth / data.groupPhoto.aspect) : 90;
+                const imgX = (pageWidth - imgWidth) / 2;
+                doc.addImage(data.groupPhoto.url, 'PNG', imgX, y, imgWidth, imgHeight);
+                y += imgHeight + 15;
             }
             
             // Roteiro, Fotos, Parágrafo (com verificação de página)
@@ -497,41 +501,68 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            // PÁGINA FINAL: FOTOS E PLANO DE AÇÃO
-            doc.addPage();
-            y = margin;
+        // PÁGINA FINAL: FOTOS E PLANO DE AÇÃO
+        doc.addPage();
+        y = margin;
 
-            if (data.evidencePhotos.length > 0) {
-                doc.setFontSize(18); doc.setFont('helvetica', 'bold');
-                doc.text('FOTOS DE EVIDÊNCIA', pageWidth / 2, y, { align: 'center' }); y += 15;
-                const imagesPerRow = 3; const imgWidth = 85; const imgHeight = 64;
-                const horizontalGap = 5; const verticalGap = 10; let photoX = margin;
-                data.evidencePhotos.forEach((imgData, index) => {
-                    if (index > 0 && index % imagesPerRow === 0) { photoX = margin; y += imgHeight + verticalGap; }
-                    if (y + imgHeight > pageHeight - margin) {
-                        doc.addPage(); y = margin; doc.setFontSize(18); doc.setFont('helvetica', 'bold');
-                    }
-                    doc.addImage(imgData, 'PNG', photoX, y, imgWidth, imgHeight); photoX += imgWidth + horizontalGap;
-                });
-                const numRows = Math.ceil(data.evidencePhotos.length / imagesPerRow);
-                y = margin + 15 + (numRows * (imgHeight + verticalGap));
-            }
-
-            if (data.actionPlan.length > 0) {
-                if (y > pageHeight - 60) { doc.addPage(); y = margin; } else { y += 15; }
-                doc.setFontSize(18); doc.setFont('helvetica', 'bold');
-                doc.text('PLANO DE AÇÃO', pageWidth / 2, y, { align: 'center' }); y += 10;
-                doc.autoTable({
-                    startY: y,
-                    head: [['AÇÃO', 'RESPONSÁVEL', 'SETOR', 'PRAZO PARA FINALIZAÇÃO']],
-                    body: data.actionPlan.map(item => [item.action, item.responsible, item.sector, item.deadline]),
-                    theme: 'grid',
-                    headStyles: { fillColor: [0, 69, 133], fontSize: 10, halign: 'center', valign: 'middle' },
-                    styles: { fontSize: 9, cellPadding: 3, halign: 'center', valign: 'middle' },
-                });
-            }
+        // Fotos de Evidência
+        if (data.evidencePhotos.length > 0) {
+            doc.setFontSize(18); doc.setFont('helvetica', 'bold');
+            doc.text('FOTOS DE EVIDÊNCIA', pageWidth / 2, y, { align: 'center' }); y += 15;
             
-            doc.save(`relatorio_visita_${data.visitLocal.replace(/\s+/g, '_') || 'geral'}.pdf`);
+            const imagesPerRow = 3;
+            const imgWidth = 85; // Largura fixa
+            const horizontalGap = 5;
+            const verticalGap = 10;
+            let photoX = margin;
+            let maxHeightInRow = 0; // Para rastrear a foto mais alta na linha
+
+            data.evidencePhotos.forEach((photo, index) => { // 'photo' é {url, aspect}
+                // Calcula a altura desta foto
+                const imgHeight = imgWidth / photo.aspect;
+                // Se for a primeira imagem de uma nova linha
+                if (index > 0 && index % imagesPerRow === 0) {
+                    photoX = margin;
+                    y += maxHeightInRow + verticalGap; // Pula para a próxima linha
+                    maxHeightInRow = 0; // Reseta a altura da linha
+                }
+
+                // Se a foto (mesmo na linha atual) não couber na página, cria uma nova
+                if (y + imgHeight > pageBottom) {
+                    doc.addPage();
+                    y = margin;
+                    doc.setFontSize(18); doc.setFont('helvetica', 'bold');
+                    doc.text('FOTOS DE EVIDÊNCIA (continuação)', pageWidth / 2, y, { align: 'center' });
+                    y += 15;
+                    photoX = margin;
+                    maxHeightInRow = 0;
+                }
+
+                doc.addImage(photo.url, 'PNG', photoX, y, imgWidth, imgHeight);
+                photoX += imgWidth + horizontalGap;
+                maxHeightInRow = Math.max(maxHeightInRow, imgHeight); // Atualiza a foto mais alta
+            });
+            
+            // Adiciona a altura da última linha antes do próximo bloco
+            y += maxHeightInRow + 10; 
+        }
+
+        // Plano de Ação (sem alteração)
+        if (data.actionPlan.length > 0) {
+            if (y > pageHeight - 60) { doc.addPage(); y = margin; } else { y += 15; }
+            doc.setFontSize(18); doc.setFont('helvetica', 'bold');
+            doc.text('PLANO DE AÇÃO', pageWidth / 2, y, { align: 'center' }); y += 10;
+            doc.autoTable({
+                startY: y,
+                head: [['AÇÃO', 'RESPONSÁVEL', 'SETOR', 'PRAZO PARA FINALIZAÇÃO']],
+                body: data.actionPlan.map(item => [item.action, item.responsible, item.sector, item.deadline]),
+                theme: 'grid',
+                headStyles: { fillColor: [0, 69, 133], fontSize: 10, halign: 'center', valign: 'middle' },
+                styles: { fontSize: 9, cellPadding: 3, halign: 'center', valign: 'middle' },
+            });
+        }
+        
+        doc.save(`relatorio_visita_${data.visitLocal.replace(/\s+/g, '_') || 'geral'}.pdf`);
 
         } catch (error) {
             console.error("Erro detalhado ao gerar o PDF:", error);
@@ -694,12 +725,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const imageDataUrl = snapshotCanvas.toDataURL('image/jpeg', 0.9);
 
-        if (currentCameraTarget === 'evidence') {
-            tempCapturedImages.push(imageDataUrl);
-            const img = document.createElement('img');
-            img.src = imageDataUrl;
-            filmStripContainer.appendChild(img);
-        } else {
+        // Captura a proporção
+        const aspectRatio = snapshotCanvas.width / snapshotCanvas.height;
+        const photoData = { url: imageDataUrl, aspect: aspectRatio };
+        if (currentCameraTarget === 'evidence') {
+            tempCapturedImages.push(photoData); // <-- Salva o objeto
+            const img = document.createElement('img');
+            img.src = photoData.url; // <-- Usa a URL do objeto
+            filmStripContainer.appendChild(img);
+        } else {
             videoFeed.style.display = 'none';
             snapshotCanvas.style.display = 'block';
             captureBtn.style.display = 'none';
@@ -725,17 +759,17 @@ document.addEventListener('DOMContentLoaded', () => {
      * Botão "Usar esta Foto" (foto única)
      */
     function useSingleCapturedPhoto() {
-        const imageDataUrl = snapshotCanvas.toDataURL('image/jpeg', 0.9);
-        
-        groupPhotoImageData = imageDataUrl;
-        groupPhotoPreviewContainer.innerHTML = `
-            <div class="image-preview-wrapper">
-                <img src="${groupPhotoImageData}" alt="Foto da equipe">
-            </div>
-        `;
-        closeModal();
-    }
+        const imageDataUrl = snapshotCanvas.toDataURL('image/jpeg', 0.9);
 
+        // Captura a proporção
+        const aspectRatio = snapshotCanvas.width / snapshotCanvas.height;
+        groupPhotoImageData = { url: imageDataUrl, aspect: aspectRatio }; // <-- Salva o objeto
+        groupPhotoPreviewContainer.innerHTML = `
+            <div class="image-preview-wrapper">
+                <img src="${groupPhotoImageData.url}" alt="Foto da equipe">             </div>
+        `;
+        closeModal();
+    }
     /**
      * Botão "Concluir" (múltiplas fotos)
      */
