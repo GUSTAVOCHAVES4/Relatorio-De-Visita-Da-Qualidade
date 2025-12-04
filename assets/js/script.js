@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Variáveis de Elementos do DOM
+    // --- Variáveis de Elementos do DOM ---
     const evaluationForm = document.getElementById('evaluation-form');
     const responsibleSelect = document.getElementById('responsible-select');
     const clearSearchBtn = document.getElementById('clear-search-btn');
     const tableBody = document.querySelector('#action-items-table tbody');
     const minutesOutput = document.getElementById('minutes-output');
-    const imagePreviewContainer = document.getElementById('image-preview-container');
     const visitLocalInput = document.getElementById('visit-local');
     const visitDateInput = document.getElementById('visit-date');
     const visitTimeInput = document.getElementById('visit-time');
@@ -15,8 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextVisitTimeInput = document.getElementById('next-visit-time');
     const nextVisitLocalInput = document.getElementById('next-visit-local');
     const actionPlanTableBody = document.querySelector('#action-plan-table tbody');
+    const visitObservationsTextarea = document.getElementById('visit-observations-textarea');
+    const meetingSubjectInput = document.getElementById('meeting-subject-input'); 
     
-    // Variáveis da Câmera
+    // --- Variáveis da Câmera ---
     const cameraModal = document.getElementById('camera-modal');
     const videoFeed = document.getElementById('camera-feed');
     const snapshotCanvas = document.getElementById('camera-snapshot');
@@ -25,24 +26,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const openGroupCameraBtn = document.getElementById('open-group-camera-btn');
     const flipCameraBtn = document.getElementById('flip-camera-btn');
     const filmStripContainer = document.getElementById('film-strip-container');
-    // Botões do modal
     const useSinglePhotoBtn = document.getElementById('use-single-photo-btn');
     const retakeSinglePhotoBtn = document.getElementById('retake-single-photo-btn');
     const doneMultiShotBtn = document.getElementById('done-multi-shot-btn');
     const closeModalBtn = document.getElementById('close-modal-btn');
 
-    // Variáveis de Estado
+    // --- NOVAS VARIÁVEIS (UPLOAD/GALERIA) ---
+    const openEvidenceFileBtn = document.getElementById('open-evidence-file-btn');
+    const evidenceFileInput = document.getElementById('evidence-file-input');
+    const openGroupFileBtn = document.getElementById('open-group-file-btn');
+    const groupFileInput = document.getElementById('group-file-input');
+    const imagePreviewContainer = document.getElementById('image-preview-container'); // Necessário para preview de evidências
+
+    // --- Variáveis de Estado ---
     let meetingItems = [];
     let currentMinutesData = [];
-    let uploadedImages = [];
-    let groupPhotoImageData = null; 
+    
+    // Armazenamos objetos { url: string, aspect: number }
+    let uploadedImages = []; // Para fotos de evidência
+    let groupPhotoImageData = null; // Para foto da equipe
+    
     // Variáveis de estado da câmera
-    let tempCapturedImages = [];
+    let tempCapturedImages = []; 
     let currentStream = null;
-    let currentCameraTarget = null;
-    let currentFacingMode = 'environment';
+    let currentCameraTarget = null; 
+    let currentFacingMode = 'environment'; 
 
-    // Função debounce
+    // 🔹 Função debounce
     function debounce(func, delay = 300) {
         let timer;
         return (...args) => {
@@ -51,14 +61,15 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // Funções Principais
+    // --- Funções Principais da Aplicação ---
+
     async function loadDataAndInitialize() {
         try {
             const response = await fetch('assets/data/data.json');
             if (!response.ok) throw new Error(`Erro ao carregar o arquivo: ${response.statusText}`);
             meetingItems = await response.json();
             populateResponsibleDatalist();
-            tableBody.innerHTML = '';
+            tableBody.innerHTML = ''; 
         } catch (error) {
             console.error('Erro ao carregar os dados:', error);
             minutesOutput.textContent = 'Não foi possível carregar os dados. Verifique se o arquivo data.json existe.';
@@ -66,16 +77,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function populateResponsibleDatalist() {
-        const responsibles = [...new Set(meetingItems.map(item => item.responsible))].filter(Boolean).sort();
-        // Limpa o select, mantendo a primeira opção "Selecione"
-        responsibleSelect.innerHTML = '<option value="">-- Selecione um responsável --</option>';
-        responsibles.forEach(responsible => {
-            const option = document.createElement('option');
-            option.value = responsible;
-            option.textContent = responsible; // Mostra o nome
-            responsibleSelect.appendChild(option);
-        });
-    }
+        const responsibles = [...new Set(meetingItems.map(item => item.responsible))].filter(Boolean).sort();
+        // Limpa o select, mantendo a primeira opção
+        if(responsibleSelect) {
+             responsibleSelect.innerHTML = '<option value="">-- Selecione um responsável --</option>';
+            responsibles.forEach(responsible => {
+                const option = document.createElement('option');
+                option.value = responsible;
+                option.textContent = responsible; 
+                responsibleSelect.appendChild(option);
+            });
+        }
+    }
 
     function renderTable(items) {
         tableBody.innerHTML = '';
@@ -120,16 +133,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const mainRow = document.createElement('tr');
             mainRow.dataset.masterId = group.master_id;
             mainRow.dataset.mainDescription = group.description || '';
+            
+            // Adicionando data-label para responsividade
             mainRow.innerHTML = `
-                <td>${group.responsible || ''}</td>
-                <td>${group.section || ''}</td>
-                <td>${group.theme || ''}</td>
-                <td>${group.item_number || ''}</td>
-                <td class="truncate-text">${group.description || ''}</td>
-                <td></td>
-                <td></td> 
-                <td>${group.exigency_level || ''}</td>
-                <td>
+                <td data-label="Responsável">${group.responsible || ''}</td>
+                <td data-label="Seção">${group.section || ''}</td>
+                <td data-label="Tema">${group.theme || ''}</td>
+                <td data-label="Item">${group.item_number || ''}</td>
+                <td data-label="Descrição do Item" class="truncate-text">${group.description || ''}</td>
+                <td data-label="Subitem"></td>
+                <td data-label="Descrição do Subitem"></td> 
+                <td data-label="Nível de Exigência">${group.exigency_level || ''}</td>
+                <td data-label="Avaliação">
                     <div class="evaluation-cell">
                         <input type="radio" id="eval-sim-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Sim">
                         <label for="eval-sim-${uniqueIdCounter}" class="radio-label">Sim</label>
@@ -139,8 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <label for="eval-na-${uniqueIdCounter}" class="radio-label">N/A</label>
                     </div>
                 </td>
-                <td><textarea name="evidences" placeholder="Evidências..."></textarea></td>
-                <td><textarea name="proposals" placeholder="Propostas..."></textarea></td>
+                <td data-label="Evidências"><textarea name="evidences" placeholder="Evidências..."></textarea></td>
+                <td data-label="Propostas"><textarea name="proposals" placeholder="Propostas..."></textarea></td>
             `;
             tableBody.appendChild(mainRow);
 
@@ -149,16 +164,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 const subitemRow = document.createElement('tr');
                 subitemRow.dataset.masterId = subitem.master_id;
                 subitemRow.dataset.mainDescription = group.description || '';
+                
                 subitemRow.innerHTML = `
-                    <td>${subitem.responsible || ''}</td>
-                    <td>${subitem.section || ''}</td>
-                    <td>${subitem.theme || ''}</td>
-                    <td>${subitem.item_number || ''}</td>
-                    <td class="truncate-text">${group.description || ''}</td> 
-                    <td>${subitem.subitem_number || ''}</td>
-                    <td class="truncate-text">${subitem.subitem_description || ''}</td> 
-                    <td>${subitem.exigency_level || ''}</td>
-                    <td>
+                    <td data-label="Responsável">${subitem.responsible || ''}</td>
+                    <td data-label="Seção">${subitem.section || ''}</td>
+                    <td data-label="Tema">${subitem.theme || ''}</td>
+                    <td data-label="Item">${subitem.item_number || ''}</td>
+                    <td data-label="Descrição do Item" class="truncate-text">${group.description || ''}</td> 
+                    <td data-label="Subitem">${subitem.subitem_number || ''}</td>
+                    <td data-label="Descrição do Subitem" class="truncate-text">${subitem.subitem_description || ''}</td> 
+                    <td data-label="Nível de Exigência">${subitem.exigency_level || ''}</td>
+                    <td data-label="Avaliação">
                         <div class="evaluation-cell">
                             <input type="radio" id="eval-sim-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Sim">
                             <label for="eval-sim-${uniqueIdCounter}" class="radio-label">Sim</label>
@@ -168,8 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             <label for="eval-na-${uniqueIdCounter}" class="radio-label">N/A</label>
                         </div>
                     </td>
-                    <td><textarea name="evidences" placeholder="Evidências..."></textarea></td>
-                    <td><textarea name="proposals" placeholder="Propostas..."></textarea></td>
+                    <td data-label="Evidências"><textarea name="evidences" placeholder="Evidências..."></textarea></td>
+                    <td data-label="Propostas"><textarea name="proposals" placeholder="Propostas..."></textarea></td>
                 `;
                 tableBody.appendChild(subitemRow);
             });
@@ -227,6 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const responsible = cells[1].querySelector('input').value;
                 const sector = cells[2].querySelector('input').value;
                 const deadline = cells[3].querySelector('input').value;
+                
                 if (responsible.trim() || sector.trim() || deadline.trim()) {
                     actionPlanItems.push({
                         action: cells[0].textContent,
@@ -247,7 +264,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 actionPlan: actionPlanItems,
                 groupPhoto: groupPhotoImageData,
                 evidencePhotos: uploadedImages,
-                visitObservations: observationsValue 
+                visitObservations: observationsValue,
+                meetingSubject: meetingSubjectInput ? meetingSubjectInput.value : ''
             };
 
             minutesOutput.innerHTML = generateMinutesHTML(fullReportData);
@@ -259,395 +277,107 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // gera apenas o HTML (para organizar melhor)
-function generateMinutesHTML(data) {
-    let html = `<h3>Visualização da Ata Gerada</h3>`;
-    html += `<p><strong>Local:</strong> ${data.visitLocal || 'Não informado'}</p>`;
-    html += `<p><strong>Data:</strong> ${data.visitDate || 'Não informada'}</p>`;
-    html += `<p><strong>Participantes:</strong> ${data.participants || 'Não informados'}</p>`;
-    html += `<p><strong>Próxima Visita:</strong> ${data.nextVisit}</p>`;
+    function generateMinutesHTML(data) {
+        let html = `<h3>Visualização da Ata Gerada</h3>`;
+        html += `<p><strong>Local:</strong> ${data.visitLocal || 'Não informado'}</p>`;
+        html += `<p><strong>Data:</strong> ${data.visitDate || 'Não informada'}</p>`;
+        html += `<p><strong>Participantes:</strong> ${data.participants || 'Não informados'}</p>`;
+        html += `<p><strong>Próxima Visita:</strong> ${data.nextVisit}</p>`;
 
-    if (data.groupPhoto) {
-        html += `<h4>Foto da Equipe</h4><img src="${data.groupPhoto.url}" style="max-width: 300px; border-radius: 8px;">`;
-    }
-
-    if (data.tableData.length > 0) {
-        html += `<h4>Itens de Ação</h4><p>${data.tableData.length} itens registrados.</p>`;
-    }
-
-    if (data.actionPlan.length > 0) {
-        html += `<h4>Plano de Ação</h4><p>${data.actionPlan.length} ações definidas.</p>`;
-    }
-    
-    if (data.evidencePhotos.length > 0) {
-        html += `<h4>Fotos de Evidência</h4><p>${data.evidencePhotos.length} fotos anexadas.</p>`;
-        // O texto que causava o erro foi removido daqui.
-    }
-    
-    html += `
-        <div id="download-buttons" style="margin-top: 20px;">
-            <button id="download-pdf-btn">Baixar .pdf</button>
-        </div>`;
-        
-    return html;
-}
-
-    function renderImagePreviews() {
-        imagePreviewContainer.innerHTML = ''; // Limpa as prévias existentes
-        uploadedImages.forEach((imageData, index) => { // imageData agora é {url, aspect}
-            const wrapper = document.createElement('div');
-            wrapper.classList.add('image-preview-wrapper');
-
-            const img = document.createElement('img');
-            img.src = imageData.url; // (.url)
-            img.alt = `Pré-visualização da imagem ${index + 1}`;
-
-            const removeBtn = document.createElement('button');
-            removeBtn.classList.add('remove-image-btn');
-            removeBtn.innerHTML = '&times;'; // 'x' character
-            removeBtn.title = 'Remover imagem';
-            removeBtn.onclick = () => {
-                uploadedImages.splice(index, 1); // Remove do array
-                renderImagePreviews(); // Re-renderiza as prévias
-            };
-
-            wrapper.appendChild(img);
-            wrapper.appendChild(removeBtn);
-            imagePreviewContainer.appendChild(wrapper);
-        });
-    }
-    
-    function generatePdfDocument(data) {
-        try {
-            // 1. VERIFICAÇÃO INICIAL E CONFIGURAÇÃO DO DOCUMENTO
-            if (typeof window.jspdf.jsPDF.API.autoTable !== 'function') {
-                alert('Erro Crítico: A biblioteca jsPDF-AutoTable não foi carregada.');
-                return;
-            }
-
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF('l', 'mm', 'a4');
-
-            const pageHeight = doc.internal.pageSize.getHeight();
-            const pageWidth = doc.internal.pageSize.getWidth();
-            const margin = 15;
-            const pageBottom = pageHeight - margin;
-
-            const azulTitulo = [38, 108, 147]; // Azul escuro
-            const brancoTexto = [255, 255, 255]; // Texto branco
-
-            // PÁGINA 1: CAPA
-            const laranjaPrincipal = [245, 127, 23];
-            const verdeEscurecido = [180, 230, 140];
-            const cinzaSombra = [189, 189, 189];
-            const logoHSPM = 'assets/images/logo-hspm.jpg';
-            const logoSP = 'assets/images/logo-prefeitura-sp.jpg';
-            doc.addImage(logoHSPM, 'JPG', margin, 8, 30, 15);
-            doc.addImage(logoSP, 'JPG', pageWidth - margin - 25, 8, 25, 25);
-            doc.setFontSize(12); doc.setTextColor(0, 0, 0); doc.setFont('helvetica', 'bold');
-            doc.text('HOSPITAL DO SERVIDOR PÚBLICO MUNICIPAL', pageWidth / 2, 15, { align: 'center' });
-            doc.setFontSize(10); doc.setFont('helvetica', 'normal');
-            doc.text('ASSESSORIA DE PLANEJAMENTO ESTRATÉGICO E QUALIDADE', pageWidth / 2, 21, { align: 'center' });
-            doc.setFillColor.apply(null, cinzaSombra); doc.circle(pageWidth / 2 + 2, pageHeight / 2 + 2, 80, 'F');
-            doc.setFillColor.apply(null, laranjaPrincipal); doc.circle(pageWidth / 2, pageHeight / 2, 80, 'F');
-            doc.setFillColor.apply(null, verdeEscurecido); const retanguloVerdeY = pageHeight / 2 - 8;
-            doc.rect(margin + 30, retanguloVerdeY, pageWidth - (margin * 2) - 60, 12, 'F');
-            doc.setFontSize(32); doc.setTextColor(255, 255, 255); doc.setFont('helvetica', 'bold');
-            doc.text('AUTO AVALIAÇÃO', pageWidth / 2, pageHeight / 2 - 20, { align: 'center' });
-            doc.setFontSize(12); doc.setTextColor(51, 51, 51); doc.setFont('helvetica', 'normal');
-            doc.text('ATA DE REGISTRO DA VISITA DE QUALIDADE', pageWidth / 2, pageHeight / 2 - 2, { align: 'center' });
-            doc.setFontSize(12); doc.setTextColor(0, 0, 0); doc.setFont('helvetica', 'bold');
-            doc.text(`LOCAL: ${data.visitLocal || 'Não informado'}`, pageWidth / 2, pageHeight / 2 + 25, { align: 'center' });
-            doc.text(`DATA: ${data.visitDate || 'Não informada'}`, pageWidth / 2, pageHeight / 2 + 33, { align: 'center' });
-            doc.text(`HORÁRIO: ${data.visitTime || 'Não informado'}`, pageWidth / 2, pageHeight / 2 + 41, { align: 'center' });
-
-            // PÁGINA 2: DETALHES
-            doc.addPage();
-            let y = margin;
-            
-            const checkAddPage = (currentY, requiredHeight) => {
-                if (currentY + requiredHeight > pageBottom) {
-                    doc.addPage();
-                    return margin; 
-                }
-                return currentY; 
-            };
-
-            const barHeight = 10;
-            const textPadding = 7; 
-            const blockSpacing = 12; 
-
-            // PARTICIPANTES
-            y = checkAddPage(y, barHeight + textPadding + 5 + blockSpacing); 
-            doc.setFillColor.apply(null, azulTitulo);
-            doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 3, 3, 'F');
-            doc.setFontSize(12); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
-            doc.text('PARTICIPANTES:', margin + 5, y + 6.5); 
-            y += barHeight + textPadding; 
-            doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); 
-            const participantsText = doc.splitTextToSize(data.participants || 'Nenhum participante listado.', pageWidth - (margin * 2) - 10); 
-            doc.text(participantsText, margin + 5, y); 
-            y += participantsText.length * 5 + blockSpacing; 
-
-            // ASSUNTO DA REUNIÃO
-            y = checkAddPage(y, barHeight + textPadding + 7 + blockSpacing);
-            doc.setFillColor.apply(null, azulTitulo);
-            doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 3, 3, 'F');
-            doc.setFontSize(12); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
-            doc.text('ASSUNTO DA REUNIÃO:', margin + 5, y + 6.5);
-            y += barHeight + textPadding; 
-            doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); 
-            doc.text('Visita para auditoria de itens Roteiro do CQH', margin + 5, y); 
-            y += 7 + blockSpacing; 
-
-            // FOTO DA EQUIPE
-            if (data.groupPhoto) {
-                const imgExpectedHeight = 90 + 20 + 15; 
-                y = checkAddPage(y, imgExpectedHeight);
-                doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0);
-                doc.text('FOTO DA EQUIPE:', pageWidth / 2, y, { align: 'center' });
-                y += 8;
-                const imgWidth = 120;
-            // Calcula a altura correta
-            // Se a proporção existir, calcula a altura, senão usa 90 como padrão.
-                const imgHeight = data.groupPhoto.aspect ? (imgWidth / data.groupPhoto.aspect) : 90;
-                const imgX = (pageWidth - imgWidth) / 2;
-                doc.addImage(data.groupPhoto.url, 'PNG', imgX, y, imgWidth, imgHeight);
-                y += imgHeight + 15;
-            }
-            
-            // Roteiro, Fotos, Parágrafo (com verificação de página)
-            y = checkAddPage(y, 30); 
-            doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0);
-            doc.text('Roteiro:', margin, y);
-            doc.setFont('helvetica', 'normal');
-            doc.text('Em anexo', margin + 25, y); 
-            y += 7;
-
-            doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0);
-            doc.text('Fotos:', margin, y);
-            doc.setFont('helvetica', 'normal');
-            doc.text('Em anexo', margin + 25, y); 
-            y += 10;
-            
-            const paragraph = "A reunião teve início com a avaliação dos itens pertinentes ao Roteiro do CQH. Foram mostradas evidências dos itens, conforme descrito abaixo e anexamos uma proposta para dar um passo adiante para a próxima visita.";
-            const paragraphLines = doc.splitTextToSize(paragraph, pageWidth - (margin * 2));
-            const paragraphHeight = paragraphLines.length * 6 + blockSpacing;
-            y = checkAddPage(y, paragraphHeight); 
-            doc.setFont('helvetica', 'bold'); 
-            doc.setTextColor(0, 0, 0);
-            doc.text(paragraphLines, margin, y);
-            y += paragraphHeight; 
-
-            // PRÓXIMA VISITA
-            const proximaVisitaHeight = barHeight + textPadding + 7 + blockSpacing;
-            y = checkAddPage(y, proximaVisitaHeight);
-            
-            doc.setFillColor.apply(null, azulTitulo);
-            doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 3, 3, 'F');
-            doc.setFontSize(12); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
-            doc.text('PRÓXIMA VISITA:', margin + 5, y + 6.5);
-            y += barHeight + textPadding; 
-            doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); 
-            doc.text(data.nextVisit || 'Não definida.', margin + 5, y); 
-            y += 15; 
-            
-            // INÍCIO DA TABELA (sempre em uma nova página)
-            doc.addPage(); 
-            let finalY = margin; 
-
-            // Tabela Principal
-            if (data.tableData.length > 0) {
-                doc.autoTable({
-                    startY: finalY,
-                    head: [['Responsável', 'Seção', 'Tema', 'Item', 'Descrição do Item', 'Subitem', 'Descrição do Subitem', 'Nível de Exigência', 'Avaliação', 'Evidências', 'Propostas']],
-                    body: data.tableData.map(item => {
-                        const formatAsList = (text) => {
-                            if (!text || text.trim() === '') return ''; 
-                            return text.split('\n').map(line => line.trim()).filter(line => line !== '').map(line => `• ${line}`).join('\n'); 
-                        };
-                        return [
-                            item.responsible, item.section, item.theme, item.item_number,
-                            item.description, item.subitem_number, item.subitem_description,
-                            item.exigency_level, item.evaluation,
-                            formatAsList(item.evidences), 
-                            formatAsList(item.proposals) 
-                        ];
-                    }),
-                    theme: 'grid',
-                    headStyles: { 
-                        fillColor: [40, 126, 184], fontSize: 9, 
-                        halign: 'center', valign: 'middle'
-                    },
-                    styles: { 
-                        fontSize: 8, cellPadding: 2.5, 
-                        overflow: 'linebreak', halign: 'center', valign: 'middle'
-                    },
-                    columnStyles: {
-                        9: { halign: 'left' }, 
-                        10: { halign: 'left' },
-                    },
-                    didDrawPage: (hookData) => { 
-                        finalY = hookData.cursor.y;
-                    }
-                });
-            }
-            
-            // Seção "OBSERVAÇÕES DA VISITA"
-            if (data.visitObservations && data.visitObservations.trim() !== '') {
-                finalY += 10; 
-                if (finalY > pageHeight - 40) { doc.addPage(); finalY = margin; }
-                doc.setFillColor.apply(null, azulTitulo);
-                doc.roundedRect(margin, finalY, pageWidth - (margin * 2), 12, 3, 3, 'F');
-                doc.setFontSize(16); doc.setTextColor(255, 255, 255); doc.setFont('helvetica', 'bold');
-                doc.text('OBSERVAÇÕES DA VISITA :', margin + 5, finalY + 8); finalY += 20;
-                doc.setFontSize(11); doc.setTextColor(0, 0, 0); doc.setFont('helvetica', 'normal');
-                const lines = data.visitObservations.split('\n');
-                lines.forEach(line => {
-                    if (line.trim() !== '') {
-                        if (finalY > pageHeight - margin) { doc.addPage(); finalY = margin; }
-                        const textLines = doc.splitTextToSize(`• ${line.trim()}`, pageWidth - (margin * 2) - 5);
-                        doc.text(textLines, margin + 5, finalY); finalY += textLines.length * 6;
-                    }
-                });
-            }
-
-        // PÁGINA FINAL: FOTOS E PLANO DE AÇÃO
-        doc.addPage();
-        y = margin;
-
-        // Fotos de Evidência
-        if (data.evidencePhotos.length > 0) {
-            doc.setFontSize(18); doc.setFont('helvetica', 'bold');
-            doc.text('FOTOS DE EVIDÊNCIA', pageWidth / 2, y, { align: 'center' }); y += 15;
-            
-            const imagesPerRow = 3;
-            const imgWidth = 85; // Largura fixa
-            const horizontalGap = 5;
-            const verticalGap = 10;
-            let photoX = margin;
-            let maxHeightInRow = 0; // Para rastrear a foto mais alta na linha
-
-            data.evidencePhotos.forEach((photo, index) => { // 'photo' é {url, aspect}
-                // Calcula a altura desta foto
-                const imgHeight = imgWidth / photo.aspect;
-                // Se for a primeira imagem de uma nova linha
-                if (index > 0 && index % imagesPerRow === 0) {
-                    photoX = margin;
-                    y += maxHeightInRow + verticalGap; // Pula para a próxima linha
-                    maxHeightInRow = 0; // Reseta a altura da linha
-                }
-
-                // Se a foto (mesmo na linha atual) não couber na página, cria uma nova
-                if (y + imgHeight > pageBottom) {
-                    doc.addPage();
-                    y = margin;
-                    doc.setFontSize(18); doc.setFont('helvetica', 'bold');
-                    y += 15;
-                    photoX = margin;
-                    maxHeightInRow = 0;
-                }
-
-                doc.addImage(photo.url, 'PNG', photoX, y, imgWidth, imgHeight);
-                photoX += imgWidth + horizontalGap;
-                maxHeightInRow = Math.max(maxHeightInRow, imgHeight); // Atualiza a foto mais alta
-            });
-            
-            // Adiciona a altura da última linha antes do próximo bloco
-            y += maxHeightInRow + 10; 
+        if (data.groupPhoto) {
+            html += `<h4>Foto da Equipe</h4><img src="${data.groupPhoto.url}" style="max-width: 300px; border-radius: 8px;">`;
         }
 
-        // Plano de Ação (sem alteração)
+        if (data.tableData.length > 0) {
+            html += `<h4>Itens de Ação</h4><p>${data.tableData.length} itens registrados.</p>`;
+        }
+
         if (data.actionPlan.length > 0) {
-            if (y > pageHeight - 60) { doc.addPage(); y = margin; } else { y += 15; }
-            doc.setFontSize(18); doc.setFont('helvetica', 'bold');
-            doc.text('PLANO DE AÇÃO', pageWidth / 2, y, { align: 'center' }); y += 10;
-            doc.autoTable({
-                startY: y,
-                head: [['AÇÃO', 'RESPONSÁVEL', 'SETOR', 'PRAZO PARA FINALIZAÇÃO']],
-                body: data.actionPlan.map(item => [item.action, item.responsible, item.sector, item.deadline]),
-                theme: 'grid',
-                headStyles: { fillColor: [0, 69, 133], fontSize: 10, halign: 'center', valign: 'middle' },
-                styles: { fontSize: 9, cellPadding: 3, halign: 'center', valign: 'middle' },
-            });
+            html += `<h4>Plano de Ação</h4><p>${data.actionPlan.length} ações definidas.</p>`;
         }
         
-        doc.save(`relatorio_visita_${data.visitLocal.replace(/\s+/g, '_') || 'geral'}.pdf`);
-
-        } catch (error) {
-            console.error("Erro detalhado ao gerar o PDF:", error);
-            alert("Ocorreu um erro inesperado ao gerar o PDF. Verifique o console (F12).");
+        if (data.evidencePhotos.length > 0) {
+            html += `<h4>Fotos de Evidência</h4><p>${data.evidencePhotos.length} fotos anexadas.</p>`;
         }
+        
+        html += `
+            <div id="download-buttons" style="margin-top: 20px;">
+                <button id="download-pdf-btn">Baixar .pdf</button>
+            </div>`;
+            
+        return html;
     }
+
+    // --- FUNÇÕES DE PROCESSAMENTO DE ARQUIVO (GALERIA) ---
+
+    function handleEvidenceFileUpload(event) {
+        const files = event.target.files;
+        if (!files || files.length === 0) return;
+
+        Array.from(files).forEach(file => {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                // Carrega a imagem para pegar largura/altura (aspect ratio)
+                const img = new Image();
+                img.onload = function() {
+                    const aspectRatio = img.width / img.height;
+                    const photoData = { 
+                        url: e.target.result, 
+                        aspect: aspectRatio 
+                    };
+                    
+                    // Adiciona ao array global
+                    uploadedImages.push(photoData);
+                    // Atualiza a visualização
+                    renderImagePreviews(); 
+                };
+                img.src = e.target.result;
+            };
+            
+            reader.readAsDataURL(file);
+        });
+        
+        event.target.value = ''; // Limpa o input
+    }
+
+    function handleGroupFileUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = new Image();
+            img.onload = function() {
+                const aspectRatio = img.width / img.height;
+                
+                groupPhotoImageData = { 
+                    url: e.target.result, 
+                    aspect: aspectRatio 
+                };
+
+                // Atualiza o HTML da preview
+                groupPhotoPreviewContainer.innerHTML = `
+                    <div class="image-preview-wrapper">
+                        <img src="${groupPhotoImageData.url}" alt="Foto da equipe" style="max-width: 100%; border-radius: 8px;">
+                        <button type="button" class="remove-image-btn" onclick="removeGroupPhoto()">&times;</button>
+                    </div>
+                `;
+            };
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+        event.target.value = '';
+    }
+
+    // Função global para ser acessada pelo onclick no HTML gerado dinamicamente
+    window.removeGroupPhoto = function() {
+        groupPhotoImageData = null;
+        groupPhotoPreviewContainer.innerHTML = '';
+    };
+
+    // --- LÓGICA DA CÂMERA ---
     
-    function highlightEmptyEvaluations() {
-        const allRows = Array.from(tableBody.querySelectorAll('tr:not(.section-header):not(.theme-header)'));
-        let firstEmptyRow = null;
-
-        allRows.forEach(row => {
-            row.classList.remove('avaliacao-pendente');
-            const isChecked = row.querySelector('input[name^="evaluation-"]:checked');
-            if (!isChecked) {
-                row.classList.add('avaliacao-pendente');
-                if (!firstEmptyRow) {
-                    firstEmptyRow = row;
-                }
-            }
-        });
-
-        if (firstEmptyRow) {
-            firstEmptyRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-
-
-    // EVENT LISTENERS
-    responsibleSelect.addEventListener('change', (event) => {
-        const searchText = event.target.value.toUpperCase();
-        if (searchText) {
-            const filteredItems = meetingItems.filter(item =>
-                item.responsible && item.responsible.toUpperCase() === searchText // Busca exata
-            );
-            renderTable(filteredItems);
-        } else {
-            tableBody.innerHTML = '';
-        }
-    });
-
-    clearSearchBtn.addEventListener('click', () => {
-        responsibleSelect.value = ''; // Reseta o select
-        tableBody.innerHTML = '';
-        minutesOutput.innerHTML = '';
-        uploadedImages = [];
-        renderImagePreviews();
-        responsibleSelect.focus();
-    });
-
-    evaluationForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const allRows = Array.from(tableBody.querySelectorAll('tr:not(.section-header):not(.theme-header)'));
-        if (allRows.length === 0) {
-            alert('Filtre por um responsável para exibir os itens antes de gerar a ata.');
-            return;
-        }
-        const allEvaluationsAreFilled = allRows.every(row => {
-            return row.querySelector('input[name^="evaluation-"]:checked') !== null;
-        });
-        if (!allEvaluationsAreFilled) {
-            const confirmContinue = confirm('Atenção: Nem todos os itens foram avaliados. Deseja gerar a ata mesmo assim com os itens preenchidos?');
-            if (!confirmContinue) {
-                highlightEmptyEvaluations();
-                return;
-            }
-        }
-        generateMinutes(allRows);
-    });
-
-    // LÓGICA DA CÂMERA (Virar Câmera e Multi-Shot)
-
-    /**
-     * Inicia ou Reinicia o stream da câmera com o modo selecionado
-     */
     async function startStream() {
         if (currentStream) {
             currentStream.getTracks().forEach(track => track.stop());
@@ -668,19 +398,16 @@ function generateMinutesHTML(data) {
                 try {
                     currentStream = await navigator.mediaDevices.getUserMedia({ video: true });
                 } catch (err3) {
-                     console.error("Nenhuma câmera encontrada: ", err3);
-                     alert("Nenhuma câmera foi encontrada no dispositivo. Verifique as permissões do navegador.");
-                     closeModal(); 
-                     return;
+                      console.error("Nenhuma câmera encontrada: ", err3);
+                      alert("Nenhuma câmera foi encontrada no dispositivo. Verifique as permissões do navegador.");
+                      closeModal(); 
+                      return;
                 }
             }
         }
         videoFeed.srcObject = currentStream;
     }
 
-    /**
-     * Tenta abrir a câmera do dispositivo
-     */
     async function openCamera(target) {
         videoFeed.style.display = 'block';
         snapshotCanvas.style.display = 'none';
@@ -710,9 +437,6 @@ function generateMinutesHTML(data) {
         cameraModal.style.display = 'flex'; 
     }
 
-    /**
-     * Para todos os feeds da câmera e fecha o modal
-     */
     function closeModal() {
         if (currentStream) {
             currentStream.getTracks().forEach(track => track.stop());
@@ -724,9 +448,6 @@ function generateMinutesHTML(data) {
         filmStripContainer.innerHTML = '';
     }
 
-    /**
-     * Tira a foto: desenha o vídeo no canvas
-     */
     function capturePhoto() {
         const context = snapshotCanvas.getContext('2d');
         snapshotCanvas.width = videoFeed.videoWidth;
@@ -734,16 +455,15 @@ function generateMinutesHTML(data) {
         context.drawImage(videoFeed, 0, 0, snapshotCanvas.width, snapshotCanvas.height);
         
         const imageDataUrl = snapshotCanvas.toDataURL('image/jpeg', 0.9);
-
-        // Captura a proporção
         const aspectRatio = snapshotCanvas.width / snapshotCanvas.height;
         const photoData = { url: imageDataUrl, aspect: aspectRatio };
-        if (currentCameraTarget === 'evidence') {
-            tempCapturedImages.push(photoData); // <-- Salva o objeto
-            const img = document.createElement('img');
-            img.src = photoData.url; // <-- Usa a URL do objeto
-            filmStripContainer.appendChild(img);
-        } else {
+
+        if (currentCameraTarget === 'evidence') {
+            tempCapturedImages.push(photoData);
+            const img = document.createElement('img');
+            img.src = photoData.url;
+            filmStripContainer.appendChild(img);
+        } else {
             videoFeed.style.display = 'none';
             snapshotCanvas.style.display = 'block';
             captureBtn.style.display = 'none';
@@ -753,9 +473,6 @@ function generateMinutesHTML(data) {
         }
     }
 
-    /**
-     * Botão "Tirar Novamente" (foto única)
-     */
     function retakeSinglePhoto() {
         videoFeed.style.display = 'block';
         snapshotCanvas.style.display = 'none';
@@ -765,35 +482,454 @@ function generateMinutesHTML(data) {
         retakeSinglePhotoBtn.style.display = 'none';
     }
 
-    /**
-     * Botão "Usar esta Foto" (para modo de foto única)
-     */
-    function useSingleCapturedPhoto() {
-        const imageDataUrl = snapshotCanvas.toDataURL('image/jpeg', 0.9);
+    function useSingleCapturedPhoto() {
+        const imageDataUrl = snapshotCanvas.toDataURL('image/jpeg', 0.9);
         const aspectRatio = snapshotCanvas.width / snapshotCanvas.height;
         
-        groupPhotoImageData = { url: imageDataUrl, aspect: aspectRatio }; // Salva o objeto
-        
+        groupPhotoImageData = { url: imageDataUrl, aspect: aspectRatio };
+        
         groupPhotoPreviewContainer.innerHTML = `
-            <div class="image-preview-wrapper">
-                <img src="${groupPhotoImageData.url}" alt="Foto da equipe"> </div>
-        `;
-        closeModal();
-    }
-    /**
-     * Botão "Concluir" (múltiplas fotos)
-     */
+            <div class="image-preview-wrapper">
+                <img src="${groupPhotoImageData.url}" alt="Foto da equipe">
+            </div>
+        `;
+        closeModal();
+    }
+
     function saveMultiShotPhotos() {
         uploadedImages = [...uploadedImages, ...tempCapturedImages];
         renderImagePreviews(); 
         closeModal();
     }
+    
+    function renderImagePreviews() {
+        imagePreviewContainer.innerHTML = ''; 
+        uploadedImages.forEach((imageData, index) => {
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('image-preview-wrapper');
 
-    // Adiciona os Event Listeners para os botões da câmera
+            const img = document.createElement('img');
+            img.src = imageData.url; 
+            img.alt = `Pré-visualização da imagem ${index + 1}`;
+
+            const removeBtn = document.createElement('button');
+            removeBtn.classList.add('remove-image-btn');
+            removeBtn.innerHTML = '&times;';
+            removeBtn.title = 'Remover imagem';
+            removeBtn.onclick = () => {
+                uploadedImages.splice(index, 1); 
+                renderImagePreviews(); 
+            };
+
+            wrapper.appendChild(img);
+            wrapper.appendChild(removeBtn);
+            imagePreviewContainer.appendChild(wrapper);
+        });
+    }
+
+    // --- GERADOR DE PDF ---
+    
+    function generatePdfDocument(data) {
+        try {
+            // --- 1. VERIFICAÇÃO INICIAL E CONFIGURAÇÃO DO DOCUMENTO ---
+            if (typeof window.jspdf.jsPDF.API.autoTable !== 'function') {
+                alert('Erro Crítico: A biblioteca jsPDF-AutoTable não foi carregada.');
+                return;
+            }
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('l', 'mm', 'a4');
+
+            const pageHeight = doc.internal.pageSize.getHeight();
+            const pageWidth = doc.internal.pageSize.getWidth();
+            const margin = 15;
+            const pageBottom = pageHeight - margin;
+
+            // Cores padrão para títulos destacados
+            const azulTitulo = [38, 108, 147]; // Azul escuro
+            const brancoTexto = [255, 255, 255]; // Texto branco
+
+            // --- PÁGINA 1: CAPA ---
+            const laranjaPrincipal = [245, 127, 23];
+            const verdeEscurecido = [180, 230, 140];
+            const cinzaSombra = [189, 189, 189];
+            const logoHSPM = 'assets/images/logo-hspm.jpg';
+            const logoSP = 'assets/images/logo-prefeitura-sp.jpg';
+            
+            doc.addImage(logoHSPM, 'JPG', margin, 8, 30, 15);
+            doc.addImage(logoSP, 'JPG', pageWidth - margin - 25, 8, 25, 25);
+            
+            doc.setFontSize(12); doc.setTextColor(0, 0, 0); doc.setFont('helvetica', 'bold');
+            doc.text('HOSPITAL DO SERVIDOR PÚBLICO MUNICIPAL', pageWidth / 2, 15, { align: 'center' });
+            doc.setFontSize(10); doc.setFont('helvetica', 'normal');
+            doc.text('ASSESSORIA DE PLANEJAMENTO ESTRATÉGICO E QUALIDADE', pageWidth / 2, 21, { align: 'center' });
+            
+            // Elementos gráficos de fundo
+            doc.setFillColor.apply(null, cinzaSombra); doc.circle(pageWidth / 2 + 2, pageHeight / 2 + 2, 80, 'F');
+            doc.setFillColor.apply(null, laranjaPrincipal); doc.circle(pageWidth / 2, pageHeight / 2, 80, 'F');
+            doc.setFillColor.apply(null, verdeEscurecido); 
+            const retanguloVerdeY = pageHeight / 2 - 8;
+            doc.rect(margin + 30, retanguloVerdeY, pageWidth - (margin * 2) - 60, 12, 'F');
+
+            // Quadro Azul em "AUTO AVALIAÇÃO"
+            doc.setFillColor.apply(null, azulTitulo);
+            const rectWidth = 140;
+            const rectHeight = 18;
+            const rectX = (pageWidth - rectWidth) / 2;
+            const rectY = (pageHeight / 2) - 28; 
+            doc.roundedRect(rectX, rectY, rectWidth, rectHeight, 2, 2, 'F'); 
+
+            doc.setFontSize(32); doc.setTextColor(255, 255, 255); doc.setFont('helvetica', 'bold');
+            doc.text('AUTO AVALIAÇÃO', pageWidth / 2, rectY + 13, { align: 'center' }); 
+
+            // "ATA DE REGISTRO..." em Negrito
+            doc.setFontSize(12); doc.setTextColor(51, 51, 51); doc.setFont('helvetica', 'bold'); 
+            doc.text('ATA DE REGISTRO DA VISITA DE QUALIDADE', pageWidth / 2, pageHeight / 2 + 1, { align: 'center' });
+
+            doc.setFontSize(12); doc.setTextColor(0, 0, 0); doc.setFont('helvetica', 'bold');
+            doc.text(`LOCAL: ${data.visitLocal || 'Não informado'}`, pageWidth / 2, pageHeight / 2 + 25, { align: 'center' });
+            doc.text(`DATA: ${data.visitDate || 'Não informada'}`, pageWidth / 2, pageHeight / 2 + 33, { align: 'center' });
+            doc.text(`HORÁRIO: ${data.visitTime || 'Não informado'}`, pageWidth / 2, pageHeight / 2 + 41, { align: 'center' });
+
+
+           // --- PÁGINA 2: DETALHES (Compactada para caber em uma página) ---
+            doc.addPage();
+            let y = margin;
+            
+            // Função auxiliar simplificada apenas para verificar fim da página
+            const checkAddPage = (currentY, requiredHeight) => {
+                if (currentY + requiredHeight > pageBottom) {
+                    doc.addPage();
+                    return margin; 
+                }
+                return currentY; 
+            };
+
+            const barHeight = 7; // Barra colorida mais fina
+            const textPadding = 5; 
+            const blockSpacing = 4; // Espaço menor entre blocos
+
+            // 1. PARTICIPANTES
+            doc.setFillColor.apply(null, azulTitulo);
+            doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 2, 2, 'F');
+            doc.setFontSize(10); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
+            doc.text('PARTICIPANTES:', margin + 3, y + 5); 
+            
+            y += barHeight + 3; // Pequeno espaço
+            
+            doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); doc.setFontSize(9);
+            // Ajuste para caber em uma linha se possível, ou quebra controlada
+            const participantsText = doc.splitTextToSize(data.participants || 'Nenhum participante listado.', pageWidth - (margin * 2) - 5); 
+            doc.text(participantsText, margin + 2, y); 
+            y += participantsText.length * 4 + blockSpacing; 
+
+            // 2. ASSUNTO DA REUNIÃO
+            doc.setFillColor.apply(null, azulTitulo);
+            doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 2, 2, 'F');
+            doc.setFontSize(10); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
+            doc.text('ASSUNTO DA REUNIÃO:', margin + 3, y + 5);
+            
+            y += barHeight + 3; 
+            doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); doc.setFontSize(9);
+            doc.text('Visita para auditoria de itens Roteiro do CQH', margin + 2, y); 
+            y += 5 + blockSpacing; 
+
+            // 3. FOTO DA EQUIPE (Controlada para não estourar a página)
+            if (data.groupPhoto && data.groupPhoto.url) { 
+                // Define limites máximos
+                const maxPhotoHeight = 75; // Máximo 7,5cm de altura
+                const maxPhotoWidth = 110; // Largura desejada
+                
+                let renderWidth = maxPhotoWidth;
+                let renderHeight = data.groupPhoto.aspect ? (renderWidth / data.groupPhoto.aspect) : 70;
+
+                // Se a altura calculada for maior que o permitido, reduz a largura para ajustar a altura
+                if (renderHeight > maxPhotoHeight) {
+                    renderHeight = maxPhotoHeight;
+                    renderWidth = renderHeight * data.groupPhoto.aspect;
+                }
+                
+                // Centraliza
+                const imgX = (pageWidth - renderWidth) / 2;
+                doc.addImage(data.groupPhoto.url, 'PNG', imgX, y, renderWidth, renderHeight);
+                y += renderHeight + 5; // Espaço após a foto
+            } else {
+                y += 10; // Espaço se não tiver foto
+            }
+            
+            // 4. Roteiro e Fotos (Texto lateral)
+            doc.setFontSize(9); 
+            doc.setFont('helvetica', 'bold'); doc.text('Roteiro:', margin, y);
+            doc.setFont('helvetica', 'normal'); doc.text('Em anexo', margin + 15, y); 
+            y += 5;
+
+            doc.setFont('helvetica', 'bold'); doc.text('Fotos:', margin, y);
+            doc.setFont('helvetica', 'normal'); doc.text('Em anexo', margin + 15, y); 
+            y += 8; // Espaço antes do parágrafo
+            
+            // 5. PARÁGRAFO DESCRITIVO (Linha preta separadora opcional ou apenas espaço)
+            doc.setDrawColor(0); doc.setLineWidth(0.5);
+            doc.line(margin, y, pageWidth - margin, y); // Linha separadora
+            y += 5;
+
+            const paragraph = "A reunião teve início com a avaliação dos itens pertinentes ao Roteiro do CQH. Foram mostradas evidências dos itens, conforme descrito abaixo e anexamos uma proposta para dar um passo adiante para a próxima visita.";
+            const paragraphLines = doc.splitTextToSize(paragraph, pageWidth - (margin * 2));
+            
+            doc.setFont('helvetica', 'bold'); doc.setFontSize(9);
+            doc.text(paragraphLines, margin, y);
+            y += (paragraphLines.length * 4) + 8; // Espaço para o próximo bloco
+
+            // 6. PRÓXIMA VISITA
+            // Verifica se cabe, senão adiciona página (mas com o ajuste acima deve caber)
+            if (y + barHeight + 10 > pageBottom) { doc.addPage(); y = margin; }
+
+            doc.setFillColor.apply(null, azulTitulo);
+            doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 2, 2, 'F');
+            doc.setFontSize(10); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
+            doc.text('PRÓXIMA VISITA:', margin + 3, y + 5);
+            y += barHeight + 4; 
+            
+            doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); doc.setFontSize(9);
+            doc.text(data.nextVisit || 'Não definida.', margin + 2, y); 
+            y += 10;
+            
+            
+            // --- INÍCIO DA TABELA ---
+            doc.addPage(); 
+            let finalY = margin; 
+
+            // Tabela Principal
+            if (data.tableData.length > 0) {
+                doc.autoTable({
+                    startY: finalY,
+                    // ADICIONE ESTA LINHA AQUI:
+                    rowPageBreak: 'avoid', 
+                    
+                    head: [['Seção', 'Tema', 'Item', 'Descrição do Item', 'Subitem', 'Descrição do Subitem', 'Nível de Exigência', 'Avaliação', 'Evidências', 'Propostas']],
+                    body: data.tableData.map(item => {
+                        const formatAsList = (text) => {
+                            if (!text || text.trim() === '') return ''; 
+                            return text.split('\n').map(line => line.trim()).filter(line => line !== '').map(line => `• ${line}`).join('\n'); 
+                        };
+                        return [
+                            item.section, 
+                            item.theme, 
+                            item.item_number,
+                            item.description, 
+                            item.subitem_number, 
+                            item.subitem_description,
+                            item.exigency_level, 
+                            item.evaluation,
+                            formatAsList(item.evidences), 
+                            formatAsList(item.proposals) 
+                        ];
+                    }),
+                    theme: 'grid',
+                    headStyles: { 
+                        fillColor: [40, 126, 184], fontSize: 9, 
+                        halign: 'center', valign: 'middle'
+                    },
+                    styles: { 
+                        fontSize: 8, cellPadding: 2.5, 
+                        overflow: 'linebreak', halign: 'center', valign: 'middle'
+                    },
+                    columnStyles: {
+                        0: { cellWidth: 25 }, 
+                        1: { cellWidth: 20 }, 
+                        2: { cellWidth: 8 },  
+                        3: { cellWidth: 45 }, 
+                        4: { cellWidth: 10 }, 
+                        5: { cellWidth: 35 }, 
+                        6: { cellWidth: 12 }, 
+                        7: { cellWidth: 12 }, 
+                        8: { cellWidth: 50, halign: 'left' }, 
+                        9: { cellWidth: 50, halign: 'left' }, 
+                    },
+                    didDrawPage: (hookData) => { 
+                        finalY = hookData.cursor.y;
+                    }
+                });
+            }
+            
+           // Seção OBSERVAÇÕES DA VISITA (Página Exclusiva)
+            if (data.visitObservations && data.visitObservations.trim() !== '') {
+                // Força nova página para as observações
+                doc.addPage(); 
+                finalY = margin; 
+                
+                doc.setFillColor.apply(null, azulTitulo);
+                doc.roundedRect(margin, finalY, pageWidth - (margin * 2), 10, 3, 3, 'F');
+                
+                doc.setFontSize(14); doc.setTextColor(255, 255, 255); doc.setFont('helvetica', 'bold');
+                doc.text('OBSERVAÇÕES DA VISITA :', margin + 5, finalY + 6.5); 
+                
+                finalY += 18; // Espaço após o título
+                
+                doc.setFontSize(10); doc.setTextColor(0, 0, 0); doc.setFont('helvetica', 'normal');
+                
+                const lines = data.visitObservations.split('\n');
+                lines.forEach(line => {
+                    if (line.trim() !== '') {
+                        // Verifica se precisa de mais uma página para o texto longo
+                        if (finalY > pageHeight - margin) { 
+                            doc.addPage(); 
+                            finalY = margin; 
+                        }
+                        
+                        const textLines = doc.splitTextToSize(`• ${line.trim()}`, pageWidth - (margin * 2) - 5);
+                        doc.text(textLines, margin + 5, finalY); 
+                        finalY += textLines.length * 5;
+                    }
+                });
+            }
+
+           // --- PÁGINA FOTOS ---
+            if (data.evidencePhotos && data.evidencePhotos.length > 0) {
+                doc.addPage(); 
+                y = margin;
+                // Título apenas na primeira página de fotos
+                doc.setFontSize(16); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0);
+                doc.text('FOTOS DE EVIDÊNCIA', pageWidth / 2, y, { align: 'center' }); y += 15;
+                
+                const imagesPerRow = 3; const imgWidth = 85; 
+                const horizontalGap = 5; const verticalGap = 10; let photoX = margin;
+                let maxHeightInRow = 0;
+
+                data.evidencePhotos.forEach((photo, index) => {
+                    const imgHeight = imgWidth / photo.aspect;
+
+                    // Lógica de quebra de linha (Grid)
+                    if (index > 0 && index % imagesPerRow === 0) {
+                        photoX = margin;
+                        y += maxHeightInRow + verticalGap;
+                        maxHeightInRow = 0;
+                    }
+
+                    // Lógica de quebra de página (MODIFICADA)
+                    if (y + imgHeight > pageBottom) {
+                        doc.addPage(); 
+                        y = margin;          // Volta para o topo da margem
+                        photoX = margin;     // Volta para a esquerda
+                        maxHeightInRow = 0;  // Reseta altura da linha
+                        // Texto removido aqui conforme solicitado
+                    }
+
+                    doc.addImage(photo.url, 'JPEG', photoX, y, imgWidth, imgHeight);
+                    photoX += imgWidth + horizontalGap;
+                    maxHeightInRow = Math.max(maxHeightInRow, imgHeight);
+                });
+                y += maxHeightInRow + 15; 
+            }
+
+            // --- PLANO DE AÇÃO (Página Exclusiva) ---
+            if (data.actionPlan.length > 0) {
+                // Força SEMPRE uma nova página antes de começar o Plano de Ação
+                doc.addPage(); 
+                y = margin; 
+                
+                doc.setFontSize(16); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0);
+                doc.text('PLANO DE AÇÃO', pageWidth / 2, y, { align: 'center' }); y += 10;
+                
+                doc.autoTable({
+                    startY: y,
+                    rowPageBreak: 'avoid', // Evita quebra de linhas no meio da célula
+                    head: [['AÇÃO', 'RESPONSÁVEL', 'SETOR', 'PRAZO PARA FINALIZAÇÃO']],
+                    body: data.actionPlan.map(item => [item.action, item.responsible, item.sector, item.deadline]),
+                    theme: 'grid',
+                    headStyles: { fillColor: [0, 69, 133], fontSize: 10, halign: 'center', valign: 'middle' },
+                    styles: { fontSize: 9, cellPadding: 3, halign: 'center', valign: 'middle' },
+                });
+            }
+
+            // --- PÁGINA FINAL: ANEXO ---
+            doc.addPage();
+            
+            const imgExemplo = 'assets/images/exemplo_mapeamento.png';
+            doc.addImage(imgExemplo, 'PNG', margin, margin, pageWidth - (2 * margin), pageHeight - (2 * margin));
+            
+            doc.save(`relatorio_visita_${data.visitLocal.replace(/\s+/g, '_') || 'geral'}.pdf`);
+
+        } catch (error) {
+            console.error("Erro detalhado ao gerar o PDF:", error);
+            alert("Ocorreu um erro inesperado ao gerar o PDF. Verifique o console (F12).");
+        }
+    }
+
+    // Event Listeners
+    if (responsibleSelect) {
+        responsibleSelect.addEventListener('change', (event) => {
+            const searchText = event.target.value.toUpperCase();
+            if (searchText) {
+                const filteredItems = meetingItems.filter(item =>
+                    item.responsible && item.responsible.toUpperCase() === searchText
+                );
+                renderTable(filteredItems);
+            } else {
+                tableBody.innerHTML = '';
+            }
+        });
+    }
+    
+    if (clearSearchBtn) {
+        clearSearchBtn.addEventListener('click', () => {
+            if(responsibleSelect) responsibleSelect.value = ''; 
+            tableBody.innerHTML = '';
+            minutesOutput.innerHTML = '';
+            uploadedImages = [];
+            renderImagePreviews();
+            if(responsibleSelect) responsibleSelect.focus();
+        });
+    }
+
+    // --- NOVOS LISTENERS PARA UPLOAD DE ARQUIVOS ---
+    
+    // Botão Galeria Evidências -> Clica no input invisível
+    if(openEvidenceFileBtn) {
+        openEvidenceFileBtn.addEventListener('click', () => evidenceFileInput.click());
+    }
+    // Quando o usuário seleciona o arquivo (Evidências)
+    if(evidenceFileInput) {
+        evidenceFileInput.addEventListener('change', handleEvidenceFileUpload);
+    }
+
+    // Botão Galeria Equipe -> Clica no input invisível
+    if(openGroupFileBtn) {
+        openGroupFileBtn.addEventListener('click', () => groupFileInput.click());
+    }
+    // Quando o usuário seleciona o arquivo (Equipe)
+    if(groupFileInput) {
+        groupFileInput.addEventListener('change', handleGroupFileUpload);
+    }
+
+    // --- FIM DOS NOVOS LISTENERS ---
+
+    evaluationForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const allRows = Array.from(tableBody.querySelectorAll('tr:not(.section-header):not(.theme-header)'));
+        if (allRows.length === 0) {
+            alert('Filtre por um responsável para exibir os itens antes de gerar a ata.');
+            return;
+        }
+        const allEvaluationsAreFilled = allRows.every(row => {
+            return row.querySelector('input[name^="evaluation-"]:checked') !== null;
+        });
+        if (!allEvaluationsAreFilled) {
+            const confirmContinue = confirm('Atenção: Nem todos os itens foram avaliados. Deseja gerar a ata mesmo assim com os itens preenchidos?');
+            if (!confirmContinue) {
+                return;
+            }
+        }
+        generateMinutes(allRows);
+    });
+
     openEvidenceCameraBtn.addEventListener('click', () => openCamera('evidence'));
     openGroupCameraBtn.addEventListener('click', () => openCamera('group'));
     
-    closeModalBtn.addEventListener('click', closeModal);
+    // Correção: usando closeModalBtn em vez de cancelCameraBtn
+    if(closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeModal);
+    }
+    
     captureBtn.addEventListener('click', capturePhoto);
     
     flipCameraBtn.addEventListener('click', () => {

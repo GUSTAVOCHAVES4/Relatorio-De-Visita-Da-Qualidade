@@ -752,3 +752,39 @@ tr.avaliacao-pendente .evaluation-cell div {
     }
   }
 }
+
+/* Estilo Padrão para Botões de Câmera e Galeria */
+.camera-btn {
+    background-color: #ffffff;  /* Fundo Branco */
+    color: #2e7dba;             /* Texto Azul */
+    border: 2px solid #2e7dba;  /* Borda Azul */
+    
+    /* Espaçamento e Fonte */
+    padding: 10px 20px;
+    border-radius: 5px;         /* Bordas levemente arredondadas */
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    
+    /* Transição suave */
+    transition: all 0.3s ease;
+    
+    /* Garante alinhamento com ícones se houver */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espaço entre o ícone e o texto */
+}
+
+/* Efeito ao passar o mouse (Hover) */
+.camera-btn:hover {
+    background-color: #e3f2fd;  /* Fundo azul bem clarinho */
+    color: #1c5a8a;             /* Azul mais escuro para contraste */
+    border-color: #1c5a8a;
+}
+
+/* Efeito ao clicar (Active) */
+.camera-btn:active {
+    background-color: #bbdefb;
+    transform: translateY(1px); /* Leve efeito de clique */
+}

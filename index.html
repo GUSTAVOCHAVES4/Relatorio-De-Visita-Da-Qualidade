@@ -34,90 +34,104 @@
    <main>
     <div class="content-wrapper">
         <section class="controls">
-            <label for="responsible-select">Filtrar por Responsável:</label>
-            <select id="responsible-select">
-                <option value="">-- Selecione um responsável --</option>
-                <!-- Lista é preenchida pelo JavaScript -->
-            </select>
-            <button id="clear-search-btn" title="Limpar pesquisa">X</button>
-        </section>
+            <label for="responsible-select">Filtrar por Responsável:</label>
+            <select id="responsible-select">
+                <option value="">-- Selecione um responsável --</option>
+                </select>
+            <button id="clear-search-btn" title="Limpar pesquisa">X</button>
+        </section>
 
         <section class="image-upload-section">
-    <h3>Anexar Fotos de Evidência</h3>
-    <button type="button" id="open-evidence-camera-btn" class="camera-btn">Tirar Foto (Câmera)</button>
-    <div id="image-preview-container" title="Pré-visualização das imagens selecionadas"></div>
+            <h3>Anexar Fotos de Evidência</h3>
+            
+            <div class="camera-controls-wrapper" style="display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
+                <button type="button" id="open-evidence-camera-btn" class="camera-btn">📷 Câmera</button>
+                
+                <button type="button" id="open-evidence-file-btn" class="camera-btn">📂 Anexar Fotos</button>
+                <input type="file" id="evidence-file-input" accept="image/*" multiple style="display: none;">
+            </div>
+
+            <div id="image-preview-container" title="Pré-visualização das imagens selecionadas"></div>
         </section>
 
         <section class="meeting-details-section">
-    <h3>Detalhes da Reunião</h3>
-    <div class="meeting-form">
-        <div class="form-group full-width">
-            <label for="meeting-participants">Participantes:</label>
-            <textarea id="meeting-participants" rows="3" placeholder="Liste os nomes dos participantes separados por vírgula. Ex: Enf. Gerson, Dr. Caio..."></textarea>
-        </div>
+            <h3>Detalhes da Reunião</h3>
+            <div class="meeting-form">
+                <div class="form-group full-width">
+                    <label for="meeting-participants">Participantes:</label>
+                    <textarea id="meeting-participants" rows="3" placeholder="Liste os nomes dos participantes separados por vírgula. Ex: Enf. Gerson, Dr. Caio..."></textarea>
+                </div>
 
-        <div class="form-group full-width">
-    <label for="group-photo-upload">Foto da Equipe:</label>
-    <button type="button" id="open-group-camera-btn" class="camera-btn">Tirar Foto da Equipe (Câmera)</button>
-    <div id="group-photo-preview" class="group-photo-preview-container"></div>
-    </div>
-        <h4>Próxima Visita</h4>
-        <div class="form-group">
-            <label for="next-visit-date">Data:</label>
-            <input type="date" id="next-visit-date">
-        </div>
-        <div class="form-group">
-            <label for="next-visit-time">Horário:</label>
-            <input type="time" id="next-visit-time">
-        </div>
-        <div class="form-group">
-            <label for="next-visit-local">Setor:</label>
-            <input type="text" id="next-visit-local" placeholder="Ex: Centro Cirúrgico">
-            </div>
-        </div>
+                <div class="form-group full-width">
+                    <label for="group-photo-upload">Foto da Equipe:</label>
+                    
+                    <div class="camera-controls-wrapper" style="display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
+                        <button type="button" id="open-group-camera-btn" class="camera-btn">📷 Câmera</button>
+                        
+                        <button type="button" id="open-group-file-btn" class="camera-btn">📂 Anexar Foto</button>
+                        <input type="file" id="group-file-input" accept="image/*" style="display: none;">
+                    </div>
+                    
+                    <div id="group-photo-preview" class="group-photo-preview-container"></div>
+                </div>
+
+                <h4>Próxima Visita</h4>
+                <div class="form-group">
+                    <label for="next-visit-date">Data:</label>
+                    <input type="date" id="next-visit-date">
+                </div>
+                <div class="form-group">
+                    <label for="next-visit-time">Horário:</label>
+                    <input type="time" id="next-visit-time">
+                </div>
+                <div class="form-group">
+                    <label for="next-visit-local">Setor:</label>
+                    <input type="text" id="next-visit-local" placeholder="Ex: Centro Cirúrgico">
+                    </div>
+                </div>
         </section>
 
         <section class="visit-observations-section">
-    <h3>Observações da Visita</h3>
-    <div class="form-group full-width">
-        <label for="visit-observations-textarea">Digite aqui as observações, usando "Enter" para separar os itens da lista:</label>
-        <textarea id="visit-observations-textarea" rows="8" placeholder="Ex: Telas com buracos..."></textarea>
-        </div>
+            <h3>Observações da Visita</h3>
+            <div class="form-group full-width">
+                <label for="visit-observations-textarea">Digite aqui as observações, usando "Enter" para separar os itens da lista:</label>
+                <textarea id="visit-observations-textarea" rows="8" placeholder="Ex: Telas com buracos..."></textarea>
+                </div>
         </section>
 
-<section class="action-plan-section">
-    <h3>Sugestões da APEQ: "Dando um passo adiante" (Plano de Ação)</h3>
-    <table id="action-plan-table">
-        <thead>
-            <tr>
-                <th>Ação</th>
-                <th>Responsável</th>
-                <th>Setor</th>
-                <th>Prazo para Finalização</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Nos gráficos da unidade, fazer comparativos com outro hospital e colocar metas.</td>
-                <td><input type="text" placeholder="Nome do responsável..."></td>
-                <td><input type="text" placeholder="Setor responsável..."></td>
-                <td><input type="text" placeholder="Prazo..."></td>
-            </tr>
-            <tr>
-                <td>Elaborar o Mapeamento dos Processos (processos principais).</td>
-                <td><input type="text" placeholder="Nome do responsável..."></td>
-                <td><input type="text" placeholder="Setor responsável..."></td>
-                <td><input type="text" placeholder="Prazo..."></td>
-            </tr>
-             <tr>
-                <td>Fazer Gestão de Riscos (ex: falta de materiais, o que fazer?).</td>
-                <td><input type="text" placeholder="Nome do responsável..."></td>
-                <td><input type="text" placeholder="Setor responsável..."></td>
-                <td><input type="text" placeholder="Prazo..."></td>
-            </tr>
-        </tbody>
-    </table>
-</section>
+        <section class="action-plan-section">
+            <h3>Sugestões da APEQ: "Dando um passo adiante" (Plano de Ação)</h3>
+            <table id="action-plan-table">
+                <thead>
+                    <tr>
+                        <th>Ação</th>
+                        <th>Responsável</th>
+                        <th>Setor</th>
+                        <th>Prazo para Finalização</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nos gráficos da unidade, fazer comparativos com outro hospital e colocar metas.</td>
+                        <td><input type="text" placeholder="Nome do responsável..."></td>
+                        <td><input type="text" placeholder="Setor responsável..."></td>
+                        <td><input type="text" placeholder="Prazo..."></td>
+                    </tr>
+                    <tr>
+                        <td>Elaborar o Mapeamento dos Processos (processos principais).</td>
+                        <td><input type="text" placeholder="Nome do responsável..."></td>
+                        <td><input type="text" placeholder="Setor responsável..."></td>
+                        <td><input type="text" placeholder="Prazo..."></td>
+                    </tr>
+                     <tr>
+                        <td>Fazer Gestão de Riscos (ex: falta de materiais, o que fazer?).</td>
+                        <td><input type="text" placeholder="Nome do responsável..."></td>
+                        <td><input type="text" placeholder="Setor responsável..."></td>
+                        <td><input type="text" placeholder="Prazo..."></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
         <form id="evaluation-form">
             <section class="table-container">
@@ -161,7 +175,6 @@
         <video id="camera-feed" autoplay playsinline></video>
         <canvas id="camera-snapshot" style="display: none;"></canvas>
 
-        <!-- "Tira de Filme" para multi-fotos -->
         <div id="film-strip-container"></div>
 
         <div class="camera-controls">
