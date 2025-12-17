@@ -152,13 +152,12 @@ textarea:focus {
     flex-grow: 1;
 }
 
-/* Botões de avaliação */
+/* --- Botões de avaliação --- */
 .evaluation-cell {
     display: flex;
     justify-content: center;
     align-items: center;
-    align-content: center; 
-    flex-wrap: wrap; /* Permite quebrar a linha (corrigido no @media) */
+    flex-wrap: nowrap; 
     gap: 5px;
     width: 100%;
     height: 100%; 
@@ -204,6 +203,38 @@ textarea:focus {
     border-color: #000000;
 }
 
+/* --- Botão "Limpar" (X) no Padrão dos Outros --- */
+.btn-limpar {
+    /* Adota o estilo base dos .radio-label */
+    padding: 6px 12px;
+    border: 1px solid #000000;
+    border-radius: 20px; /* Formato de pílula */
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.2s ease;
+    background-color: #f0f4f8; /* Mesma cor de fundo padrão */
+    color: #333; /* Mesma cor de texto padrão */
+
+    /* Ajustes específicos para o botão */
+    margin-left: 5px; /* Espaço entre o N/A e o X */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Garante que o botão não seja "esmagado" */
+    line-height: 1; /* Centraliza o X verticalmente */
+}
+
+/* Efeito ao passar o mouse (Hover) - Mantém um tom avermelhado para indicar "remover" */
+.btn-limpar:hover {
+    background-color: #ffebee;
+    color: #d32f2f;
+    border-color: #ff5252;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px); /* Efeito de leve levantamento */
+}
+
 /* Botões Gerais */
 button {
     color: white;
@@ -238,6 +269,43 @@ button {
 
 #generate-minutes-btn:hover {
     background-color: #003366;
+}
+
+/* --- Botões de Câmera e Galeria (Estilo Outline) --- */
+.camera-btn {
+    background-color: #ffffff;  /* Fundo Branco */
+    color: #2e7dba;             /* Texto Azul */
+    border: 2px solid #2e7dba;  /* Borda Azul */
+    
+    /* Espaçamento e Fonte */
+    padding: 10px 20px;
+    border-radius: 5px;         /* Bordas levemente arredondadas */
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    
+    /* Transição suave */
+    transition: all 0.3s ease;
+    
+    /* Garante alinhamento com ícones se houver */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espaço entre o ícone e o texto */
+    margin-top: 10px;
+}
+
+/* Efeito ao passar o mouse (Hover) */
+.camera-btn:hover {
+    background-color: #e3f2fd;  /* Fundo azul bem clarinho */
+    color: #1c5a8a;             /* Azul mais escuro para contraste */
+    border-color: #1c5a8a;
+}
+
+/* Efeito ao clicar (Active) */
+.camera-btn:active {
+    background-color: #bbdefb;
+    transform: translateY(1px); /* Leve efeito de clique */
 }
 
 /* Para as Lógicas JS */
@@ -523,24 +591,7 @@ tr.avaliacao-pendente .evaluation-cell div {
     outline: none;
 }
 
-/* Modal da câmera */
-.camera-btn {
-    background-color: #287eb8; 
-    margin-top: 10px; 
-    margin-left: 0;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.camera-btn:hover {
-    background-color: #004585; 
-}
-
+/* Modal da câmera e outros inputs */
 #image-upload,
 #group-photo-upload {
     display: block;
@@ -675,6 +726,7 @@ tr.avaliacao-pendente .evaluation-cell div {
         width: 100%;
         box-sizing: border-box;
         font-size: 16px;
+    }
 
     /* Melhora a legibilidade de TODOS os campos de texto no celular */
     input[type="text"],
@@ -715,7 +767,6 @@ tr.avaliacao-pendente .evaluation-cell div {
     
     /* 4. Correção dos botões Sim/Não/N/A */
     .evaluation-cell {
-        flex-wrap: wrap;
         min-width: 110px; 
         justify-content: center; 
     }
@@ -726,11 +777,6 @@ tr.avaliacao-pendente .evaluation-cell div {
     }
 
     /* 5. Modal da câmera */
-    .camera-btn {
-        width: 100%;
-        box-sizing: border-box;
-    }
-    
     .camera-modal-content {
         width: 95%; /* Modal ocupa quase toda a tela */
         margin: 5% auto;
@@ -750,41 +796,4 @@ tr.avaliacao-pendente .evaluation-cell div {
         padding: 8px 12px;
         font-size: 12px;
     }
-  }
-}
-
-/* Estilo Padrão para Botões de Câmera e Galeria */
-.camera-btn {
-    background-color: #ffffff;  /* Fundo Branco */
-    color: #2e7dba;             /* Texto Azul */
-    border: 2px solid #2e7dba;  /* Borda Azul */
-    
-    /* Espaçamento e Fonte */
-    padding: 10px 20px;
-    border-radius: 5px;         /* Bordas levemente arredondadas */
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
-    
-    /* Transição suave */
-    transition: all 0.3s ease;
-    
-    /* Garante alinhamento com ícones se houver */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px; /* Espaço entre o ícone e o texto */
-}
-
-/* Efeito ao passar o mouse (Hover) */
-.camera-btn:hover {
-    background-color: #e3f2fd;  /* Fundo azul bem clarinho */
-    color: #1c5a8a;             /* Azul mais escuro para contraste */
-    border-color: #1c5a8a;
-}
-
-/* Efeito ao clicar (Active) */
-.camera-btn:active {
-    background-color: #bbdefb;
-    transform: translateY(1px); /* Leve efeito de clique */
 }

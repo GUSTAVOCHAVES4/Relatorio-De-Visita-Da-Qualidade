@@ -1,3 +1,11 @@
+// --- Função Global para Limpar Seleção (Fora do DOMContentLoaded para acesso global) ---
+window.limparSelecao = function(groupName) {
+    const radios = document.querySelectorAll(`input[name="${groupName}"]`);
+    radios.forEach(radio => {
+        radio.checked = false;
+    });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     // --- Variáveis de Elementos do DOM ---
     const evaluationForm = document.getElementById('evaluation-form');
@@ -36,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const evidenceFileInput = document.getElementById('evidence-file-input');
     const openGroupFileBtn = document.getElementById('open-group-file-btn');
     const groupFileInput = document.getElementById('group-file-input');
-    const imagePreviewContainer = document.getElementById('image-preview-container'); // Necessário para preview de evidências
+    const imagePreviewContainer = document.getElementById('image-preview-container'); 
 
     // --- Variáveis de Estado ---
     let meetingItems = [];
@@ -78,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function populateResponsibleDatalist() {
         const responsibles = [...new Set(meetingItems.map(item => item.responsible))].filter(Boolean).sort();
-        // Limpa o select, mantendo a primeira opção
         if(responsibleSelect) {
              responsibleSelect.innerHTML = '<option value="">-- Selecione um responsável --</option>';
             responsibles.forEach(responsible => {
@@ -90,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // --- FUNÇÃO RENDER TABLE ATUALIZADA COM O BOTÃO LIMPAR ---
     function renderTable(items) {
         tableBody.innerHTML = '';
         let currentSection = '';
@@ -134,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainRow.dataset.masterId = group.master_id;
             mainRow.dataset.mainDescription = group.description || '';
             
-            // Adicionando data-label para responsividade
+            // --- CRIAÇÃO DA LINHA PRINCIPAL (Com botão limpar) ---
             mainRow.innerHTML = `
                 <td data-label="Responsável">${group.responsible || ''}</td>
                 <td data-label="Seção">${group.section || ''}</td>
@@ -148,10 +156,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="evaluation-cell">
                         <input type="radio" id="eval-sim-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Sim">
                         <label for="eval-sim-${uniqueIdCounter}" class="radio-label">Sim</label>
+                        
                         <input type="radio" id="eval-nao-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Não">
                         <label for="eval-nao-${uniqueIdCounter}" class="radio-label">Não</label>
+                        
                         <input type="radio" id="eval-na-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="N/A">
                         <label for="eval-na-${uniqueIdCounter}" class="radio-label">N/A</label>
+
+                        <button type="button" class="btn-limpar" onclick="limparSelecao('evaluation-${uniqueIdCounter}')" title="Limpar seleção">✕</button>
                     </div>
                 </td>
                 <td data-label="Evidências"><textarea name="evidences" placeholder="Evidências..."></textarea></td>
@@ -159,6 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             tableBody.appendChild(mainRow);
 
+            // --- CRIAÇÃO DOS SUBITENS (Com botão limpar) ---
             group.subitems.forEach(subitem => {
                 uniqueIdCounter++;
                 const subitemRow = document.createElement('tr');
@@ -178,10 +191,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="evaluation-cell">
                             <input type="radio" id="eval-sim-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Sim">
                             <label for="eval-sim-${uniqueIdCounter}" class="radio-label">Sim</label>
+                            
                             <input type="radio" id="eval-nao-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="Não">
                             <label for="eval-nao-${uniqueIdCounter}" class="radio-label">Não</label>
+                            
                             <input type="radio" id="eval-na-${uniqueIdCounter}" name="evaluation-${uniqueIdCounter}" value="N/A">
                             <label for="eval-na-${uniqueIdCounter}" class="radio-label">N/A</label>
+
+                            <button type="button" class="btn-limpar" onclick="limparSelecao('evaluation-${uniqueIdCounter}')" title="Limpar seleção">✕</button>
                         </div>
                     </td>
                     <td data-label="Evidências"><textarea name="evidences" placeholder="Evidências..."></textarea></td>
@@ -592,7 +609,7 @@ document.addEventListener('DOMContentLoaded', () => {
             doc.text(`HORÁRIO: ${data.visitTime || 'Não informado'}`, pageWidth / 2, pageHeight / 2 + 41, { align: 'center' });
 
 
-           // --- PÁGINA 2: DETALHES (Compactada para caber em uma página) ---
+            // --- PÁGINA 2: DETALHES (Compactada para caber em uma página) ---
             doc.addPage();
             let y = margin;
             
@@ -751,7 +768,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
             
-           // Seção OBSERVAÇÕES DA VISITA (Página Exclusiva)
+            // Seção OBSERVAÇÕES DA VISITA (Página Exclusiva)
             if (data.visitObservations && data.visitObservations.trim() !== '') {
                 // Força nova página para as observações
                 doc.addPage(); 
@@ -783,7 +800,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-           // --- PÁGINA FOTOS ---
+            // --- PÁGINA FOTOS ---
             if (data.evidencePhotos && data.evidencePhotos.length > 0) {
                 doc.addPage(); 
                 y = margin;

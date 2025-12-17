@@ -88,17 +88,6 @@
    "responsible": "NEST"
  },
  {
-   "master_id": "2087844e-1971-4972-9520-208e208c2db5",
-   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
-   "theme": "FORÇA DE TRABALHO",
-   "description": "Programa de Gestão de Risco (PGR) e Programa de Controle Médico de Saúde Ocupacional (PCMSO)",
-   "item_number": 5,
-   "subitem_number": null,
-   "subitem_description": "",
-   "exigency_level": "*",
-   "responsible": "DGT"
- },
- {
    "master_id": "589421c2-f4ac-4cc9-a00b-10a512f5a2f2",
    "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
    "theme": "FORÇA DE TRABALHO",
@@ -955,6 +944,39 @@
    "subitem_description": "Não usar mão de obra infantil ou escrava (comprovante)",
    "exigency_level": "",
    "responsible": "DAS"
+ },
+  {
+   "master_id": "d1530af8-baa5-420a-af50-64759c4f8439",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "DGT"
+ },
+  {
+   "master_id": "9d7c1037-6b7d-4e43-aadc-326c4fd8861d",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "DGT"
+ },
+  {
+   "master_id": "54d8085c-1cf6-44b4-ab3c-b7226d1ec9bb",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "DGT"
  },
  {
    "master_id": "807a4dc2-163b-40f2-8be0-204c012f739b",
@@ -2895,7 +2917,7 @@
  {
    "master_id": "82fc3d74-ca3e-4a4a-804d-a1acbeebeff7",
    "section": "FUNDAMENTO 3 - APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
-   "theme": "COMPETÊNCIA ESSENCIAIS",
+   "theme": "COMPETÊNCIAS ESSENCIAIS",
    "description": "Identifica, define e desenvolve competências, habilidades essenciais e tecnologias demandadas pelo mercado de acordo com o seu perfil nosológico e modelo assistencial?",
    "item_number": 4,
    "subitem_number": null,
@@ -2906,7 +2928,7 @@
  {
    "master_id": "ee87e078-3f2c-4172-b7a1-9c2a969ac2a7",
    "section": "FUNDAMENTO 3 - APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
-   "theme": "COMPETÊNCIA ESSENCIAIS",
+   "theme": "COMPETÊNCIAS ESSENCIAIS",
    "description": "Identifica, define e desenvolve competências, habilidades essenciais e tecnologias demandadas pelo mercado de acordo com o seu perfil nosológico e modelo assistencial?",
    "item_number": 4,
    "subitem_number": null,
@@ -3401,7 +3423,7 @@
  {
    "master_id": "8551f17a-87a4-4a69-92e0-32104d9f66d2",
    "section": "FUNDAMENTO 5 - LIDERANÇA TRANSFORMADORA",
-   "theme": "VALORES PRINCÍPIOS",
+   "theme": "VALORES E PRINCÍPIOS",
    "description": "Define os valores, princípios e diretrizes organizacionais?",
    "item_number": 1,
    "subitem_number": null,
@@ -3412,7 +3434,7 @@
  {
    "master_id": "a46da09e-f889-41f8-aba6-f7b4d8698674",
    "section": "FUNDAMENTO 5 - LIDERANÇA TRANSFORMADORA",
-   "theme": "VALORES PRINCÍPIOS",
+   "theme": "VALORES E PRINCÍPIOS",
    "description": "Estabelece padrões de conduta, para assegurar relacionamento ético com as partes interessadas?\nPode compreender: respeito a diversidade, evita conflito de interesses, respeito às crenças e valores das partes interessadas",
    "item_number": 2,
    "subitem_number": null,
@@ -3423,7 +3445,7 @@
  {
    "master_id": "e027dd51-b8f3-4cc7-b526-67afb555adf0",
    "section": "FUNDAMENTO 5 - LIDERANÇA TRANSFORMADORA",
-   "theme": "VALORES PRINCÍPIOS",
+   "theme": "VALORES E PRINCÍPIOS",
    "description": "Comunica os valores, princípios, diretrizes organizacionais e padrões de conduta, para as diversas partes interessadas?",
    "item_number": 3,
    "subitem_number": null,
@@ -3434,7 +3456,7 @@
  {
    "master_id": "98f4ef25-2c17-4e4e-bd11-00645a5ef46a",
    "section": "FUNDAMENTO 5 - LIDERANÇA TRANSFORMADORA",
-   "theme": "VALORES PRINCÍPIOS",
+   "theme": "VALORES E PRINCÍPIOS",
    "description": "Comunica os valores, princípios, diretrizes organizacionais e padrões de conduta, para as diversas partes interessadas?",
    "item_number": 3,
    "subitem_number": null,
@@ -3445,7 +3467,7 @@
  {
    "master_id": "d750d163-7cef-4a72-a48d-bc932161ede1",
    "section": "FUNDAMENTO 5 - LIDERANÇA TRANSFORMADORA",
-   "theme": "VALORES PRINCÍPIOS",
+   "theme": "VALORES E PRINCÍPIOS",
    "description": "Comunica os valores, princípios, diretrizes organizacionais e padrões de conduta, para as diversas partes interessadas?",
    "item_number": 3,
    "subitem_number": null,
@@ -3456,7 +3478,7 @@
  {
    "master_id": "fdf98c41-4cc8-40cf-9cf8-f1077894d806",
    "section": "FUNDAMENTO 5 - LIDERANÇA TRANSFORMADORA",
-   "theme": "VALORES PRINCÍPIOS",
+   "theme": "VALORES E PRINCÍPIOS",
    "description": "Comunica os valores, princípios, diretrizes organizacionais e padrões de conduta, para as diversas partes interessadas?",
    "item_number": 3,
    "subitem_number": null,
@@ -3567,7 +3589,7 @@
    "master_id": "2663f38c-9276-4e09-ad01-ffb0188ccd91",
    "section": "FUNDAMENTO 5 - LIDERANÇA TRANSFORMADORA",
    "theme": "GOVERNANÇA",
-   "description": "",
+   "description": "Identifica, avalia, monitora e trata os riscos empresariais, incluindo sua classificação e integração? A identificação e tratamento dos riscos deve abranger os riscos relativos à:",
    "item_number": 8,
    "subitem_number": 2,
    "subitem_description": "Da força de trabalho",
@@ -3844,6 +3866,17 @@
    "theme": "CULTURA ORGANIZACIONAL",
    "description": "Realiza o mapeamento da cultura atual, incluindo identificação dos aspectos culturais favoráveis e adversos, para os objetivos da organização?",
    "item_number": 12,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "DGT"
+ },
+ {
+   "master_id": "7cce4147-6cba-4860-bb10-3e11df76cab3",
+   "section": "FUNDAMENTO 5 - LIDERANÇA TRANSFORMADORA",
+   "theme": "SUCESSÃO",
+   "description": "Desenvolve os líderes atuais, potenciais esucessores, para exercerem os cargos de liderança?",
+   "item_number": 21,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
@@ -10968,7 +11001,7 @@
  },
  {
    "master_id": "1ae0c160-a85d-4a33-bd78-325b93405a7e",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
+   "section": "FUNDAMENTO 7 - APOIO HOSPITALAR",
    "theme": "PRODUTO",
    "description": "Identifica as oportunidades de desenvolvimento de novos produtos e serviços?",
    "item_number": 174,
@@ -11276,7 +11309,7 @@
  },
  {
    "master_id": "f9ef0d4e-2763-46be-97c3-11b19835d4c5",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "theme": "RESULTADOS SUSTENTÁVEIS",
    "description": "",
    "item_number": 22,
@@ -11287,7 +11320,7 @@
  },
  {
    "master_id": "a01c4dd3-83d6-464a-8c61-df5809b8c741",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "theme": "RESULTADOS SUSTENTÁVEIS",
    "description": "",
    "item_number": 22,
@@ -11298,7 +11331,7 @@
  },
  {
    "master_id": "ec9a367a-1834-4e64-a45e-e05c61197ee7",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "theme": "RESULTADOS SUSTENTÁVEIS",
    "description": "",
    "item_number": 22,
@@ -11309,7 +11342,7 @@
  },
  {
    "master_id": "9b2205e1-dd0c-45cf-bb12-6a238b8ce906",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "theme": "RESULTADOS SUSTENTÁVEIS",
    "description": "",
    "item_number": 22,
@@ -11320,7 +11353,7 @@
  },
  {
    "master_id": "e8708f30-5877-4e23-85d1-c2f487040692",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "theme": "RESULTADOS SUSTENTÁVEIS",
    "description": "Séries históricas de indicadores relacionados a capacitação e desenvolvimento: (no mínimo 2 subitens).",
    "item_number": 23,
@@ -11331,7 +11364,7 @@
  },
  {
    "master_id": "e181753b-d3b9-41e9-aec8-9820197bec11",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "theme": "RESULTADOS SUSTENTÁVEIS",
    "description": "",
    "item_number": 23,
@@ -11342,7 +11375,7 @@
  },
  {
    "master_id": "c9f7384b-c8e0-46b2-9fef-51fa9dc12e79",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "theme": "RESULTADOS SUSTENTÁVEIS",
    "description": "",
    "item_number": 23,
@@ -11353,7 +11386,7 @@
  },
  {
    "master_id": "16e391a1-4317-4027-bb37-9bdd6689f1ab",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "theme": "RESULTADOS SUSTENTÁVEIS",
    "description": "",
    "item_number": 23,
@@ -11364,7 +11397,7 @@
  },
  {
    "master_id": "1e24b8d8-02ff-4075-924c-74ffadc11031",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "theme": "RESULTADOS SUSTENTÁVEIS",
    "description": "",
    "item_number": 23,
@@ -11375,7 +11408,7 @@
  },
  {
    "master_id": "99a2a56e-11e5-4d11-8d11-147e95b712ca",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "theme": "RESULTADOS SUSTENTÁVEIS",
    "description": "Taxa de médicos com título de especialista.",
    "item_number": 24,
@@ -11529,7 +11562,7 @@
  },
  {
    "master_id": "9c132b08-ccae-4f68-b656-6ad07b4fbd38",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "theme": "RESULTADOS SUSTENTÁVEIS",
    "description": "Séries históricas de indicadores de gestão de pessoas na enfermagem:",
    "item_number": 26,
@@ -11540,7 +11573,7 @@
  },
  {
    "master_id": "263b2919-19db-4671-b121-a42790f3d36a",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "theme": "RESULTADOS SUSTENTÁVEIS",
    "description": "",
    "item_number": 26,
@@ -11551,7 +11584,7 @@
  },
  {
    "master_id": "627d5469-ac66-4a1f-8669-9b2f2ee2c769",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "theme": "RESULTADOS SUSTENTÁVEIS",
    "description": "",
    "item_number": 26,
@@ -11562,7 +11595,7 @@
  },
  {
    "master_id": "df240ebd-9019-4be8-a02e-f53febc59950",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "theme": "RESULTADOS SUSTENTÁVEIS",
    "description": "",
    "item_number": 26,
@@ -11572,19 +11605,8 @@
    "responsible": "DGT"
  },
  {
-   "master_id": "ba6a4e6b-cea1-4d0a-a4c4-8e10b7769402",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
-   "description": "",
-   "item_number": 26,
-   "subitem_number": 4,
-   "subitem_description": "Taxa de acidente de trabalho de profissionais de enfermagem",
-   "exigency_level": "",
-   "responsible": "DGT"
- },
- {
    "master_id": "00ee8224-a982-46be-af2f-e2d9e6ebeb12",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "theme": "RESULTADOS SUSTENTÁVEIS",
    "description": "Outros resultados relacionados à gestão de pessoas além dos mencionados acima.",
    "item_number": 27,
@@ -11595,7 +11617,7 @@
  },
  {
    "master_id": "bb5f44ce-ca66-4d18-9d5e-b138828a2789",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "theme": "RESULTADOS SUSTENTÁVEIS",
    "description": "Tendência / melhoria para algum resultado relativo às pessoas (essa informação será analisada pela equipe de examinadores, não sendo necessário que o hospital apresente informações adicionais).",
    "item_number": 28,
@@ -11606,7 +11628,7 @@
  },
  {
    "master_id": "78330370-2875-4446-8c7b-bbe766268f0a",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "theme": "RESULTADOS SUSTENTÁVEIS",
    "description": "Compromisso / competitividade / desempenho superior para algum resultado relativo às pessoas, quando comparado ao seu referencial (essa informação será analisada pela equipe de examinadores, sendo necessário que o hospital apresente informações do referencial comparativo).",
    "item_number": 29,
