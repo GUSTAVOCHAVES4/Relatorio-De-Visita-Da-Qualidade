@@ -1066,6 +1066,17 @@
    "exigency_level": "",
    "responsible": "DAC"
  },
+   {
+   "master_id": "9b6d5fd4-6ebd-4cec-afa1-45f47ddadf50",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ALMOXARIFADO"
+ },
  {
    "master_id": "ae15a10d-70d4-4bd9-b6aa-70e751f773dc",
    "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
@@ -1078,6 +1089,17 @@
    "responsible": "DAC"
  },
   {
+   "master_id": "30a00051-5c8d-486b-81c1-0388e0a51ee6",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ALMOXARIFADO"
+ },
+  {
    "master_id": "e0498b6e-0ef9-47b7-831f-995849071de2",
    "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
    "theme": "CONHECIMENTO",
@@ -1087,6 +1109,17 @@
    "subitem_description": "",
    "exigency_level": "**",
    "responsible": "DAC"
+ },
+   {
+   "master_id": "91644973-abdb-4b52-aa08-a1124d4e3dd8",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "ALMOXARIFADO"
  },
  {
    "master_id": "00737c8e-1ca3-45ea-90c4-92c912ad922f",
@@ -10428,17 +10461,6 @@
    "responsible": "GERÊNCIA DE ENFERMAGEM"
  },
  {
-   "master_id": "735a5761-725b-41c1-a856-979173350303",
-   "section": "FUNDAMENTO 7 - PROCESSO MATERIAIS E MEDICAMENTOS",
-   "theme": "APOIO HOSPITALAR",
-   "description": "Há controle da validade dos materiais médicos e medicamentos (incluindo os fracionados)?",
-   "item_number": 164,
-   "subitem_number": null,
-   "subitem_description": "",
-   "exigency_level": "*",
-   "responsible": "ALMOXARIFADO"
- },
- {
    "master_id": "3b8e3445-8983-4043-97cb-b69a5af7f7a8",
    "section": "FUNDAMENTO 7 - PROCESSO MATERIAL ESTERELIZADO",
    "theme": "APOIO HOSPITALAR",
@@ -11702,17 +11724,6 @@
    "subitem_description": "",
    "exigency_level": "*",
    "responsible": "COM"
- },
- {
-   "master_id": "a49447e2-4689-4623-922c-41ba44602f31",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS AOS FORNECEDORES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
-   "description": "Resultados da conformidade na entrega de produtos pelos fornecedores.",
-   "item_number": 31,
-   "subitem_number": null,
-   "subitem_description": "",
-   "exigency_level": "*",
-   "responsible": "ALMOXARIFADO"
  },
  {
    "master_id": "e0a09e45-fe31-4f18-ad6d-1f73c59c82a6",
