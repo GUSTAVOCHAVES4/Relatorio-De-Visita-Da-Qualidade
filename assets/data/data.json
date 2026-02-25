@@ -186,17 +186,7 @@
    "exigency_level": "*",
    "responsible": "COMPRAS"
  },
- {
-   "master_id": "2455983c-8438-42ba-98a4-212fce5daf38",
-   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
-   "theme": "FORNECEDOR",
-   "description": "Contratos das empresas terceirizadas",
-   "item_number": 10,
-   "subitem_number": null,
-   "subitem_description": "",
-   "exigency_level": "",
-   "responsible": "NEST"
- },
+
  {
    "master_id": "49e58fd2-5091-4d0c-b56f-322654a761e3",
    "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
@@ -528,149 +518,6 @@
    "responsible": "SND"
  },
  {
-   "master_id": "9526b7a8-c84e-424d-8934-1a7b00b7db83",
-   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
-   "theme": "FORNECEDOR",
-   "description": "O controle dos contratos dos serviços terceirizados contempla:",
-   "item_number": 11,
-   "subitem_number": null,
-   "subitem_description": "",
-   "exigency_level": "**",
-   "responsible": "NEST"
- },
- {
-   "master_id": "ccd1726e-e7f3-45e6-b629-21690ae9b3ed",
-   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
-   "theme": "FORNECEDOR",
-   "description": "",
-   "item_number": 11,
-   "subitem_number": 1,
-   "subitem_description": "Licença de funcionamento",
-   "exigency_level": "",
-   "responsible": "NEST"
- },
- {
-   "master_id": "74f5b37a-4a10-48ee-bb13-47ae635ddaa5",
-   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
-   "theme": "FORNECEDOR",
-   "description": "",
-   "item_number": 11,
-   "subitem_number": 2,
-   "subitem_description": "Cadastros da força de trabalho",
-   "exigency_level": "",
-   "responsible": "NEST"
- },
- {
-   "master_id": "14befe5c-5028-41d6-b524-a112b71370e9",
-   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
-   "theme": "FORNECEDOR",
-   "description": "",
-   "item_number": 11,
-   "subitem_number": 3,
-   "subitem_description": "Manuais de rotinas e procedimentos",
-   "exigency_level": "",
-   "responsible": "NEST"
- },
- {
-   "master_id": "c17188f7-5f8b-415b-bf97-0bd9dfaf30c4",
-   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
-   "theme": "FORNECEDOR",
-   "description": "",
-   "item_number": 11,
-   "subitem_number": 4,
-   "subitem_description": "Registros de treinamentos",
-   "exigency_level": "",
-   "responsible": "NEST"
- },
- {
-   "master_id": "485094a2-ad94-4ce1-a7d6-ed26aeafec59",
-   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
-   "theme": "FORNECEDOR",
-   "description": "",
-   "item_number": 11,
-   "subitem_number": 5,
-   "subitem_description": "Escalas de trabalho",
-   "exigency_level": "",
-   "responsible": "NEST"
- },
- {
-   "master_id": "ef839571-0ac6-4b75-a3f7-55e0119ece93",
-   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
-   "theme": "FORNECEDOR",
-   "description": "",
-   "item_number": 11,
-   "subitem_number": 6,
-   "subitem_description": "Documentação relacionada com a saúde ocupacional (Atestado de Saúde Ocupacional ASO, PGR, PCMSO)",
-   "exigency_level": "",
-   "responsible": "NEST"
- },
- {
-   "master_id": "2f4e04c0-e6ca-42ba-ab9a-4c1d0a97fe8b",
-   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
-   "theme": "FORNECEDOR",
-   "description": "",
-   "item_number": 11,
-   "subitem_number": 7,
-   "subitem_description": "Requisitos e/ou metas desejadas pelo hospital",
-   "exigency_level": "",
-   "responsible": "NEST"
- },
- {
-   "master_id": "e70b176f-4cbe-4b60-b82b-6bd676918eca",
-   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
-   "theme": "FORNECEDOR",
-   "description": "",
-   "item_number": 11,
-   "subitem_number": 8,
-   "subitem_description": "Declaração de regularidade com os requisitos legais aplicáveis às questões socioambientais",
-   "exigency_level": "",
-   "responsible": "NEST"
- },
- {
-   "master_id": "6edb8d28-061e-4304-9f21-7359152f8b85",
-   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
-   "theme": "FORNECEDOR",
-   "description": "",
-   "item_number": 11,
-   "subitem_number": 9,
-   "subitem_description": "Cronograma de manutenção preventiva de equipamentos",
-   "exigency_level": "",
-   "responsible": "NEST"
- },
- {
-   "master_id": "9e4e50da-ee04-43ea-afde-dd9f381b1e19",
-   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
-   "theme": "FORNECEDOR",
-   "description": "",
-   "item_number": 11,
-   "subitem_number": 10,
-   "subitem_description": "Supervisão do processo",
-   "exigency_level": "",
-   "responsible": "NEST"
- },
- {
-   "master_id": "ba3bf4e7-52d8-4753-8ce0-2e9ed38bb1e6",
-   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
-   "theme": "FORNECEDOR",
-   "description": "",
-   "item_number": 11,
-   "subitem_number": 11,
-   "subitem_description": "Solidez financeira",
-   "exigency_level": "",
-   "responsible": "NEST"
- },
- {
-   "master_id": "c92e96a0-6db7-411a-85de-3653cf93dac6",
-   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
-   "theme": "FORNECEDOR",
-   "description": "",
-   "item_number": 11,
-   "subitem_number": 12,
-   "subitem_description": "Não usar mão de obra infantil ou escrava (comprovante)",
-   "exigency_level": "",
-   "responsible": "NEST"
- },
- {
    "master_id": "da995be4-56d3-4873-88d2-5a744eca2b72",
    "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
    "theme": "FORNECEDOR",
@@ -988,6 +835,171 @@
    "subitem_description": "",
    "exigency_level": "**",
    "responsible": "DGT"
+ },
+   {
+   "master_id": "906cccdb-099d-4302-ac63-fddf0222cd35",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "NEST"
+ },
+  {
+   "master_id": "000a2e2c-a543-44c2-a529-deaf40cae7e3",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "NEST"
+ },
+  {
+   "master_id": "410e10ad-3df6-4fa0-b41e-996e85cb2333",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "NEST"
+ },
+    {
+   "master_id": "e8e9fa5e-cdb4-40e9-92b1-6d52e3ab3588",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ANATOMIA PATOLÓGICA"
+ },
+  {
+   "master_id": "4ef9e70f-58c5-48a8-8925-8c79a9d37da8",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ANATOMIA PATOLÓGICA"
+ },
+  {
+   "master_id": "e7f01d2f-2de2-4694-8176-651214ccafdb",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "ANATOMIA PATOLÓGICA"
+ },
+   {
+   "master_id": "e0bd2b86-865b-42cf-a5c8-d8dfa99da9b9",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "GASOTERAPIA"
+ },
+  {
+   "master_id": "8af634f9-2f64-4a31-924c-68cfc2b99756",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "GASOTERAPIA"
+ },
+  {
+   "master_id": "1218dbe7-0bf0-40c8-a925-ac8e72092918",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "GASOTERAPIA"
+ },
+   {
+   "master_id": "455deab0-1b32-4e96-8c6e-3a8d6ff6025d",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "EMTN"
+ },
+  {
+   "master_id": "ada86762-d1c3-4ce5-8312-1910e4f2dd11",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "EMTN"
+ },
+  {
+   "master_id": "658805b7-1fef-4135-b17f-6136db8ce1f6",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "EMTN"
+ },
+   {
+   "master_id": "0fcf90ee-6070-4292-953c-54e1d3afee13",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "NEFROLOGIA - HEMODIÁLISE"
+ },
+  {
+   "master_id": "c52a86b0-5abd-45af-a711-6a05a26ca320",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "NEFROLOGIA - HEMODIÁLISE"
+ },
+  {
+   "master_id": "a492ea49-d8ca-42ce-9e05-1cec71d837d6",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "NEFROLOGIA - HEMODIÁLISE"
  },
    {
    "master_id": "3c46aad6-ece1-4113-90e9-dcf0976738c5",
@@ -1790,7 +1802,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "HEMODIÁLISE"
+   "responsible": "NEFROLOGIA - HEMODIÁLISE"
  },
  {
    "master_id": "1f05f91c-4b36-44a0-a122-8a1e50804c51",
@@ -2782,6 +2794,17 @@
    "exigency_level": "",
    "responsible": "DGT"
  },
+  {
+   "master_id": "0ea52cda-e821-45a8-82e6-3ccec54c337d",
+   "section": "",
+   "theme": null,
+   "description": "Auto de vistoria do Corpo de Bombeiros (ou protocolo).",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "*",
+   "responsible": "NEST"
+ },
  {
    "master_id": "3a1d0d7d-c06f-44a1-944c-9e54b458f108",
    "section": "FUNDAMENTO 2 - COMPROMISSO COM AS PARTES INTERESSADAS",
@@ -2820,7 +2843,7 @@
    "section": "FUNDAMENTO 2 - COMPROMISSO COM AS PARTES INTERESSADAS",
    "theme": "FORÇA DE TRABALHO",
    "description": "",
-   "item_number": null,
+   "item_number": 28,
    "subitem_number": 3,
    "subitem_description": "Prevenção de doenças profissionais",
    "exigency_level": "",
@@ -2831,7 +2854,7 @@
    "section": "FUNDAMENTO 2 - COMPROMISSO COM AS PARTES INTERESSADAS",
    "theme": "FORÇA DE TRABALHO",
    "description": "",
-   "item_number": null,
+   "item_number": 28,
    "subitem_number": 4,
    "subitem_description": "Exame demissional",
    "exigency_level": "",
@@ -3023,6 +3046,72 @@
    "subitem_description": "",
    "exigency_level": "",
    "responsible": "DAS"
+ },
+  {
+   "master_id": "ac9e15f2-07ee-4aa3-a745-bab0165db180",
+   "section": "FUNDAMENTO 2 - COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORÇA DE TRABALHO",
+   "description": "Identifica e analisa o bem-estar e a satisfação das pessoas que trabalham no hospital?\n(no mínimo 1 subitem)",
+   "item_number": 38,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "*",
+   "responsible": "NEST"
+ },
+ {
+   "master_id": "b204ff54-a2af-4c71-a4ac-8147c009d8b5",
+   "section": "FUNDAMENTO 2 - COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORÇA DE TRABALHO",
+   "description": "",
+   "item_number": 38,
+   "subitem_number": 1,
+   "subitem_description": "Pesquisa de clima organizacional",
+   "exigency_level": "",
+   "responsible": "NEST"
+ },
+ {
+   "master_id": "99c2b32b-c2b1-4478-b169-e73d0d1dedcf",
+   "section": "FUNDAMENTO 2 - COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORÇA DE TRABALHO",
+   "description": "",
+   "item_number": 38,
+   "subitem_number": 2,
+   "subitem_description": "Ouvidoria da força de trabalho",
+   "exigency_level": "",
+   "responsible": "NEST"
+ },
+ {
+   "master_id": "023d8122-e7b7-4d47-8bf7-64f37169c6b0",
+   "section": "FUNDAMENTO 2 - COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORÇA DE TRABALHO",
+   "description": "",
+   "item_number": 38,
+   "subitem_number": 3,
+   "subitem_description": "Outros canais de comunicação? Especificar:",
+   "exigency_level": "",
+   "responsible": "NEST"
+ },
+ {
+   "master_id": "09dbe215-7f61-462e-83f7-b5f25d8f77f4",
+   "section": "FUNDAMENTO 2 - COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORÇA DE TRABALHO",
+   "description": "Promove ações decorrentes do resultado da pesquisa de clima organizacional ou do levantamento realizado junto à força de trabalho?",
+   "item_number": 39,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "NEST"
+ },
+  {
+   "master_id": "cbd8e18e-af1d-4f39-83f5-6e8e67671df1",
+   "section": "FUNDAMENTO 2 - COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORÇA DE TRABALHO",
+   "description": "Oferece programas de promoção da saúde e melhoria da qualidade de vida dentro e fora do ambiente de trabalho?",
+   "item_number": 40,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "NEST"
  },
  {
    "master_id": "3fa07f2c-d153-4d83-bb7d-8f11a0ec43a1",
@@ -3941,7 +4030,7 @@
    "master_id": "d8a86359-9ffb-45ba-ad31-250d8704fdb3",
    "section": "FUNDAMENTO 5 - LIDERANÇA TRANSFORMADORA",
    "theme": "GOVERNANÇA",
-   "description": "",
+   "description": "Identifica, avalia, monitora e trata os riscos empresariais, incluindo sua classificação e integração? A identificação e tratamento dos riscos deve abranger os riscos relativos à:",
    "item_number": 8,
    "subitem_number": 7,
    "subitem_description": "Ambientais",
@@ -4535,7 +4624,7 @@
    "master_id": "e0d83517-29a6-48fc-85e0-149ae2aaf66b",
    "section": "FUNDAMENTO 6 - DESENVOLVIMENTO SUSTENTÁVEL",
    "theme": "AMBIENTAL",
-   "description": "",
+   "description": "Realiza ações de:",
    "item_number": 10,
    "subitem_number": 2,
    "subitem_description": "Racionalização do uso de materiais administrativos (ex.: papéis, cartuchos)",
@@ -4568,7 +4657,7 @@
    "master_id": "40c89310-4161-482d-9f13-d87e3471e971",
    "section": "FUNDAMENTO 6 - DESENVOLVIMENTO SUSTENTÁVEL",
    "theme": "AMBIENTAL",
-   "description": "",
+   "description": "Realiza ações de:",
    "item_number": 10,
    "subitem_number": 4,
    "subitem_description": "Campanhas relacionadas à preservação do meio ambiente",
@@ -5281,14 +5370,14 @@
  },
  {
    "master_id": "883566d2-b0ce-4ed7-8a93-5f59dba2d787",
-   "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCEESSO INTERNAÇÃO",
    "description": "Há carrinho de emergência com medicamentos, material, monitor e desfibrilador para ressuscitação cardiorrespiratória em número que atenda a todos os pacientes internados e em local de fácil acesso?",
    "item_number": 14,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "*",
-   "responsible": "HEMODIÁLISE"
+   "responsible": "NEFROLOGIA - HEMODIÁLISE"
  },
  {
    "master_id": "43b3e0d2-96d8-4a7b-8719-a2f45b2bd205",
@@ -6635,7 +6724,7 @@
  {
    "master_id": "4e4ebd07-00bb-4029-84be-2ad10985f748",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO CENTRO CIRÚRGICO",
    "description": "Há registro e/ou arquivo dos resultados da anatomia patológica?",
    "item_number": 46,
    "subitem_number": null,
@@ -6844,7 +6933,7 @@
  {
    "master_id": "03a19cbb-4b63-4d50-9673-875647e50827",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO CENTRO CIRÚRGICO",
    "description": "É feita biópsia de congelação no CC?",
    "item_number": 56,
    "subitem_number": null,
@@ -6877,12 +6966,23 @@
  {
    "master_id": "21e3c1a9-1d8f-42b6-86ab-ef63446318db",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO CENTRO CIRÚRGICO",
    "description": "O hospital oferece serviços de anatomia patológica?",
    "item_number": 57,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
+   "responsible": "ANATOMIA PATOLÓGICA"
+ },
+   {
+   "master_id": "8e6a3425-705e-4b64-9d1d-7b4977b14696",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORNECEDORES",
+   "description": "Resultados da conformidade na  entrega de produtos pelos fornecedores.",
+   "item_number": 31,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "*",
    "responsible": "ANATOMIA PATOLÓGICA"
  },
  {
@@ -9076,91 +9176,91 @@
  },
  {
    "master_id": "b272bf5b-365b-4943-b3ed-792658ed292e",
-   "section": "FUNDAMENTO 7 - PROCESSO TERAPIA RENAL SUBSTITUTIVA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO TERAPIA RENAL E SUBSTITUTIVA",
    "description": "Há sistema de filtragem e tratamento de água por osmose reversa no TRS?",
    "item_number": 96,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "NEFROLOGIA"
+   "responsible": "NEFROLOGIA - HEMODIÁLISE"
  },
  {
    "master_id": "c45e1d63-2d06-44c7-a86b-3ad8f3b8c741",
-   "section": "FUNDAMENTO 7 - PROCESSO TERAPIA RENAL SUBSTITUTIVA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO TERAPIA RENAL E SUBSTITUTIVA",
    "description": "O serviço TRS conta com área física adequada, com sala e equipamentos separados para pacientes contaminados?",
    "item_number": 97,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "NEFROLOGIA"
+   "responsible": "NEFROLOGIA - HEMODIÁLISE"
  },
  {
    "master_id": "f5969201-9c29-485b-a3ce-f397d4740bee",
-   "section": "FUNDAMENTO 7 - PROCESSO TERAPIA RENAL SUBSTITUTIVA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO TERAPIA RENAL E SUBSTITUTIVA",
    "description": "O serviço TRS é dotado de equipamentos que ofereçam maior segurança aos pacientes, por meio de condutivímetro, detector de bolhas, controle de pressão venosa e sistemas automatizados de bloqueio do equipamento?",
    "item_number": 98,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "NEFROLOGIA"
+   "responsible": "NEFROLOGIA - HEMODIÁLISE"
  },
  {
    "master_id": "2c677b86-45c4-4f4e-ad5a-62e50763b0ae",
-   "section": "FUNDAMENTO 7 - PROCESSO TERAPIA RENAL SUBSTITUTIVA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO TERAPIA RENAL E SUBSTITUTIVA",
    "description": "Há acompanhamento médico durante a sessão de TRS?",
    "item_number": 99,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "NEFROLOGIA"
+   "responsible": "NEFROLOGIA - HEMODIÁLISE"
  },
  {
    "master_id": "6b592c5a-e451-4eca-8350-5f8929516dd9",
-   "section": "FUNDAMENTO 7 - PROCESSO TERAPIA RENAL SUBSTITUTIVA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO TERAPIA RENAL E SUBSTITUTIVA",
    "description": "Há serviço de enfermagem exclusivo para o setor de TRS?",
    "item_number": 100,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "NEFROLOGIA"
+   "responsible": "NEFROLOGIA - HEMODIÁLISE"
  },
  {
    "master_id": "06614406-d34e-4545-b2d5-ab6add1e4777",
-   "section": "FUNDAMENTO 7 - PROCESSO TERAPIA RENAL SUBSTITUTIVA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO TERAPIA RENAL E SUBSTITUTIVA",
    "description": "Há vacinação contra hepatite B para os pacientes em TRS com sorologia negativa?",
    "item_number": 101,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "NEFROLOGIA"
+   "responsible": "NEFROLOGIA - HEMODIÁLISE"
  },
  {
    "master_id": "adcadcb7-01a4-452f-abab-681b6e08809b",
-   "section": "FUNDAMENTO 7 - PROCESSO TERAPIA RENAL SUBSTITUTIVA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO TERAPIA RENAL E SUBSTITUTIVA",
    "description": "Há identificação e controle dos capilares em reuso no setor de TRS?",
    "item_number": 102,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "NEFROLOGIA"
+   "responsible": "NEFROLOGIA - HEMODIÁLISE"
  },
  {
    "master_id": "2da36bb6-6768-426d-9141-cca664dbc955",
-   "section": "FUNDAMENTO 7 - PROCESSO TERAPIA RENAL SUBSTITUTIVA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO TERAPIA RENAL E SUBSTITUTIVA",
    "description": "É feita dosagem periódica do teor de alumínio na água utilizada para TRS?",
    "item_number": 103,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "NEFROLOGIA"
+   "responsible": "NEFROLOGIA - HEMODIÁLISE"
  },
  {
    "master_id": "9ae8809c-ca01-486e-8fa1-aa5df54c6b91",
@@ -9802,7 +9902,7 @@
  },
  {
    "master_id": "82731e2f-7034-4598-be74-b62a6b468111",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "APOIO HOSPITALAR",
    "description": "Há estrutura de prevenção e extinção de incêndios com:",
    "item_number": 135,
@@ -9813,7 +9913,7 @@
  },
  {
    "master_id": "4a312d89-ae46-4481-a9bf-87e434bcc467",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "APOIO HOSPITALAR",
    "description": "",
    "item_number": 135,
@@ -9824,7 +9924,7 @@
  },
  {
    "master_id": "8aa0b606-2576-408c-a28b-ddf38a13743b",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "APOIO HOSPITALAR",
    "description": "",
    "item_number": 135,
@@ -9835,7 +9935,7 @@
  },
  {
    "master_id": "f47c0bfc-ae55-4f6c-b78f-ed2e20865e63",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "APOIO HOSPITALAR",
    "description": "",
    "item_number": 135,
@@ -9846,7 +9946,7 @@
  },
  {
    "master_id": "8e7933e8-9508-4727-9a1b-f0a65168cc71",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "APOIO HOSPITALAR",
    "description": "Há corrimãos, em ambos os lados, em todas as escadas?",
    "item_number": 136,
@@ -9879,9 +9979,9 @@
  },
  {
    "master_id": "018ceefa-d301-43aa-92d8-5072919ab936",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "APOIO HOSPITALAR",
-   "description": "",
+   "description": "Há sistema alternativo de geração de energia e de iluminação para as áreas de circulação e áreas críticas:",
    "item_number": 137,
    "subitem_number": 2,
    "subitem_description": "Luz de emergência com baterias próprias",
@@ -11661,8 +11761,8 @@
  },
  {
    "master_id": "bdacb131-0316-4f67-a440-d95a1e563186",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "Séries históricas de indicadores relacionados a bem-estar, saúde do trabalhador e qualidade de vida: (no mínimo 4 subitens).",
    "item_number": 25,
    "subitem_number": null,
@@ -11672,8 +11772,8 @@
  },
  {
    "master_id": "ba20c0ec-dac3-4a6c-a613-4f829f3ed462",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "",
    "item_number": 25,
    "subitem_number": 1,
@@ -11683,8 +11783,8 @@
  },
  {
    "master_id": "9e942a39-4114-4841-ac80-05e4cb7c1b18",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "",
    "item_number": 25,
    "subitem_number": 2,
@@ -11694,8 +11794,8 @@
  },
  {
    "master_id": "a7584b36-a255-4702-8dd7-0d2ffcff41de",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "",
    "item_number": 25,
    "subitem_number": 3,
@@ -11705,8 +11805,8 @@
  },
  {
    "master_id": "5afc588d-0dbc-4240-b737-58a7f30f1439",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "",
    "item_number": 25,
    "subitem_number": 4,
@@ -11716,8 +11816,8 @@
  },
  {
    "master_id": "7822b230-d544-4562-869b-7ae4634f04db",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "",
    "item_number": 25,
    "subitem_number": 5,
@@ -11727,8 +11827,8 @@
  },
  {
    "master_id": "d9914627-2319-4cb7-b4c6-1444cc96136a",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "",
    "item_number": 25,
    "subitem_number": 6,
@@ -11738,8 +11838,8 @@
  },
  {
    "master_id": "6808ba03-560c-419a-9d9f-2b2f20099571",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "",
    "item_number": 25,
    "subitem_number": 7,
@@ -11812,6 +11912,28 @@
    "subitem_description": "",
    "exigency_level": "",
    "responsible": "DGT"
+ },
+  {
+   "master_id": "d9803590-39c9-4a61-802d-54926052a342",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
+   "description": "Séries históricas de indicadores de gestão de pessoas na enfermagem:",
+   "item_number": 26,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "NEST"
+ },
+  {
+   "master_id": "06aeccd1-9ad2-4230-b229-6eb30032fe51",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
+   "description": "",
+   "item_number": 26,
+   "subitem_number": 4,
+   "subitem_description": "Taxa de acidente de trabalho de profissionais de enfermagem",
+   "exigency_level": "",
+   "responsible": "NEST"
  },
  {
    "master_id": "263b2919-19db-4671-b121-a42790f3d36a",
