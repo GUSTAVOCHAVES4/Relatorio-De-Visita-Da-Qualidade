@@ -154,39 +154,16 @@
    "responsible": "ALMOXARIFADO"
  },
  {
-   "master_id": "78d99c45-308a-40a1-b94a-1a2642c1935c",
-   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
-   "theme": "FORNECEDOR",
-   "description": "Rotinas administrativas voltadas para a gestão de materiais, tais como: cadastro de fornecedores, pedidos de compra com especificações detalhadas, comitê de compras com a participação das áreas interessadas, verificação dos controles de qualidade dos fabricantes ou prestadores de serviços, padronização de produtos, avaliação interna da qualidade dos produtos e serviços comprados",
-   "item_number": 9,
-   "subitem_number": null,
-   "subitem_description": "",
-   "exigency_level": "*",
-   "responsible": "CPM (COMISSÃO PERMANENTE DE MATERIAIS)"
- },
- {
    "master_id": "b9527cbb-6567-4c62-a1f3-ed779ab6d834",
-   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
+   "section": "SUPRIMENTOS - COMPRAS",
    "theme": "FORNECEDOR",
    "description": "Rotinas administrativas voltadas para a gestão de materiais, tais como: cadastro de fornecedores, pedidos de compra com especificações detalhadas, comitê de compras com a participação das áreas interessadas, verificação dos controles de qualidade dos fabricantes ou prestadores de serviços, padronização de produtos, avaliação interna da qualidade dos produtos e serviços comprados",
    "item_number": 9,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "*",
-   "responsible": "SUPRIMENTOS"
+   "responsible": "SUPRIMENTOS - COMPRAS - CPM"
  },
- {
-   "master_id": "95334cd1-9241-49f2-a15b-9305236f704b",
-   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
-   "theme": "FORNECEDOR",
-   "description": "Rotinas administrativas voltadas para a gestão de materiais, tais como: cadastro de fornecedores, pedidos de compra com especificações detalhadas, comitê de compras com a participação das áreas interessadas, verificação dos controles de qualidade dos fabricantes ou prestadores de serviços, padronização de produtos, avaliação interna da qualidade dos produtos e serviços comprados",
-   "item_number": 9,
-   "subitem_number": null,
-   "subitem_description": "",
-   "exigency_level": "*",
-   "responsible": "COMPRAS"
- },
-
  {
    "master_id": "49e58fd2-5091-4d0c-b56f-322654a761e3",
    "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
@@ -837,6 +814,171 @@
    "responsible": "DGT"
  },
    {
+   "master_id": "64493ad3-d33d-46b8-a012-d386e05d2d71",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "FINANCEIRO"
+ },
+  {
+   "master_id": "3578951d-48d6-4866-833b-060fe9f59553",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "FINANCEIRO"
+ },
+  {
+   "master_id": "32c3b0fb-88f5-4d89-b9b6-1555a255425a",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "FINANCEIRO"
+ },
+   {
+   "master_id": "3ef5662a-1a6e-4ba2-a9a7-3455f87c1d73",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "CCIH"
+ },
+  {
+   "master_id": "14c23f5d-6a69-4e9d-b3fb-1def26951ee0",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "CCIH"
+ },
+  {
+   "master_id": "e2bb9cea-3721-4f75-80ce-3fa6320dbe93",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "CCIH"
+ },
+   {
+   "master_id": "34fcf0a2-2e02-4344-8cfa-681980231168",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "SUPRIMENTOS - COMPRAS - CPM"
+ },
+  {
+   "master_id": "40181b34-4dbb-4daf-b2a6-9e94d27121eb",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "SUPRIMENTOS - COMPRAS - CPM"
+ },
+  {
+   "master_id": "731af1ea-3a36-4d53-936d-bbd8b811dc03",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "SUPRIMENTOS - COMPRAS - CPM"
+ },
+   {
+   "master_id": "9734e18c-4de7-4c11-981d-2bfa0a543a61",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "HIGIENE E ZELADORIA"
+ },
+  {
+   "master_id": "29f5818e-aded-4972-8121-f165ce7e842a",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "HIGIENE E ZELADORIA"
+ },
+  {
+   "master_id": "b53bd037-077e-4307-9978-b01fb8fd3279",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "HIGIENE E ZELADORIA"
+ },
+   {
+   "master_id": "ac81d37f-bf9b-4bc8-874c-fca4de1aee90",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENGENHARIA"
+ },
+  {
+   "master_id": "c6e7c1bc-620b-46cc-941f-08fd86de19ba",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENGENHARIA"
+ },
+  {
+   "master_id": "b1db15d6-6b09-4f67-a145-8646f59d02f9",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "ENGENHARIA"
+ },
+   {
    "master_id": "906cccdb-099d-4302-ac63-fddf0222cd35",
    "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
    "theme": "CONHECIMENTO",
@@ -1473,6 +1615,17 @@
    "subitem_description": "",
    "exigency_level": "",
    "responsible": "SUPER - COMISSÃO DE TECNOLOGIA (DRA. FÁTIMA)"
+ },
+  {
+   "master_id": "992cf243-938c-4141-856d-e3762c27b42c",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "INOVAÇÃO",
+   "description": "Constituição do Comitê de gerenciamento de tecnologia",
+   "item_number": 9,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENGENHARIA"
  },
  {
    "master_id": "ac1a59fc-c370-4cb7-90de-9aa2e3a81900",
@@ -2572,7 +2725,18 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPRIMENTOS"
+   "responsible": "SUPRIMENTOS - COMPRAS - CPM"
+ },
+  {
+   "master_id": "af4b323a-3071-4773-9a94-ca3091e958bc",
+   "section": "FUNDAMENTO 2 - COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORNECEDOR",
+   "description": "Seleciona os fornecedores, corpo clínico, equipes técnicas que prestam serviços assistenciais e outros serviços?",
+   "item_number": 15,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENGENHARIA"
  },
  {
    "master_id": "8dc7c3fc-0892-4826-aad2-854e946ba56a",
@@ -2627,7 +2791,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPRIMENTOS"
+   "responsible": "SUPRIMENTOS - COMPRAS - CPM"
  },
  {
    "master_id": "51b20828-2511-4c07-85c0-0d048bbfcd90",
@@ -2682,7 +2846,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPRIMENTOS"
+   "responsible": "SUPRIMENTOS - COMPRAS - CPM"
  },
  {
    "master_id": "8a04a00c-2943-4cd3-a397-b0838c57967f",
@@ -3975,7 +4139,7 @@
    "master_id": "940e0427-f905-48e3-a976-02c20434dd95",
    "section": "FUNDAMENTO 5 - LIDERANÇA TRANSFORMADORA",
    "theme": "GOVERNANÇA",
-   "description": "",
+   "description": "Identifica, avalia, monitora e trata os riscos empresariais, incluindo sua classificação e integração? A identificação e tratamento dos riscos deve abranger os riscos relativos à:",
    "item_number": 8,
    "subitem_number": 5,
    "subitem_description": "Financeiros",
@@ -4041,7 +4205,7 @@
    "master_id": "c939a1c0-333c-421c-9664-f2c5ae8c11af",
    "section": "FUNDAMENTO 5 - LIDERANÇA TRANSFORMADORA",
    "theme": "GOVERNANÇA",
-   "description": "",
+   "description": "Identifica, avalia, monitora e trata os riscos empresariais, incluindo sua classificação e integração? A identificação e tratamento dos riscos deve abranger os riscos relativos à:",
    "item_number": 8,
    "subitem_number": 8,
    "subitem_description": "Sanitários",
@@ -6175,7 +6339,7 @@
    "master_id": "8b543708-4e09-4151-8f0e-5f637b734888",
    "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
    "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "",
+   "description": "Promove atividades de controle da assistência prestada?",
    "item_number": 27,
    "subitem_number": 4,
    "subitem_description": "Vigilância epidemiológica das IRAS por procedimentos",
@@ -6184,9 +6348,9 @@
  },
  {
    "master_id": "7bf00f21-65e5-4e11-b1e6-b16a7111eecb",
-   "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCEESSO INTERNAÇÃO",
+   "description": "Promove atividades de controle da assistência prestada?",
    "item_number": 27,
    "subitem_number": 4,
    "subitem_description": "Vigilância epidemiológica das IRAS por procedimentos",
@@ -6567,6 +6731,61 @@
    "exigency_level": "",
    "responsible": "CENTRO CIRÚRGICO"
  },
+   {
+   "master_id": "77d5e9fe-a1f0-43dc-9ca9-b7abfb372cee",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO CENTRO CIRÚRGICO",
+   "description": "O hospital mantém programas ou ações referentes ao protocolo de Cirurgia Segura?\n(no mínimo 5 subitens)",
+   "item_number": 42,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "CCIH"
+ },
+   {
+   "master_id": "c4fcae23-7bf6-471e-9b9f-0138609ad99b",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO CENTRO CIRÚRGICO",
+   "description": "O hospital mantém programas ou ações referentes ao protocolo de Cirurgia Segura?\n(no mínimo 5 subitens)",
+   "item_number": 42,
+   "subitem_number": 2,
+   "subitem_description": "Controle e protocolos das limpezas terminais e concorrentes",
+   "exigency_level": "",
+   "responsible": "CCIH"
+ },
+  {
+   "master_id": "64237608-92d3-4215-b3e5-734ad0d8e6db",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO CENTRO CIRÚRGICO",
+   "description": "O hospital mantém programas ou ações referentes ao protocolo de Cirurgia Segura?\n(no mínimo 5 subitens)",
+   "item_number": 42,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "HIGIENE E ZELADORIA"
+ },
+   {
+   "master_id": "558ae74f-8312-4b3f-823e-ada128f0e948",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO CENTRO CIRÚRGICO",
+   "description": "O hospital mantém programas ou ações referentes ao protocolo de Cirurgia Segura?\n(no mínimo 5 subitens)",
+   "item_number": 42,
+   "subitem_number": 2,
+   "subitem_description": "Controle e protocolos das limpezas terminais e concorrentes",
+   "exigency_level": "",
+   "responsible": "HIGIENE E ZELADORIA"
+ },
+  {
+   "master_id": "f11bc2a6-cffe-4580-8e33-402632a3e0c0",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO CENTRO CIRÚRGICO",
+   "description": "São cumpridas as normas de limpezas concorrentes e terminais das salas de procedimentos cirúrgicos?",
+   "item_number": 47,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "HIGIENE E ZELADORIA"
+ },
  {
    "master_id": "f038fedb-ab8d-4e9e-83df-9cb321b619fc",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
@@ -6757,7 +6976,7 @@
  {
    "master_id": "3f34a879-f96d-45c5-9eac-453093bce6c4",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO CENTRO CIRÚRGICO",
    "description": "São cumpridas as normas de limpezas concorrentes e terminais das salas de procedimentos cirúrgicos?",
    "item_number": 47,
    "subitem_number": null,
@@ -8527,8 +8746,8 @@
  },
  {
    "master_id": "3370c1c0-84f5-43da-bed3-e0ef95f9d726",
-   "section": "FUNDAMENTO 7 - PROCESSO CUIDADOS INTENSIVOS",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO CUIDADOS INTENSIVOS",
    "description": "A distribuição dos leitos nas UTIs permite visualização constante, desde o posto de enfermagem, ou conta com sistema de monitorização?",
    "item_number": 72,
    "subitem_number": null,
@@ -8705,7 +8924,7 @@
    "master_id": "23428c8f-210f-47f6-a0f0-92d4b4cdc189",
    "section": "FUNDAMENTO 7 - PROCESSO CUIDADOS INTENSIVOS",
    "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "",
+   "description": "Há atividades de controle da assistência prestada:",
    "item_number": 80,
    "subitem_number": 4,
    "subitem_description": "Vigilância epidemiológica das IRAS por procedimentos",
@@ -8714,9 +8933,9 @@
  },
  {
    "master_id": "3b00ee59-9fb0-4246-baa6-bde0037b5b1d",
-   "section": "FUNDAMENTO 7 - PROCESSO CUIDADOS INTENSIVOS",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO CUIDADOS INTENSIVOS",
+   "description": "Há atividades de controle da assistência prestada:",
    "item_number": 80,
    "subitem_number": 4,
    "subitem_description": "Vigilância epidemiológica das IRAS por procedimentos",
@@ -9836,8 +10055,8 @@
  },
  {
    "master_id": "8e02aa67-5049-48b7-b8f1-8580b957c603",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO INFRAESTRUTURA HOSPITALAR",
    "description": "Os planos de reforma das áreas físicas estão alinhados com as estratégias do hospital?",
    "item_number": 131,
    "subitem_number": null,
@@ -9847,8 +10066,8 @@
  },
  {
    "master_id": "5c09fda2-0421-4c7c-9841-0f665a6dcf3b",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO INFRAESTRUTURA HOSPITALAR",
    "description": "A aquisição de equipamentos está alinhada com as estratégias do hospital?",
    "item_number": 132,
    "subitem_number": null,
@@ -9858,8 +10077,8 @@
  },
  {
    "master_id": "1a6526a6-f5ce-4dae-b738-3bd7d9e50cb7",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO INFRAESTRUTURA HOSPITALAR",
    "description": "Há acesso / saída controlados, com níveis progressivos de restrições, para serviço de emergência, unidade de internação, força de trabalho, pacientes ambulatoriais, cadáveres, materiais, resíduos e visitantes / fornecedores?",
    "item_number": 133,
    "subitem_number": null,
@@ -9957,8 +10176,8 @@
  },
  {
    "master_id": "1e447406-f95e-4dea-9378-039006aebe93",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO INFRAESTRUTURA HOSPITALAR",
    "description": "Há sistema alternativo de geração de energia e de iluminação para as áreas de circulação e áreas críticas:",
    "item_number": 137,
    "subitem_number": null,
@@ -9968,12 +10187,23 @@
  },
  {
    "master_id": "747012a0-cb09-4104-ad34-16ebcfae8851",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO INFRAESTRUTURA HOSPITALAR",
    "description": "",
    "item_number": 137,
    "subitem_number": 1,
    "subitem_description": "Gerador",
+   "exigency_level": "",
+   "responsible": "ENGENHARIA"
+ },
+  {
+   "master_id": "4bdb7ee2-a3bb-47b4-95a8-5e47f47df50c",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO INFRAESTRUTURA HOSPITALAR",
+   "description": "Há sistema alternativo de geração de energia e de iluminação para as áreas de circulação e áreas críticas:",
+   "item_number": 137,
+   "subitem_number": 2,
+   "subitem_description": "Luz de emergência com baterias próprias",
    "exigency_level": "",
    "responsible": "ENGENHARIA"
  },
@@ -9990,8 +10220,8 @@
  },
  {
    "master_id": "77b3fbf1-2d7b-467c-a2de-e39a128f5a8b",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO INFRAESTRUTURA HOSPITALAR",
    "description": "Há reservatório / sistema com capacidade suficiente para garantir o abastecimento ininterrupto de água?",
    "item_number": 138,
    "subitem_number": null,
@@ -10001,8 +10231,8 @@
  },
  {
    "master_id": "90572081-fa3f-44f1-898c-542eb479a2d3",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO INFRAESTRUTURA HOSPITALAR",
    "description": "Há facilidade para utilização de macas e cadeiras de rodas em todas as áreas de circulação do paciente, incluindo rampas e elevadores?",
    "item_number": 139,
    "subitem_number": null,
@@ -10012,8 +10242,8 @@
  },
  {
    "master_id": "cde02d5a-5702-44b0-be5c-6511c851aaab",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO INFRAESTRUTURA HOSPITALAR",
    "description": "É respeitado o livre acesso em todos os lados do leito?",
    "item_number": 140,
    "subitem_number": null,
@@ -10023,8 +10253,8 @@
  },
  {
    "master_id": "0396038d-fa04-41e6-8bfb-61b4db92a6ab",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO INFRAESTRUTURA HOSPITALAR",
    "description": "Todos os pacientes dispõem, à cabeceira do leito, de campainha para chamada do pessoal de enfermagem?",
    "item_number": 141,
    "subitem_number": null,
@@ -10034,8 +10264,8 @@
  },
  {
    "master_id": "d10b9f9a-9bc7-41cb-a1ba-0591b8126c93",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO INFRAESTRUTURA HOSPITALAR",
    "description": "As enfermarias têm no máximo quatro leitos?",
    "item_number": 142,
    "subitem_number": null,
@@ -10045,8 +10275,8 @@
  },
  {
    "master_id": "09833397-b291-4d2b-bfda-ea0649c37761",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO INFRAESTRUTURA HOSPITALAR",
    "description": "Todas as enfermarias, independentemente do número de leitos, têm banheiro anexo que permite a passagem de cadeiras de banho e/ou rodas?",
    "item_number": 143,
    "subitem_number": null,
@@ -10056,8 +10286,8 @@
  },
  {
    "master_id": "2105950e-394c-4d1d-a076-bd842d3687bf",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO INFRAESTRUTURA HOSPITALAR",
    "description": "Os banheiros dispõem de barras de apoio para os pacientes, incluindo a área do chuveiro / banho?",
    "item_number": 144,
    "subitem_number": null,
@@ -10067,8 +10297,8 @@
  },
  {
    "master_id": "1d9eaa32-45fc-40a5-8a3f-4950b701a163",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO INFRAESTRUTURA HOSPITALAR",
    "description": "Os banheiros dispõem de campainhas de fácil acesso para que os pacientes possam solicitar a presença de pessoal de enfermagem?",
    "item_number": 145,
    "subitem_number": null,
@@ -10078,8 +10308,8 @@
  },
  {
    "master_id": "d5606c3a-c575-41a9-96ec-9cccd813222b",
-   "section": "FUNDAMENTO 7 - PROCESSO INFRAESTRUTURA HOSPITALAR",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO INFRAESTRUTURA HOSPITALAR",
    "description": "As portas dos banheiros se abrem para o interior do quarto ou são escamoteáveis?",
    "item_number": 146,
    "subitem_number": null,
@@ -10496,8 +10726,8 @@
  },
  {
    "master_id": "9557c8d2-1395-4b75-8355-9f1f989d1d10",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE DE IRAS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE DE IRAS",
    "description": "A detecção de casos de IRAS pelo SCIRAS é feita com base em definições pré-estabelecidas?",
    "item_number": 151,
    "subitem_number": null,
@@ -10507,8 +10737,8 @@
  },
  {
    "master_id": "cc2cc681-1b06-4c04-a9a7-e1381b0f7ec2",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE DE IRAS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE DE IRAS",
    "description": "A vigilância epidemiológica das IRAS é realizada por meio de busca ativa?",
    "item_number": 152,
    "subitem_number": null,
@@ -10518,8 +10748,8 @@
  },
  {
    "master_id": "b6ee63e3-e3e4-415b-b058-3ff95d02939d",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE DE IRAS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE DE IRAS",
    "description": "A CCIRAS registra e analisa:",
    "item_number": 153,
    "subitem_number": null,
@@ -10529,8 +10759,8 @@
  },
  {
    "master_id": "0a1a074c-166a-4330-bcac-ec3fadb26341",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE DE IRAS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE DE IRAS",
    "description": "",
    "item_number": 153,
    "subitem_number": 1,
@@ -10540,8 +10770,8 @@
  },
  {
    "master_id": "3f53c9b2-6cf2-431e-8a54-03e3c2045db3",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE DE IRAS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE DE IRAS",
    "description": "",
    "item_number": 153,
    "subitem_number": 2,
@@ -10551,8 +10781,8 @@
  },
  {
    "master_id": "08cad58e-3747-442f-bf67-555bf9765a40",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE DE IRAS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE DE IRAS",
    "description": "Os relatórios produzidos pela CCIRAS são divulgados? (no mínimo 2 subitens)",
    "item_number": 154,
    "subitem_number": null,
@@ -10562,8 +10792,8 @@
  },
  {
    "master_id": "20eaff23-32a0-4ffc-9f0a-0998f6d948e3",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE DE IRAS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE DE IRAS",
    "description": "",
    "item_number": 154,
    "subitem_number": 1,
@@ -10573,8 +10803,8 @@
  },
  {
    "master_id": "4003c4a1-7849-47d9-9043-bedadeff7660",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE DE IRAS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE DE IRAS",
    "description": "",
    "item_number": 154,
    "subitem_number": 2,
@@ -10584,8 +10814,8 @@
  },
  {
    "master_id": "9b586f12-e5e8-4ce4-8aea-fa44bea0af50",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE DE IRAS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE DE IRAS",
    "description": "",
    "item_number": 154,
    "subitem_number": 3,
@@ -10595,8 +10825,8 @@
  },
  {
    "master_id": "b3d90209-cfa6-4bff-87a6-e7d2c26b63f1",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE DE IRAS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE DE IRAS",
    "description": "São utilizados métodos ativos de vigilância epidemiológica das IRAS que permitam análises comparativas pertinentes?",
    "item_number": 155,
    "subitem_number": null,
@@ -10606,8 +10836,8 @@
  },
  {
    "master_id": "911b4cfc-ef0b-47e8-82c2-f7218a206bf1",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE DE IRAS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE DE IRAS",
    "description": "Há condições para os profissionais realizarem a higiene das mãos (pias com sabão e toalhas de papel ou álcool gel) em todos os ambientes de atendimento aos pacientes e de manipulação de artigos, insumos médico-hospitalares e resíduos no hospital?",
    "item_number": 156,
    "subitem_number": null,
@@ -10617,8 +10847,8 @@
  },
  {
    "master_id": "0d1f8370-1309-4670-9ede-5ceb7d380d09",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE DE IRAS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE DE IRAS",
    "description": "Há condições de isolamento para os pacientes portadores de doenças \ninfectocontagiosas, quando necessário?",
    "item_number": 157,
    "subitem_number": null,
@@ -10738,14 +10968,14 @@
  },
  {
    "master_id": "6f721d32-8ded-48d0-adc9-cbc9bd023809",
-   "section": "FUNDAMENTO 7 - PROCESSO MATERIAIS E MEDICAMENTOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAIS E MEDICAMENTOS",
    "description": "Há um controle da utilização dos materiais de consumo em todas as unidades?",
    "item_number": 163,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPRIMENTOS"
+   "responsible": "SUPRIMENTOS - COMPRAS - CPM"
  },
  {
    "master_id": "a85ce4a9-200a-4f00-93eb-d590417173ed",
@@ -10760,14 +10990,14 @@
  },
  {
    "master_id": "2ae83b5d-c8c1-4d51-95ea-3c23fa980457",
-   "section": "FUNDAMENTO 7 - PROCESSO MATERIAIS E MEDICAMENTOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAIS E MEDICAMENTOS",
    "description": "Há controle da validade dos materiais médicos e medicamentos (incluindo os fracionados)?",
    "item_number": 164,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "*",
-   "responsible": "SUPRIMENTOS"
+   "responsible": "SUPRIMENTOS - COMPRAS - CPM"
  },
  {
    "master_id": "58e4bfdd-3db0-4146-9a6b-74b809c2d40b",
@@ -11068,8 +11298,8 @@
  },
  {
    "master_id": "8709f2dc-9897-47d6-ad93-5f009f8af524",
-   "section": "FUNDAMENTO 7 - PROCESSO HIGIENIZAÇÃO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO HIGIENIZAÇÃO",
    "description": "A limpeza diária é supervisionada em todas as unidades?",
    "item_number": 168,
    "subitem_number": null,
@@ -11112,8 +11342,8 @@
  },
  {
    "master_id": "fbcb4f91-5ab4-454b-ab81-e10469d828e6",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
    "description": "Existe fluxo para transporte de resíduos dentro do hospital evitando o cruzamento com pacientes ou materiais limpos?",
    "item_number": 172,
    "subitem_number": null,
@@ -11123,8 +11353,8 @@
  },
  {
    "master_id": "1ab2aec6-5d4b-4b87-9c1e-654ac874016f",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
    "description": "Existe fluxo para transporte de resíduos dentro do hospital evitando o cruzamento com pacientes ou materiais limpos?",
    "item_number": 172,
    "subitem_number": null,
@@ -11134,8 +11364,8 @@
  },
  {
    "master_id": "0f26a73e-4298-4e54-aaf9-6e618ecfba7e",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
    "description": "Há um local específico para o armazenamento de resíduos sólidos, que seja:",
    "item_number": 173,
    "subitem_number": null,
@@ -11145,8 +11375,8 @@
  },
  {
    "master_id": "9c6eff4a-b595-4109-910e-989519b03ba5",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
    "description": "",
    "item_number": 173,
    "subitem_number": 1,
@@ -11156,8 +11386,8 @@
  },
  {
    "master_id": "153a8e9b-d8ee-4760-8246-0b6976d8d91c",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
    "description": "",
    "item_number": 173,
    "subitem_number": 2,
@@ -11167,8 +11397,8 @@
  },
  {
    "master_id": "bfbfd62a-2c4e-448e-bfee-e90c942255fa",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
    "description": "",
    "item_number": 173,
    "subitem_number": 3,
@@ -11178,8 +11408,8 @@
  },
  {
    "master_id": "93705a03-15d8-44dc-a832-843867b6f42d",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
    "description": "",
    "item_number": 173,
    "subitem_number": 4,
@@ -11189,8 +11419,8 @@
  },
  {
    "master_id": "8991eb9b-a0de-4757-b40d-cb4d29c7d86d",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
    "description": "",
    "item_number": 173,
    "subitem_number": 5,
@@ -11200,8 +11430,8 @@
  },
  {
    "master_id": "df426d09-3b02-4e7a-83db-a25d84a583a9",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
    "description": "",
    "item_number": 173,
    "subitem_number": 6,
@@ -11211,8 +11441,8 @@
  },
  {
    "master_id": "11853bdc-4e4a-408d-ac98-e4cc226a5946",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
    "description": "",
    "item_number": 173,
    "subitem_number": 7,
@@ -11222,8 +11452,8 @@
  },
  {
    "master_id": "dfcf8afc-b1b6-4225-9b09-df46bb1e5d64",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
    "description": "Há um local específico para o armazenamento de resíduos sólidos, que seja:",
    "item_number": 173,
    "subitem_number": null,
@@ -11233,8 +11463,8 @@
  },
  {
    "master_id": "a9abd0e1-c1ff-4d99-af38-8e924dab8f7f",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
    "description": "",
    "item_number": 173,
    "subitem_number": 1,
@@ -11244,8 +11474,8 @@
  },
  {
    "master_id": "cb0f1443-9294-4142-add0-5f431500e882",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
    "description": "",
    "item_number": 173,
    "subitem_number": 2,
@@ -11255,8 +11485,8 @@
  },
  {
    "master_id": "87ae7fbb-0407-41da-bbc4-0eef5b7f5735",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
    "description": "",
    "item_number": 173,
    "subitem_number": 3,
@@ -11266,8 +11496,8 @@
  },
  {
    "master_id": "8883dbc7-cd34-4727-8cde-31c9c7c46e3f",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
    "description": "",
    "item_number": 173,
    "subitem_number": 4,
@@ -11277,8 +11507,8 @@
  },
  {
    "master_id": "96fab9ef-5164-4618-8cba-c477de7e3ac7",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
    "description": "",
    "item_number": 173,
    "subitem_number": 5,
@@ -11288,8 +11518,8 @@
  },
  {
    "master_id": "7ee7cdce-c245-4791-a562-464179d7bea1",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
    "description": "",
    "item_number": 173,
    "subitem_number": 6,
@@ -11299,8 +11529,8 @@
  },
  {
    "master_id": "5ceb3e02-140f-4438-921f-9b923d48857f",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
    "description": "",
    "item_number": 173,
    "subitem_number": 7,
@@ -11308,9 +11538,20 @@
    "exigency_level": "",
    "responsible": "HIGIENE E ZELADORIA"
  },
+  {
+   "master_id": "c5b75d96-8c54-4a5a-adc5-aba6bf01d588",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO RESÍDUOS SÓLIDOS",
+   "description": "Identifica as oportunidades de desenvolvimento de novos produtos e serviços?",
+   "item_number": 174,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "HIGIENE E ZELADORIA"
+ },
  {
    "master_id": "12074ad4-a37d-44d0-a271-7524927a289a",
-   "section": "FUNDAMENTO 7 - PROCESSO RESÍDUOS SÓLIDOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "PRODUTO",
    "description": "Identifica as oportunidades de desenvolvimento de novos produtos e serviços?",
    "item_number": 174,
@@ -11354,8 +11595,8 @@
  },
  {
    "master_id": "7c36a4e6-3be4-430a-9d46-98183da1ccb0",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS FINANCEIROS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS FINANCEIROS",
    "description": "Séries históricas de indicadores econômico-financeiros.",
    "item_number": 1,
    "subitem_number": null,
@@ -11365,8 +11606,8 @@
  },
  {
    "master_id": "81a0c953-5f4b-4c6e-8d67-e9d1c883c771",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS FINANCEIROS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS FINANCEIROS",
    "description": "Índice de glosas pelos convênios / mês. \nObs.: no caso dos hospitais públicos, considerar as glosas das AIH’s.",
    "item_number": 2,
    "subitem_number": null,
@@ -11376,8 +11617,8 @@
  },
  {
    "master_id": "ff08680c-7b9d-4e73-8c55-896418288dee",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS FINANCEIROS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS FINANCEIROS",
    "description": "Tendência / melhoria para algum resultado econômico-financeiro (essa informação será analisada pela equipe de examinadores, não sendo necessário que o hospital apresente informações adicionais).",
    "item_number": 3,
    "subitem_number": null,
@@ -11387,8 +11628,8 @@
  },
  {
    "master_id": "62d447cf-b6d9-4b7a-8954-df71802b0514",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS FINANCEIROS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS FINANCEIROS",
    "description": "Compromisso / competitividade / desempenho superior para algum resultado econômico-financeiro, quando comparado ao seu referencial (essa informação será analisada pela equipe de examinadores, sendo necessário que o hospital apresente informações do referencial comparativo).",
    "item_number": 4,
    "subitem_number": null,
@@ -11398,8 +11639,8 @@
  },
  {
    "master_id": "436db724-cd21-44af-8bb5-10dcb9d4887c",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS AMBIENTAIS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS AMBIENTAIS",
    "description": "Índice de resíduos reciclável por paciente / dia.",
    "item_number": 5,
    "subitem_number": null,
@@ -11409,8 +11650,8 @@
  },
  {
    "master_id": "c494921d-f7ef-4770-8164-395616323ebf",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS AMBIENTAIS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS AMBIENTAIS",
    "description": "Índice de resíduos infectantes por paciente / dia.",
    "item_number": 6,
    "subitem_number": null,
@@ -11420,8 +11661,8 @@
  },
  {
    "master_id": "aed17ab7-ec58-4431-8492-1dab86919d51",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS AMBIENTAIS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS AMBIENTAIS",
    "description": "Índice de consumo de energia / paciente dia.",
    "item_number": 7,
    "subitem_number": null,
@@ -11431,10 +11672,32 @@
  },
  {
    "master_id": "6d6f2614-2354-4fc8-8ec6-58f5d108e481",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS AMBIENTAIS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS AMBIENTAIS",
    "description": "Índice de consumo de água / paciente dia.",
    "item_number": 8,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENGENHARIA"
+ },
+  {
+   "master_id": "892eddb5-6ddb-4a26-950c-76954c044077",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS AMBIENTAIS",
+   "description": "Séries históricas de requisições atendidas / mês sobre o total de requisições no serviço de manutenção.",
+   "item_number": 42,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENGENHARIA"
+ },
+ {
+   "master_id": "8828a074-7df4-4267-ae28-4b662e161cad",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS AMBIENTAIS",
+   "description": "Séries históricas sobre o tempo de indisponibilidade média de equipamentos para reparo / ano.",
+   "item_number": 43,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
@@ -12003,8 +12266,8 @@
  },
  {
    "master_id": "78391333-a516-4a25-bede-c25acec1b849",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS AOS FORNECEDORES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORNECEDORES",
    "description": "Resultados da conformidade dos serviços dos seus serviços terceirizados.",
    "item_number": 30,
    "subitem_number": null,
@@ -12014,8 +12277,8 @@
  },
  {
    "master_id": "8627a141-2a57-42ad-a58f-14bb5050c621",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS AOS FORNECEDORES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORNECEDORES",
    "description": "Resultados da conformidade dos serviços dos seus serviços terceirizados.",
    "item_number": 30,
    "subitem_number": null,
@@ -12025,8 +12288,8 @@
  },
  {
    "master_id": "6c640e81-63c2-49bd-9397-1bd63cd3a686",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS AOS FORNECEDORES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORNECEDORES",
    "description": "Resultados da conformidade dos serviços dos seus serviços terceirizados.",
    "item_number": 30,
    "subitem_number": null,
@@ -12036,8 +12299,8 @@
  },
  {
    "master_id": "a1d7d7dd-45ea-42c7-83df-9ed98ae06765",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS AOS FORNECEDORES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORNECEDORES",
    "description": "Resultados da conformidade dos serviços dos seus serviços terceirizados.",
    "item_number": 30,
    "subitem_number": null,
@@ -12047,19 +12310,19 @@
  },
  {
    "master_id": "49ea213d-b0fd-4fb3-8e7b-5ce0fdfc552d",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS AOS FORNECEDORES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORNECEDORES",
    "description": "Resultados da conformidade na entrega de produtos pelos fornecedores.",
    "item_number": 31,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "*",
-   "responsible": "SUPRIMENTOS"
+   "responsible": "SUPRIMENTOS - COMPRAS - CPM"
  },
  {
    "master_id": "32e655e0-24d2-4112-98cb-aaa48890c6f0",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS AOS FORNECEDORES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORNECEDORES",
    "description": "Resultados da conformidade na entrega de produtos pelos fornecedores.",
    "item_number": 31,
    "subitem_number": null,
@@ -12067,54 +12330,65 @@
    "exigency_level": "*",
    "responsible": "COM"
  },
+  {
+   "master_id": "d8a61ab7-226d-4ea0-af82-16685ae957c2",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORNECEDORES",
+   "description": "Resultados da conformidade na entrega de produtos pelos fornecedores.",
+   "item_number": 31,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "*",
+   "responsible": "ENGENHARIA"
+ },
  {
    "master_id": "e0a09e45-fe31-4f18-ad6d-1f73c59c82a6",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS AOS FORNECEDORES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORNECEDORES",
    "description": "Resultados da otimização de custos com fornecedores.",
    "item_number": 32,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPRIMENTOS"
+   "responsible": "SUPRIMENTOS - COMPRAS - CPM"
  },
  {
    "master_id": "27c5206b-f4e1-4b18-b4bc-021aff039099",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS AOS FORNECEDORES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORNECEDORES",
    "description": "Outros resultados relacionados aos fornecedores além dos mencionados acima.",
    "item_number": 33,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPRIMENTOS"
+   "responsible": "SUPRIMENTOS - COMPRAS - CPM"
  },
  {
    "master_id": "a24d8084-b51f-4e8c-8675-c74b909274d0",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS AOS FORNECEDORES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORNECEDORES",
    "description": "Tendência / melhoria para algum resultado relativo aos fornecedores (essa informação será analisada pela equipe de examinadores, não sendo necessário que o hospital apresente informações adicionais).",
    "item_number": 34,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPRIMENTOS"
+   "responsible": "SUPRIMENTOS - COMPRAS - CPM"
  },
  {
    "master_id": "6f893afb-35da-4936-a537-ece7ae7b62dd",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS AOS FORNECEDORES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORNECEDORES",
    "description": "Compromisso / competitividade / desempenho superior para algum resultado relativo aos fornecedores (essa informação será analisada pela equipe de examinadores, sendo necessário que o hospital apresente informações do referencial comparativo).",
    "item_number": 35,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPRIMENTOS"
+   "responsible": "SUPRIMENTOS - COMPRAS - CPM"
  },
  {
    "master_id": "65b936b0-d1f9-4e55-9762-2117b98640fe",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Resultados relacionados ao atendimento das patologias indicadas no perfil nosológico.",
    "item_number": 36,
    "subitem_number": null,
@@ -12124,7 +12398,7 @@
  },
  {
    "master_id": "2b168310-0fa4-4242-84b9-87dd60fc1647",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
    "theme": "RESULTADOS SUSTENTÁVEIS",
    "description": "Séries históricas dos indicadores de enfermagem de acordo com o perfil do hospital.",
    "item_number": 37,
@@ -12135,8 +12409,8 @@
  },
  {
    "master_id": "05de0d11-ced0-4ca3-b16c-d5996359ce62",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Séries históricas dos indicadores de enfermagem de acordo com o perfil do hospital.",
    "item_number": 37,
    "subitem_number": null,
@@ -12157,8 +12431,8 @@
  },
  {
    "master_id": "d852c9b0-973f-4549-8bdf-df3a68c5fe23",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Séries históricas dos indicadores de controle de infecção relacionada a assistência à saúde.",
    "item_number": 39,
    "subitem_number": null,
@@ -12168,8 +12442,8 @@
  },
  {
    "master_id": "40438055-afe1-479e-a7d9-71e06b932e45",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Séries históricas de indicadores para os serviços de apoio técnico: (no mínimo 4 subitens)",
    "item_number": 40,
    "subitem_number": null,
@@ -12509,14 +12783,14 @@
  },
  {
    "master_id": "f63f5a94-b35f-4902-99f1-81872f8068b3",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
-   "description": "",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
+   "description": "Séries históricas de indicadores relacionados aos seus serviços e processos organizacionais: (no mínimo 8 subitens)",
    "item_number": 41,
    "subitem_number": 20,
    "subitem_description": "Tempo de espera para limpeza de sala cirúrgica",
    "exigency_level": "",
-   "responsible": "HIGIENE"
+   "responsible": "HIGIENE E ZELADORIA"
  },
  {
    "master_id": "67c173f1-3e1a-48b6-a150-b7d9f19d486e",
@@ -12574,37 +12848,15 @@
    "responsible": "NEPI"
  },
  {
-   "master_id": "892eddb5-6ddb-4a26-950c-76954c044077",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
-   "description": "Séries históricas de requisições atendidas / mês sobre o total de requisições no serviço de manutenção.",
-   "item_number": 42,
-   "subitem_number": null,
-   "subitem_description": "",
-   "exigency_level": "",
-   "responsible": "ENGENHARIA"
- },
- {
-   "master_id": "8828a074-7df4-4267-ae28-4b662e161cad",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
-   "description": "Séries históricas sobre o tempo de indisponibilidade média de equipamentos para reparo / ano.",
-   "item_number": 43,
-   "subitem_number": null,
-   "subitem_description": "",
-   "exigency_level": "",
-   "responsible": "ENGENHARIA"
- },
- {
    "master_id": "adfc90c7-a4ec-470a-9306-89664258e3a6",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Séries históricas sobre o tempo médio de limpeza por quarto.",
    "item_number": 44,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "HIGIENE"
+   "responsible": "HIGIENE E ZELADORIA"
  },
  {
    "master_id": "49966fcc-c6ac-47ec-a85b-f6fb290d8aab",
@@ -12619,8 +12871,8 @@
  },
  {
    "master_id": "28d8a0e0-a4f3-427a-b9c8-50e61ffa9286",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Séries históricas sobre o tempo gasto para emissão de fatura.",
    "item_number": 46,
    "subitem_number": null,
