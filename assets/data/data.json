@@ -494,6 +494,160 @@
    "exigency_level": "",
    "responsible": "SND"
  },
+  {
+   "master_id": "301f77bc-e1f5-4a00-905b-80287a4caf7f",
+   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORNECEDOR",
+   "description": "Contratos das empresas terceirizadas",
+   "item_number": 10,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "NUTRIÇÃO"
+ },
+ {
+   "master_id": "ac48d3f5-eaca-48a5-b51e-d1ce7038a5a6",
+   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORNECEDOR",
+   "description": "O controle dos contratos dos serviços terceirizados contempla:",
+   "item_number": 11,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "NUTRIÇÃO"
+ },
+ {
+   "master_id": "517f18d6-b0eb-4c0d-99df-9b3d824c0f36",
+   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORNECEDOR",
+   "description": "",
+   "item_number": 11,
+   "subitem_number": 1,
+   "subitem_description": "Licença de funcionamento",
+   "exigency_level": "",
+   "responsible": "NUTRIÇÃO"
+ },
+ {
+   "master_id": "358f7e44-f7a6-41e8-85dc-564c4bd1a378",
+   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORNECEDOR",
+   "description": "",
+   "item_number": 11,
+   "subitem_number": 2,
+   "subitem_description": "Cadastros da força de trabalho",
+   "exigency_level": "",
+   "responsible": "NUTRIÇÃO"
+ },
+ {
+   "master_id": "76e31ae7-6c4c-4e25-9413-4f7cd9b49eb2",
+   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORNECEDOR",
+   "description": "",
+   "item_number": 11,
+   "subitem_number": 3,
+   "subitem_description": "Manuais de rotinas e procedimentos",
+   "exigency_level": "",
+   "responsible": "NUTRIÇÃO"
+ },
+ {
+   "master_id": "b2af253a-6c31-4f46-8bd0-c0bc71acada8",
+   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORNECEDOR",
+   "description": "",
+   "item_number": 11,
+   "subitem_number": 4,
+   "subitem_description": "Registros de treinamentos",
+   "exigency_level": "",
+   "responsible": "NUTRIÇÃO"
+ },
+ {
+   "master_id": "9e314db8-89e7-4845-bcfd-2e6f17470ea7",
+   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORNECEDOR",
+   "description": "",
+   "item_number": 11,
+   "subitem_number": 5,
+   "subitem_description": "Escalas de trabalho",
+   "exigency_level": "",
+   "responsible": "NUTRIÇÃO"
+ },
+ {
+   "master_id": "9364dbaf-83cb-4f22-9f9a-ef9c57ab13c3",
+   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORNECEDOR",
+   "description": "",
+   "item_number": 11,
+   "subitem_number": 6,
+   "subitem_description": "Documentação relacionada com a saúde ocupacional (Atestado de Saúde Ocupacional ASO, PGR, PCMSO)",
+   "exigency_level": "",
+   "responsible": "NUTRIÇÃO"
+ },
+ {
+   "master_id": "5018b1cf-9faf-4130-b07a-65312381a0bb",
+   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORNECEDOR",
+   "description": "",
+   "item_number": 11,
+   "subitem_number": 7,
+   "subitem_description": "Requisitos e/ou metas desejadas pelo hospital",
+   "exigency_level": "",
+   "responsible": "NUTRIÇÃO"
+ },
+ {
+   "master_id": "8f913a33-a184-4f59-a470-786cd638cd42",
+   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORNECEDOR",
+   "description": "",
+   "item_number": 11,
+   "subitem_number": 8,
+   "subitem_description": "Declaração de regularidade com os requisitos legais aplicáveis às questões socioambientais",
+   "exigency_level": "",
+   "responsible": "NUTRIÇÃO"
+ },
+ {
+   "master_id": "82ff916a-127d-4a7a-ac5d-f75301450f03",
+   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORNECEDOR",
+   "description": "",
+   "item_number": 11,
+   "subitem_number": 9,
+   "subitem_description": "Cronograma de manutenção preventiva de equipamentos",
+   "exigency_level": "",
+   "responsible": "NUTRIÇÃO"
+ },
+ {
+   "master_id": "3e6bef87-31aa-41e7-b344-e597977c8f0a",
+   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORNECEDOR",
+   "description": "",
+   "item_number": 11,
+   "subitem_number": 10,
+   "subitem_description": "Supervisão do processo",
+   "exigency_level": "",
+   "responsible": "NUTRIÇÃO"
+ },
+ {
+   "master_id": "33a8e488-fcba-4c6c-be37-604ece36018b",
+   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORNECEDOR",
+   "description": "",
+   "item_number": 11,
+   "subitem_number": 11,
+   "subitem_description": "Solidez financeira",
+   "exigency_level": "",
+   "responsible": "NUTRIÇÃO"
+ },
+ {
+   "master_id": "8732d1e5-0181-48b1-bd4f-603b7827fbc3",
+   "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORNECEDOR",
+   "description": "",
+   "item_number": 11,
+   "subitem_number": 12,
+   "subitem_description": "Não usar mão de obra infantil ou escrava (comprovante)",
+   "exigency_level": "",
+   "responsible": "NUTRIÇÃO"
+ },
  {
    "master_id": "da995be4-56d3-4873-88d2-5a744eca2b72",
    "section": "2. COMPROMISSO COM AS PARTES INTERESSADAS",
@@ -812,6 +966,270 @@
    "subitem_description": "",
    "exigency_level": "**",
    "responsible": "DGT"
+ },
+   {
+   "master_id": "59d3c5df-2701-4cd0-aa62-b509504f11cb",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "BANCO DE SANGUE"
+ },
+  {
+   "master_id": "ca3769f2-683d-4a57-9546-0abe69783ed1",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "BANCO DE SANGUE"
+ },
+  {
+   "master_id": "dc567017-b07a-4581-8bd4-b4e541d1353a",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "BANCO DE SANGUE"
+ },
+   {
+   "master_id": "fbbba4cc-174e-4ab8-9419-7061a1454900",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "SUPERINTENDÊNCIA"
+ },
+  {
+   "master_id": "9c882eb0-117b-48eb-ad17-670c05f6f5a0",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "SUPERINTENDÊNCIA"
+ },
+  {
+   "master_id": "9a658268-ba3e-4bfa-b99b-c83ee5853b54",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "SUPERINTENDÊNCIA"
+ },
+   {
+   "master_id": "1068f9f8-2938-45df-a6d7-82bb7c5e29ed",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "NUTRIÇÃO"
+ },
+  {
+   "master_id": "3b167256-d602-456c-a57b-5cb2abb38c3f",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "NUTRIÇÃO"
+ },
+  {
+   "master_id": "333aab12-8f10-4c9a-a8cf-740d63f74499",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "NUTRIÇÃO"
+ },
+   {
+   "master_id": "0c95a2ed-2720-40d4-825f-7e4f8624b8e3",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "CME"
+ },
+  {
+   "master_id": "38598880-6ffd-4ec3-a52d-b3c219957b2a",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "CME"
+ },
+  {
+   "master_id": "f7e8e2f1-0cfa-4f7b-b01c-523248732319",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "CME"
+ },
+   {
+   "master_id": "c6bed581-2934-45d0-80f3-c21ed873878f",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "COMISSÃO DE PRONTUÁRIO"
+ },
+  {
+   "master_id": "cbc76ca5-0bd9-47ed-89c6-08f8752a8220",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "COMISSÃO DE PRONTUÁRIO"
+ },
+  {
+   "master_id": "87a65d6b-09a8-475f-a164-15ef39869300",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "COMISSÃO DE PRONTUÁRIO"
+ },
+   {
+   "master_id": "7891a650-381b-4233-a31b-7d10a76bf0c1",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "CÓDIGO DE ÉTICA"
+ },
+  {
+   "master_id": "b67b1d06-0695-4842-bd7e-d1a48be0b0e1",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "CÓDIGO DE ÉTICA"
+ },
+  {
+   "master_id": "5ecaec1a-0e15-4270-bfed-ce24ac14fec1",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "CÓDIGO DE ÉTICA"
+ },
+   {
+   "master_id": "681a3106-feef-45b2-874f-d3b8426be80d",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "COMISSÃO DE ÓBITO"
+ },
+  {
+   "master_id": "ddccf105-b7ed-4d6a-b666-b4e1de45f838",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "COMISSÃO DE ÓBITO"
+ },
+  {
+   "master_id": "d3b06b0b-c8f0-45de-b6b2-934a50ec3759",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "COMISSÃO DE ÓBITO"
+ },
+   {
+   "master_id": "eee78b83-d2d3-4414-b614-211c7c615648",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "GERÊNCIA DE RISCO"
+ },
+  {
+   "master_id": "797ab52c-adc2-44c1-8bbd-40b4ec304f43",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "GERÊNCIA DE RISCO"
+ },
+  {
+   "master_id": "3745bd69-eef0-4cfe-a55c-2f25dc56354f",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "GERÊNCIA DE RISCO"
  },
   {
    "master_id": "f7d60f57-bc0c-41d1-a7fa-1dfa3dadd896",
@@ -1746,7 +2164,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "*",
-   "responsible": "GESTÃO DE RISCO"
+   "responsible": "GERÊNCIA DE RISCO"
  },
  {
    "master_id": "d9cb12f0-e19f-48e1-9183-ce86d41bf395",
@@ -1779,7 +2197,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER - COMISSÃO DE TECNOLOGIA (DRA. FÁTIMA)"
+   "responsible": "SUPERINTENDÊNCIA"
  },
   {
    "master_id": "992cf243-938c-4141-856d-e3762c27b42c",
@@ -1823,7 +2241,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "**",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "76dee7f9-99ac-4c18-9b7f-f86e9280de99",
@@ -1856,7 +2274,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "*",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "0e414c31-2c0e-4626-9fad-df3f9d9d3c46",
@@ -1928,11 +2346,22 @@
    "master_id": "8b16a276-edc9-4684-bdc0-d4a78412fa11",
    "section": "5. LIDERANÇA TRANSFORMADORA",
    "theme": "GOVERNANÇA",
-   "description": "O Plano de Segurança do Paciente em Serviços de Saúde (PSP), com estratégias e ações de gestão de risco para:\n1. Identificação, análise, avaliação, monitoramento e comunicação dos riscos de forma sistemática; \n2. Integração dos diferentes processos de gestão de risco desenvolvidos nos serviços de saúde;\n3. Implementação de protocolos estabelecidos pelo Ministério da Saúde",
+   "description": "O Plano de Segurança do Paciente em Serviços de Saúde (PSP), com estratégias e ações de gestão de risco para:\n1. Identificação, análise, avaliação, monitoramento e comunicação dos riscos de forma sistemática;",
    "item_number": 5,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "*",
+   "responsible": "GERÊNCIA DE RISCO"
+ },
+  {
+   "master_id": "a1a46262-0323-4ba8-bbc6-13850a8355ea",
+   "section": "5. LIDERANÇA TRANSFORMADORA",
+   "theme": "GOVERNANÇA",
+   "description": "O Plano de Segurança do Paciente em Serviços de Saúde (PSP), com estratégias e ações de gestão de risco para:\n1. Identificação, análise, avaliação, monitoramento e comunicação dos riscos de forma sistemática;",
+   "item_number": 5,
+   "subitem_number": 2,
+   "subitem_description": "2.Integração dos diferentes processos de gestão de risco desenvolvidos nos serviços de saúde; Implementação de protocolos estabelecidos pelo Ministério da Saúde",
+   "exigency_level": "",
    "responsible": "GERÊNCIA DE RISCO"
  },
  {
@@ -2351,7 +2780,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "68db51ac-0357-4882-8433-dd573fb4e79c",
@@ -2373,7 +2802,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "bbd6a0a1-5449-4a3b-a9ba-ac923f54b2e4",
@@ -2384,7 +2813,7 @@
    "subitem_number": 1,
    "subitem_description": "Estabelecimento das metas do hospital",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "a6bef74d-2997-4689-b4e9-41afe6ee98e7",
@@ -2395,7 +2824,7 @@
    "subitem_number": 2,
    "subitem_description": "Análise do nível de desempenho do hospital",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "93666d3c-72d6-48eb-9d0f-9e52f0567829",
@@ -2406,7 +2835,7 @@
    "subitem_number": 3,
    "subitem_description": "Gestão dos processos principais",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "0dd046b6-d8a7-4541-b70c-b5a9dbde1284",
@@ -2417,7 +2846,7 @@
    "subitem_number": 4,
    "subitem_description": "Gestão dos processos de apoio",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "f4ef191b-ec20-41bc-9658-9715c61ffa5f",
@@ -2428,7 +2857,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "c70b6d6f-1908-4256-ac07-0cbc5213e3e4",
@@ -2494,7 +2923,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "f49ca60a-6abf-4718-bfd6-0c14aa0a8d92",
@@ -2549,7 +2978,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "79d11cdc-07f2-4bb1-93ba-65642a756c2d",
@@ -2604,7 +3033,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "93cfef81-9fe2-4af6-9789-7979420a7add",
@@ -2615,7 +3044,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "b2d40784-db7f-43c0-a583-6ecb41684cb3",
@@ -2626,7 +3055,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "**",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "fa51e2a1-43a7-4782-a4b0-2f290422a96b",
@@ -2648,7 +3077,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "4d3e7f31-65cd-4709-a909-fcc531e2866c",
@@ -2659,7 +3088,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "ba085a39-52e1-4343-afbf-4d999781d872",
@@ -2670,7 +3099,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "6d193cb4-1183-4def-8233-84778f9f8f9e",
@@ -2791,7 +3220,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "469d8256-7f54-41cd-b3e9-21ecab1d427c",
@@ -2802,7 +3231,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "5773e60e-bcf7-4c0d-b470-e7e5f093965e",
@@ -3605,7 +4034,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "6b658ca1-ffbb-4b22-a54f-e038f5aa8316",
@@ -3616,7 +4045,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "d73dc08d-ef2a-4906-b714-6cb58e60d47f",
@@ -4034,7 +4463,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "bfa765b4-fb87-4260-9fa3-2fc661255876",
@@ -4045,7 +4474,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "f47792dd-81a7-4cad-823c-c69dcf46b426",
@@ -4056,7 +4485,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "2ca1e9cc-fffc-40fe-b45c-908d865516b4",
@@ -4067,7 +4496,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "b01739e9-b3ad-4233-80da-a3c352779625",
@@ -4100,7 +4529,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "e027dd51-b8f3-4cc7-b526-67afb555adf0",
@@ -4155,7 +4584,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "78442308-6e1c-47b2-a180-eb5d163f3f4a",
@@ -4210,7 +4639,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "73efcca1-d6f0-4369-847a-ebf64666b4fb",
@@ -4221,7 +4650,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "5de48c87-8fd5-483e-9b0c-84ce95152151",
@@ -4518,7 +4947,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "8a7968b2-b5e1-4477-9a24-096a3e7f240a",
@@ -5105,7 +5534,7 @@
  },
  {
    "master_id": "8abc4c28-cce2-422f-af03-669e503f8dea",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "INFORMAÇÕES ORGANIZACIONAIS",
    "description": "Promove a coleta das informações relevantes sobre os processos principais e de apoio, para avaliação dos resultados, de acordo com o tipo de atendimento prestado segundo seu perfil nosológico?",
    "item_number": 1,
@@ -5116,7 +5545,7 @@
  },
  {
    "master_id": "bdadd502-945b-4a35-b374-062ebcae5ad0",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "INFORMAÇÕES ORGANIZACIONAIS",
    "description": "Organiza os dados coletados em sistemas de informação?",
    "item_number": 2,
@@ -5127,7 +5556,7 @@
  },
  {
    "master_id": "548fab66-0b90-42b0-944f-b6f82e272800",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "INFORMAÇÕES ORGANIZACIONAIS",
    "description": "Garante a integridade, segurança e atualização dos sistemas de informação existentes, considerando os riscos de perda de dados ou falhas de disponibilidade?",
    "item_number": 3,
@@ -5138,7 +5567,7 @@
  },
  {
    "master_id": "13deb2a2-f648-40d8-b1a4-fac354e6a1e6",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "INFORMAÇÕES ORGANIZACIONAIS",
    "description": "Assegura a abrangência dos principais processos da assistência, nos sistemas de informação?",
    "item_number": 4,
@@ -5149,7 +5578,7 @@
  },
  {
    "master_id": "723352c9-009a-4790-b706-b05256623fb6",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "INFORMAÇÕES ORGANIZACIONAIS",
    "description": "Assegura a abrangência dos principais processos da assistência, nos sistemas de informação?",
    "item_number": 4,
@@ -5160,7 +5589,7 @@
  },
  {
    "master_id": "98358894-d32b-45c3-97cc-d773b7bdcb7e",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "INFORMAÇÕES ORGANIZACIONAIS",
    "description": "Promove a integração dos sistemas de informação?",
    "item_number": 5,
@@ -5171,7 +5600,7 @@
  },
  {
    "master_id": "44297709-36be-4f1e-a4dc-747f2cda1e92",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "INFORMAÇÕES ORGANIZACIONAIS",
    "description": "Assegura a adequação dos sistemas de informação, conforme o crescimento do hospital?",
    "item_number": 6,
@@ -5182,7 +5611,7 @@
  },
  {
    "master_id": "54ef3d39-1821-4d5a-9984-62f7604bb75b",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "INFORMAÇÕES ORGANIZACIONAIS",
    "description": "Institui requisitos de segurança e privacidade do paciente nos sistemas de informação?",
    "item_number": 7,
@@ -5193,8 +5622,8 @@
  },
  {
    "master_id": "1997ab72-ee4b-41b4-b77c-495715d83d03",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Planeja e modifica, por meio de projetos formais, os processos principais e de apoio?",
    "item_number": 8,
    "subitem_number": null,
@@ -5204,8 +5633,8 @@
  },
  {
    "master_id": "f2d4f08a-9e80-4850-9eb4-28122d65cd1c",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Planeja e modifica, por meio de projetos formais, os processos principais e de apoio?",
    "item_number": 8,
    "subitem_number": null,
@@ -5215,8 +5644,8 @@
  },
  {
    "master_id": "88ed2d46-7213-4855-b8a7-55acc6c24d34",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Planeja e modifica, por meio de projetos formais, os processos principais e de apoio?",
    "item_number": 8,
    "subitem_number": null,
@@ -5226,8 +5655,8 @@
  },
  {
    "master_id": "10a838c8-e4bf-4ce8-b7f7-ebc70c7731b8",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Planeja e modifica, por meio de projetos formais, os processos principais e de apoio?",
    "item_number": 8,
    "subitem_number": null,
@@ -5237,8 +5666,8 @@
  },
  {
    "master_id": "5a25966b-ae39-4f04-ad74-25c2bba823d9",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Mapeia seus processos principais e de apoio?",
    "item_number": 9,
    "subitem_number": null,
@@ -5248,8 +5677,8 @@
  },
  {
    "master_id": "73ecadf6-8a81-46ed-9231-4bd45a2eaedb",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Mapeia seus processos principais e de apoio?",
    "item_number": 9,
    "subitem_number": null,
@@ -5259,8 +5688,8 @@
  },
  {
    "master_id": "f82b4ea2-48b3-4ba0-b285-c3fe111da135",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Mapeia seus processos principais e de apoio?",
    "item_number": 9,
    "subitem_number": null,
@@ -5270,8 +5699,8 @@
  },
  {
    "master_id": "b7e21809-801c-4f3c-b7af-a1dac71321cb",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Mapeia seus processos principais e de apoio?",
    "item_number": 9,
    "subitem_number": null,
@@ -5281,8 +5710,8 @@
  },
  {
    "master_id": "136c20a3-e6f6-4f40-8215-7eda63af1e09",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Mapeia seus processos principais e de apoio?",
    "item_number": 9,
    "subitem_number": null,
@@ -5292,8 +5721,8 @@
  },
  {
    "master_id": "6e8808b5-6922-4f5d-9e05-72eba2ecffec",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Integra e padroniza os processos, com controle de métricas e indicadores, para fins de eficiência e produtividade?",
    "item_number": 10,
    "subitem_number": null,
@@ -5303,8 +5732,8 @@
  },
  {
    "master_id": "86c45c2c-7540-4cc2-904c-1b87acef5c27",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Integra e padroniza os processos, com controle de métricas e indicadores, para fins de eficiência e produtividade?",
    "item_number": 10,
    "subitem_number": null,
@@ -5314,8 +5743,8 @@
  },
  {
    "master_id": "35e4e54d-bf1e-4f7f-a07e-b5f94d77938e",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Integra e padroniza os processos, com controle de métricas e indicadores, para fins de eficiência e produtividade?",
    "item_number": 10,
    "subitem_number": null,
@@ -5325,8 +5754,8 @@
  },
  {
    "master_id": "77eff909-e930-4623-8a2c-2e320f12d1af",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Integra e padroniza os processos, com controle de métricas e indicadores, para fins de eficiência e produtividade?",
    "item_number": 10,
    "subitem_number": null,
@@ -5336,8 +5765,8 @@
  },
  {
    "master_id": "1f1e00c9-ec54-4b9b-ab03-2192cd212e10",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Integra e padroniza os processos, com controle de métricas e indicadores, para fins de eficiência e produtividade?",
    "item_number": 10,
    "subitem_number": null,
@@ -5347,8 +5776,8 @@
  },
  {
    "master_id": "39378806-8fe0-4123-8a81-cbcebe57b653",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Gerencia os processos principais e de apoio, por meio de indicadores de desempenho?",
    "item_number": 11,
    "subitem_number": null,
@@ -5358,8 +5787,8 @@
  },
  {
    "master_id": "24cef085-867d-4040-a5bf-7f9f5b69e4de",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Gerencia os processos principais e de apoio, por meio de indicadores de desempenho?",
    "item_number": 11,
    "subitem_number": null,
@@ -5369,8 +5798,8 @@
  },
  {
    "master_id": "ea4f5ebb-97c8-4762-9c57-b255dffd0518",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Gerencia os processos principais e de apoio, por meio de indicadores de desempenho?",
    "item_number": 11,
    "subitem_number": null,
@@ -5380,8 +5809,8 @@
  },
  {
    "master_id": "51a33fe0-8349-4c54-a3b3-45ef84b73834",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Gerencia os processos principais e de apoio, por meio de indicadores de desempenho?",
    "item_number": 11,
    "subitem_number": null,
@@ -5391,8 +5820,8 @@
  },
  {
    "master_id": "06f5aff4-449a-4b63-8006-169e907934ea",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Possui metodologia para avaliar e melhorar seus processos principais e de apoio (incluindo as não conformidades)?",
    "item_number": 12,
    "subitem_number": null,
@@ -5402,8 +5831,8 @@
  },
  {
    "master_id": "888bc848-94ae-442b-8f71-3e26939cc22e",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Possui metodologia para avaliar e melhorar seus processos principais e de apoio (incluindo as não conformidades)?",
    "item_number": 12,
    "subitem_number": null,
@@ -5413,8 +5842,8 @@
  },
  {
    "master_id": "1d6cf8f7-97d4-40cf-8284-34f3d429ffb4",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Possui metodologia para avaliar e melhorar seus processos principais e de apoio (incluindo as não conformidades)?",
    "item_number": 12,
    "subitem_number": null,
@@ -5424,8 +5853,8 @@
  },
  {
    "master_id": "b756d94e-3b10-423b-af51-49c9dadb1567",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Possui metodologia para avaliar e melhorar seus processos principais e de apoio (incluindo as não conformidades)?",
    "item_number": 12,
    "subitem_number": null,
@@ -5435,8 +5864,8 @@
  },
  {
    "master_id": "3fe1c92f-5ea0-4f45-8e2a-1fd214d1e970",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Utiliza, na avaliação e melhoria das práticas e respectivos padrões de trabalho, os seguintes mecanismos? \n(no mínimo 2 subitens)",
    "item_number": 13,
    "subitem_number": null,
@@ -5446,8 +5875,8 @@
  },
  {
    "master_id": "4e3ec001-44a8-406c-a241-794c85d1657d",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "",
    "item_number": 13,
    "subitem_number": 1,
@@ -5457,8 +5886,8 @@
  },
  {
    "master_id": "17552af2-4402-459d-972a-fe67cdf18382",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "",
    "item_number": 13,
    "subitem_number": 2,
@@ -5468,8 +5897,8 @@
  },
  {
    "master_id": "d841ddbb-717d-43d8-8e85-a5784cefe703",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "",
    "item_number": 13,
    "subitem_number": 3,
@@ -5479,8 +5908,8 @@
  },
  {
    "master_id": "4fa60d89-4044-4392-97c1-dd7b2b635e51",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Utiliza, na avaliação e melhoria das práticas e respectivos padrões de trabalho, os seguintes mecanismos? \n(no mínimo 2 subitens)",
    "item_number": 13,
    "subitem_number": null,
@@ -5490,8 +5919,8 @@
  },
  {
    "master_id": "2946b5a5-c246-4e5f-829d-71b0fedf0602",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "",
    "item_number": 13,
    "subitem_number": 1,
@@ -5501,8 +5930,8 @@
  },
  {
    "master_id": "df4e8998-9557-4747-b5f4-b2f02a8890a2",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "",
    "item_number": 13,
    "subitem_number": 2,
@@ -5512,8 +5941,8 @@
  },
  {
    "master_id": "d8011842-03f3-4895-932a-ff4426a3dd0e",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "",
    "item_number": 13,
    "subitem_number": 3,
@@ -5523,8 +5952,8 @@
  },
  {
    "master_id": "77423a13-bf60-450d-98da-91482129e824",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Utiliza, na avaliação e melhoria das práticas e respectivos padrões de trabalho, os seguintes mecanismos? \n(no mínimo 2 subitens)",
    "item_number": 13,
    "subitem_number": null,
@@ -5534,8 +5963,8 @@
  },
  {
    "master_id": "a47b3327-5886-4fb4-96bc-628da8ac6027",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "",
    "item_number": 13,
    "subitem_number": 1,
@@ -5545,8 +5974,8 @@
  },
  {
    "master_id": "f1703913-38fe-4b64-aaf4-c3bbe11c1c39",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "",
    "item_number": 13,
    "subitem_number": 2,
@@ -5556,8 +5985,8 @@
  },
  {
    "master_id": "9f3a3c81-f44b-4291-b2ec-d9a87e178944",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "",
    "item_number": 13,
    "subitem_number": 3,
@@ -5567,8 +5996,8 @@
  },
  {
    "master_id": "01b01553-0e7f-4a8e-b492-77034f11c10b",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "Utiliza, na avaliação e melhoria das práticas e respectivos padrões de trabalho, os seguintes mecanismos? \n(no mínimo 2 subitens)",
    "item_number": 13,
    "subitem_number": null,
@@ -5578,8 +6007,8 @@
  },
  {
    "master_id": "b584a5c5-6ee8-4486-8d3e-8f5048ffc207",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "",
    "item_number": 13,
    "subitem_number": 1,
@@ -5589,8 +6018,8 @@
  },
  {
    "master_id": "8e1d4a3f-fc06-4722-8082-b45a52877bb4",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "",
    "item_number": 13,
    "subitem_number": 2,
@@ -5600,8 +6029,8 @@
  },
  {
    "master_id": "a3224319-32c7-49d8-9c4b-7ecb140f7499",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "",
    "item_number": 13,
    "subitem_number": 3,
@@ -5611,9 +6040,9 @@
  },
  {
    "master_id": "7a20f2e1-bc37-44ef-a78c-10f5df402820",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
-   "description": "",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
+   "description": "Utiliza, na avaliação e melhoria das práticas e respectivos padrões de trabalho, os seguintes mecanismos? (no mínimo 2 subitens)",
    "item_number": 13,
    "subitem_number": 4,
    "subitem_description": "Auditorias internas e/ou externas",
@@ -5622,19 +6051,19 @@
  },
  {
    "master_id": "eda7c313-1606-4401-bad1-93bfb2d3c9e5",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
-   "description": "",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
+   "description": "Utiliza, na avaliação e melhoria das práticas e respectivos padrões de trabalho, os seguintes mecanismos? (no mínimo 2 subitens)",
    "item_number": 13,
    "subitem_number": 4,
    "subitem_description": "Auditorias internas e/ou externas",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "a1789d3f-9646-4fbe-a8d6-f3f77d18cf3a",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "",
    "item_number": 13,
    "subitem_number": 5,
@@ -5644,8 +6073,8 @@
  },
  {
    "master_id": "faec48f0-fb52-4278-8bdb-535cb37b5de5",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "",
    "item_number": 13,
    "subitem_number": 5,
@@ -5655,8 +6084,8 @@
  },
  {
    "master_id": "b4a88844-5bf5-4ecb-a486-b295fcbf21f4",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "",
    "item_number": 13,
    "subitem_number": 5,
@@ -5666,8 +6095,8 @@
  },
  {
    "master_id": "32cbf002-507d-4868-a279-8036e20f2556",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOSS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
    "description": "",
    "item_number": 13,
    "subitem_number": 5,
@@ -5677,8 +6106,8 @@
  },
  {
    "master_id": "f3911523-4651-41db-95dd-b34489f29af5",
-   "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
    "description": "Há carrinho de emergência com medicamentos, material, monitor e desfibrilador para ressuscitação cardiorrespiratória em número que atenda a todos os pacientes internados e em local de fácil acesso?",
    "item_number": 14,
    "subitem_number": null,
@@ -5689,7 +6118,7 @@
  {
    "master_id": "9df80201-fb6c-4fdf-a428-9ce85f0e4f92",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
-   "theme": "ASSISTÊNCIA AO PACIENTE - PROCEESSO INTERNAÇÃO",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
    "description": "Há carrinho de emergência com medicamentos, material, monitor e desfibrilador para ressuscitação cardiorrespiratória em número que atenda a todos os pacientes internados e em local de fácil acesso?",
    "item_number": 14,
    "subitem_number": null,
@@ -5700,7 +6129,7 @@
  {
    "master_id": "883566d2-b0ce-4ed7-8a93-5f59dba2d787",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
-   "theme": "ASSISTÊNCIA AO PACIENTE - PROCEESSO INTERNAÇÃO",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
    "description": "Há carrinho de emergência com medicamentos, material, monitor e desfibrilador para ressuscitação cardiorrespiratória em número que atenda a todos os pacientes internados e em local de fácil acesso?",
    "item_number": 14,
    "subitem_number": null,
@@ -5866,7 +6295,7 @@
    "master_id": "9fa28936-aa1e-4532-8f25-37d36db09055",
    "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
    "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "Nos prontuários dos pacientes, nas unidades de internação, há:",
+   "description": "Assegura que nos prontuários dos pacientes, nas unidades de assistência, exista:",
    "item_number": 24,
    "subitem_number": null,
    "subitem_description": "",
@@ -5913,7 +6342,7 @@
    "description": "",
    "item_number": 24,
    "subitem_number": 4,
-   "subitem_description": "Registro de atividades de outros profissionais de apoio",
+   "subitem_description": "Registro de atividades de equipe multiprofissional",
    "exigency_level": "",
    "responsible": "GERÊNCIA DE ENFERMAGEM"
  },
@@ -5954,7 +6383,7 @@
    "master_id": "da068345-907d-48c1-8ca5-5d5980df8311",
    "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
    "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "Nos prontuários dos pacientes, nas unidades de internação, há:",
+   "description": "Assegura que nos prontuários dos pacientes, nas unidades de assistência, exista:",
    "item_number": 24,
    "subitem_number": null,
    "subitem_description": "",
@@ -6001,7 +6430,7 @@
    "description": "",
    "item_number": 24,
    "subitem_number": 4,
-   "subitem_description": "Registro de atividades de outros profissionais de apoio",
+   "subitem_description": "Registro de atividades de equipe multiprofissional",
    "exigency_level": "",
    "responsible": "GERÊNCIA DE INTERNAÇÃO"
  },
@@ -6040,9 +6469,9 @@
  },
  {
    "master_id": "7b9b8878-dd5d-4ed2-ac03-aa60e110f666",
-   "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "Nos prontuários dos pacientes, nas unidades de internação, há:",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "Assegura que nos prontuários dos pacientes, nas unidades de assistência, exista:",
    "item_number": 24,
    "subitem_number": null,
    "subitem_description": "",
@@ -6051,8 +6480,8 @@
  },
  {
    "master_id": "96481d79-e69f-43ec-b091-12bdc8101ac1",
-   "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
    "description": "",
    "item_number": 24,
    "subitem_number": 1,
@@ -6062,8 +6491,8 @@
  },
  {
    "master_id": "ff985b3b-d294-4478-a734-7e32fb104669",
-   "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
    "description": "",
    "item_number": 24,
    "subitem_number": 2,
@@ -6073,8 +6502,8 @@
  },
  {
    "master_id": "c383e91d-75b7-4e52-801b-5cab905342ab",
-   "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
    "description": "",
    "item_number": 24,
    "subitem_number": 3,
@@ -6084,19 +6513,19 @@
  },
  {
    "master_id": "8e31b656-c58b-4a02-804c-92a60e5a0b2d",
-   "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
    "description": "",
    "item_number": 24,
    "subitem_number": 4,
-   "subitem_description": "Registro de atividades de outros profissionais de apoio",
+   "subitem_description": "Registro de atividades de equipe multiprofissional",
    "exigency_level": "",
    "responsible": "COMISSÃO DE PRONTUÁRIO"
  },
  {
    "master_id": "8bdef91f-6f57-4a69-9e9e-d0e91a04ed0a",
-   "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
    "description": "",
    "item_number": 24,
    "subitem_number": 5,
@@ -6106,8 +6535,8 @@
  },
  {
    "master_id": "3d536bda-2fa7-4371-917d-0aec9df2ad5e",
-   "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
    "description": "",
    "item_number": 24,
    "subitem_number": 6,
@@ -6117,8 +6546,8 @@
  },
  {
    "master_id": "c7b33b98-a995-4637-8943-f0a68a2937d5",
-   "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
    "description": "",
    "item_number": 24,
    "subitem_number": 7,
@@ -6130,7 +6559,7 @@
    "master_id": "bc92d3ee-8f47-4637-8848-e405cd828ed7",
    "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
    "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "Nos prontuários dos pacientes, nas unidades de internação, há:",
+   "description": "Assegura que nos prontuários dos pacientes, nas unidades de assistência, exista:",
    "item_number": 24,
    "subitem_number": null,
    "subitem_description": "",
@@ -6177,7 +6606,7 @@
    "description": "",
    "item_number": 24,
    "subitem_number": 4,
-   "subitem_description": "Registro de atividades de outros profissionais de apoio",
+   "subitem_description": "Registro de atividades de equipe multiprofissional",
    "exigency_level": "",
    "responsible": "DAS"
  },
@@ -6218,7 +6647,7 @@
    "master_id": "efeb52d3-e88b-41b9-84a2-313b420c40a1",
    "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
    "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "Nos prontuários dos pacientes, nas unidades de internação, há:",
+   "description": "Assegura que nos prontuários dos pacientes, nas unidades de assistência, exista:",
    "item_number": 24,
    "subitem_number": null,
    "subitem_description": "",
@@ -6265,7 +6694,7 @@
    "description": "",
    "item_number": 24,
    "subitem_number": 4,
-   "subitem_description": "Registro de atividades de outros profissionais de apoio",
+   "subitem_description": "Registro de atividades de equipe multiprofissional",
    "exigency_level": "",
    "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
  },
@@ -6460,7 +6889,7 @@
    "master_id": "47076e81-79d9-4dbe-8429-c5a20a6ea151",
    "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
    "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "",
+   "description": "Promove atividades de controle da assistência prestada?",
    "item_number": 27,
    "subitem_number": 2,
    "subitem_description": "Revisão de óbitos e complicações",
@@ -6469,9 +6898,9 @@
  },
  {
    "master_id": "f615399c-c506-4bbe-8491-4b1a973f8cb5",
-   "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "Promove atividades de controle da assistência prestada?",
    "item_number": 27,
    "subitem_number": 2,
    "subitem_description": "Revisão de óbitos e complicações",
@@ -6482,7 +6911,7 @@
    "master_id": "30346b72-ba11-4dd4-b167-cda2dc4c48c1",
    "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
    "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "",
+   "description": "Promove atividades de controle da assistência prestada?",
    "item_number": 27,
    "subitem_number": 3,
    "subitem_description": "Análise de taxa de mortalidade por diagnóstico",
@@ -6491,9 +6920,9 @@
  },
  {
    "master_id": "8bdd4841-1d8c-4f13-b7ef-7f1c41197c7a",
-   "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "Promove atividades de controle da assistência prestada?",
    "item_number": 27,
    "subitem_number": 3,
    "subitem_description": "Análise de taxa de mortalidade por diagnóstico",
@@ -6514,7 +6943,7 @@
  {
    "master_id": "7bf00f21-65e5-4e11-b1e6-b16a7111eecb",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
-   "theme": "ASSISTÊNCIA AO PACIENTE - PROCEESSO INTERNAÇÃO",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
    "description": "Promove atividades de controle da assistência prestada?",
    "item_number": 27,
    "subitem_number": 4,
@@ -6525,7 +6954,7 @@
  {
    "master_id": "e57de07a-3e03-42f2-aa21-f284973fe052",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
-   "theme": "ASSISTÊNCIA AO PACIENTE - PROCEESSO INTERNAÇÃO",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
    "description": "Dispõe de ambiente provido de decoração, organização de espaços para brincar, atividades educativas ou recreativas na Pediatria?",
    "item_number": 28,
    "subitem_number": null,
@@ -6547,7 +6976,7 @@
  {
    "master_id": "c35da5d1-c50c-414a-a338-35e7a4da4364",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
-   "theme": "ASSISTÊNCIA AO PACIENTE - PROCEESSO INTERNAÇÃO",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
    "description": "Dispõe nas unidades de internação pediátrica, condições de segurança?",
    "item_number": 29,
    "subitem_number": null,
@@ -6558,7 +6987,7 @@
  {
    "master_id": "953eb437-e5da-48c3-a690-27e366697771",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
-   "theme": "ASSISTÊNCIA AO PACIENTE - PROCEESSO INTERNAÇÃO",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
    "description": "",
    "item_number": 29,
    "subitem_number": 1,
@@ -6569,7 +6998,7 @@
  {
    "master_id": "9d4dcc3c-4631-46af-bdb2-cb22ff124ae0",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
-   "theme": "ASSISTÊNCIA AO PACIENTE - PROCEESSO INTERNAÇÃO",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
    "description": "",
    "item_number": 29,
    "subitem_number": 2,
@@ -6580,7 +7009,7 @@
  {
    "master_id": "976ca6bb-4b8a-4850-b7dd-27f054611300",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
-   "theme": "ASSISTÊNCIA AO PACIENTE - PROCEESSO INTERNAÇÃO",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
    "description": "",
    "item_number": 29,
    "subitem_number": 3,
@@ -7118,7 +7547,7 @@
  },
  {
    "master_id": "4518418f-b4a5-40fd-a31e-3fcea44595ee",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "PROCESSO CENTRO CIRÚRGICO",
    "description": "Há registro e/ou arquivo dos resultados da anatomia patológica?",
    "item_number": 46,
@@ -7173,7 +7602,7 @@
  },
  {
    "master_id": "7361d16e-b363-4cb4-a438-72fd8c00fd69",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "PROCESSO CENTRO CIRÚRGICO",
    "description": "O CC é uma área de circulação restrita, separada de outros ambientes por porta que se mantém fechada e com sinalização de entrada proibida?",
    "item_number": 48,
@@ -7327,7 +7756,7 @@
  },
  {
    "master_id": "8dfb5511-e667-4be8-9ef2-f9811ee3c72a",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "PROCESSO CENTRO CIRÚRGICO",
    "description": "É feita biópsia de congelação no CC?",
    "item_number": 56,
@@ -7371,7 +7800,7 @@
  },
  {
    "master_id": "20a312a5-5188-4f9e-8e31-3768947bec24",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "PROCESSO CENTRO CIRÚRGICO",
    "description": "O hospital oferece serviços de anatomia patológica?",
    "item_number": 57,
@@ -8749,7 +9178,7 @@
    "master_id": "76f7616c-f970-4537-aa33-cd194967ed15",
    "section": "FUNDAMENTO 7 - PROCESSO CUIDADOS INTENSIVOS",
    "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "",
+   "description": "Há atividades de controle da assistência prestada:",
    "item_number": 80,
    "subitem_number": 2,
    "subitem_description": "Revisão de óbitos e complicações",
@@ -8758,9 +9187,9 @@
  },
  {
    "master_id": "496783f1-af60-40f7-9310-826be9a61bb8",
-   "section": "FUNDAMENTO 7 - PROCESSO CUIDADOS INTENSIVOS",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO CUIDADOS INTENSIVOS",
+   "description": "Há atividades de controle da assistência prestada:",
    "item_number": 80,
    "subitem_number": 2,
    "subitem_description": "Revisão de óbitos e complicações",
@@ -8771,7 +9200,7 @@
    "master_id": "ac6ba8de-c2b0-4c33-a133-2494a484d91e",
    "section": "FUNDAMENTO 7 - PROCESSO CUIDADOS INTENSIVOS",
    "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "",
+   "description": "Há atividades de controle da assistência prestada:",
    "item_number": 80,
    "subitem_number": 3,
    "subitem_description": "Análise de taxa de mortalidade por diagnóstico",
@@ -8780,9 +9209,9 @@
  },
  {
    "master_id": "52100b28-cbcc-4573-85fe-e0aa67cf7be3",
-   "section": "FUNDAMENTO 7 - PROCESSO CUIDADOS INTENSIVOS",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
-   "description": "",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO CUIDADOS INTENSIVOS",
+   "description": "Há atividades de controle da assistência prestada:",
    "item_number": 80,
    "subitem_number": 3,
    "subitem_description": "Análise de taxa de mortalidade por diagnóstico",
@@ -9143,52 +9572,52 @@
  },
  {
    "master_id": "0484f0fd-777f-45c8-b8dd-0fc108ff70e0",
-   "section": "FUNDAMENTO 7 - PROCESSO HEMOTERAPIA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO HEMOTERAPIA",
    "description": "Há médico presente durante toda a coleta?",
    "item_number": 86,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": ""
+   "responsible": "BANCO DE SANGUE"
  },
  {
    "master_id": "8706f600-b140-4ef3-a030-c75a7f2439cb",
-   "section": "FUNDAMENTO 7 - PROCESSO HEMOTERAPIA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO HEMOTERAPIA",
    "description": "O doador de sangue recebe os resultados das sorologias e, caso estejam alterados, é notificado para receber instruções no local de doação, com o devido respeito à sua privacidade?",
    "item_number": 87,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": ""
+   "responsible": "BANCO DE SANGUE"
  },
  {
    "master_id": "e2a5bb0b-7ab7-440c-9007-2ff7a00d5c27",
-   "section": "FUNDAMENTO 7 - PROCESSO HEMOTERAPIA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO HEMOTERAPIA",
    "description": "O mobiliário para o doador de sangue permite que ele se deite caso seja necessário?",
    "item_number": 88,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": ""
+   "responsible": "BANCO DE SANGUE"
  },
  {
    "master_id": "089d2833-6947-40c8-bbd2-b3d311ec3f40",
-   "section": "FUNDAMENTO 7 - PROCESSO HEMOTERAPIA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO HEMOTERAPIA",
    "description": "O Serviço de Hemoterapia faz controle de qualidade interno e externo dos hemocomponentes?",
    "item_number": 89,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": ""
+   "responsible": "BANCO DE SANGUE"
  },
  {
    "master_id": "a005dcf7-2d4c-44b9-b25c-cee46b1666cc",
-   "section": "FUNDAMENTO 7 - PROCESSO HEMOTERAPIA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO HEMOTERAPIA",
    "description": "As geladeiras e os freezers usados para armazenamento do sangue e seus componentes têm termômetros de máxima e mínima e as temperaturas são anotadas a cada quatro horas? \n(exceto no sistema automático)",
    "item_number": 90,
    "subitem_number": null,
@@ -9198,8 +9627,8 @@
  },
  {
    "master_id": "e9262646-7ed7-41d0-a884-fd4b49771793",
-   "section": "FUNDAMENTO 7 - PROCESSO HEMOTERAPIA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO HEMOTERAPIA",
    "description": "São feitas provas de compatibilidade em exames pré-transfusionais com pesquisa de anticorpo irregular no receptor e no doador?",
    "item_number": 91,
    "subitem_number": null,
@@ -9209,8 +9638,8 @@
  },
  {
    "master_id": "c9d76bea-94c8-4887-9bda-6ee865a48b92",
-   "section": "FUNDAMENTO 7 - PROCESSO HEMOTERAPIA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO HEMOTERAPIA",
    "description": "Hemocomponentes são liberados para transfusão por meio de solicitação médica, com assinatura, nome legível e número do CRM?",
    "item_number": 92,
    "subitem_number": null,
@@ -9220,8 +9649,8 @@
  },
  {
    "master_id": "2e296068-f2a5-4472-8f3b-c340052161ba",
-   "section": "FUNDAMENTO 7 - PROCESSO HEMOTERAPIA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO HEMOTERAPIA",
    "description": "O acesso do hospital a sangue certificado se faz em menos de uma hora?",
    "item_number": 93,
    "subitem_number": null,
@@ -9231,8 +9660,8 @@
  },
  {
    "master_id": "8d8159ff-22c6-4f6a-99b8-a2e74cd191bf",
-   "section": "FUNDAMENTO 7 - PROCESSO HEMOTERAPIA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO HEMOTERAPIA",
    "description": "O médico supervisiona as transfusões?",
    "item_number": 94,
    "subitem_number": null,
@@ -9242,8 +9671,8 @@
  },
  {
    "master_id": "4e5733eb-6ed9-4fec-9b7b-23d4f668fae3",
-   "section": "FUNDAMENTO 7 - PROCESSO HEMOTERAPIA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO HEMOTERAPIA",
    "description": "O controle de tempo de transfusão de hemocomponentes está registrado no prontuário?",
    "item_number": 95,
    "subitem_number": null,
@@ -9253,8 +9682,8 @@
  },
  {
    "master_id": "656a56fe-5379-471e-86ab-589b03b6310b",
-   "section": "FUNDAMENTO 7 - PROCESSO HEMOTERAPIA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO HEMOTERAPIA",
    "description": "O controle de tempo de transfusão de hemocomponentes está registrado no prontuário?",
    "item_number": 95,
    "subitem_number": null,
@@ -9352,8 +9781,8 @@
  },
  {
    "master_id": "9ae8809c-ca01-486e-8fa1-aa5df54c6b91",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "A cozinha dispõe de:",
    "item_number": 104,
    "subitem_number": null,
@@ -9363,8 +9792,8 @@
  },
  {
    "master_id": "7341718e-33f5-4cd8-b970-439136a032c4",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "",
    "item_number": 104,
    "subitem_number": 1,
@@ -9374,8 +9803,8 @@
  },
  {
    "master_id": "d1253861-6c58-484e-b1a7-0071d0285c9d",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "",
    "item_number": 104,
    "subitem_number": 2,
@@ -9385,8 +9814,8 @@
  },
  {
    "master_id": "873927a5-4caf-412f-bb39-669f115b17f8",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "",
    "item_number": 104,
    "subitem_number": 3,
@@ -9396,8 +9825,8 @@
  },
  {
    "master_id": "7c387001-ca69-4521-bcc1-3bf36fc99a70",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "",
    "item_number": 104,
    "subitem_number": 4,
@@ -9407,8 +9836,8 @@
  },
  {
    "master_id": "64741927-baf2-4afb-99b8-cb8882175d2b",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "",
    "item_number": 104,
    "subitem_number": 5,
@@ -9418,8 +9847,8 @@
  },
  {
    "master_id": "cb8e42e1-c874-4620-994f-7384f9034f8d",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "A cozinha conta com setores claramente diferenciados para o preparo de cada tipo de alimento?",
    "item_number": 105,
    "subitem_number": null,
@@ -9429,8 +9858,8 @@
  },
  {
    "master_id": "820a35b9-f74f-497a-aa2b-90f12481fe9e",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "O hospital conta com um sistema que garanta a chegada de comida quente ao paciente?",
    "item_number": 106,
    "subitem_number": null,
@@ -9440,8 +9869,8 @@
  },
  {
    "master_id": "46f251a4-1939-463d-8d3b-6bd16d8a045e",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "Há relação entre as dietas do dia efetivamente recebidas pelos pacientes e as diferentes prescrições dietéticas?",
    "item_number": 107,
    "subitem_number": null,
@@ -9451,8 +9880,8 @@
  },
  {
    "master_id": "022ea4e8-7576-4c3e-929c-ba125248fdb1",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "A nutricionista participa na avaliação nutricional e na prescrição dietética dos pacientes nutricionalmente comprometidos?",
    "item_number": 108,
    "subitem_number": null,
@@ -9462,8 +9891,8 @@
  },
  {
    "master_id": "1d0f497d-a952-4e5b-a619-691058b41c46",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "Há indicadores de satisfação / insatisfação em relação à alimentação fornecida pelo hospital?",
    "item_number": 109,
    "subitem_number": null,
@@ -9473,8 +9902,8 @@
  },
  {
    "master_id": "8bdd3ace-a9fb-4522-b8f7-ebdb87627cd9",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "Há indicadores de satisfação / insatisfação em relação à alimentação fornecida pelo hospital?",
    "item_number": 109,
    "subitem_number": null,
@@ -9484,8 +9913,8 @@
  },
  {
    "master_id": "f27ee22e-f292-45b0-ae16-7e962e122480",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "Há indicadores de satisfação / insatisfação em relação à alimentação fornecida pelo hospital?",
    "item_number": 109,
    "subitem_number": null,
@@ -9495,8 +9924,8 @@
  },
  {
    "master_id": "53d752e3-0158-49bd-92b9-ffc47ec24694",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "Conta com área para preparação de fórmulas lácteas com as seguintes características:",
    "item_number": 110,
    "subitem_number": null,
@@ -9506,8 +9935,8 @@
  },
  {
    "master_id": "3ebb85b2-bca8-422d-8455-120e7459e24e",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "",
    "item_number": 110,
    "subitem_number": 1,
@@ -9517,8 +9946,8 @@
  },
  {
    "master_id": "38554b19-ff8b-4bda-9838-577de6744191",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "",
    "item_number": 110,
    "subitem_number": 2,
@@ -9528,19 +9957,19 @@
  },
  {
    "master_id": "6bc844ae-a520-4c4f-a200-3411ff389d08",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "",
    "item_number": 110,
    "subitem_number": 3,
-   "subitem_description": "Esterilização",
+   "subitem_description": "Esterilização/Desinfecção de alto nível",
    "exigency_level": "",
    "responsible": "NUTRIÇÃO"
  },
  {
    "master_id": "46719feb-1553-4e1c-920b-6f78d9180963",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "",
    "item_number": 110,
    "subitem_number": 4,
@@ -9550,8 +9979,8 @@
  },
  {
    "master_id": "6f7118b7-4112-4d48-a3f8-4d24b4774843",
-   "section": "FUNDAMENTO 7 - PROCESSO NUTRIÇÃO E DIETÉTICA",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO NUTRIÇÃO E DIETÉTICA",
    "description": "",
    "item_number": 110,
    "subitem_number": 5,
@@ -10199,7 +10628,7 @@
  },
  {
    "master_id": "2472ffb0-7717-43da-b560-b9fec70a475d",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE ADMINISTRATIVO",
    "description": "Há escalas de plantões ativos ou à distância (com forma de localização) acessíveis no serviço 24 horas, para:",
    "item_number": 147,
@@ -10210,7 +10639,7 @@
  },
  {
    "master_id": "2055de22-4cf5-4ac1-92f6-0512ff4a84be",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE ADMINISTRATIVO",
    "description": "Há escalas de plantões ativos ou à distância (com forma de localização) acessíveis no serviço 24 horas, para:",
    "item_number": 147,
@@ -10243,7 +10672,7 @@
  },
  {
    "master_id": "ca80ad66-74a3-4f6a-8f45-dd95fe741192",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "PROCESSO CONTROLE ADMINISTRATIVO",
    "description": "Há escalas de plantões ativos ou à distância (com forma de localização) acessíveis no serviço 24 horas, para:",
    "item_number": 147,
@@ -10254,7 +10683,7 @@
  },
   {
    "master_id": "ca80ad66-74a3-4f6a-8f45-dd95fe741192",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "PROCESSO CONTROLE ADMINISTRATIVO",
    "description": "Há escalas de plantões ativos ou à distância (com forma de localização) acessíveis no serviço 24 horas, para:",
    "item_number": 147,
@@ -10276,7 +10705,7 @@
  },
  {
    "master_id": "87e6b7b6-3045-4883-868c-485bba46bbcd",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE ADMINISTRATIVO",
    "description": "Existem pessoas dedicadas à elaboração de estatísticas do hospital?",
    "item_number": 148,
@@ -10314,7 +10743,7 @@
    "description": "",
    "item_number": 150,
    "subitem_number": 1,
-   "subitem_description": "Folhas DACadas",
+   "subitem_description": "Folhas datadas",
    "exigency_level": "",
    "responsible": "SAME"
  },
@@ -10397,8 +10826,8 @@
  },
  {
    "master_id": "d93bab86-730a-41db-8625-0148746be992",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE ADMINISTRATIVO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE ADMINISTRATIVO",
    "description": "Os prontuários arquivados dos pacientes têm:",
    "item_number": 150,
    "subitem_number": null,
@@ -10408,19 +10837,19 @@
  },
  {
    "master_id": "1fd08244-90a2-4554-bfd3-16bca59dbd49",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE ADMINISTRATIVO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE ADMINISTRATIVO",
    "description": "",
    "item_number": 150,
    "subitem_number": 1,
-   "subitem_description": "Folhas DACadas",
+   "subitem_description": "Folhas datadas",
    "exigency_level": "",
    "responsible": "COMISSÃO DE PRONTUÁRIO"
  },
  {
    "master_id": "65eb8ef1-87d9-473c-9146-a14fe53bd1c9",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE ADMINISTRATIVO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE ADMINISTRATIVO",
    "description": "",
    "item_number": 150,
    "subitem_number": 2,
@@ -10430,8 +10859,8 @@
  },
  {
    "master_id": "70f726da-fdd7-4282-a7c5-d55510704469",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE ADMINISTRATIVO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE ADMINISTRATIVO",
    "description": "",
    "item_number": 150,
    "subitem_number": 3,
@@ -10441,8 +10870,8 @@
  },
  {
    "master_id": "0888f5a5-c2a4-4e8f-9388-0cd504e07d16",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE ADMINISTRATIVO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE ADMINISTRATIVO",
    "description": "",
    "item_number": 150,
    "subitem_number": 4,
@@ -10452,8 +10881,8 @@
  },
  {
    "master_id": "bfdce125-9a9e-441c-85b4-a7ea9601968f",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE ADMINISTRATIVO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE ADMINISTRATIVO",
    "description": "",
    "item_number": 150,
    "subitem_number": 5,
@@ -10463,8 +10892,8 @@
  },
  {
    "master_id": "7ea49d35-a952-4bd6-976b-ccbe251324ff",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE ADMINISTRATIVO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE ADMINISTRATIVO",
    "description": "",
    "item_number": 150,
    "subitem_number": 6,
@@ -10474,8 +10903,8 @@
  },
  {
    "master_id": "05841a12-1f0b-4a5b-a268-999332f62135",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE ADMINISTRATIVO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE ADMINISTRATIVO",
    "description": "",
    "item_number": 150,
    "subitem_number": 7,
@@ -10485,8 +10914,8 @@
  },
  {
    "master_id": "2774ee32-7885-4fc9-b82d-bacf83a1dab2",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE ADMINISTRATIVO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO CONTROLE ADMINISTRATIVO",
    "description": "",
    "item_number": 150,
    "subitem_number": 8,
@@ -10512,7 +10941,7 @@
    "description": "",
    "item_number": 150,
    "subitem_number": 1,
-   "subitem_description": "Folhas DACadas",
+   "subitem_description": "Folhas datadas",
    "exigency_level": "",
    "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
  },
@@ -10727,8 +11156,8 @@
  },
  {
    "master_id": "fa0b2f2e-dafc-4054-a6e1-d04a75ef2b66",
-   "section": "FUNDAMENTO 7 - PROCESSO SEGURANÇA DO PACIENTE",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO SEGURANÇA DO PACIENTE",
    "description": "O hospital monitora eventos sentinela em todas as unidades?",
    "item_number": 158,
    "subitem_number": null,
@@ -10881,8 +11310,8 @@
  },
  {
    "master_id": "3b8e3445-8983-4043-97cb-b69a5af7f7a8",
-   "section": "FUNDAMENTO 7 - PROCESSO MATERIAL ESTERELIZADO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAL ESTERELIZADO",
    "description": "A área de processamento da CME é restrita e dispõe de:",
    "item_number": 165,
    "subitem_number": null,
@@ -10892,8 +11321,8 @@
  },
  {
    "master_id": "a86cec10-96fe-44d1-bb41-4f88b81a4936",
-   "section": "FUNDAMENTO 7 - PROCESSO MATERIAL ESTERELIZADO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAL ESTERELIZADO",
    "description": "",
    "item_number": 165,
    "subitem_number": 1,
@@ -10903,8 +11332,8 @@
  },
  {
    "master_id": "2a04d448-4623-49b7-8e8b-32fe13e0c3da",
-   "section": "FUNDAMENTO 7 - PROCESSO MATERIAL ESTERELIZADO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAL ESTERELIZADO",
    "description": "",
    "item_number": 165,
    "subitem_number": 2,
@@ -10914,8 +11343,8 @@
  },
  {
    "master_id": "3f0eb36e-03a6-473d-8b46-07833a23931b",
-   "section": "FUNDAMENTO 7 - PROCESSO MATERIAL ESTERELIZADO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAL ESTERELIZADO",
    "description": "",
    "item_number": 165,
    "subitem_number": 3,
@@ -10925,8 +11354,8 @@
  },
  {
    "master_id": "eda14d83-ac5b-477b-bd36-7e9a22d7c505",
-   "section": "FUNDAMENTO 7 - PROCESSO MATERIAL ESTERELIZADO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAL ESTERELIZADO",
    "description": "",
    "item_number": 165,
    "subitem_number": 4,
@@ -10991,8 +11420,8 @@
  },
  {
    "master_id": "e3aa1673-eb09-4324-9088-c0f335ee6f2d",
-   "section": "FUNDAMENTO 7 - PROCESSO MATERIAL ESTERELIZADO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAL ESTERELIZADO",
    "description": "É feita identificação dos mecanismos utilizados para garantia da esterilização de materiais na CME (incluindo os materiais de implantes e próteses):",
    "item_number": 166,
    "subitem_number": null,
@@ -11002,8 +11431,8 @@
  },
  {
    "master_id": "8920dc98-85d7-456f-8b44-006db5e0e962",
-   "section": "FUNDAMENTO 7 - PROCESSO MATERIAL ESTERELIZADO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAL ESTERELIZADO",
    "description": "",
    "item_number": 166,
    "subitem_number": 1,
@@ -11013,8 +11442,8 @@
  },
  {
    "master_id": "2cf582f8-6a1f-415d-b087-833869692490",
-   "section": "FUNDAMENTO 7 - PROCESSO MATERIAL ESTERELIZADO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAL ESTERELIZADO",
    "description": "",
    "item_number": 166,
    "subitem_number": 2,
@@ -11024,8 +11453,8 @@
  },
  {
    "master_id": "de7ada53-bb8d-47d0-b056-d73980137474",
-   "section": "FUNDAMENTO 7 - PROCESSO MATERIAL ESTERELIZADO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAL ESTERELIZADO",
    "description": "",
    "item_number": 166,
    "subitem_number": 3,
@@ -11035,8 +11464,8 @@
  },
  {
    "master_id": "4133f0ba-a90b-4439-acd4-e5b887350733",
-   "section": "FUNDAMENTO 7 - PROCESSO MATERIAL ESTERELIZADO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAL ESTERELIZADO",
    "description": "",
    "item_number": 166,
    "subitem_number": 4,
@@ -11046,8 +11475,8 @@
  },
  {
    "master_id": "0da62232-0826-43b5-a5cf-1b0fa86d679c",
-   "section": "FUNDAMENTO 7 - PROCESSO MATERIAL ESTERELIZADO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAL ESTERELIZADO",
    "description": "",
    "item_number": 166,
    "subitem_number": 5,
@@ -11123,8 +11552,8 @@
  },
  {
    "master_id": "25f81433-dbc9-46b7-95b2-bc7ca6e2aa7e",
-   "section": "FUNDAMENTO 7 - PROCESSO MATERIAL ESTERELIZADO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAL ESTERELIZADO",
    "description": "Há controle do instrumental cirúrgico:",
    "item_number": 167,
    "subitem_number": null,
@@ -11134,8 +11563,8 @@
  },
  {
    "master_id": "300d344d-c8c1-4199-b24c-561fc2b96ec9",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE ADMINISTRATIVO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAL ESTERELIZADO",
    "description": "",
    "item_number": 167,
    "subitem_number": 1,
@@ -11145,8 +11574,8 @@
  },
  {
    "master_id": "c759a7da-b1d3-4f59-9e66-839a86f1ae16",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE ADMINISTRATIVO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAL ESTERELIZADO",
    "description": "",
    "item_number": 167,
    "subitem_number": 2,
@@ -11156,8 +11585,8 @@
  },
  {
    "master_id": "b51bb11a-b3cf-47ac-b9a3-154d1d4cdc7f",
-   "section": "FUNDAMENTO 7 - PROCESSO CONTROLE ADMINISTRATIVO",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAL ESTERELIZADO",
    "description": "",
    "item_number": 167,
    "subitem_number": 3,
@@ -11431,7 +11860,7 @@
  },
  {
    "master_id": "74e1e6ec-4c32-44a9-8e7e-4c1053f8d65b",
-   "section": "FUNDAMENTO 7 - ORIENTAÇÕES POR PROCESSOS",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "PRODUTO",
    "description": "Identifica as oportunidades de desenvolvimento de novos produtos e serviços?",
    "item_number": 174,
@@ -11453,8 +11882,8 @@
  },
  {
    "master_id": "1ae0c160-a85d-4a33-bd78-325b93405a7e",
-   "section": "FUNDAMENTO 7 - APOIO HOSPITALAR",
-   "theme": "PRODUTO",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "PRODUTO - APOIO HOSPITALAR",
    "description": "Identifica as oportunidades de desenvolvimento de novos produtos e serviços?",
    "item_number": 174,
    "subitem_number": null,
@@ -11607,52 +12036,52 @@
  },
  {
    "master_id": "4c169b95-8ea6-407d-a952-ced1b90a236b",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS SOCIAIS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS SOCIAIS",
    "description": "Resultado demonstrativo de sua ação social junto à sociedade.",
    "item_number": 12,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "**",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "fac2167b-6f61-4d74-9508-c6e55b5c05b6",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS SOCIAIS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS SOCIAIS",
    "description": "Outros resultados sociais além dos mencionados acima.",
    "item_number": 13,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "682fe29b-0480-4542-923b-644092ef7c96",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS SOCIAIS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS SOCIAIS",
    "description": "Tendência / melhoria para algum resultado social (essa informação será analisada pela equipe de examinadores, não sendo necessário que o hospital apresente informações adicionais).",
    "item_number": 14,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "fba986ec-17a3-41e6-a125-a24c8b1ef3b2",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS SOCIAIS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS SOCIAIS",
    "description": "Compromisso / competitividade / desempenho superior para algum resultado social, quando comparado ao seu referencial (essa informação será analisada pela equipe de examinadores, sendo necessário que o hospital apresente informações do referencial comparativo).",
    "item_number": 15,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "d2262b9c-2b78-4862-b863-2ddf23a81153",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À CLIENTES",
    "description": "Séries históricas de indicadores da avaliação feitas por seus clientes para o atendimento na recepção, atendimento de enfermagem, atendimento médico, alimentação fornecida e limpeza do quarto / enfermaria.",
    "item_number": 16,
    "subitem_number": null,
@@ -11662,19 +12091,19 @@
  },
  {
    "master_id": "a402e758-d568-4fe6-ba7c-7ed880d66fd3",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS REALTIVOS À CLIENTES",
    "description": "Séries históricas de indicadores relativas ao mercado no qual está inserido, tais como: grau de participação no mercado; participação dos convênios / seguradoras / autogestões / SUS; e imagem perante o mercado.",
    "item_number": 17,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "**",
-   "responsible": "SUPER"
+   "responsible": "SUPERINTENDÊNCIA"
  },
  {
    "master_id": "a77c4d59-52c1-493c-9c07-a79713e669eb",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À CLIENTES",
    "description": "Séries históricas de indicadores relativas ao mercado no qual está inserido, tais como: grau de participação no mercado; participação dos convênios / seguradoras / autogestões / SUS; e imagem perante o mercado.",
    "item_number": 17,
    "subitem_number": null,
@@ -11684,8 +12113,8 @@
  },
  {
    "master_id": "0d58a68f-72d8-497c-a675-4c3b09290698",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À CLIENTES",
    "description": "Resolubilidade das ações advindas dos indicadores de insatisfação do cliente.",
    "item_number": 18,
    "subitem_number": null,
@@ -11695,8 +12124,8 @@
  },
  {
    "master_id": "0fc9fae5-74f6-41fe-9d2c-80368ae0f956",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À CLIENTES",
    "description": "Resolubilidade das ações advindas dos indicadores de insatisfação do cliente.",
    "item_number": 18,
    "subitem_number": null,
@@ -11706,8 +12135,8 @@
  },
  {
    "master_id": "09063631-14d9-4fc1-b88c-dc77afff737f",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À CLIENTES",
    "description": "Outros resultados relacionados aos clientes e ao mercado além dos mencionados acima.",
    "item_number": 19,
    "subitem_number": null,
@@ -11717,8 +12146,8 @@
  },
  {
    "master_id": "25010db9-749c-48dc-b6a6-394c5b6e06e5",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À CLIENTES",
    "description": "Outros resultados relacionados aos clientes e ao mercado além dos mencionados acima.",
    "item_number": 19,
    "subitem_number": null,
@@ -11728,8 +12157,8 @@
  },
  {
    "master_id": "b10fa33a-9d08-4ca2-84a0-0467f7c876cf",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À CLIENTES",
    "description": "Tendência / melhoria para algum resultado relativo aos clientes e ao mercado (essa informação será analisada pela equipe de examinadores, não sendo necessário que o hospital apresente informações adicionais).",
    "item_number": 20,
    "subitem_number": null,
@@ -11739,8 +12168,8 @@
  },
  {
    "master_id": "2be5064e-9863-4bd7-a2f3-a92067ecd275",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À CLIENTES",
    "description": "Tendência / melhoria para algum resultado relativo aos clientes e ao mercado (essa informação será analisada pela equipe de examinadores, não sendo necessário que o hospital apresente informações adicionais).",
    "item_number": 20,
    "subitem_number": null,
@@ -11750,8 +12179,8 @@
  },
  {
    "master_id": "13660d43-80f1-440e-9436-5bf9e03e977d",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À CLIENTES",
    "description": "Compromisso / competitividade / desempenho superior para algum resultado relativo aos clientes e ao mercado, quando comparado ao seu referencial (essa informação será analisada pela equipe de examinadores, sendo necessário que o hospital apresente informações do referencial comparativo).",
    "item_number": 21,
    "subitem_number": null,
@@ -11761,8 +12190,8 @@
  },
  {
    "master_id": "dafffbb7-0a79-4b6d-846f-8ba40b8c9c37",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À CLIENTES",
    "description": "Compromisso / competitividade / desempenho superior para algum resultado relativo aos clientes e ao mercado, quando comparado ao seu referencial (essa informação será analisada pela equipe de examinadores, sendo necessário que o hospital apresente informações do referencial comparativo).",
    "item_number": 21,
    "subitem_number": null,
@@ -11772,8 +12201,8 @@
  },
  {
    "master_id": "da9520ef-fec7-492c-b252-cdc4fce4380b",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "Séries históricas de indicadores relacionados ao sistema de trabalho:",
    "item_number": 22,
    "subitem_number": null,
@@ -11783,8 +12212,8 @@
  },
  {
    "master_id": "f9ef0d4e-2763-46be-97c3-11b19835d4c5",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "",
    "item_number": 22,
    "subitem_number": 1,
@@ -11794,8 +12223,8 @@
  },
  {
    "master_id": "a01c4dd3-83d6-464a-8c61-df5809b8c741",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "",
    "item_number": 22,
    "subitem_number": 2,
@@ -11805,8 +12234,8 @@
  },
  {
    "master_id": "ec9a367a-1834-4e64-a45e-e05c61197ee7",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "",
    "item_number": 22,
    "subitem_number": 3,
@@ -11816,8 +12245,8 @@
  },
  {
    "master_id": "9b2205e1-dd0c-45cf-bb12-6a238b8ce906",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "",
    "item_number": 22,
    "subitem_number": 4,
@@ -11827,8 +12256,8 @@
  },
  {
    "master_id": "e8708f30-5877-4e23-85d1-c2f487040692",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "Séries históricas de indicadores relacionados a capacitação e desenvolvimento: (no mínimo 2 subitens).",
    "item_number": 23,
    "subitem_number": null,
@@ -11838,8 +12267,8 @@
  },
  {
    "master_id": "e181753b-d3b9-41e9-aec8-9820197bec11",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "",
    "item_number": 23,
    "subitem_number": 1,
@@ -11849,8 +12278,8 @@
  },
  {
    "master_id": "c9f7384b-c8e0-46b2-9fef-51fa9dc12e79",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "",
    "item_number": 23,
    "subitem_number": 2,
@@ -11860,8 +12289,8 @@
  },
  {
    "master_id": "16e391a1-4317-4027-bb37-9bdd6689f1ab",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "",
    "item_number": 23,
    "subitem_number": 3,
@@ -11871,8 +12300,8 @@
  },
  {
    "master_id": "1e24b8d8-02ff-4075-924c-74ffadc11031",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "",
    "item_number": 23,
    "subitem_number": 4,
@@ -11882,8 +12311,8 @@
  },
  {
    "master_id": "99a2a56e-11e5-4d11-8d11-147e95b712ca",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "Taxa de médicos com título de especialista.",
    "item_number": 24,
    "subitem_number": null,
@@ -11981,8 +12410,8 @@
  },
  {
    "master_id": "19343a96-f7b2-46d3-bde4-3b2224879733",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À CLIENTES",
    "description": "Séries históricas de indicadores de gestão de pessoas na enfermagem:",
    "item_number": 26,
    "subitem_number": null,
@@ -11992,8 +12421,8 @@
  },
  {
    "master_id": "07810ff6-b7a7-4adf-bcff-3fd0ea97b50c",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À CLIENTES",
    "description": "",
    "item_number": 26,
    "subitem_number": 1,
@@ -12003,8 +12432,8 @@
  },
  {
    "master_id": "1d5d2568-36a9-47d1-9b33-f48dfebcdd01",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À CLIENTES",
    "description": "",
    "item_number": 26,
    "subitem_number": 2,
@@ -12014,8 +12443,8 @@
  },
  {
    "master_id": "c8d44323-ea7b-47f4-994f-b19a2585a132",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À CLIENTES",
    "description": "",
    "item_number": 26,
    "subitem_number": 3,
@@ -12025,8 +12454,8 @@
  },
  {
    "master_id": "48c08eed-35c9-40d4-b1e5-8f195595a94a",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS Á CLIENTES",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À CLIENTES",
    "description": "",
    "item_number": 26,
    "subitem_number": 4,
@@ -12036,8 +12465,8 @@
  },
  {
    "master_id": "9c132b08-ccae-4f68-b656-6ad07b4fbd38",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "Séries históricas de indicadores de gestão de pessoas na enfermagem:",
    "item_number": 26,
    "subitem_number": null,
@@ -12069,8 +12498,8 @@
  },
  {
    "master_id": "263b2919-19db-4671-b121-a42790f3d36a",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "",
    "item_number": 26,
    "subitem_number": 1,
@@ -12080,8 +12509,8 @@
  },
  {
    "master_id": "627d5469-ac66-4a1f-8669-9b2f2ee2c769",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "",
    "item_number": 26,
    "subitem_number": 2,
@@ -12091,8 +12520,8 @@
  },
  {
    "master_id": "df240ebd-9019-4be8-a02e-f53febc59950",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "",
    "item_number": 26,
    "subitem_number": 3,
@@ -12102,8 +12531,8 @@
  },
  {
    "master_id": "00ee8224-a982-46be-af2f-e2d9e6ebeb12",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "Outros resultados relacionados à gestão de pessoas além dos mencionados acima.",
    "item_number": 27,
    "subitem_number": null,
@@ -12113,8 +12542,8 @@
  },
  {
    "master_id": "bb5f44ce-ca66-4d18-9d5e-b138828a2789",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "Tendência / melhoria para algum resultado relativo às pessoas (essa informação será analisada pela equipe de examinadores, não sendo necessário que o hospital apresente informações adicionais).",
    "item_number": 28,
    "subitem_number": null,
@@ -12124,8 +12553,8 @@
  },
  {
    "master_id": "78330370-2875-4446-8c7b-bbe766268f0a",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
    "description": "Compromisso / competitividade / desempenho superior para algum resultado relativo às pessoas, quando comparado ao seu referencial (essa informação será analisada pela equipe de examinadores, sendo necessário que o hospital apresente informações do referencial comparativo).",
    "item_number": 29,
    "subitem_number": null,
@@ -12268,7 +12697,7 @@
  {
    "master_id": "2b168310-0fa4-4242-84b9-87dd60fc1647",
    "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Séries históricas dos indicadores de enfermagem de acordo com o perfil do hospital.",
    "item_number": 37,
    "subitem_number": null,
@@ -12289,8 +12718,8 @@
  },
  {
    "master_id": "b195bf15-d8fd-4584-8a68-f3efa425ec1a",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Séries históricas dos indicadores de segurança do paciente.",
    "item_number": 38,
    "subitem_number": null,
@@ -12333,8 +12762,8 @@
  },
  {
    "master_id": "e3bddf25-f6ed-46e2-84ba-051055e88c57",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 40,
    "subitem_number": 2,
@@ -12355,8 +12784,8 @@
  },
  {
    "master_id": "0ecc0c14-428b-4f30-b893-47fc4d527cd3",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 40,
    "subitem_number": 4,
@@ -12377,8 +12806,8 @@
  },
  {
    "master_id": "6540f2ab-3e5a-49c4-bef0-28ba06058ae9",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Séries históricas de indicadores para os serviços de apoio técnico: (no mínimo 4 subitens)",
    "item_number": 40,
    "subitem_number": 5,
@@ -12388,8 +12817,8 @@
  },
  {
    "master_id": "b8e43e85-6a6e-42ac-89b8-ab4542fdb346",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 40,
    "subitem_number": 6,
@@ -12399,8 +12828,8 @@
  },
  {
    "master_id": "218393c6-a968-4098-94b9-52d26c6ef3d4",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Séries históricas de indicadores para os serviços de apoio técnico: (no mínimo 4 subitens)",
    "item_number": 40,
    "subitem_number": 6,
@@ -12411,7 +12840,7 @@
  {
    "master_id": "2982389a-fa45-4172-8b43-0989963d443c",
    "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
-   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Séries históricas de indicadores para os serviços de apoio técnico: (no mínimo 4 subitens)",
    "item_number": 40,
    "subitem_number": 7,
@@ -12420,9 +12849,31 @@
    "responsible": "FARMÁCIA"
  },
  {
+   "master_id": "31c439e8-d09c-4106-ac7f-136f1ffe5c67",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
+   "description": "Séries históricas de indicadores para os serviços de apoio técnico: (no mínimo 4 subitens)",
+   "item_number": 40,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "NUTRIÇÃO"
+ },
+ {
+   "master_id": "8d79a6c4-19f0-4fb3-a1f5-5b6a6e72aa27",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
+   "description": "Séries históricas de indicadores para os serviços de apoio técnico: (no mínimo 4 subitens)",
+   "item_number": 40,
+   "subitem_number": 4,
+   "subitem_description": "Produção e produtividade no laboratório",
+   "exigency_level": "",
+   "responsible": "NUTRIÇÃO"
+ },
+ {
    "master_id": "8ecfbd3d-514d-4832-87a5-34030450c574",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Séries históricas de indicadores relacionados aos seus serviços e processos organizacionais:\n(no mínimo 8 subitens)",
    "item_number": 41,
    "subitem_number": null,
@@ -12432,8 +12883,8 @@
  },
  {
    "master_id": "94deba08-2748-4abc-b053-93612fb54c2e",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 1,
@@ -12443,8 +12894,8 @@
  },
  {
    "master_id": "74c85944-2a67-4314-9870-54c1414b271e",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 2,
@@ -12454,8 +12905,8 @@
  },
  {
    "master_id": "bfaceb82-877f-43fc-a5e7-e3e26fddeae5",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 3,
@@ -12465,8 +12916,8 @@
  },
  {
    "master_id": "69a4088a-a5fd-47c6-98c8-c059979e3f1b",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 4,
@@ -12476,8 +12927,8 @@
  },
  {
    "master_id": "6fa40fad-ca0f-4be6-a661-cbc15fba1aff",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 5,
@@ -12487,8 +12938,8 @@
  },
  {
    "master_id": "0c2e0651-064d-4c6e-a73f-eed2e5239f04",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 6,
@@ -12498,8 +12949,8 @@
  },
  {
    "master_id": "92b5bae5-caf9-48e4-8073-89eb00a9a285",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 7,
@@ -12509,8 +12960,8 @@
  },
  {
    "master_id": "5821ed5b-3e3a-467d-ac4b-3f28a65b5c55",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 8,
@@ -12520,8 +12971,8 @@
  },
  {
    "master_id": "fa58c7eb-6a5c-4565-b75c-2292411a29bc",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 9,
@@ -12531,8 +12982,8 @@
  },
  {
    "master_id": "59b8fc33-4893-4bab-b4f4-1d45f55bc3d9",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 10,
@@ -12542,8 +12993,8 @@
  },
  {
    "master_id": "f4a4646c-20da-42ca-bfec-d4e4f8567649",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 11,
@@ -12553,8 +13004,8 @@
  },
  {
    "master_id": "669490aa-fb26-43b0-9d01-53d1946473fe",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 12,
@@ -12564,8 +13015,8 @@
  },
  {
    "master_id": "47cc6c8a-a38d-49d7-a827-3ac32991e207",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 13,
@@ -12575,8 +13026,8 @@
  },
  {
    "master_id": "6f70da77-84ec-4e37-813f-4e7bb662028b",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 14,
@@ -12586,8 +13037,8 @@
  },
  {
    "master_id": "1ca51f7f-3462-480f-acf4-086f3e56a2b6",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 15,
@@ -12597,8 +13048,8 @@
  },
  {
    "master_id": "fa9412a3-cc17-4e71-9394-f355e52110eb",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 16,
@@ -12608,8 +13059,8 @@
  },
  {
    "master_id": "ee783ccb-761a-4174-bfac-b67cdd695bb9",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 17,
@@ -12619,8 +13070,8 @@
  },
  {
    "master_id": "aa656064-98e7-44f6-992b-2ad8b6dfcb88",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 18,
@@ -12630,8 +13081,8 @@
  },
  {
    "master_id": "1c96af48-91b1-4e39-8633-f011731cb446",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 19,
@@ -12663,8 +13114,8 @@
  },
  {
    "master_id": "67c173f1-3e1a-48b6-a150-b7d9f19d486e",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 21,
@@ -12674,8 +13125,8 @@
  },
  {
    "master_id": "13106431-8c81-4b99-ae98-bdcb02bb42a1",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 22,
@@ -12685,8 +13136,8 @@
  },
  {
    "master_id": "a3c95096-d2fc-4ee0-b4ab-3ff6ef96d49e",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 23,
@@ -12696,8 +13147,8 @@
  },
  {
    "master_id": "2921aeb0-91bd-4f76-ad62-05fccbd9f048",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 24,
@@ -12707,8 +13158,8 @@
  },
  {
    "master_id": "8f44301a-8eb3-4d40-8b8b-c368681ffa0d",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "",
    "item_number": 41,
    "subitem_number": 25,
@@ -12729,8 +13180,8 @@
  },
  {
    "master_id": "49966fcc-c6ac-47ec-a85b-f6fb290d8aab",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Séries históricas do percentual de perdas de roupa / ano.",
    "item_number": 45,
    "subitem_number": null,
@@ -12751,8 +13202,8 @@
  },
  {
    "master_id": "f5d45dd8-aa51-4e1c-900b-b602fccd82a2",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Outros resultados relacionados à gestão dos processos principais e de apoio além dos mencionados acima.",
    "item_number": 47,
    "subitem_number": null,
@@ -12762,8 +13213,8 @@
  },
  {
    "master_id": "2e3f5b23-a9d1-483b-9b73-77e3539f2000",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Outros resultados relacionados à gestão dos processos principais e de apoio além dos mencionados acima.",
    "item_number": 47,
    "subitem_number": null,
@@ -12773,8 +13224,8 @@
  },
  {
    "master_id": "fca5b545-be05-46aa-9fb5-5b1d6cb49123",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Outros resultados relacionados à gestão dos processos principais e de apoio além dos mencionados acima.",
    "item_number": 47,
    "subitem_number": null,
@@ -12784,8 +13235,8 @@
  },
  {
    "master_id": "9dd253c6-c90a-453f-a785-87d657aa4d6f",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Outros resultados relacionados à gestão dos processos principais e de apoio além dos mencionados acima.",
    "item_number": 47,
    "subitem_number": null,
@@ -12795,8 +13246,8 @@
  },
  {
    "master_id": "1c8c62c8-c8c1-4576-8f60-24c549fcc086",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Tendência / melhoria para algum resultado relativo aos processos (essa informação será analisada pela equipe de examinadores, não sendo necessário que o hospital apresente informações adicionais).",
    "item_number": 48,
    "subitem_number": null,
@@ -12806,8 +13257,8 @@
  },
  {
    "master_id": "087752e3-61aa-4b8e-82d9-1d7a0a4a2dda",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Tendência / melhoria para algum resultado relativo aos processos (essa informação será analisada pela equipe de examinadores, não sendo necessário que o hospital apresente informações adicionais).",
    "item_number": 48,
    "subitem_number": null,
@@ -12817,8 +13268,8 @@
  },
  {
    "master_id": "703ebd9f-0227-443f-91e9-5631152c34ca",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Tendência / melhoria para algum resultado relativo aos processos (essa informação será analisada pela equipe de examinadores, não sendo necessário que o hospital apresente informações adicionais).",
    "item_number": 48,
    "subitem_number": null,
@@ -12828,8 +13279,8 @@
  },
  {
    "master_id": "72e6482e-e579-4fd1-b2a4-8ab315ba5403",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Tendência / melhoria para algum resultado relativo aos processos (essa informação será analisada pela equipe de examinadores, não sendo necessário que o hospital apresente informações adicionais).",
    "item_number": 48,
    "subitem_number": null,
@@ -12839,8 +13290,8 @@
  },
  {
    "master_id": "5ceb7963-fcbd-4a0f-8bbe-cc4888807640",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Desempenho superior para algum resultado relativo aos processos (essa informação será analisada pela equipe de examinadores, sendo necessário que o hospital apresente informações do referencial comparativo).",
    "item_number": 49,
    "subitem_number": null,
@@ -12850,8 +13301,8 @@
  },
  {
    "master_id": "e8e50a40-524b-4b44-bf89-e6953d19ab65",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Desempenho superior para algum resultado relativo aos processos (essa informação será analisada pela equipe de examinadores, sendo necessário que o hospital apresente informações do referencial comparativo).",
    "item_number": 49,
    "subitem_number": null,
@@ -12861,8 +13312,8 @@
  },
  {
    "master_id": "05fe7241-aa5b-4356-b305-e985460d13e9",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Desempenho superior para algum resultado relativo aos processos (essa informação será analisada pela equipe de examinadores, sendo necessário que o hospital apresente informações do referencial comparativo).",
    "item_number": 49,
    "subitem_number": null,
@@ -12872,8 +13323,8 @@
  },
  {
    "master_id": "cf44c303-ee46-4d88-b607-c53477b472f1",
-   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR: GERAÇÃO DE RESULTADOS POR PROCESSOS",
-   "theme": "RESULTADOS SUSTENTÁVEIS",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Desempenho superior para algum resultado relativo aos processos (essa informação será analisada pela equipe de examinadores, sendo necessário que o hospital apresente informações do referencial comparativo).",
    "item_number": 49,
    "subitem_number": null,
