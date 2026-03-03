@@ -968,6 +968,39 @@
    "responsible": "DGT"
  },
    {
+   "master_id": "e5b588a7-acf1-4649-bee7-21740f59b3c8",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+  {
+   "master_id": "1d93be50-bf9c-4032-b89c-37e084fbbaf8",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+  {
+   "master_id": "abf33861-c72f-4327-a64d-6292c15d0362",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "ENFERMARIA"
+ },
+   {
    "master_id": "59d3c5df-2701-4cd0-aa62-b509504f11cb",
    "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
    "theme": "CONHECIMENTO",
@@ -2704,17 +2737,6 @@
    "subitem_description": "",
    "exigency_level": "",
    "responsible": "PSI"
- },
- {
-   "master_id": "0f0a1585-e577-4609-9171-59655b899659",
-   "section": "7. ORIENTAÇÃO POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOS",
-   "description": "Registros de manutenção preventiva de equipamentos críticos (monitores cardíacos, respiradores, carrinhos de anestesia, bisturis eletrônicos, vide laparoscópicos).",
-   "item_number": 16,
-   "subitem_number": null,
-   "subitem_description": "",
-   "exigency_level": "",
-   "responsible": "INTERNAÇÃO"
  },
  {
    "master_id": "dcbeabf9-a371-4f1a-aa26-8b8f92ea3ba4",
@@ -6182,6 +6204,28 @@
    "responsible": "GERÊNCIA DE INTERNAÇÃO"
  },
  {
+   "master_id": "d2da6578-42e4-44c9-85d0-18d7cc0d9ac2",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "Há carrinho de emergência com medicamentos, material, monitor e desfibrilador para ressuscitação cardiorrespiratória em número que atenda a todos os pacientes internados e em local de fácil acesso?",
+   "item_number": 14,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "*",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "ca48508e-335f-4fe0-bbdf-8339f14c913c",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "Identifica todos os pacientes, em todas as fases do atendimento, com nome associado a no mínimo mais uma informação (DACa de nascimento, nome da mãe, número do atendimento)?",
+   "item_number": 15,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
    "master_id": "5e6f49d0-64d2-46fc-86f7-74b17df3a44a",
    "section": "FUNDAMENTO 7 - PROCESSO INTERNAÇÃO",
    "theme": "ASSISTÊNCIA AO PACIENTE",
@@ -6378,6 +6422,182 @@
    "subitem_description": "Autorização do paciente para realização de procedimentos (consentimento informado livre e esclarecido)",
    "exigency_level": "",
    "responsible": "GERÊNCIA DE ENFERMAGEM"
+ },
+  {
+   "master_id": "d8c7b32e-b610-4a64-80cd-d6f08d3f15c5",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "Considera nos protocolos clínicos utilizados, o perfil nosológico da unidade?",
+   "item_number": 16,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "3e127d0c-b0fa-49f3-950c-531f2ca64ded",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "Utiliza nos protocolos clínicos, diretrizes baseadas em evidência científica, em todas as áreas?",
+   "item_number": 17,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "560530db-4f4f-447c-9107-825a06d3a1ee",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "Garante por meio de um processo definido, as informações aos familiares dos pacientes internados?",
+   "item_number": 18,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "8c881b0b-aaf3-4068-a62f-6aa0a243780a",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "Realiza reuniões clínicas para avaliação e melhoria dos processos assistenciais?",
+   "item_number": 19,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "8a71791f-5611-4a8e-b357-570d8962f1bd",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "Promove a interação entre as equipes assistenciais, incluindo plano terapêutico e plano de alta?",
+   "item_number": 20,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "7bcd52fe-bd51-47df-9d3f-bf4214b02656",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "Estimula a participação do anatomopatologista, nas reuniões anatomoclínicas e/ou discussão de casos?",
+   "item_number": 21,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "50600a5a-1eef-4a2d-982e-6f575171b438",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "Assegura anotações legíveis nos prontuários dos pacientes?",
+   "item_number": 22,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "8aecfb84-e0b7-4725-8fdd-da261e41fdb7",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "Institui número de prontuário único, para cada paciente, de forma a permitir rastreabilidade das informações?",
+   "item_number": 23,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "a1dd6c0e-e2cd-4e29-aaaa-71c59f5cafb7",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "Assegura que nos prontuários dos pacientes, nas unidades de assistência, exista:",
+   "item_number": 24,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "*",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "ada02474-7f9f-40eb-bc3d-311f8a63502c",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 24,
+   "subitem_number": 1,
+   "subitem_description": "Evoluções e prescrições médicas diárias e atualizadas",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "cdbe9230-3cbb-444d-b908-cf4d95dc2566",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 24,
+   "subitem_number": 2,
+   "subitem_description": "Anotações de enfermagem diárias e atualizadas",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "22849173-93cd-476a-ba1e-7ec57a8bd199",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 24,
+   "subitem_number": 3,
+   "subitem_description": "Registro de resultados de exames complementares",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "c57ae5d1-f09a-4761-b1ae-5f1a9272bdce",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 24,
+   "subitem_number": 4,
+   "subitem_description": "Registro de atividades de equipe multiprofissional",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "3d7c2754-ba08-48e1-a357-5e41f5a2e653",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 24,
+   "subitem_number": 5,
+   "subitem_description": "Relatórios completos de procedimentos realizados no CC e/ou no CO",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "c9e86026-03bf-4551-b503-2a9238f00545",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 24,
+   "subitem_number": 6,
+   "subitem_description": "Resumo de alta",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "7da1bc56-6987-4ac0-b3b9-b0335a619863",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 24,
+   "subitem_number": 7,
+   "subitem_description": "Autorização do paciente para realização de procedimentos (consentimento informado livre e esclarecido)",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
  },
  {
    "master_id": "da068345-907d-48c1-8ca5-5d5980df8311",
@@ -6951,6 +7171,160 @@
    "exigency_level": "",
    "responsible": "CCIH"
  },
+  {
+   "master_id": "279d51ce-fa14-4565-9d80-850ff06b1c11",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "Assegura o acesso 24 horas aos serviços de:",
+   "item_number": 25,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "0e0619f1-450f-4ceb-b1a1-8bace9d0e8bf",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 25,
+   "subitem_number": 1,
+   "subitem_description": "Médicos especialistas",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "c0b97242-856f-46e6-80ad-ec2cd3e22e70",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 25,
+   "subitem_number": 2,
+   "subitem_description": "Laboratório de análises clínicas",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "cd52b310-d74d-4148-bf81-ca50c9bec642",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 25,
+   "subitem_number": 3,
+   "subitem_description": "Hemoterapia",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "e9153f15-92c0-4caf-960f-686b04502099",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 25,
+   "subitem_number": 4,
+   "subitem_description": "Radiologia",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "1d64fd7f-1789-432e-ad93-8785f19e87cc",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 25,
+   "subitem_number": 5,
+   "subitem_description": "CC",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "4a35c021-34d8-41d7-a427-a97ab27df8f6",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "Assegura a sistematização da assistência de enfermagem, em todos os setores assistenciais, de acordo com as fases abaixo:",
+   "item_number": 26,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "73668580-8e82-4144-ad98-df1a54ca9f00",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 26,
+   "subitem_number": 1,
+   "subitem_description": "Histórico de enfermagem (coleta de dados)",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "8a3b7b16-5f0f-4a6e-8726-08a14c7d15b3",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 26,
+   "subitem_number": 2,
+   "subitem_description": "Diagnóstico de enfermagem",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "3e7f6d00-bbfa-4f4f-842d-abcd40af306f",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 26,
+   "subitem_number": 3,
+   "subitem_description": "Planejamento de enfermagem (prescrição)",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "a904a200-2214-46eb-97fc-b735dafc9333",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 26,
+   "subitem_number": 4,
+   "subitem_description": "Implementação",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "a0b1fe4c-2909-4999-9b17-ba003f46455f",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 26,
+   "subitem_number": 5,
+   "subitem_description": "Avaliação de enfermagem (evolução)?",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "aeb19edf-0d65-49ba-a08e-feb951308f70",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "Promove atividades de controle da assistência prestada?",
+   "item_number": 27,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "0874ec8c-4080-4fb2-8e69-16e25434c47e",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 27,
+   "subitem_number": 1,
+   "subitem_description": "Revisão clínica",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
  {
    "master_id": "e57de07a-3e03-42f2-aa21-f284973fe052",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
@@ -7016,6 +7390,50 @@
    "subitem_description": "Acesso controlado à unidade?",
    "exigency_level": "",
    "responsible": "PEDIATRIA"
+ },
+  {
+   "master_id": "864dad9c-d1f2-4cb5-9707-5fbbebdd2099",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "Dispõe nas unidades de internação pediátrica, condições de segurança?",
+   "item_number": 29,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "*",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "4cbcf062-029a-4ea5-b911-de1b8953415b",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 29,
+   "subitem_number": 1,
+   "subitem_description": "Camas de crianças pequenas com proteção",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "3297afde-7e7e-4cae-bbee-42e7fb19c2c6",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 29,
+   "subitem_number": 2,
+   "subitem_description": "Janelas com proteção, que evitem a passagem de uma criança",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "2840be13-bb93-42a4-a97c-33491b7fd3a0",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO INTERNAÇÃO",
+   "description": "",
+   "item_number": 29,
+   "subitem_number": 3,
+   "subitem_description": "Acesso controlado à unidade?",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
  },
  {
    "master_id": "6189fcc6-1d85-4e6a-b60a-d1043951f5b9",
@@ -9689,7 +10107,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "ENFERMAGEM"
+   "responsible": "ENFERMARIA"
  },
  {
    "master_id": "b272bf5b-365b-4943-b3ed-792658ed292e",
@@ -11189,14 +11607,25 @@
  },
  {
    "master_id": "049582a9-3d7f-4f5b-b77e-f60a9404237b",
-   "section": "FUNDAMENTO 7 - PROCESSO MATERIAIS E MEDICAMENTOS",
-   "theme": "APOIO HOSPITALAR",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAIS E MEDICAMENTOS",
    "description": "O processo de armazenamento de medicamentos termolábeis conta com geladeira exclusiva com termômetro de controle da temperatura, monitorado em período adequado nas 24 horas, para conservação de medicamentos e ligada à sistema alternativo de energia elétrica?",
    "item_number": 160,
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "*",
    "responsible": "GERÊNCIA DE ENFERMAGEM"
+ },
+  {
+   "master_id": "38b93acd-983d-4b7e-9168-986c337d7856",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAIS E MEDICAMENTOS",
+   "description": "O processo de armazenamento de medicamentos termolábeis conta com geladeira exclusiva com termômetro de controle da temperatura, monitorado em período adequado nas 24 horas, para conservação de medicamentos e ligada à sistema alternativo de energia elétrica?",
+   "item_number": 160,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "*",
+   "responsible": "ENFERMARIA"
  },
  {
    "master_id": "ab7fb687-a401-44ef-8c1a-6befe991d603",
@@ -11253,6 +11682,17 @@
    "exigency_level": "*",
    "responsible": "GERÊNCIA DE ENFERMAGEM"
  },
+  {
+   "master_id": "e4fba50d-384d-412a-b47d-89cd7584b66e",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAIS E MEDICAMENTOS",
+   "description": "Há um controle de medicamentos psicoativos em todas as unidades?",
+   "item_number": 162,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "*",
+   "responsible": "ENFERMARIA"
+ },
  {
    "master_id": "7187afc4-f446-49aa-81bb-ebc4fdbbfecb",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
@@ -11274,6 +11714,17 @@
    "subitem_description": "",
    "exigency_level": "",
    "responsible": "SUPRIMENTOS - COMPRAS - CPM"
+ },
+  {
+   "master_id": "0a383059-0732-4210-bcf0-f828d420faa9",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAIS E MEDICAMENTOS",
+   "description": "Há controle da validade dos materiais médicos e medicamentos (incluindo os fracionados)?",
+   "item_number": 164,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "*",
+   "responsible": "ENFERMARIA"
  },
  {
    "master_id": "a85ce4a9-200a-4f00-93eb-d590417173ed",
@@ -12529,6 +12980,61 @@
    "exigency_level": "",
    "responsible": "DGT"
  },
+  {
+   "master_id": "d9b196ff-a204-4dff-894c-7600a1989712",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
+   "description": "Séries históricas de indicadores de gestão de pessoas na enfermagem:",
+   "item_number": 26,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ }, 
+  {
+   "master_id": "005c7289-6728-4cb8-a12f-9f73cae64955",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
+   "description": "",
+   "item_number": 26,
+   "subitem_number": 1,
+   "subitem_description": "Índice de treinamento de profissionais de enfermagem",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "0bd537af-83b0-4b5d-b481-1ebb2686646f",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
+   "description": "",
+   "item_number": 26,
+   "subitem_number": 2,
+   "subitem_description": "Taxa de absenteísmo de profissionais de enfermagem",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+ {
+   "master_id": "a0ed250e-855a-4a0b-823a-c796d4b9c535",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
+   "description": "",
+   "item_number": 26,
+   "subitem_number": 3,
+   "subitem_description": "Taxa de rotatividade de profissionais de enfermagem (Turn Over)",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
+   {
+   "master_id": "882f547f-48f0-4208-abbe-57f8424b46f5",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORÇA DE TRABALHO",
+   "description": "",
+   "item_number": 26,
+   "subitem_number": 4,
+   "subitem_description": "Taxa de acidente de trabalho de profissionais de enfermagem",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
+ },
  {
    "master_id": "00ee8224-a982-46be-af2f-e2d9e6ebeb12",
    "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
@@ -12715,6 +13221,28 @@
    "subitem_description": "",
    "exigency_level": "**",
    "responsible": "NEPI"
+ },
+  {
+   "master_id": "ec34cd7d-5584-4855-a2ca-8e4ec52b4a55",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
+   "description": "Séries históricas dos indicadores de enfermagem de acordo com o perfil do hospital.",
+   "item_number": 37,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "ENFERMARIA"
+ },
+  {
+   "master_id": "0f0a1585-e577-4609-9171-59655b899659",
+   "section": "7. ORIENTAÇÃO POR PROCESSOS",
+   "theme": "GESTÃO POR PROCESSOS",
+   "description": "Registros de manutenção preventiva de equipamentos críticos (monitores cardíacos, respiradores, carrinhos de anestesia, bisturis eletrônicos, vide laparoscópicos).",
+   "item_number": 16,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ENFERMARIA"
  },
  {
    "master_id": "b195bf15-d8fd-4584-8a68-f3efa425ec1a",
