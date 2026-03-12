@@ -367,6 +367,14 @@ tr.avaliacao-pendente .evaluation-cell div {
     background-color: #c63321;
 }
 
+#download-word-btn {
+    background-color: #287eb8;
+}
+
+#download-word-btn:hover {
+    background-color: #1f6797;
+}
+
 /* Seção de Upload de Imagens */
 .image-upload-section {
     background-color: #fff;
@@ -796,4 +804,31 @@ tr.avaliacao-pendente .evaluation-cell div {
         padding: 8px 12px;
         font-size: 12px;
     }
+}
+
+/* Destaque de cor para Avaliação, Evidências e Propostas */
+#action-items-table thead th:nth-child(9),
+#action-items-table thead th:nth-child(10),
+#action-items-table thead th:nth-child(11) {
+    background-color: #8fcf9b;
+}
+
+#action-items-table thead th:nth-child(9),
+#action-items-table thead th:nth-child(10),
+#action-items-table thead th:nth-child(11) {
+    color: #1f4d2e;
+}
+
+#action-items-table tbody tr:not(.section-header):not(.theme-header) td:nth-child(9) {
+    background-color: #eaf8ee;
+}
+
+#action-items-table tbody tr:not(.section-header):not(.theme-header) td:nth-child(10),
+#action-items-table tbody tr:not(.section-header):not(.theme-header) td:nth-child(11) {
+    background-color: #f2fbf5;
+}
+
+#action-items-table tbody tr:not(.section-header):not(.theme-header) td:nth-child(10) textarea,
+#action-items-table tbody tr:not(.section-header):not(.theme-header) td:nth-child(11) textarea {
+    background-color: #ffffff;
 }

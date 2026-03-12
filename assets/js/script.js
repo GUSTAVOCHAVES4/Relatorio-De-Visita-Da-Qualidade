@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextVisitLocalInput = document.getElementById('next-visit-local');
     const actionPlanTableBody = document.querySelector('#action-plan-table tbody');
     const visitObservationsTextarea = document.getElementById('visit-observations-textarea');
-    const meetingSubjectInput = document.getElementById('meeting-subject-input'); 
     
     // --- Variáveis da Câmera ---
     const cameraModal = document.getElementById('camera-modal');
@@ -51,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentMinutesData = [];
     
     // Armazenamos objetos { url: string, aspect: number }
-    let uploadedImages = []; // Para fotos de evidência
+    let uploadedImages = []; // Para fotos
     let groupPhotoImageData = null; // Para foto da equipe
     
     // Variáveis de estado da câmera
@@ -59,15 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentStream = null;
     let currentCameraTarget = null; 
     let currentFacingMode = 'environment'; 
-
-    // 🔹 Função debounce
-    function debounce(func, delay = 300) {
-        let timer;
-        return (...args) => {
-            clearTimeout(timer);
-            timer = setTimeout(() => func.apply(this, args), delay);
-        };
-    }
 
     // --- Funções Principais da Aplicação ---
 
@@ -281,12 +271,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 actionPlan: actionPlanItems,
                 groupPhoto: groupPhotoImageData,
                 evidencePhotos: uploadedImages,
-                visitObservations: observationsValue,
-                meetingSubject: meetingSubjectInput ? meetingSubjectInput.value : ''
+                visitObservations: observationsValue
             };
 
             minutesOutput.innerHTML = generateMinutesHTML(fullReportData);
-            document.getElementById('download-pdf-btn').addEventListener('click', () => generatePdfDocument(fullReportData));
+            const downloadPdfBtn = document.getElementById('download-pdf-btn');
+            if (downloadPdfBtn) {
+                downloadPdfBtn.addEventListener('click', () => generatePdfDocument(fullReportData));
+            }
+
+            const downloadWordBtn = document.getElementById('download-word-btn');
+            if (downloadWordBtn) {
+                downloadWordBtn.addEventListener('click', () => generateWordDocument(fullReportData));
+            }
 
         } catch (error) {
             console.error("ERRO AO GERAR A ATA:", error);
@@ -310,19 +307,269 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (data.actionPlan.length > 0) {
-            html += `<h4>Plano de Ação</h4><p>${data.actionPlan.length} ações definidas.</p>`;
+            html += `<h4>Dando um Passo Adiante...</h4><p>${data.actionPlan.length} ações definidas.</p>`;
         }
         
         if (data.evidencePhotos.length > 0) {
-            html += `<h4>Fotos de Evidência</h4><p>${data.evidencePhotos.length} fotos anexadas.</p>`;
+            html += `<h4>Fotos</h4><p>${data.evidencePhotos.length} fotos anexadas.</p>`;
         }
         
         html += `
-            <div id="download-buttons" style="margin-top: 20px;">
+            <div id="download-buttons" style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
                 <button id="download-pdf-btn">Baixar .pdf</button>
+                <button id="download-word-btn">Baixar .doc</button>
             </div>`;
             
         return html;
+    }
+
+    function escapeHtml(text) {
+        if (!text) return '';
+        return text
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function formatWordList(text) {
+        if (!text || text.trim() === '') return '';
+        const lines = text.split('\n').map(line => line.trim()).filter(Boolean);
+        if (lines.length === 0) return '';
+        return `<ul>${lines.map(line => `<li>${escapeHtml(line)}</li>`).join('')}</ul>`;
+    }
+
+    function imageToDataUrl(path) {
+        return fetch(path)
+            .then(response => {
+                if (!response.ok) throw new Error('Falha ao carregar imagem');
+                return response.blob();
+            })
+            .then(blob => new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onloadend = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(blob);
+            }))
+            .catch(() => null);
+    }
+
+    function sanitizeFileName(text) {
+        return (text || 'geral')
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^a-zA-Z0-9_-]+/g, '_');
+    }
+
+    function formatBulletListHtml(text) {
+        if (!text || text.trim() === '') return '';
+        const items = text.split('\n').map(line => line.trim()).filter(Boolean);
+        if (!items.length) return '';
+        return `<ul>${items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
+    }
+
+    async function generateWordDocument(data) {
+        try {
+            const [mapImageDataUrl, logoHspmDataUrl, logoSpDataUrl] = await Promise.all([
+                imageToDataUrl('assets/images/exemplo_mapeamento.png'),
+                imageToDataUrl('assets/images/logo-hspm.jpg'),
+                imageToDataUrl('assets/images/logo-prefeitura-sp.jpg')
+            ]);
+
+            const tableRowsHtml = data.tableData.map(item => `
+                <tr>
+                    <td>${escapeHtml(item.section || '')}</td>
+                    <td>${escapeHtml(item.theme || '')}</td>
+                    <td>${escapeHtml(item.item_number || '')}</td>
+                    <td>${escapeHtml(item.description || '')}</td>
+                    <td>${escapeHtml(item.subitem_number || '')}</td>
+                    <td>${escapeHtml(item.subitem_description || '')}</td>
+                    <td>${escapeHtml(item.exigency_level || '')}</td>
+                    <td class='highlight-cell'>${escapeHtml(item.evaluation || '')}</td>
+                    <td class='highlight-cell'>${formatBulletListHtml(item.evidences) || '&nbsp;'}</td>
+                    <td class='highlight-cell'>${formatBulletListHtml(item.proposals) || '&nbsp;'}</td>
+                </tr>
+            `).join('');
+
+            const actionRowsHtml = data.actionPlan.map(item => `
+                <tr>
+                    <td>${escapeHtml(item.action || '')}</td>
+                    <td>${escapeHtml(item.responsible || '')}</td>
+                    <td>${escapeHtml(item.sector || '')}</td>
+                    <td>${escapeHtml(item.deadline || '')}</td>
+                </tr>
+            `).join('');
+
+            const observationsHtml = (data.visitObservations || '')
+                .split('\n')
+                .map(line => line.trim())
+                .filter(Boolean)
+                .map(line => `<p>• ${escapeHtml(line)}</p>`)
+                .join('');
+
+            const evidencePhotos = data.evidencePhotos || [];
+            const evidencePhotosRowsHtml = [];
+            for (let i = 0; i < evidencePhotos.length; i += 2) {
+                const left = evidencePhotos[i];
+                const right = evidencePhotos[i + 1];
+                evidencePhotosRowsHtml.push(`
+                    <tr>
+                        <td class='photo-cell'>${left ? `<img src='${left.url}' alt='Foto'>` : '&nbsp;'}</td>
+                        <td class='photo-cell'>${right ? `<img src='${right.url}' alt='Foto'>` : '&nbsp;'}</td>
+                    </tr>
+                `);
+            }
+            const evidencePhotosHtml = evidencePhotosRowsHtml.join('');
+
+            const groupPhotoHtml = data.groupPhoto?.url
+                ? `<img src='${data.groupPhoto.url}' alt='Foto da equipe' class='group-photo'>`
+                : `<p>Sem foto da equipe.</p>`;
+
+            const wordHtml = `
+                <html xmlns:o='urn:schemas-microsoft-com:office:office'
+                      xmlns:w='urn:schemas-microsoft-com:office:word'
+                      xmlns='http://www.w3.org/TR/REC-html40'>
+                <head>
+                    <meta charset='utf-8'>
+                    <title>Relatório de Visita</title>
+                    <style>
+                        @page { size: A4 landscape; margin: 12mm; }
+                        body { font-family: Arial, sans-serif; font-size: 10pt; color: #222; }
+                        .page { page-break-after: always; }
+                        .page:last-child { page-break-after: auto; }
+                        .cover { text-align: center; position: relative; min-height: 180mm; }
+                        .cover-logos { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8mm; }
+                        .cover-logos img { height: 18mm; object-fit: contain; }
+                        .cover-title { margin-top: 20mm; font-size: 26pt; font-weight: 700; color: #ffffff; background: #266c93; padding: 5mm; display: inline-block; }
+                        .cover-subtitle { margin-top: 8mm; font-size: 14pt; font-weight: 700; }
+                        .cover-meta { margin-top: 10mm; font-size: 12pt; font-weight: 700; }
+                        .bar-title { background: #266c93; color: #fff; font-weight: 700; padding: 2.5mm; border-radius: 2mm; margin: 0 0 2mm 0; }
+                        .block { margin-bottom: 4mm; }
+                        .section-title { margin: 0 0 2mm 0; font-size: 14pt; font-weight: 700; text-align: center; }
+                        .separator { border-top: 1px solid #000; margin: 3mm 0; }
+                        table { border-collapse: collapse; width: 100%; margin-top: 2mm; }
+                        th, td { border: 1px solid #aaa; padding: 2mm; vertical-align: top; font-size: 8.5pt; }
+                        th { background: #287eb8; color: #fff; text-align: center; }
+                        .highlight-head { background: #8fcf9b; color: #1f4d2e; }
+                        .highlight-cell { background: #f2fbf5; }
+                        ul { margin: 0; padding-left: 4mm; }
+                        .photo-table { width: 100%; border-collapse: collapse; margin-top: 2mm; }
+                        .photo-cell { width: 50%; border: 1px solid #ddd; padding: 2mm; text-align: center; vertical-align: middle; }
+                        .photo-cell img { width: 100%; height: auto; display: block; margin: 0 auto; }
+                        .group-photo { width: 70%; height: auto; display: block; margin: 0 auto 4mm auto; }
+                        .annex-img { width: 100%; height: auto; display: block; margin: 0 auto; }
+                    </style>
+                </head>
+                <body>
+                    <div class='page cover'>
+                        <div class='cover-logos'>
+                            ${logoHspmDataUrl ? `<img src='${logoHspmDataUrl}' alt='Logo HSPM'>` : '<span></span>'}
+                            ${logoSpDataUrl ? `<img src='${logoSpDataUrl}' alt='Logo SP'>` : '<span></span>'}
+                        </div>
+                        <p style='font-size:12pt; font-weight:700; margin:0;'>HOSPITAL DO SERVIDOR PÚBLICO MUNICIPAL</p>
+                        <p style='font-size:10pt; margin:1mm 0 0 0;'>ASSESSORIA DE PLANEJAMENTO ESTRATÉGICO E QUALIDADE</p>
+                        <div class='cover-title'>AUTO AVALIAÇÃO</div>
+                        <div class='cover-subtitle'>ATA DE REGISTRO DA VISITA DE QUALIDADE</div>
+                        <div class='cover-meta'>LOCAL: ${escapeHtml(data.visitLocal || 'Não informado')}</div>
+                        <div class='cover-meta'>DATA: ${escapeHtml(data.visitDate || 'Não informada')}</div>
+                        <div class='cover-meta'>HORÁRIO: ${escapeHtml(data.visitTime || 'Não informado')}</div>
+                    </div>
+
+                    <div class='page'>
+                        <div class='block'>
+                            <div class='bar-title'>PARTICIPANTES:</div>
+                            <p>${escapeHtml(data.participants || 'Nenhum participante listado.')}</p>
+                        </div>
+                        <div class='block'>
+                            <div class='bar-title'>ASSUNTO DA REUNIÃO:</div>
+                            <p><strong>Visita para auditoria de itens Roteiro do CQH</strong></p>
+                        </div>
+                        <div class='block'>
+                            ${groupPhotoHtml}
+                            <p><strong>Roteiro:</strong> Em anexo</p>
+                            <p><strong>Fotos:</strong> Em anexo</p>
+                            <div class='separator'></div>
+                            <p><strong>A reunião teve início com a avaliação dos itens pertinentes ao Roteiro do CQH. Foram mostradas evidências dos itens, conforme descrito abaixo e anexamos uma proposta para dar um passo adiante para a próxima visita.</strong></p>
+                        </div>
+                        <div class='block'>
+                            <div class='bar-title'>PRÓXIMA VISITA:</div>
+                            <p><strong>${escapeHtml(data.nextVisit || 'Não definida.')}</strong></p>
+                        </div>
+                    </div>
+
+                    <div class='page'>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Seção</th>
+                                    <th>Tema</th>
+                                    <th>Item</th>
+                                    <th>Descrição do Item</th>
+                                    <th>Subitem</th>
+                                    <th>Descrição do Subitem</th>
+                                    <th>Nível de Exigência</th>
+                                    <th class='highlight-head'>Avaliação</th>
+                                    <th class='highlight-head'>Evidências</th>
+                                    <th class='highlight-head'>Propostas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${tableRowsHtml || `<tr><td colspan='10'>Sem itens preenchidos.</td></tr>`}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    ${observationsHtml ? `
+                    <div class='page'>
+                        <div class='bar-title'>OBSERVAÇÕES DA VISITA:</div>
+                        ${observationsHtml}
+                    </div>` : ''}
+
+                    ${(data.evidencePhotos || []).length ? `
+                    <div class='page'>
+                        <table class='photo-table'>${evidencePhotosHtml}</table>
+                    </div>` : ''}
+
+                    <div class='page'>
+                        <h3 class='section-title'>DANDO UM PASSO ADIANTE...</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>AÇÃO</th>
+                                    <th>RESPONSÁVEL</th>
+                                    <th>SETOR</th>
+                                    <th>PRAZO PARA FINALIZAÇÃO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${actionRowsHtml || `<tr><td colspan='4'>Sem ações definidas.</td></tr>`}
+                            </tbody>
+                        </table>
+                        <p style='margin-top: 5mm; font-weight:700;'>Vide exemplos na página seguinte.</p>
+                    </div>
+
+                    <div class='page'>
+                        <h3 class='section-title'>ANEXO - MAPEAMENTO DE PROCESSOS</h3>
+                        ${mapImageDataUrl ? `<img src='${mapImageDataUrl}' class='annex-img' alt='Mapeamento de processos'>` : '<p>Imagem do mapeamento não disponível.</p>'}
+                    </div>
+                </body>
+                </html>
+            `;
+
+            const blob = new Blob(['\ufeff', wordHtml], { type: 'application/msword;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `relatorio_visita_${sanitizeFileName(data.visitLocal)}.doc`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        } catch (error) {
+            console.error('Erro ao gerar documento Word:', error);
+            alert('Não foi possível gerar o arquivo Word. Verifique o console (F12).');
+        }
     }
 
     // --- FUNÇÕES DE PROCESSAMENTO DE ARQUIVO (GALERIA) ---
@@ -612,18 +859,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // --- PÁGINA 2: DETALHES (Compactada para caber em uma página) ---
             doc.addPage();
             let y = margin;
-            
-            // Função auxiliar simplificada apenas para verificar fim da página
-            const checkAddPage = (currentY, requiredHeight) => {
-                if (currentY + requiredHeight > pageBottom) {
-                    doc.addPage();
-                    return margin; 
-                }
-                return currentY; 
-            };
 
             const barHeight = 7; // Barra colorida mais fina
-            const textPadding = 5; 
             const blockSpacing = 4; // Espaço menor entre blocos
 
             // 1. PARTICIPANTES
@@ -689,7 +926,7 @@ document.addEventListener('DOMContentLoaded', () => {
             doc.line(margin, y, pageWidth - margin, y); // Linha separadora
             y += 5;
 
-            const paragraph = "A reunião teve início com a avaliação dos itens pertinentes ao Roteiro do CQH. Foram mostradas evidências dos itens, conforme descrito abaixo e anexamos uma proposta para dar um passo adiante para a próxima visita.";
+            const paragraph = "A reunião teve início com a avaliação dos itens pertinentes ao Roteiro do CQH. Foram mostradas evidências dos itens, conforme descrito abaixo e anexamos uma proposta \npara dar um passo adiante para a próxima visita.";
             const paragraphLines = doc.splitTextToSize(paragraph, pageWidth - (margin * 2));
             
             doc.setFont('helvetica', 'bold'); doc.setFontSize(9);
@@ -719,11 +956,21 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.tableData.length > 0) {
                 doc.autoTable({
                     startY: finalY,
-                    // ADICIONE ESTA LINHA AQUI:
                     rowPageBreak: 'avoid', 
-                    
-                    head: [['Seção', 'Tema', 'Item', 'Descrição do Item', 'Subitem', 'Descrição do Subitem', 'Nível de Exigência', 'Avaliação', 'Evidências', 'Propostas']],
-                    body: data.tableData.map(item => {
+                
+                      head: [[
+                        'Seção',
+                        'Tema',
+                        'Item',
+                        'Descrição\ndo Item',
+                        'Subitem',
+                        'Descrição do\nSubitem',
+                        'Nível de Exigência',
+                        'Avaliação',
+                        'Evidências',
+                        'Propostas'
+                    ]],
+                     body: data.tableData.map(item => {
                         const formatAsList = (text) => {
                             if (!text || text.trim() === '') return ''; 
                             return text.split('\n').map(line => line.trim()).filter(line => line !== '').map(line => `• ${line}`).join('\n'); 
@@ -743,8 +990,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     }),
                     theme: 'grid',
                     headStyles: { 
-                        fillColor: [40, 126, 184], fontSize: 9, 
-                        halign: 'center', valign: 'middle'
+                       fillColor: [40, 126, 184],
+                        fontSize: 6.8,
+                        cellPadding: 1.2,
+                        overflow: 'linebreak',
+                        halign: 'center',
+                        valign: 'middle'
                     },
                     styles: { 
                         fontSize: 8, cellPadding: 2.5, 
@@ -752,16 +1003,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     },
                     columnStyles: {
                         0: { cellWidth: 25 }, 
-                        1: { cellWidth: 20 }, 
-                        2: { cellWidth: 8 },  
-                        3: { cellWidth: 45 }, 
-                        4: { cellWidth: 10 }, 
-                        5: { cellWidth: 35 }, 
-                        6: { cellWidth: 12 }, 
-                        7: { cellWidth: 12 }, 
-                        8: { cellWidth: 50, halign: 'left' }, 
-                        9: { cellWidth: 50, halign: 'left' }, 
+                        1: { cellWidth: 18 }, 
+                        2: { cellWidth: 12 },  
+                        3: { cellWidth: 40 }, 
+                        4: { cellWidth: 15 }, 
+                        5: { cellWidth: 31 }, 
+                        6: { cellWidth: 18 }, 
+                        7: { cellWidth: 16, fillColor: [234, 248, 238] }, 
+                        8: { cellWidth: 46, halign: 'left', fillColor: [242, 251, 245] }, 
+                        9: { cellWidth: 46, halign: 'left', fillColor: [242, 251, 245] }, 
                     },
+                    didParseCell: (hookData) => {
+                        if (hookData.section === 'head' && [7, 8, 9].includes(hookData.column.index)) {
+                            hookData.cell.styles.fillColor = [143, 207, 155];
+                            hookData.cell.styles.textColor = [31, 77, 46];
+                        }
+                    },
+
                     didDrawPage: (hookData) => { 
                         finalY = hookData.cursor.y;
                     }
@@ -806,7 +1064,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 y = margin;
                 // Título apenas na primeira página de fotos
                 doc.setFontSize(16); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0);
-                doc.text('FOTOS DE EVIDÊNCIA', pageWidth / 2, y, { align: 'center' }); y += 15;
+                doc.text('FOTOS', pageWidth / 2, y, { align: 'center' }); y += 15;
                 
                 const imagesPerRow = 3; const imgWidth = 85; 
                 const horizontalGap = 5; const verticalGap = 10; let photoX = margin;
@@ -838,14 +1096,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 y += maxHeightInRow + 15; 
             }
 
-            // --- PLANO DE AÇÃO (Página Exclusiva) ---
+            // --- DANDO UM PASSO ADIANTE (Página Exclusiva) ---
             if (data.actionPlan.length > 0) {
-                // Força SEMPRE uma nova página antes de começar o Plano de Ação
+                // Força SEMPRE uma nova página antes de começar o Dando um Passo Adiante, para garantir que fique separado do conteúdo anterior
                 doc.addPage(); 
                 y = margin; 
                 
                 doc.setFontSize(16); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0);
-                doc.text('PLANO DE AÇÃO', pageWidth / 2, y, { align: 'center' }); y += 10;
+                doc.text('DANDO UM PASSO ADIANTE...', pageWidth / 2, y, { align: 'center' }); y += 10;
                 
                 doc.autoTable({
                     startY: y,
@@ -853,9 +1111,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     head: [['AÇÃO', 'RESPONSÁVEL', 'SETOR', 'PRAZO PARA FINALIZAÇÃO']],
                     body: data.actionPlan.map(item => [item.action, item.responsible, item.sector, item.deadline]),
                     theme: 'grid',
-                    headStyles: { fillColor: [0, 69, 133], fontSize: 10, halign: 'center', valign: 'middle' },
+                     headStyles: {
+                        fillColor: [0, 69, 133],
+                        fontSize: 8,
+                        cellPadding: 1.5,
+                        overflow: 'linebreak',
+                        halign: 'center',
+                        valign: 'middle'
+                    },
                     styles: { fontSize: 9, cellPadding: 3, halign: 'center', valign: 'middle' },
                 });
+
+                  let noteY = (doc.lastAutoTable?.finalY || y) + 14;
+                if (noteY > pageBottom) {
+                    doc.addPage();
+                    noteY = margin;
+                }
+
+                doc.setFont('helvetica', 'bold');
+                doc.setFontSize(11);
+                doc.setTextColor(40, 40, 40);
+                doc.text('VIDE EXEMPLOS NA PÁGINA SEGUINTE.', margin, noteY);
             }
 
             // --- PÁGINA FINAL: ANEXO ---
