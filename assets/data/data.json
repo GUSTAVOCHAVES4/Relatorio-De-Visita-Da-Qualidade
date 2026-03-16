@@ -12473,6 +12473,17 @@
    "exigency_level": "*",
    "responsible": "GERÊNCIA DE ENFERMAGEM"
  },
+  {
+   "master_id": "e190aef5-fc9c-4cdc-8a9d-77d924e2dac3",
+   "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
+   "theme": "APOIO HOSPITALAR - PROCESSO MATERIAIS E MEDICAMENTOS",
+   "description": "Há controle da validade dos materiais médicos e medicamentos (incluindo os fracionados)?",
+   "item_number": 164,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "*",
+   "responsible": "ALMOXARIFADO"
+ },
  {
    "master_id": "3b8e3445-8983-4043-97cb-b69a5af7f7a8",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
@@ -13858,6 +13869,17 @@
    "subitem_description": "",
    "exigency_level": "*",
    "responsible": "ENGENHARIA"
+ },
+   {
+   "master_id": "dbfa77cc-fa8e-427c-87ad-7e553e69725f",
+   "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS RELATIVOS À FORNECEDORES",
+   "description": "Resultados da conformidade na entrega de produtos pelos fornecedores.",
+   "item_number": 31,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "*",
+   "responsible": "ALMOXARIFADO"
  },
  {
    "master_id": "e0a09e45-fe31-4f18-ad6d-1f73c59c82a6",
