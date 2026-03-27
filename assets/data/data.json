@@ -935,6 +935,28 @@
    "responsible": "DAS"
  },
   {
+   "master_id": "807a4dc2-163b-40f2-8be0-204c012f739b",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "APERFEIÇOAMENTO",
+   "description": "Planos de melhoria desdobrados a partir do relatório de autoavaliação",
+   "item_number": 1,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "QUALIDADE"
+ },
+   {
+   "master_id": "d9d34605-916d-43d4-a132-586adc7fff43",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "APERFEIÇOAMENTO",
+   "description": "Planos de melhoria desdobrados a partir do relatório de autoavaliação",
+   "item_number": 1,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "GERÊNCIA DE ENSINO E PESQUISA"
+ },
+  {
    "master_id": "d1530af8-baa5-420a-af50-64759c4f8439",
    "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
    "theme": "CONHECIMENTO",
@@ -966,6 +988,237 @@
    "subitem_description": "",
    "exigency_level": "**",
    "responsible": "DGT"
+ },
+   {
+   "master_id": "413b3ef6-7e00-4381-97c4-3fc42c1bf40d",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ANESTESIA"
+ },
+  {
+   "master_id": "d4077037-b0d4-447e-bbae-8d3157bb311d",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "ANESTESIA"
+ },
+  {
+   "master_id": "7c2bfc6c-502e-4069-9e57-e96f592eafb2",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "ANESTESIA"
+ },
+   {
+   "master_id": "9f48381a-88e9-4691-a754-af1f900ead4a",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "QUALIDADE"
+ },
+  {
+   "master_id": "fa4c7f08-c483-4a71-901f-538b4ec9660f",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "QUALIDADE"
+ },
+  {
+   "master_id": "7120e42e-70e8-429a-9f4d-f116094b7e90",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "QUALIDADE"
+ },
+   {
+   "master_id": "c1ca5587-bc61-4bf9-b9ec-47cfdab0bc19",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "COMISSÃO DE TECNOLOGIA"
+ },
+  {
+   "master_id": "f974ac40-60b9-408c-a8e0-bdbf2dbf6059",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "COMISSÃO DE TECNOLOGIA"
+ },
+  {
+   "master_id": "99890d0c-a9f7-4b36-99b5-22ca32a2762b",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "COMISSÃO DE TECNOLOGIA"
+ },
+   {
+   "master_id": "3b31af7d-c20c-4a8a-af73-5883ebfd15de",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
+ },
+  {
+   "master_id": "15feee74-7615-46b0-9664-f0ee20ac1a92",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
+ },
+  {
+   "master_id": "870e3b1c-1cd1-4ba4-ae24-f93ad0378967",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
+ },
+   {
+   "master_id": "1da5cd1d-f6aa-4e07-abf1-70feeb887e1f",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "COMISSÃO PARA MATERIAIS"
+ },
+  {
+   "master_id": "156ddad4-8afa-48f3-9e9f-a25f0be578e4",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "COMISSÃO PARA MATERIAIS"
+ },
+  {
+   "master_id": "784f4b93-6210-4e49-b644-042ffb60b72e",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "COMISSÃO PARA MATERIAIS"
+ },
+   {
+   "master_id": "fd3800ea-3f4b-4180-b8a5-4c73b4ef2619",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "GERÊNCIA DE ENSINO E PESQUISA"
+ },
+  {
+   "master_id": "1da3e57d-11ea-4a2a-b62b-646432c7bdda",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "GERÊNCIA DE ENSINO E PESQUISA"
+ },
+  {
+   "master_id": "6896fc11-08ab-42f2-8742-4f9b1e8517bc",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "GERÊNCIA DE ENSINO E PESQUISA"
+ },
+   {
+   "master_id": "2a1143e7-467a-4275-a8a9-e26e66020022",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Normas, procedimentos e rotinas operacionais atualizados das áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "COMISSÕES (RENATA)"
+ },
+  {
+   "master_id": "5fd4a323-98d2-4be0-814f-8c965f134322",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Manuais operacionais atualizados das áreas: Central de Materiais e Esterilização (CME), Farmácia, Laboratório de Análises Clínicas, Hemoterapia, Terapia Renal Substitutiva (TRS - diálise e hemodiálise), Serviço de Apoio Diagnóstico e Terapêutico (SADT), Serviço de Nutrição e Dietética (SND), Administração de Pessoas, Lavanderia, Higiene e Limpeza, Manutenção, Engenharia Clínica e demais serviços de apoios, de acordo com o perfil atualizado do hospital.",
+   "item_number": 3,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "",
+   "responsible": "COMISSÕES (RENATA)"
+ },
+  {
+   "master_id": "84090962-ffac-4693-93a4-608aec4b2289",
+   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "CONHECIMENTO",
+   "description": "Protocolos baseados em evidências clínicas, atualizados para as áreas: Berçário, Neonatologia Patológica, Pediatria, Clínica Médica, Clínica Cirúrgica e/ou quaisquer outros serviços do hospital, de acordo com perfil atualizado do hospital.",
+   "item_number": 4,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "**",
+   "responsible": "COMISSÕES (RENATA)"
  },
    {
    "master_id": "7db893a8-349c-4072-87b3-8d63ff5aac63",
@@ -1537,7 +1790,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "CÓDIGO DE ÉTICA"
+   "responsible": "COMISSÃO DE ÉTICA"
  },
   {
    "master_id": "b67b1d06-0695-4842-bd7e-d1a48be0b0e1",
@@ -1548,7 +1801,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "CÓDIGO DE ÉTICA"
+   "responsible": "COMISSÃO DE ÉTICA"
  },
   {
    "master_id": "5ecaec1a-0e15-4270-bfed-ce24ac14fec1",
@@ -1559,7 +1812,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "**",
-   "responsible": "CÓDIGO DE ÉTICA"
+   "responsible": "COMISSÃO DE ÉTICA"
  },
    {
    "master_id": "681a3106-feef-45b2-874f-d3b8426be80d",
@@ -2321,17 +2574,6 @@
    "responsible": "DGA"
  },
  {
-   "master_id": "807a4dc2-163b-40f2-8be0-204c012f739b",
-   "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
-   "theme": "APERFEIÇOAMENTO",
-   "description": "Planos de melhoria desdobrados a partir do relatório de autoavaliação",
-   "item_number": 1,
-   "subitem_number": null,
-   "subitem_description": "",
-   "exigency_level": "",
-   "responsible": "QUALIDADE"
- },
- {
    "master_id": "bcfc59bb-3668-4913-bb46-c50e44e7e237",
    "section": "3. APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
    "theme": "CONHECIMENTO",
@@ -2582,7 +2824,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "ENGENHARIA CLÍNICA"
+   "responsible": "COMISSÃO DE TECNOLOGIA"
  },
  {
    "master_id": "d9697bd0-5e7c-4786-9085-6bb8d5fe713b",
@@ -2659,7 +2901,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "CÓDIGO DE ÉTICA"
+   "responsible": "COMISSÃO DE ÉTICA"
  },
  {
    "master_id": "26ecacb1-69d8-4abc-97e2-ed824a1a0dcf",
@@ -2715,17 +2957,6 @@
    "subitem_description": "",
    "exigency_level": "*",
    "responsible": "DGT"
- },
- {
-   "master_id": "deba5516-5c25-4edd-af65-b5322f253cc8",
-   "section": "5. LIDERANÇA TRANSFORMADORA",
-   "theme": "GOVERNANÇA",
-   "description": "Atas de reuniões de times de trabalho, comissões tais como: ética médica, de enfermagem e comitês técnicos",
-   "item_number": 3,
-   "subitem_number": null,
-   "subitem_description": "",
-   "exigency_level": "*",
-   "responsible": "COMISSÕES (RENATA)"
  },
  {
    "master_id": "c7fe8b6c-c60a-49ab-9f13-fd215a3cc279",
@@ -2891,17 +3122,6 @@
    "subitem_description": "",
    "exigency_level": "",
    "responsible": "DAC"
- },
- {
-   "master_id": "3e40ae54-3961-4188-9e93-8297e0648e1a",
-   "section": "7. ORIENTAÇÃO POR PROCESSOS",
-   "theme": "GESTÃO POR PROCESSOS",
-   "description": "Avaliação dos resultados dos processos do laboratório junto ao corpo clínico do hospital",
-   "item_number": 6,
-   "subitem_number": null,
-   "subitem_description": "",
-   "exigency_level": "",
-   "responsible": "LPC"
  },
   {
    "master_id": "53604981-2d18-42f8-a4fa-86a4f03cb131",
@@ -3641,17 +3861,6 @@
    "responsible": "OUVIDORIA"
  },
  {
-   "master_id": "88c5d783-a136-459a-8566-e2b8cc404e1f",
-   "section": "FUNDAMENTO 2 - COMPROMISSO COM AS PARTES INTERESSADAS",
-   "theme": "FORNECEDOR",
-   "description": "Seleciona os fornecedores, corpo clínico, equipes técnicas que prestam serviços assistenciais e outros serviços?",
-   "item_number": 15,
-   "subitem_number": null,
-   "subitem_description": "",
-   "exigency_level": "",
-   "responsible": "ENGENHARIA CLÍNICA"
- },
- {
    "master_id": "dd8b3f1f-bec1-4109-b9e8-6293c6cf49c4",
    "section": "FUNDAMENTO 2 - COMPROMISSO COM AS PARTES INTERESSADAS",
    "theme": "FORNECEDOR",
@@ -4102,6 +4311,50 @@
    "exigency_level": "",
    "responsible": "DGT"
  },
+  {
+   "master_id": "0df1b646-966c-491d-8494-b30c8d6a87e0",
+   "section": "FUNDAMENTO 2 - COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORÇA DE TRABALHO",
+   "description": "Identifica e analisa o bem-estar e a satisfação das pessoas que trabalham no hospital?\n(no mínimo 1 subitem)",
+   "item_number": 38,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "*",
+   "responsible": "DGT"
+ },
+ {
+   "master_id": "c98efd7c-9de7-4246-8124-88eb03e35465",
+   "section": "FUNDAMENTO 2 - COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORÇA DE TRABALHO",
+   "description": "Identifica e analisa o bem-estar e a satisfação das pessoas que trabalham no hospital? (no mínimo 1 subitem)",
+   "item_number": 38,
+   "subitem_number": 1,
+   "subitem_description": "Pesquisa de clima organizacional",
+   "exigency_level": "",
+   "responsible": "QUALIDADE"
+ },
+ {
+   "master_id": "b9c5727d-b7aa-4695-b16a-1cd11190c0b6",
+   "section": "FUNDAMENTO 2 - COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORÇA DE TRABALHO",
+   "description": "Identifica e analisa o bem-estar e a satisfação das pessoas que trabalham no hospital? (no mínimo 1 subitem)",
+   "item_number": 38,
+   "subitem_number": 2,
+   "subitem_description": "Ouvidoria da força de trabalho",
+   "exigency_level": "",
+   "responsible": "QUALIDADE"
+ },
+ {
+   "master_id": "93217dea-0f07-47f7-b3e9-0704f04c8b9d",
+   "section": "FUNDAMENTO 2 - COMPROMISSO COM AS PARTES INTERESSADAS",
+   "theme": "FORÇA DE TRABALHO",
+   "description": "Identifica e analisa o bem-estar e a satisfação das pessoas que trabalham no hospital? (no mínimo 1 subitem)",
+   "item_number": 38,
+   "subitem_number": 3,
+   "subitem_description": "Outros canais de comunicação? Especificar:",
+   "exigency_level": "",
+   "responsible": "QUALIDADE"
+ },
  {
    "master_id": "98bd9e49-8f09-4d48-b70e-5668a1f253f6",
    "section": "FUNDAMENTO 2 - COMPROMISSO COM AS PARTES INTERESSADAS",
@@ -4266,6 +4519,17 @@
    "subitem_description": "",
    "exigency_level": "*",
    "responsible": "DGT"
+ },
+  {
+   "master_id": "c83c968f-0f3c-43bf-9c17-b3ed24e695a0",
+   "section": "FUNDAMENTO 3 - APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
+   "theme": "APERFEIÇOAMENTO",
+   "description": "Utiliza a autoavaliação do roteiro CQH como uma das ferramentas do diagnóstico organizacional para promoção de melhorias?",
+   "item_number": 2,
+   "subitem_number": null,
+   "subitem_description": "",
+   "exigency_level": "*",
+   "responsible": "QUALIDADE"
  },
  {
    "master_id": "1222cd0b-fa4b-4fe1-8be9-00b4568ee4b2",
@@ -4458,7 +4722,7 @@
    "master_id": "a48efea3-8c5f-4b7e-9ad7-37a3fda0841b",
    "section": "FUNDAMENTO 3 - APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
    "theme": "GESTÃO DO CONHECIMENTO",
-   "description": "",
+   "description": "Retém e protege o conhecimento desenvolvido no hospital, por meio de: (no mínimo 2 subitens)",
    "item_number": 7,
    "subitem_number": 6,
    "subitem_description": "Mecanismo para gestão de documentos (atualização, validação, controle de cópias e acesso)",
@@ -4469,12 +4733,12 @@
    "master_id": "21dfc7cb-0f11-4498-a4ce-55445dd89c0b",
    "section": "FUNDAMENTO 3 - APRENDIZADO ORGANIZACIONAL E INOVAÇÃO",
    "theme": "GESTÃO DO CONHECIMENTO",
-   "description": "",
+   "description": "Retém e protege o conhecimento desenvolvido no hospital, por meio de: (no mínimo 2 subitens)",
    "item_number": 7,
    "subitem_number": 7,
    "subitem_description": "Estímulo para publicações científicas ou acadêmicas",
    "exigency_level": "",
-   "responsible": "GEP"
+   "responsible": "GERÊNCIA DE ENSINO E PESQUISA"
  },
  {
    "master_id": "4cd176b4-83f0-4d80-b611-08439742be80",
@@ -4738,7 +5002,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "GEP"
+   "responsible": "GERÊNCIA DE ENSINO E PESQUISA"
  },
  {
    "master_id": "f55ad20e-056d-4c41-8204-53fe415ba7ce",
@@ -4749,7 +5013,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "GEP"
+   "responsible": "GERÊNCIA DE ENSINO E PESQUISA"
  },
  {
    "master_id": "143017b2-45f7-4da1-abb2-aefc42031cf0",
@@ -7279,7 +7543,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "*",
-   "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
  },
  {
    "master_id": "1a75029a-c0f1-4f4b-bad3-24c0eb746834",
@@ -7290,7 +7554,7 @@
    "subitem_number": 1,
    "subitem_description": "Evoluções e prescrições médicas diárias e atualizadas",
    "exigency_level": "",
-   "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
  },
  {
    "master_id": "91161642-d9f1-4102-ba9c-419a861fcd20",
@@ -7301,7 +7565,7 @@
    "subitem_number": 2,
    "subitem_description": "Anotações de enfermagem diárias e atualizadas",
    "exigency_level": "",
-   "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
  },
  {
    "master_id": "d932ff6c-c363-4c2d-9866-3c81f1e31f27",
@@ -7312,7 +7576,7 @@
    "subitem_number": 3,
    "subitem_description": "Registro de resultados de exames complementares",
    "exigency_level": "",
-   "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
  },
  {
    "master_id": "01715bff-585b-49c0-b017-595b3fd620e9",
@@ -7323,7 +7587,7 @@
    "subitem_number": 4,
    "subitem_description": "Registro de atividades de equipe multiprofissional",
    "exigency_level": "",
-   "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
  },
  {
    "master_id": "5aee3452-edca-4004-a2d6-2dbbef603d41",
@@ -7334,7 +7598,7 @@
    "subitem_number": 5,
    "subitem_description": "Relatórios completos de procedimentos realizados no CC e/ou no CO",
    "exigency_level": "",
-   "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
  },
  {
    "master_id": "a1801c9d-db3d-470d-ac70-53e8331f7c64",
@@ -7345,7 +7609,7 @@
    "subitem_number": 6,
    "subitem_description": "Resumo de alta",
    "exigency_level": "",
-   "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
  },
  {
    "master_id": "6cfd81a8-1f79-4739-a190-b7c5eedca339",
@@ -7356,7 +7620,7 @@
    "subitem_number": 7,
    "subitem_description": "Autorização do paciente para realização de procedimentos (consentimento informado livre e esclarecido)",
    "exigency_level": "",
-   "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
  },
  {
    "master_id": "8107876e-dc55-4b02-b78b-c4ee8b050761",
@@ -8252,7 +8516,7 @@
  {
    "master_id": "ac4d6d44-eaf9-495c-8019-d3b24902028a",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO CENTRO CIRÚRGICO",
    "description": "Há um carrinho de anestesia completo para cada sala de cirurgia com monitor cardiorrespiratório e de oxigenação (oxímetro e capnógrafo)?",
    "item_number": 39,
    "subitem_number": null,
@@ -8285,7 +8549,7 @@
  {
    "master_id": "de609dd3-2359-4675-922b-528c1ad83602",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
-   "theme": "ASSISTÊNCIA AO PACIENTE",
+   "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO CENTRO CIRÚRGICO",
    "description": "Há pontos de O2, ar comprimido e vácuo em todas as salas de cirurgia e de recuperação anestésica?",
    "item_number": 41,
    "subitem_number": null,
@@ -8407,7 +8671,7 @@
    "master_id": "6db8e5b1-36f1-473c-9249-745a87e56d0c",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO CENTRO CIRÚRGICO",
-   "description": "",
+   "description": "O hospital mantém programas ou ações referentes ao protocolo de Cirurgia Segura? (no mínimo 5 subitens)",
    "item_number": 42,
    "subitem_number": 4,
    "subitem_description": "Verificação de itens necessários para anestesia, conduzida pela equipe assistencial",
@@ -8418,7 +8682,7 @@
    "master_id": "1b4eb807-55ff-41b9-bb54-eaf05b055254",
    "section": "FUNDAMENTO 7 - ORIENTAÇÃO POR PROCESSOS",
    "theme": "ASSISTÊNCIA AO PACIENTE - PROCESSO CENTRO CIRÚRGICO",
-   "description": "",
+   "description": "O hospital mantém programas ou ações referentes ao protocolo de Cirurgia Segura? (no mínimo 5 subitens)",
    "item_number": 42,
    "subitem_number": 4,
    "subitem_description": "Verificação de itens necessários para anestesia, conduzida pela equipe assistencial",
@@ -12064,7 +12328,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "",
-   "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
  },
  {
    "master_id": "6b917b25-01f9-4f75-afdd-07308c707319",
@@ -12075,7 +12339,7 @@
    "subitem_number": 1,
    "subitem_description": "Folhas datadas",
    "exigency_level": "",
-   "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
  },
  {
    "master_id": "67144787-6513-45d5-8dc1-1a33d3af0bc7",
@@ -12086,7 +12350,7 @@
    "subitem_number": 2,
    "subitem_description": "Folhas com identificação e assinatura dos profissionais que fizeram os registros",
    "exigency_level": "",
-   "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
  },
  {
    "master_id": "70f0f941-69fa-4fa4-a991-7c9952d7490f",
@@ -12097,7 +12361,7 @@
    "subitem_number": 3,
    "subitem_description": "Identificação do paciente em todas as folhas",
    "exigency_level": "",
-   "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
  },
  {
    "master_id": "20c2faf9-290e-43b8-839d-07a61a32e8be",
@@ -12108,7 +12372,7 @@
    "subitem_number": 4,
    "subitem_description": "Anamnese",
    "exigency_level": "",
-   "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
  },
  {
    "master_id": "39d07c93-64d2-4e9b-b1de-84d37513ef2a",
@@ -12119,7 +12383,7 @@
    "subitem_number": 5,
    "subitem_description": "Exame físico",
    "exigency_level": "",
-   "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
  },
  {
    "master_id": "58925155-a90e-4a6d-a5db-356649753356",
@@ -12130,7 +12394,7 @@
    "subitem_number": 6,
    "subitem_description": "Evolução clínica",
    "exigency_level": "",
-   "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
  },
  {
    "master_id": "bd68db9a-e7a3-4250-a069-3aff6bff2eae",
@@ -12141,7 +12405,7 @@
    "subitem_number": 7,
    "subitem_description": "Resumo de alta",
    "exigency_level": "",
-   "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
  },
  {
    "master_id": "85ef9b6b-d6ce-4b7b-a5ea-dba4c565d79a",
@@ -12152,7 +12416,7 @@
    "subitem_number": 8,
    "subitem_description": "Autorização do paciente para realização de procedimentos (consentimento informado livre e esclarecido)?",
    "exigency_level": "",
-   "responsible": "COMISSÃO EDUCACIONAL PERMANENTE DE PRONTUÁRIO"
+   "responsible": "COMISSÃO DE EDUCAÇÃO PERMANENTE NO PRONTUÁRIO"
  },
  {
    "master_id": "9557c8d2-1395-4b75-8355-9f1f989d1d10",
@@ -13857,7 +14121,7 @@
    "subitem_number": null,
    "subitem_description": "",
    "exigency_level": "*",
-   "responsible": "COM"
+   "responsible": "COMISSÃO PARA MATERIAIS"
  },
   {
    "master_id": "d8a61ab7-226d-4ea0-af82-16685ae957c2",
