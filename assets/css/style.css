@@ -64,7 +64,25 @@ table {
 
 /* Layout automático para se ajustar (tabela principal) */
 #action-items-table {
-    table-layout: auto;
+       table-layout: fixed;
+    min-width: 1850px;
+}
+
+#action-items-table th,
+#action-items-table td {
+    min-width: 110px;
+}
+
+#action-items-table th:nth-child(9),
+#action-items-table td:nth-child(9) {
+    min-width: 280px;
+}
+
+#action-items-table th:nth-child(10),
+#action-items-table td:nth-child(10),
+#action-items-table th:nth-child(11),
+#action-items-table td:nth-child(11) {
+    min-width: 320px;
 }
 
 th, td {
@@ -115,12 +133,12 @@ tr:nth-child(odd) {
 /* Formulário dentro da tabela */
 textarea {
     width: 100%;
-    min-height: 80px;
+    min-height: 120px;
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #999;
     border-radius: 6px;
-    resize: none;
+    resize: vertical;
     font-family: Arial, sans-serif;
     font-size: 14px;
     line-height: 1.5;
@@ -157,10 +175,13 @@ textarea:focus {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: nowrap; 
-    gap: 5px;
+    flex-wrap: wrap; 
+    gap: 6px;
     width: 100%;
-    height: 100%; 
+    max-width: 100%;
+    height: 100%;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .evaluation-cell input[type="radio"] {
@@ -168,7 +189,7 @@ textarea:focus {
 }
 
 .evaluation-cell .radio-label {
-    padding: 6px 12px;
+    padding: 6px 10px;
     border: 1px solid #000000;
     border-radius: 20px;
     cursor: pointer;
@@ -178,6 +199,7 @@ textarea:focus {
     transition: all 0.2s ease;
     background-color: #f0f4f8;
     color: #333;
+    white-space: nowrap;
 }
 
 .evaluation-cell .radio-label:hover {
@@ -224,6 +246,7 @@ textarea:focus {
     justify-content: center;
     flex-shrink: 0; /* Garante que o botão não seja "esmagado" */
     line-height: 1; /* Centraliza o X verticalmente */
+    white-space: nowrap; /* Impede quebra de linha */
 }
 
 /* Efeito ao passar o mouse (Hover) - Mantém um tom avermelhado para indicar "remover" */
@@ -764,8 +787,20 @@ tr.avaliacao-pendente .evaluation-cell div {
     }
 
     #action-items-table {
-        min-width: 1200px;
+        min-width: 1400px;
     }
+
+    #action-items-table th:nth-child(9),
+    #action-items-table td:nth-child(9) {
+        min-width: 250px;
+    }
+
+    #action-items-table th:nth-child(10),
+    #action-items-table td:nth-child(10),
+    #action-items-table th:nth-child(11),
+    #action-items-table td:nth-child(11) {
+        min-width: 260px;
+}
 
     /* Ajusta o tamanho da fonte da tabela para ler melhor */
     #action-items-table th,
@@ -775,8 +810,9 @@ tr.avaliacao-pendente .evaluation-cell div {
     
     /* 4. Correção dos botões Sim/Não/N/A */
     .evaluation-cell {
-        min-width: 110px; 
-        justify-content: center; 
+        min-width: 0; 
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
     .evaluation-cell .radio-label {
