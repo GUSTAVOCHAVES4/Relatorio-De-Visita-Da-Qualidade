@@ -868,3 +868,28 @@ tr.avaliacao-pendente .evaluation-cell div {
 #action-items-table tbody tr:not(.section-header):not(.theme-header) td:nth-child(11) textarea {
     background-color: #ffffff;
 }
+
+/* Botão de Girar Imagem */
+.image-preview-wrapper .rotate-image-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: rgba(40, 126, 184, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    line-height: 1;
+    padding-bottom: 3px;
+}
+.image-preview-wrapper .rotate-image-btn:hover {
+    background-color: #1f6797;
+}
