@@ -389,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         body { font-family: Arial, sans-serif; }
                         .page-break { page-break-before: always; }
                         table.main-table { border-collapse: collapse; width: 100%; }
-                        table.main-table th, table.main-table td { border: 1pt solid #aaa; padding: 5pt; font-size: 8.5pt; vertical-align: top; }
+                        table.main-table th, table.main-table td { border: 1pt solid #aaa; padding: 4pt; font-size: 12pt; vertical-align: top; line-height: 1.35; word-break: break-word; }
                         table.main-table th { background-color: #287eb8; color: white; font-weight: bold; text-align: center; }
                         ul { margin: 0; padding-left: 15pt; }
                     </style>
@@ -411,7 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <td align="center" bgcolor="#f57f17" style="padding: 40pt 0;">
                                 <table width="60%" cellpadding="15"><tr><td bgcolor="#266c93" align="center"><div style="font-size: 28pt; font-weight: bold; color: white;">AUTO AVALIAÇÃO</div></td></tr></table>
                                 <table width="100%" cellpadding="8"><tr><td bgcolor="#b4e68c"></td></tr></table><br>
-                                <div style="font-size: 14pt; font-weight: bold; color: #333;">ATA DE REGISTRO DA VISITA DE QUALIDADE</div>
+                                <div style="font-size: 16pt; font-weight: bold; color: #333;">ATA DE REGISTRO DA VISITA DE QUALIDADE</div>
                             </td>
                         </tr>
                     </table><br><br>
@@ -423,20 +423,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div><br clear="all" class="page-break" />
 
                     <table width="100%" bgcolor="#266c93" cellpadding="5" style="margin-bottom: 5pt;"><tr><td><b style="color: white;">PARTICIPANTES:</b></td></tr></table>
-                    <p style="font-size: 10pt;">${escapeHtml(data.participants || 'Nenhum participante listado.')}</p>
+                    <p style="font-size: 12pt; line-height: 1.4;">${escapeHtml(data.participants || 'Nenhum participante listado.')}</p>
 
                     <table width="100%" bgcolor="#266c93" cellpadding="5" style="margin-bottom: 5pt;"><tr><td><b style="color: white;">ASSUNTO DA REUNIÃO:</b></td></tr></table>
-                    <p style="font-size: 10pt;"><b>Visita para auditoria de itens Roteiro do CQH</b></p>
+                    <p style="font-size: 12pt; line-height: 1.4;"><b>Visita para auditoria de itens Roteiro do CQH</b></p>
 
                     ${data.groupPhoto?.url ? `<div align="center"><img src="${data.groupPhoto.url}" width="400"></div>` : ''}
 
-                    <p style="font-size: 10pt;"><b>Roteiro:</b> Em anexo / <b>Fotos:</b> Em anexo</p><hr>
-                    <p style="font-size: 10pt;"><i>A reunião teve início com a avaliação dos itens pertinentes ao Roteiro do CQH...</i></p>
+                    <p style="font-size: 12pt; line-height: 1.4;"><b>Roteiro:</b> Em anexo / <b>Fotos:</b> Em anexo</p><hr>
+                    <p style="font-size: 12pt; line-height: 1.4;"><i>A reunião teve início com a avaliação dos itens pertinentes ao Roteiro do CQH...</i></p>
 
                     <table width="100%" bgcolor="#266c93" cellpadding="5"><tr><td><b style="color: white;">PRÓXIMA VISITA:</b></td></tr></table>
-                    <p style="font-size: 10pt;"><b>${escapeHtml(data.nextVisit || 'Não definida.')}</b></p><br clear="all" class="page-break" />
+                    <p style="font-size: 12pt; line-height: 1.4;"><b>${escapeHtml(data.nextVisit || 'Não definida.')}</b></p><br clear="all" class="page-break" />
 
-                    <table class="main-table">
+                    <table class="main-table" style="table-layout: fixed; width: 100%;">
                         <thead>
                             <tr>
                                 <th>Seção</th><th>Tema</th><th>Item</th><th>Descrição</th><th>Sub</th><th>Descrição Sub</th><th>Nível</th>
@@ -453,8 +453,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${evidencePhotos.length ? `<br clear="all" class="page-break" /><div style="font-size: 14pt; font-weight: bold; text-align: center; margin-bottom: 10pt;">FOTOS</div><table style="width: 100%; border-collapse: collapse;">${evidencePhotosHtml}</table>` : ''}
 
                     <br clear="all" class="page-break" />
-                    <div style="font-size: 14pt; font-weight: bold; text-align: center; margin-bottom: 10pt;">DANDO UM PASSO ADIANTE...</div>
-                    <table class="main-table">
+                    <div style="font-size: 16pt; font-weight: bold; text-align: center; margin-bottom: 10pt;">DANDO UM PASSO ADIANTE...</div>
+                    <table class="main-table" style="table-layout: fixed; width: 100%;">
                         <thead>
                             <tr>
                                 <th bgcolor="#004585">AÇÃO</th><th bgcolor="#004585">RESPONSÁVEL</th><th bgcolor="#004585">SETOR</th><th bgcolor="#004585">PRAZO PARA FINALIZAÇÃO</th>
@@ -462,7 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </thead>
                         <tbody>${actionRowsHtml || `<tr><td colspan='4'>Sem ações.</td></tr>`}</tbody>
                     </table>
-                    <p style='margin-top: 15pt; font-weight:bold;'>Vide exemplos na página seguinte.</p>
+                    <p style='margin-top: 15pt; font-weight:bold;'>VIDE EXEMPLOS 2 E 3 NA PÁGINA SEGUINTE.</p>
 
                     <br clear="all" class="page-break" />
                     <div style="font-size: 14pt; font-weight: bold; text-align: center; margin-bottom: 10pt;">ANEXO - MAPEAMENTO DE PROCESSOS</div>
@@ -777,7 +777,7 @@ document.addEventListener('DOMContentLoaded', () => {
             doc.addImage(logoHSPM, 'JPG', margin, 8, 35, 12);
             doc.addImage(logoSP, 'JPG', pageWidth - margin - 40, 8, 40, 12);
             
-            doc.setFontSize(12); doc.setTextColor(0, 0, 0); doc.setFont('helvetica', 'bold');
+            doc.setFontSize(14); doc.setTextColor(0, 0, 0); doc.setFont('helvetica', 'bold');
             doc.text('HOSPITAL DO SERVIDOR PÚBLICO MUNICIPAL', pageWidth / 2, 15, { align: 'center' });
             doc.setFontSize(10); doc.setFont('helvetica', 'normal');
             doc.text('ASSESSORIA DE PLANEJAMENTO ESTRATÉGICO E QUALIDADE', pageWidth / 2, 21, { align: 'center' });
@@ -794,77 +794,77 @@ document.addEventListener('DOMContentLoaded', () => {
             doc.setFontSize(32); doc.setTextColor(255, 255, 255); doc.setFont('helvetica', 'bold');
             doc.text('AUTO AVALIAÇÃO', pageWidth / 2, rectY + 13, { align: 'center' }); 
 
-            doc.setFontSize(12); doc.setTextColor(51, 51, 51); doc.setFont('helvetica', 'bold'); 
+            doc.setFontSize(16); doc.setTextColor(51, 51, 51); doc.setFont('helvetica', 'bold'); 
             doc.text('ATA DE REGISTRO DA VISITA DE QUALIDADE', pageWidth / 2, pageHeight / 2 + 1, { align: 'center' });
 
-            doc.setFontSize(12); doc.setTextColor(0, 0, 0); doc.setFont('helvetica', 'bold');
+            doc.setFontSize(14); doc.setTextColor(0, 0, 0); doc.setFont('helvetica', 'bold');
             doc.text(`LOCAL: ${data.visitLocal || 'Não informado'}`, pageWidth / 2, pageHeight / 2 + 25, { align: 'center' });
-            doc.text(`DATA: ${data.visitDate || 'Não informada'}`, pageWidth / 2, pageHeight / 2 + 33, { align: 'center' });
-            doc.text(`HORÁRIO: ${data.visitTime || 'Não informado'}`, pageWidth / 2, pageHeight / 2 + 41, { align: 'center' });
+            doc.text(`DATA: ${data.visitDate || 'Não informada'}`, pageWidth / 2, pageHeight / 2 + 34, { align: 'center' });
+            doc.text(`HORÁRIO: ${data.visitTime || 'Não informado'}`, pageWidth / 2, pageHeight / 2 + 43, { align: 'center' });
 
             doc.addPage();
             let y = margin;
             const barHeight = 7; 
 
             doc.setFillColor.apply(null, azulTitulo); doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 2, 2, 'F');
-            doc.setFontSize(10); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
+            doc.setFontSize(12); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
             doc.text('PARTICIPANTES:', margin + 3, y + 5); 
-            y += barHeight + 3; 
+            y += barHeight + 5; 
             
-            doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); doc.setFontSize(9);
+            doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); doc.setFontSize(12);
             const participantsText = doc.splitTextToSize(data.participants || 'Nenhum participante listado.', pageWidth - (margin * 2) - 5); 
             doc.text(participantsText, margin + 2, y); 
-            y += participantsText.length * 4 + 4; 
+            y += participantsText.length * 6.5 + 10;
 
             doc.setFillColor.apply(null, azulTitulo); doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 2, 2, 'F');
-            doc.setFontSize(10); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
+            doc.setFontSize(12); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
             doc.text('ASSUNTO DA REUNIÃO:', margin + 3, y + 5);
-            y += barHeight + 3; 
-            doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); doc.setFontSize(9);
+            y += barHeight + 5; 
+            doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); doc.setFontSize(12);
             doc.text('Visita para auditoria de itens Roteiro do CQH', margin + 2, y); 
-            y += 9; 
+            y += 12; 
 
             if (data.groupPhoto && data.groupPhoto.url) { 
                 let renderWidth = 110;
                 let renderHeight = data.groupPhoto.aspect ? (renderWidth / data.groupPhoto.aspect) : 70;
                 if (renderHeight > 75) { renderHeight = 75; renderWidth = renderHeight * data.groupPhoto.aspect; }
                 doc.addImage(data.groupPhoto.url, 'PNG', (pageWidth - renderWidth) / 2, y, renderWidth, renderHeight);
-                y += renderHeight + 5; 
+                y += renderHeight + 10; 
             } else { y += 10; }
             
-            doc.setFontSize(9); doc.setFont('helvetica', 'bold'); doc.text('Roteiro:', margin, y); doc.setFont('helvetica', 'normal'); doc.text('Em anexo', margin + 15, y); y += 5;
-            doc.setFont('helvetica', 'bold'); doc.text('Fotos:', margin, y); doc.setFont('helvetica', 'normal'); doc.text('Em anexo', margin + 15, y); y += 8; 
+            doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.text('Roteiro:', margin, y); doc.setFont('helvetica', 'normal'); doc.text('Em anexo', margin + 20, y); y += 7;
+            doc.setFont('helvetica', 'bold'); doc.text('Fotos:', margin, y); doc.setFont('helvetica', 'normal'); doc.text('Em anexo', margin + 20, y); y += 11;  
             
-            doc.setDrawColor(0); doc.setLineWidth(0.5); doc.line(margin, y, pageWidth - margin, y); y += 5;
+            doc.setDrawColor(0); doc.setLineWidth(0.5); doc.line(margin, y, pageWidth - margin, y); y += 8;
 
             const paragraph = "A reunião teve início com a avaliação dos itens pertinentes ao Roteiro do CQH. Foram mostradas evidências dos itens, conforme descrito abaixo e anexamos uma proposta \npara dar um passo adiante para a próxima visita.";
             const paragraphLines = doc.splitTextToSize(paragraph, pageWidth - (margin * 2));
-            doc.setFont('helvetica', 'bold'); doc.setFontSize(9); doc.text(paragraphLines, margin, y);
-            y += (paragraphLines.length * 4) + 8; 
+            doc.setFont('helvetica', 'bold'); doc.setFontSize(12); doc.text(paragraphLines, margin, y);
+            y += (paragraphLines.length * 6.5) + 14; 
 
             if (y + barHeight + 10 > pageBottom) { doc.addPage(); y = margin; }
 
             doc.setFillColor.apply(null, azulTitulo); doc.roundedRect(margin, y, pageWidth - (margin * 2), barHeight, 2, 2, 'F');
-            doc.setFontSize(10); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
+            doc.setFontSize(12); doc.setTextColor.apply(null, brancoTexto); doc.setFont('helvetica', 'bold');
             doc.text('PRÓXIMA VISITA:', margin + 3, y + 5);
-            y += barHeight + 4; 
-            doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); doc.setFontSize(9);
+            y += barHeight + 6; 
+            doc.setFont('helvetica', 'bold'); doc.setTextColor(0, 0, 0); doc.setFontSize(12);
             doc.text(data.nextVisit || 'Não definida.', margin + 2, y); 
             
             doc.addPage(); let finalY = margin; 
 
             if (data.tableData.length > 0) {
                 doc.autoTable({
-                    startY: finalY, rowPageBreak: 'avoid', 
-                    head: [['Seção', 'Tema', 'Item', 'Descrição\ndo Item', 'Subitem', 'Descrição do\nSubitem', 'Nível de Exigência', 'Avaliação', 'Evidências', 'Propostas']],
+                    startY: finalY, rowPageBreak: 'avoid', tableWidth: pageWidth - (margin * 2),  
+                    head: [['Seção', 'Tema', 'Item', 'Descrição do Item', 'Subitem', 'Descrição do Subitem', 'Nível de\nExigência', 'Avaliação', 'Evidências', 'Propostas']],
                     body: data.tableData.map(item => {
                         const formatAsList = (text) => text ? text.split('\n').map(l => l.trim()).filter(l => l !== '').map(l => `• ${l}`).join('\n') : '';
                         return [item.section, item.theme, item.item_number, item.description, item.subitem_number, item.subitem_description, item.exigency_level, item.evaluation, formatAsList(item.evidences), formatAsList(item.proposals)];
                     }),
                     theme: 'grid',
-                    headStyles: { fillColor: [40, 126, 184], fontSize: 6.8, cellPadding: 1.2, halign: 'center', valign: 'middle' },
-                    styles: { fontSize: 8, cellPadding: 2.5, halign: 'center', valign: 'middle' },
-                    columnStyles: { 0:{cellWidth:25}, 1:{cellWidth:18}, 2:{cellWidth:12}, 3:{cellWidth:40}, 4:{cellWidth:15}, 5:{cellWidth:31}, 6:{cellWidth:18}, 7:{cellWidth:16, fillColor:[234, 248, 238]}, 8:{cellWidth:46, halign:'left', fillColor:[242, 251, 245]}, 9:{cellWidth:46, halign:'left', fillColor:[242, 251, 245]} },
+                    headStyles: { fillColor: [40, 126, 184], fontSize: 10.5, cellPadding: 2.4, halign: 'center', valign: 'middle', font: 'helvetica', overflow: 'linebreak' },
+                    styles: { font: 'helvetica', fontSize: 12, cellPadding: 2, halign: 'center', valign: 'middle', overflow: 'linebreak', textDirection: 'ltr' },
+                    columnStyles: { 0:{cellWidth:36}, 1:{cellWidth:26}, 2:{cellWidth:13, halign:'center'}, 3:{cellWidth:33}, 4:{cellWidth:14, halign:'center'}, 5:{cellWidth:33}, 6:{cellWidth:17, halign:'center'}, 7:{cellWidth:22, halign:'center', fillColor:[234, 248, 238]}, 8:{cellWidth:40, halign:'center', fillColor:[242, 251, 245]}, 9:{cellWidth:33, halign:'center', fillColor:[242, 251, 245]} },
                     didParseCell: (hookData) => { if (hookData.section === 'head' && [7, 8, 9].includes(hookData.column.index)) { hookData.cell.styles.fillColor = [143, 207, 155]; hookData.cell.styles.textColor = [31, 77, 46]; } },
                     didDrawPage: (hookData) => { finalY = hookData.cursor.y; }
                 });
@@ -874,11 +874,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 doc.addPage(); finalY = margin; 
                 doc.setFillColor.apply(null, azulTitulo); doc.roundedRect(margin, finalY, pageWidth - (margin * 2), 10, 3, 3, 'F');
                 doc.setFontSize(14); doc.setTextColor(255, 255, 255); doc.setFont('helvetica', 'bold'); doc.text('OBSERVAÇÕES DA VISITA :', margin + 5, finalY + 6.5); 
-                finalY += 18; doc.setFontSize(10); doc.setTextColor(0, 0, 0); doc.setFont('helvetica', 'normal');
+                finalY += 18; doc.setFontSize(12); doc.setTextColor(0, 0, 0); doc.setFont('helvetica', 'normal');
                 data.visitObservations.split('\n').forEach(line => {
                     if (line.trim() !== '') {
                         if (finalY > pageHeight - margin) { doc.addPage(); finalY = margin; }
-                        const textLines = doc.splitTextToSize(`• ${line.trim()}`, pageWidth - (margin * 2) - 5); doc.text(textLines, margin + 5, finalY); finalY += textLines.length * 5;
+                        const textLines = doc.splitTextToSize(`• ${line.trim()}`, pageWidth - (margin * 2) - 5); doc.text(textLines, margin + 5, finalY); finalY += textLines.length * 6;
                     }
                 });
             }
@@ -895,10 +895,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (data.actionPlan.length > 0) {
-                doc.addPage(); y = margin; doc.setFontSize(16); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0); doc.text('DANDO UM PASSO ADIANTE...', pageWidth / 2, y, { align: 'center' }); y += 10;
-                doc.autoTable({ startY: y, rowPageBreak: 'avoid', head: [['AÇÃO', 'RESPONSÁVEL', 'SETOR', 'PRAZO PARA FINALIZAÇÃO']], body: data.actionPlan.map(item => [item.action, item.responsible, item.sector, item.deadline]), theme: 'grid', headStyles: { fillColor: [0, 69, 133], fontSize: 8, cellPadding: 1.5, halign: 'center', valign: 'middle' }, styles: { fontSize: 9, cellPadding: 3, halign: 'center', valign: 'middle' } });
-                let noteY = (doc.lastAutoTable?.finalY || y) + 14; if (noteY > pageBottom) { doc.addPage(); noteY = margin; }
-                doc.setFont('helvetica', 'bold'); doc.setFontSize(11); doc.setTextColor(40, 40, 40); doc.text('VIDE EXEMPLOS 2 E 3 NA PÁGINA SEGUINTE.', margin, noteY);
+                doc.addPage(); y = margin; doc.setFontSize(16); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0); doc.text('DANDO UM PASSO ADIANTE...', pageWidth / 2, y, { align: 'center' }); y += 12;
+                doc.autoTable({ startY: y, rowPageBreak: 'avoid', head: [['AÇÃO', 'RESPONSÁVEL', 'SETOR', 'PRAZO PARA FINALIZAÇÃO']], body: data.actionPlan.map(item => [item.action, item.responsible, item.sector, item.deadline]), theme: 'grid', headStyles: { fillColor: [0, 69, 133], font: 'helvetica', fontSize: 12, cellPadding: 2, halign: 'center', valign: 'middle' }, styles: { font: 'helvetica', fontSize: 12, cellPadding: 2.5, halign: 'left', valign: 'top', overflow: 'linebreak' }, columnStyles: {0:{cellWidth:90},1:{cellWidth:60},2:{cellWidth:55},3:{cellWidth:62}} });
+                let noteY = (doc.lastAutoTable?.finalY || y) + 10; if (noteY > pageBottom) { doc.addPage(); noteY = margin; }
+                doc.setFont('helvetica', 'bold'); doc.setFontSize(12); doc.setTextColor(40, 40, 40); doc.text('VIDE EXEMPLOS 2 E 3 NA PÁGINA SEGUINTE.', margin, noteY);
             }
 
             doc.addPage(); doc.addImage('assets/images/exemplo_mapeamento.png', 'PNG', margin, margin, pageWidth - (2 * margin), pageHeight - (2 * margin));
