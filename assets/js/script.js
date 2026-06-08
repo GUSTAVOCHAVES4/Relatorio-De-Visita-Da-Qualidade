@@ -585,7 +585,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     ${observationsHtml ? `<br clear="all" class="page-break" /><table width="100%" bgcolor="#266c93" cellpadding="5"><tr><td><b style="color: white;">OBSERVAÇÕES DA VISITA:</b></td></tr></table>${observationsHtml}` : ''}
 
-                    ${evidencePhotos.length ? `<br clear="all" class="page-break" /><div style="font-size: 14pt; font-weight: bold; text-align: center; margin-bottom: 10pt;">FOTOS</div><table style="width: 100%; border-collapse: collapse;">${evidencePhotosHtml}</table>` : ''}
+                    ${evidencePhotos.length ? `<br clear="all" class="page-break" /><div style="font-size: 14pt; font-weight: bold; text-align: center; margin-bottom: 10pt;">FOTOS</div>${evidencePhotosHtml}` : ''}
 
                     <br clear="all" class="page-break" />
                     <div style="font-size: 16pt; font-weight: bold; text-align: center; margin-bottom: 10pt;">DANDO UM PASSO ADIANTE...</div>
@@ -1099,13 +1099,33 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (data.evidencePhotos && data.evidencePhotos.length > 0) {
-                doc.addPage(); y = margin; doc.setFontSize(16); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0); doc.text('FOTOS', pageWidth / 2, y, { align: 'center' }); y += 15;
-                const imagesPerRow = 3; const imgWidth = 85; const horizontalGap = 5; const verticalGap = 10; let photoX = margin; let maxHeightInRow = 0;
+                const photosPerPage = 3;
+                const cellGap = 8;
+                const availableWidth = pageWidth - (margin * 2) - (cellGap * (photosPerPage - 1));
+                const cellWidth = availableWidth / photosPerPage;
+                const maxPhotoHeight = pageHeight - (margin * 2) - 25;
+
                 data.evidencePhotos.forEach((photo, index) => {
-                    const imgHeight = imgWidth / photo.aspect;
-                    if (index > 0 && index % imagesPerRow === 0) { photoX = margin; y += maxHeightInRow + verticalGap; maxHeightInRow = 0; }
-                    if (y + imgHeight > pageBottom) { doc.addPage(); y = margin; photoX = margin; maxHeightInRow = 0; }
-                    doc.addImage(photo.url, 'JPEG', photoX, y, imgWidth, imgHeight); photoX += imgWidth + horizontalGap; maxHeightInRow = Math.max(maxHeightInRow, imgHeight);
+                    if (index % photosPerPage === 0) {
+                        doc.addPage();
+                        y = margin;
+                        doc.setFontSize(16);
+                        doc.setFont('helvetica', 'bold');
+                        doc.setTextColor(0,0,0);
+                        doc.text('FOTOS', pageWidth / 2, y, { align: 'center' });
+                        y += 15;
+                    }
+
+                    const slotIndex = index % photosPerPage;
+                    let renderWidth = cellWidth;
+                    let renderHeight = renderWidth / (photo.aspect || 1);
+                    if (renderHeight > maxPhotoHeight) {
+                        renderHeight = maxPhotoHeight;
+                        renderWidth = renderHeight * (photo.aspect || 1);
+                    }
+                    const cellX = margin + slotIndex * (cellWidth + cellGap);
+                    const photoX = cellX + ((cellWidth - renderWidth) / 2);
+                    doc.addImage(photo.url, 'JPEG', photoX, y, renderWidth, renderHeight);
                 });
             }
 
