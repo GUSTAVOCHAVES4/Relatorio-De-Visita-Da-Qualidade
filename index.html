@@ -41,6 +41,18 @@
             <button id="clear-search-btn" title="Limpar pesquisa">X</button>
         </section>
 
+        <section class="ready-file-edit-section">
+            <h3>Editar arquivo já baixado</h3>
+            <p>Carregue o arquivo <strong>.doc</strong> gerado pelo sistema para trazer as fotos de volta para a galeria. Depois, reorganize, exclua ou anexe novas fotos e baixe o arquivo alterado.</p>
+            <div class="ready-file-actions">
+                <button type="button" id="open-ready-file-btn" class="camera-btn">📄 Anexar arquivo pronto</button>
+                <input type="file" id="ready-file-input" accept=".doc,.html,.htm,application/msword,text/html" style="display: none;">
+                <button type="button" id="download-edited-file-btn" class="camera-btn" style="display: none;">⬇️ Baixar arquivo alterado</button>
+                <button type="button" id="clear-ready-file-btn" class="camera-btn secondary-btn" style="display: none;">Limpar edição</button>
+            </div>
+            <p id="ready-file-status" class="ready-file-status">Nenhum arquivo pronto carregado.</p>
+        </section>
+
         <section class="image-upload-section">
             <h3>Anexar Fotos de Evidência</h3>
             
@@ -51,6 +63,7 @@
                 <input type="file" id="evidence-file-input" accept="image/*" multiple style="display: none;">
             </div>
 
+            <p class="image-upload-help">Depois de anexar, arraste as miniaturas para reorganizar a ordem no relatório ou use os botões ↑/↓. Você também pode anexar novas fotos a qualquer momento e remover as que não serão usadas.</p>
             <div id="image-preview-container" title="Pré-visualização das imagens selecionadas"></div>
         </section>
 

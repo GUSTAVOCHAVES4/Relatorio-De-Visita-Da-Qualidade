@@ -44,11 +44,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const openGroupFileBtn = document.getElementById('open-group-file-btn');
     const groupFileInput = document.getElementById('group-file-input');
     const imagePreviewContainer = document.getElementById('image-preview-container'); 
+    const openReadyFileBtn = document.getElementById('open-ready-file-btn');
+    const readyFileInput = document.getElementById('ready-file-input');
+    const downloadEditedFileBtn = document.getElementById('download-edited-file-btn');
+    const clearReadyFileBtn = document.getElementById('clear-ready-file-btn');
+    const readyFileStatus = document.getElementById('ready-file-status');
 
     // --- Variáveis de Estado ---
     let meetingItems = [];
     let currentMinutesData = [];
     let uploadedImages = []; 
+    let draggedImageIndex = null;
+    let importedWordDocument = null;
+    let importedEvidenceTable = null;
+    let importedReadyFileName = '';
     let groupPhotoImageData = null; 
     
     let tempCapturedImages = []; 
@@ -293,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
             html += `<h4>Dando um Passo Adiante...</h4><p>${data.actionPlan.length} ações definidas.</p>`;
         }
         if (data.evidencePhotos.length > 0) {
-            html += `<h4>Fotos</h4><p>${data.evidencePhotos.length} fotos anexadas.</p>`;
+            html += `<h4>Fotos</h4><p id="minutes-photo-count">${data.evidencePhotos.length} fotos anexadas. A ordem usada no PDF/Word acompanha a galeria acima.</p>`;
         }
         html += `
             <div id="download-buttons" style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
@@ -329,6 +338,143 @@ document.addEventListener('DOMContentLoaded', () => {
         const items = text.split('\n').map(line => line.trim()).filter(Boolean);
         if (!items.length) return '';
         return `<ul>${items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
+    }
+
+    function buildEvidencePhotosRowsHtml(evidencePhotos) {
+        const evidencePhotosRowsHtml = [];
+        for (let i = 0; i < evidencePhotos.length; i += 2) {
+            const left = evidencePhotos[i];
+            const right = evidencePhotos[i + 1];
+            evidencePhotosRowsHtml.push(`
+                <tr>
+                    <td style="width: 50%; border: 1pt solid #ddd; padding: 10pt; text-align: center;">${left ? `<img src='${left.url}' width='320'>` : '&nbsp;'}</td>
+                    <td style="width: 50%; border: 1pt solid #ddd; padding: 10pt; text-align: center;">${right ? `<img src='${right.url}' width='320'>` : '&nbsp;'}</td>
+                </tr>
+            `);
+        }
+        return evidencePhotosRowsHtml.join('');
+    }
+
+    function getImageAspectFromElement(img) {
+        const width = Number(img.getAttribute('width')) || img.naturalWidth || 320;
+        const height = Number(img.getAttribute('height')) || img.naturalHeight || 240;
+        return width && height ? width / height : 4 / 3;
+    }
+
+    function getImageAspectFromDataUrl(dataUrl, fallbackAspect) {
+        return new Promise(resolve => {
+            const image = new Image();
+            image.onload = () => resolve(image.width && image.height ? image.width / image.height : fallbackAspect);
+            image.onerror = () => resolve(fallbackAspect);
+            image.src = dataUrl;
+        });
+    }
+
+    function findEvidencePhotosTable(doc) {
+        const headings = Array.from(doc.querySelectorAll('div, h1, h2, h3, h4, p, b, strong'));
+        const photosHeading = headings.find(element => element.textContent.trim().toUpperCase() === 'FOTOS');
+        if (!photosHeading) return null;
+
+        let cursor = photosHeading.nextElementSibling;
+        while (cursor && cursor.tagName !== 'TABLE') {
+            cursor = cursor.nextElementSibling;
+        }
+        return cursor && cursor.querySelector('img') ? cursor : null;
+    }
+
+    function setReadyFileStatus(message, isError = false) {
+        if (!readyFileStatus) return;
+        readyFileStatus.textContent = message;
+        readyFileStatus.classList.toggle('error', isError);
+    }
+
+    function syncReadyFileButtons() {
+        const hasImportedFile = Boolean(importedWordDocument && importedEvidenceTable);
+        if (downloadEditedFileBtn) downloadEditedFileBtn.style.display = hasImportedFile ? 'inline-block' : 'none';
+        if (clearReadyFileBtn) clearReadyFileBtn.style.display = hasImportedFile ? 'inline-block' : 'none';
+    }
+
+    function clearReadyFileEdit() {
+        importedWordDocument = null;
+        importedEvidenceTable = null;
+        importedReadyFileName = '';
+        uploadedImages = [];
+        renderImagePreviews();
+        syncReadyFileButtons();
+        setReadyFileStatus('Nenhum arquivo pronto carregado.');
+    }
+
+    function handleReadyFileUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        if (file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf')) {
+            setReadyFileStatus('PDF não pode ser reeditado neste modo. Anexe o arquivo .doc baixado pelo sistema.', true);
+            event.target.value = '';
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = async function(e) {
+            const fileContent = e.target.result;
+            const parser = new DOMParser();
+            const parsedDocument = parser.parseFromString(fileContent, 'text/html');
+            const evidenceTable = findEvidencePhotosTable(parsedDocument);
+
+            if (!evidenceTable) {
+                setReadyFileStatus('Não encontrei a seção FOTOS no arquivo. Use o .doc baixado por este sistema.', true);
+                syncReadyFileButtons();
+                return;
+            }
+
+            const editableImages = Array.from(evidenceTable.querySelectorAll('img'))
+                .map(img => ({ url: img.getAttribute('src'), fallbackAspect: getImageAspectFromElement(img) }))
+                .filter(image => image.url && image.url.startsWith('data:image'));
+            const extractedImages = await Promise.all(editableImages.map(async image => ({
+                url: image.url,
+                aspect: await getImageAspectFromDataUrl(image.url, image.fallbackAspect)
+            })));
+
+            if (!extractedImages.length) {
+                setReadyFileStatus('A seção FOTOS foi encontrada, mas não há imagens editáveis nela.', true);
+                syncReadyFileButtons();
+                return;
+            }
+
+            importedWordDocument = parsedDocument;
+            importedEvidenceTable = evidenceTable;
+            importedReadyFileName = file.name;
+            uploadedImages = extractedImages;
+            renderImagePreviews();
+            syncReadyFileButtons();
+            setReadyFileStatus(`${file.name} carregado com ${uploadedImages.length} foto(s). Reorganize, adicione ou exclua fotos e clique em Baixar arquivo alterado.`);
+        };
+        reader.onerror = function() {
+            setReadyFileStatus('Não foi possível ler o arquivo selecionado.', true);
+        };
+        reader.readAsText(file);
+        event.target.value = '';
+    }
+
+    function downloadEditedReadyFile() {
+        if (!importedWordDocument || !importedEvidenceTable) {
+            setReadyFileStatus('Anexe primeiro um arquivo .doc gerado pelo sistema.', true);
+            return;
+        }
+
+        importedEvidenceTable.innerHTML = buildEvidencePhotosRowsHtml(uploadedImages);
+        const serializedHtml = importedWordDocument.documentElement.outerHTML;
+        const blob = new Blob(['\ufeff', serializedHtml], { type: 'application/msword;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        const baseName = sanitizeFileName(importedReadyFileName.replace(/\.[^.]+$/, '') || 'relatorio_editado');
+        link.href = url;
+        link.download = `${baseName}_editado.doc`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+        setReadyFileStatus(`Arquivo alterado baixado com ${uploadedImages.length} foto(s).`);
     }
 
     // --- GERAÇÃO DE WORD ---
@@ -367,18 +513,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const observationsHtml = (data.visitObservations || '').split('\n').map(line => line.trim()).filter(Boolean).map(line => `<p>• ${escapeHtml(line)}</p>`).join('');
 
             const evidencePhotos = data.evidencePhotos || [];
-            const evidencePhotosRowsHtml = [];
-            for (let i = 0; i < evidencePhotos.length; i += 2) {
-                const left = evidencePhotos[i];
-                const right = evidencePhotos[i + 1];
-                evidencePhotosRowsHtml.push(`
-                    <tr>
-                        <td style="width: 50%; border: 1pt solid #ddd; padding: 10pt; text-align: center;">${left ? `<img src='${left.url}' width='320'>` : '&nbsp;'}</td>
-                        <td style="width: 50%; border: 1pt solid #ddd; padding: 10pt; text-align: center;">${right ? `<img src='${right.url}' width='320'>` : '&nbsp;'}</td>
-                    </tr>
-                `);
-            }
-            const evidencePhotosHtml = evidencePhotosRowsHtml.join('');
+            const evidencePhotosHtml = buildEvidencePhotosRowsHtml(evidencePhotos);
 
             const wordHtml = `
                 <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
@@ -593,37 +728,117 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    function refreshGeneratedPhotoCount() {
+        const photoCount = document.getElementById('minutes-photo-count');
+        if (photoCount) {
+            photoCount.textContent = `${uploadedImages.length} fotos anexadas. A ordem usada no PDF/Word acompanha a galeria acima.`;
+        }
+    }
+
+    function moveUploadedImage(fromIndex, toIndex) {
+        if (fromIndex === toIndex || fromIndex < 0 || toIndex < 0 || fromIndex >= uploadedImages.length || toIndex >= uploadedImages.length) return;
+        const [movedImage] = uploadedImages.splice(fromIndex, 1);
+        uploadedImages.splice(toIndex, 0, movedImage);
+        renderImagePreviews();
+    }
+
     function renderImagePreviews() {
-        imagePreviewContainer.innerHTML = ''; 
+        imagePreviewContainer.innerHTML = '';
+        refreshGeneratedPhotoCount();
+        if (importedWordDocument && importedReadyFileName) {
+            setReadyFileStatus(`${importedReadyFileName} carregado com ${uploadedImages.length} foto(s). Reorganize, adicione ou exclua fotos e clique em Baixar arquivo alterado.`);
+        }
+
         uploadedImages.forEach((imageData, index) => {
             const wrapper = document.createElement('div');
             wrapper.classList.add('image-preview-wrapper');
-            wrapper.style.cssText = "position: relative; width: 120px; height: 120px; border: 1px solid #ddd; border-radius: 5px;";
+            wrapper.draggable = true;
+            wrapper.dataset.index = index;
+            wrapper.setAttribute('aria-label', `Foto ${index + 1} de ${uploadedImages.length}. Arraste para reorganizar.`);
+
+            wrapper.addEventListener('dragstart', (event) => {
+                draggedImageIndex = index;
+                wrapper.classList.add('is-dragging');
+                event.dataTransfer.effectAllowed = 'move';
+                event.dataTransfer.setData('text/plain', String(index));
+            });
+
+            wrapper.addEventListener('dragover', (event) => {
+                event.preventDefault();
+                wrapper.classList.add('is-drag-over');
+                event.dataTransfer.dropEffect = 'move';
+            });
+
+            wrapper.addEventListener('dragleave', () => wrapper.classList.remove('is-drag-over'));
+
+            wrapper.addEventListener('drop', (event) => {
+                event.preventDefault();
+                wrapper.classList.remove('is-drag-over');
+                const fromIndex = draggedImageIndex ?? Number(event.dataTransfer.getData('text/plain'));
+                moveUploadedImage(fromIndex, index);
+                draggedImageIndex = null;
+            });
+
+            wrapper.addEventListener('dragend', () => {
+                draggedImageIndex = null;
+                wrapper.classList.remove('is-dragging', 'is-drag-over');
+            });
+
+            const orderBadge = document.createElement('span');
+            orderBadge.classList.add('image-order-badge');
+            orderBadge.textContent = index + 1;
 
             const img = document.createElement('img');
-            img.src = imageData.url; 
-            img.style.cssText = "width: 100%; height: 100%; object-fit: cover; border-radius: 5px;";
+            img.src = imageData.url;
+            img.alt = `Foto de evidência ${index + 1}`;
+
+            const controls = document.createElement('div');
+            controls.classList.add('image-reorder-controls');
+
+            const moveUpBtn = document.createElement('button');
+            moveUpBtn.type = 'button';
+            moveUpBtn.classList.add('image-control-btn');
+            moveUpBtn.innerHTML = '↑';
+            moveUpBtn.title = 'Subir foto na ordem';
+            moveUpBtn.disabled = index === 0;
+            moveUpBtn.onclick = () => moveUploadedImage(index, index - 1);
+
+            const moveDownBtn = document.createElement('button');
+            moveDownBtn.type = 'button';
+            moveDownBtn.classList.add('image-control-btn');
+            moveDownBtn.innerHTML = '↓';
+            moveDownBtn.title = 'Descer foto na ordem';
+            moveDownBtn.disabled = index === uploadedImages.length - 1;
+            moveDownBtn.onclick = () => moveUploadedImage(index, index + 1);
+
+            controls.appendChild(moveUpBtn);
+            controls.appendChild(moveDownBtn);
 
             const removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
             removeBtn.innerHTML = '&times;';
-            removeBtn.style.cssText = "position: absolute; top: 5px; right: 5px; background-color: rgba(220, 53, 69, 0.9); color: white; border: none; border-radius: 50%; width: 25px; height: 25px; font-weight: bold; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10;";
+            removeBtn.classList.add('remove-image-btn');
+            removeBtn.title = 'Remover foto';
             removeBtn.onclick = () => {
-                uploadedImages.splice(index, 1); 
-                renderImagePreviews(); 
+                uploadedImages.splice(index, 1);
+                renderImagePreviews();
             };
 
             const rotateBtn = document.createElement('button');
+            rotateBtn.type = 'button';
             rotateBtn.innerHTML = '↻';
-            // Usa o estilo inline para forçar a renderização independentemente do CSS do arquivo
-            rotateBtn.style.cssText = rotateBtnStyle;
+            rotateBtn.classList.add('rotate-image-btn');
+            rotateBtn.title = 'Girar foto';
             rotateBtn.onclick = () => {
                 rotateImageBase64(imageData.url, 90, function(newUrl, newAspect) {
                     uploadedImages[index] = { url: newUrl, aspect: newAspect };
-                    renderImagePreviews(); 
+                    renderImagePreviews();
                 });
             };
 
             wrapper.appendChild(img);
+            wrapper.appendChild(orderBadge);
+            wrapper.appendChild(controls);
             wrapper.appendChild(removeBtn);
             wrapper.appendChild(rotateBtn);
             imagePreviewContainer.appendChild(wrapper);
@@ -750,7 +965,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function saveMultiShotPhotos() {
-        uploadedImages = [...uploadedImages, ...tempCapturedImages];
+        uploadedImages.push(...tempCapturedImages);
         renderImagePreviews(); 
         closeModal();
     }
@@ -918,10 +1133,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (clearSearchBtn) {
         clearSearchBtn.addEventListener('click', () => {
             if(responsibleSelect) responsibleSelect.value = ''; 
-            tableBody.innerHTML = ''; minutesOutput.innerHTML = ''; uploadedImages = []; renderImagePreviews();
+            tableBody.innerHTML = ''; minutesOutput.innerHTML = ''; clearReadyFileEdit();
         });
     }
 
+    if(openReadyFileBtn) openReadyFileBtn.addEventListener('click', () => readyFileInput.click());
+    if(readyFileInput) readyFileInput.addEventListener('change', handleReadyFileUpload);
+    if(downloadEditedFileBtn) downloadEditedFileBtn.addEventListener('click', downloadEditedReadyFile);
+    if(clearReadyFileBtn) clearReadyFileBtn.addEventListener('click', clearReadyFileEdit);
     if(openEvidenceFileBtn) openEvidenceFileBtn.addEventListener('click', () => evidenceFileInput.click());
     if(evidenceFileInput) evidenceFileInput.addEventListener('change', handleEvidenceFileUpload);
     if(openGroupFileBtn) openGroupFileBtn.addEventListener('click', () => groupFileInput.click());
