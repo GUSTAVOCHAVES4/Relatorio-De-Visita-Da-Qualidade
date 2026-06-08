@@ -342,37 +342,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function buildEvidencePhotosRowsHtml(evidencePhotos) {
         const evidencePhotosRowsHtml = [];
-        for (let i = 0; i < evidencePhotos.length; i += 3) {
-            const rowPhotos = [evidencePhotos[i], evidencePhotos[i + 1], evidencePhotos[i + 2]];
-            evidencePhotosRowsHtml.push(`
-                <tr style="page-break-inside: avoid;">
-                    ${rowPhotos.map(photo => `
-                        <td style="width: 33.33%; border: 1pt solid #ddd; padding: 8pt; text-align: center; vertical-align: middle; height: 330pt;">
-                            ${photo ? `<img src='${photo.url}' style='max-width: 230pt; max-height: 300pt; width: auto; height: auto;'>` : '&nbsp;'}
-                        </td>
-                    `).join('')}
-                </tr>
-            `);
-        }
-        return evidencePhotosRowsHtml.join('');
-    }
-
-    function buildEvidencePhotosSectionHtml(evidencePhotos) {
-        if (!evidencePhotos.length) return '<p>Sem fotos.</p>';
-        const photoPages = [];
-        for (let i = 0; i < evidencePhotos.length; i += 3) {
-            const pagePhotos = evidencePhotos.slice(i, i + 3);
-            photoPages.push(`
-                <table style="width: 100%; border-collapse: collapse; page-break-inside: avoid; ${i > 0 ? 'page-break-before: always;' : ''}">
-                    ${buildEvidencePhotosRowsHtml(pagePhotos)}
-                </table>
-            `);
-        }
-        return photoPages.join('');
-    }
-
-    function buildGeneratedEvidencePhotosRowsHtml(evidencePhotos) {
-        const evidencePhotosRowsHtml = [];
         for (let i = 0; i < evidencePhotos.length; i += 2) {
             const left = evidencePhotos[i];
             const right = evidencePhotos[i + 1];
@@ -384,26 +353,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `);
         }
         return evidencePhotosRowsHtml.join('');
-    }
-
-    function createEditablePhotosDocument(title = 'FOTOS') {
-        const parser = new DOMParser();
-        return parser.parseFromString(`
-            <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
-                <head>
-                    <meta charset='utf-8'>
-                    <style>
-                        @page { size: 29.7cm 21cm; margin: 1.0cm; }
-                        body { font-family: Arial, sans-serif; }
-                        table { border-collapse: collapse; width: 100%; }
-                    </style>
-                </head>
-                <body>
-                    <div style="font-size: 14pt; font-weight: bold; text-align: center; margin-bottom: 10pt;">${escapeHtml(title)}</div>
-                    <table id="editable-photos-table" style="width: 100%; border-collapse: collapse;"></table>
-                </body>
-            </html>
-        `, 'text/html');
     }
 
     function getImageAspectFromElement(img) {
@@ -455,206 +404,66 @@ document.addEventListener('DOMContentLoaded', () => {
         setReadyFileStatus('Nenhum arquivo pronto carregado.');
     }
 
-    function bytesToDataUrl(bytes, mimeType) {
-        return new Promise(resolve => {
-            const blob = new Blob([bytes], { type: mimeType });
-            const reader = new FileReader();
-            reader.onload = () => resolve(reader.result);
-            reader.readAsDataURL(blob);
-        });
-    }
-
-    function getMimeTypeFromPath(path) {
-        const extension = path.split('.').pop().toLowerCase();
-        if (extension === 'png') return 'image/png';
-        if (extension === 'gif') return 'image/gif';
-        if (extension === 'webp') return 'image/webp';
-        if (extension === 'bmp') return 'image/bmp';
-        return 'image/jpeg';
-    }
-
-    async function inflateZipData(compressedBytes, method) {
-        if (method === 0) return compressedBytes;
-        if (method !== 8) throw new Error('Método de compactação não suportado.');
-        if (!('DecompressionStream' in window)) throw new Error('Este navegador não consegue abrir .docx compactado. Use Chrome/Edge atualizado ou envie .doc/.pdf.');
-        const stream = new Blob([compressedBytes]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
-        return new Uint8Array(await new Response(stream).arrayBuffer());
-    }
-
-    async function readZipEntries(arrayBuffer) {
-        const bytes = new Uint8Array(arrayBuffer);
-        const view = new DataView(arrayBuffer);
-        let eocdOffset = -1;
-        for (let i = bytes.length - 22; i >= Math.max(0, bytes.length - 65558); i--) {
-            if (view.getUint32(i, true) === 0x06054b50) {
-                eocdOffset = i;
-                break;
-            }
-        }
-        if (eocdOffset === -1) throw new Error('Arquivo .docx inválido.');
-
-        const totalEntries = view.getUint16(eocdOffset + 10, true);
-        let centralDirOffset = view.getUint32(eocdOffset + 16, true);
-        const entries = new Map();
-        const decoder = new TextDecoder();
-
-        for (let entryIndex = 0; entryIndex < totalEntries; entryIndex++) {
-            if (view.getUint32(centralDirOffset, true) !== 0x02014b50) break;
-            const method = view.getUint16(centralDirOffset + 10, true);
-            const compressedSize = view.getUint32(centralDirOffset + 20, true);
-            const fileNameLength = view.getUint16(centralDirOffset + 28, true);
-            const extraLength = view.getUint16(centralDirOffset + 30, true);
-            const commentLength = view.getUint16(centralDirOffset + 32, true);
-            const localHeaderOffset = view.getUint32(centralDirOffset + 42, true);
-            const fileName = decoder.decode(bytes.slice(centralDirOffset + 46, centralDirOffset + 46 + fileNameLength));
-
-            const localNameLength = view.getUint16(localHeaderOffset + 26, true);
-            const localExtraLength = view.getUint16(localHeaderOffset + 28, true);
-            const dataStart = localHeaderOffset + 30 + localNameLength + localExtraLength;
-            const compressedBytes = bytes.slice(dataStart, dataStart + compressedSize);
-            entries.set(fileName, await inflateZipData(compressedBytes, method));
-            centralDirOffset += 46 + fileNameLength + extraLength + commentLength;
-        }
-        return entries;
-    }
-
-    function getOrderedDocxImagePaths(entries) {
-        const decoder = new TextDecoder();
-        const documentXml = entries.get('word/document.xml');
-        const relationshipsXml = entries.get('word/_rels/document.xml.rels');
-        if (!documentXml || !relationshipsXml) return Array.from(entries.keys()).filter(path => path.startsWith('word/media/'));
-
-        const relationshipsText = decoder.decode(relationshipsXml);
-        const relationshipMap = new Map();
-        relationshipsText.replace(/<Relationship[^>]*Id="([^"]+)"[^>]*Target="([^"]+)"/g, (_, id, target) => {
-            const normalizedTarget = target.startsWith('/') ? target.slice(1) : `word/${target}`.replace(/\/\.\//g, '/');
-            relationshipMap.set(id, normalizedTarget);
-            return '';
-        });
-
-        const orderedPaths = [];
-        const documentText = decoder.decode(documentXml);
-        documentText.replace(/r:embed="([^"]+)"/g, (_, relationshipId) => {
-            const mediaPath = relationshipMap.get(relationshipId);
-            if (mediaPath && entries.has(mediaPath) && !orderedPaths.includes(mediaPath)) orderedPaths.push(mediaPath);
-            return '';
-        });
-
-        return orderedPaths.length ? orderedPaths : Array.from(entries.keys()).filter(path => path.startsWith('word/media/'));
-    }
-
-    async function extractImagesFromDocx(file) {
-        const entries = await readZipEntries(await file.arrayBuffer());
-        const imagePaths = getOrderedDocxImagePaths(entries).filter(path => /^word\/media\//.test(path));
-        const extractedImages = [];
-        for (const imagePath of imagePaths) {
-            const dataUrl = await bytesToDataUrl(entries.get(imagePath), getMimeTypeFromPath(imagePath));
-            extractedImages.push({ url: dataUrl, aspect: await getImageAspectFromDataUrl(dataUrl, 4 / 3) });
-        }
-        return extractedImages;
-    }
-
-    async function renderPdfPagesAsImages(file) {
-        if (!window.pdfjsLib) throw new Error('Leitor de PDF indisponível. Verifique a conexão e tente novamente, ou envie o arquivo convertido para Word (.docx).');
-        window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-        const pdf = await window.pdfjsLib.getDocument({ data: await file.arrayBuffer() }).promise;
-        const renderedPages = [];
-        for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
-            const page = await pdf.getPage(pageNumber);
-            const viewport = page.getViewport({ scale: 1.5 });
-            const canvas = document.createElement('canvas');
-            canvas.width = viewport.width;
-            canvas.height = viewport.height;
-            await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
-            const dataUrl = canvas.toDataURL('image/jpeg', 0.75);
-            renderedPages.push({ url: dataUrl, aspect: canvas.width / canvas.height });
-        }
-        return renderedPages;
-    }
-
-    function loadImagesIntoReadyEditMode(fileName, images, sourceLabel) {
-        if (!images.length) {
-            setReadyFileStatus(`Não encontrei imagens editáveis em ${sourceLabel}.`, true);
-            syncReadyFileButtons();
-            return;
-        }
-        importedWordDocument = createEditablePhotosDocument('FOTOS');
-        importedEvidenceTable = importedWordDocument.getElementById('editable-photos-table');
-        importedReadyFileName = fileName;
-        uploadedImages = images;
-        renderImagePreviews();
-        syncReadyFileButtons();
-        setReadyFileStatus(`${fileName} carregado com ${uploadedImages.length} imagem(ns). Reorganize, adicione ou exclua fotos e clique em Baixar arquivo alterado.`);
-    }
-
-    async function importHtmlDocFile(file) {
-        const fileContent = await file.text();
-        const parser = new DOMParser();
-        const parsedDocument = parser.parseFromString(fileContent, 'text/html');
-        const evidenceTable = findEvidencePhotosTable(parsedDocument);
-
-        if (!evidenceTable) throw new Error('Não encontrei a seção FOTOS no arquivo. Use o .doc baixado por este sistema ou envie .docx/.pdf.');
-
-        const editableImages = Array.from(evidenceTable.querySelectorAll('img'))
-            .map(img => ({ url: img.getAttribute('src'), fallbackAspect: getImageAspectFromElement(img) }))
-            .filter(image => image.url && image.url.startsWith('data:image'));
-        const extractedImages = await Promise.all(editableImages.map(async image => ({
-            url: image.url,
-            aspect: await getImageAspectFromDataUrl(image.url, image.fallbackAspect)
-        })));
-
-        if (!extractedImages.length) throw new Error('A seção FOTOS foi encontrada, mas não há imagens editáveis nela.');
-
-        importedWordDocument = parsedDocument;
-        importedEvidenceTable = evidenceTable;
-        importedReadyFileName = file.name;
-        uploadedImages = extractedImages;
-        renderImagePreviews();
-        syncReadyFileButtons();
-        setReadyFileStatus(`${file.name} carregado com ${uploadedImages.length} foto(s). Reorganize, adicione ou exclua fotos e clique em Baixar arquivo alterado.`);
-    }
-
-    async function handleReadyFileUpload(event) {
+    function handleReadyFileUpload(event) {
         const file = event.target.files[0];
         if (!file) return;
 
-        try {
-            setReadyFileStatus(`Carregando ${file.name}...`);
-            const lowerName = file.name.toLowerCase();
-            if (file.type === 'application/pdf' || lowerName.endsWith('.pdf')) {
-                const pdfImages = await renderPdfPagesAsImages(file);
-                loadImagesIntoReadyEditMode(file.name, pdfImages, 'PDF');
-                setReadyFileStatus(`${file.name} carregado como ${uploadedImages.length} página(s) de PDF. Para editar fotos individualmente, prefira enviar o Word convertido (.docx).`);
-            } else if (file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || lowerName.endsWith('.docx')) {
-                const docxImages = await extractImagesFromDocx(file);
-                loadImagesIntoReadyEditMode(file.name, docxImages, 'Documento do Microsoft Word');
-            } else {
-                await importHtmlDocFile(file);
-            }
-        } catch (error) {
-            console.error('Erro ao importar arquivo pronto:', error);
-            setReadyFileStatus(error.message || 'Não foi possível ler o arquivo selecionado.', true);
-            syncReadyFileButtons();
-        } finally {
+        if (file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf')) {
+            setReadyFileStatus('PDF não pode ser reeditado neste modo. Anexe o arquivo .doc baixado pelo sistema.', true);
             event.target.value = '';
+            return;
         }
+
+        const reader = new FileReader();
+        reader.onload = async function(e) {
+            const fileContent = e.target.result;
+            const parser = new DOMParser();
+            const parsedDocument = parser.parseFromString(fileContent, 'text/html');
+            const evidenceTable = findEvidencePhotosTable(parsedDocument);
+
+            if (!evidenceTable) {
+                setReadyFileStatus('Não encontrei a seção FOTOS no arquivo. Use o .doc baixado por este sistema.', true);
+                syncReadyFileButtons();
+                return;
+            }
+
+            const editableImages = Array.from(evidenceTable.querySelectorAll('img'))
+                .map(img => ({ url: img.getAttribute('src'), fallbackAspect: getImageAspectFromElement(img) }))
+                .filter(image => image.url && image.url.startsWith('data:image'));
+            const extractedImages = await Promise.all(editableImages.map(async image => ({
+                url: image.url,
+                aspect: await getImageAspectFromDataUrl(image.url, image.fallbackAspect)
+            })));
+
+            if (!extractedImages.length) {
+                setReadyFileStatus('A seção FOTOS foi encontrada, mas não há imagens editáveis nela.', true);
+                syncReadyFileButtons();
+                return;
+            }
+
+            importedWordDocument = parsedDocument;
+            importedEvidenceTable = evidenceTable;
+            importedReadyFileName = file.name;
+            uploadedImages = extractedImages;
+            renderImagePreviews();
+            syncReadyFileButtons();
+            setReadyFileStatus(`${file.name} carregado com ${uploadedImages.length} foto(s). Reorganize, adicione ou exclua fotos e clique em Baixar arquivo alterado.`);
+        };
+        reader.onerror = function() {
+            setReadyFileStatus('Não foi possível ler o arquivo selecionado.', true);
+        };
+        reader.readAsText(file);
+        event.target.value = '';
     }
 
     function downloadEditedReadyFile() {
         if (!importedWordDocument || !importedEvidenceTable) {
-            setReadyFileStatus('Anexe primeiro um arquivo .doc, .docx ou .pdf.', true);
+            setReadyFileStatus('Anexe primeiro um arquivo .doc gerado pelo sistema.', true);
             return;
         }
 
-        const clonedDocument = importedWordDocument.cloneNode(true);
-        const clonedEvidenceTable = clonedDocument.getElementById('editable-photos-table') || findEvidencePhotosTable(clonedDocument);
-        if (!clonedEvidenceTable) {
-            setReadyFileStatus('Não foi possível localizar a seção FOTOS no arquivo importado.', true);
-            return;
-        }
-
-        clonedEvidenceTable.outerHTML = buildEvidencePhotosSectionHtml(uploadedImages);
-        const serializedHtml = clonedDocument.documentElement.outerHTML;
+        importedEvidenceTable.innerHTML = buildEvidencePhotosRowsHtml(uploadedImages);
+        const serializedHtml = importedWordDocument.documentElement.outerHTML;
         const blob = new Blob(['\ufeff', serializedHtml], { type: 'application/msword;charset=utf-8' });
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
@@ -665,7 +474,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.click();
         document.body.removeChild(link);
         URL.revokeObjectURL(url);
-        setReadyFileStatus(`Arquivo alterado baixado com ${uploadedImages.length} foto(s), organizado em até 3 imagens por página.`);
+        setReadyFileStatus(`Arquivo alterado baixado com ${uploadedImages.length} foto(s).`);
     }
 
     // --- GERAÇÃO DE WORD ---
@@ -704,7 +513,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const observationsHtml = (data.visitObservations || '').split('\n').map(line => line.trim()).filter(Boolean).map(line => `<p>• ${escapeHtml(line)}</p>`).join('');
 
             const evidencePhotos = data.evidencePhotos || [];
-            const evidencePhotosHtml = buildGeneratedEvidencePhotosRowsHtml(evidencePhotos);
+            const evidencePhotosHtml = buildEvidencePhotosRowsHtml(evidencePhotos);
 
             const wordHtml = `
                 <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
@@ -776,7 +585,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     ${observationsHtml ? `<br clear="all" class="page-break" /><table width="100%" bgcolor="#266c93" cellpadding="5"><tr><td><b style="color: white;">OBSERVAÇÕES DA VISITA:</b></td></tr></table>${observationsHtml}` : ''}
 
-                    ${evidencePhotos.length ? `<br clear="all" class="page-break" /><div style="font-size: 14pt; font-weight: bold; text-align: center; margin-bottom: 10pt;">FOTOS</div><table style="width: 100%; border-collapse: collapse;">${evidencePhotosHtml}</table>` : ''}
+                    ${evidencePhotos.length ? `<br clear="all" class="page-break" /><div style="font-size: 14pt; font-weight: bold; text-align: center; margin-bottom: 10pt;">FOTOS</div>${evidencePhotosHtml}` : ''}
 
                     <br clear="all" class="page-break" />
                     <div style="font-size: 16pt; font-weight: bold; text-align: center; margin-bottom: 10pt;">DANDO UM PASSO ADIANTE...</div>
@@ -1290,13 +1099,33 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (data.evidencePhotos && data.evidencePhotos.length > 0) {
-                doc.addPage(); y = margin; doc.setFontSize(16); doc.setFont('helvetica', 'bold'); doc.setTextColor(0,0,0); doc.text('FOTOS', pageWidth / 2, y, { align: 'center' }); y += 15;
-                const imagesPerRow = 3; const imgWidth = 85; const horizontalGap = 5; const verticalGap = 10; let photoX = margin; let maxHeightInRow = 0;
+                const photosPerPage = 3;
+                const cellGap = 8;
+                const availableWidth = pageWidth - (margin * 2) - (cellGap * (photosPerPage - 1));
+                const cellWidth = availableWidth / photosPerPage;
+                const maxPhotoHeight = pageHeight - (margin * 2) - 25;
+
                 data.evidencePhotos.forEach((photo, index) => {
-                    const imgHeight = imgWidth / photo.aspect;
-                    if (index > 0 && index % imagesPerRow === 0) { photoX = margin; y += maxHeightInRow + verticalGap; maxHeightInRow = 0; }
-                    if (y + imgHeight > pageBottom) { doc.addPage(); y = margin; photoX = margin; maxHeightInRow = 0; }
-                    doc.addImage(photo.url, 'JPEG', photoX, y, imgWidth, imgHeight); photoX += imgWidth + horizontalGap; maxHeightInRow = Math.max(maxHeightInRow, imgHeight);
+                    if (index % photosPerPage === 0) {
+                        doc.addPage();
+                        y = margin;
+                        doc.setFontSize(16);
+                        doc.setFont('helvetica', 'bold');
+                        doc.setTextColor(0,0,0);
+                        doc.text('FOTOS', pageWidth / 2, y, { align: 'center' });
+                        y += 15;
+                    }
+
+                    const slotIndex = index % photosPerPage;
+                    let renderWidth = cellWidth;
+                    let renderHeight = renderWidth / (photo.aspect || 1);
+                    if (renderHeight > maxPhotoHeight) {
+                        renderHeight = maxPhotoHeight;
+                        renderWidth = renderHeight * (photo.aspect || 1);
+                    }
+                    const cellX = margin + slotIndex * (cellWidth + cellGap);
+                    const photoX = cellX + ((cellWidth - renderWidth) / 2);
+                    doc.addImage(photo.url, 'JPEG', photoX, y, renderWidth, renderHeight);
                 });
             }
 
