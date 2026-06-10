@@ -674,24 +674,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- UPLOAD DE ARQUIVOS ---
-    function handleEvidenceFileUpload(event) {
-        const files = event.target.files;
-        if (!files || files.length === 0) return;
+async function handleEvidenceFileUpload(event) {
+    const files = event.target.files;
+    if (!files || files.length === 0) return;
 
-        Array.from(files).forEach(file => {
+    // 1. Transforma em Array para podermos organizar
+    let filesArray = Array.from(files);
+
+    // 2. Ordenação Natural: Garante que o sistema entenda que a "Foto 2" vem antes da "Foto 10"
+    filesArray.sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' }));
+
+    // 3. Processa todas as imagens, mas obriga o sistema a respeitar a ordem do array acima
+    const processPromises = filesArray.map(file => {
+        return new Promise((resolve) => {
             const reader = new FileReader();
             reader.onload = function(e) {
                 // Comprime para no máximo 600px
                 resizeAndCompressImage(e.target.result, 600, function(compressedUrl, aspect) {
-                    uploadedImages.push({ url: compressedUrl, aspect: aspect });
-                    renderImagePreviews(); 
+                    resolve({ url: compressedUrl, aspect: aspect });
                 });
             };
             reader.readAsDataURL(file);
         });
-        event.target.value = ''; 
-    }
+    });
 
+    // 4. Aguarda todas terminarem de comprimir
+    const processedImages = await Promise.all(processPromises);
+
+    // 5. Salva na galeria na ordem exata e atualiza a tela
+    uploadedImages.push(...processedImages);
+    renderImagePreviews(); 
+
+    event.target.value = ''; 
+}
     function handleGroupFileUpload(event) {
         const file = event.target.files[0];
         if (!file) return;
