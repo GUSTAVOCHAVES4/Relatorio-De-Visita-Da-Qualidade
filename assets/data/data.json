@@ -13312,7 +13312,7 @@
   {
    "master_id": "892eddb5-6ddb-4a26-950c-76954c044077",
    "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
-   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS AMBIENTAIS",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Séries históricas de requisições atendidas / mês sobre o total de requisições no serviço de manutenção.",
    "item_number": 8,
    "subitem_number": null,
@@ -13323,7 +13323,7 @@
  {
    "master_id": "8828a074-7df4-4267-ae28-4b662e161cad",
    "section": "FUNDAMENTO 8 - GERAÇÃO DE VALOR",
-   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS AMBIENTAIS",
+   "theme": "RESULTADOS SUSTENTÁVEIS - GERAÇÃO DE RESULTADOS POR PROCESSOS",
    "description": "Séries históricas sobre o tempo de indisponibilidade média de equipamentos para reparo / ano.",
    "item_number": 9,
    "subitem_number": null,
