@@ -57,6 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const addGeneralSectionBtn = document.getElementById('add-general-section-btn');
     const generateGeneralReportBtn = document.getElementById('generate-general-report-btn');
     const generalReportOutput = document.getElementById('general-report-output');
+    const generalDatesContainer = document.getElementById('general-dates-container');
+    const addGeneralDateBtn = document.getElementById('add-general-date-btn');
+    const generalParticipantPhotoInput = document.getElementById('general-participant-photo-input');
+    const openGeneralParticipantPhotoBtn = document.getElementById('open-general-participant-photo-btn');
+    const generalParticipantPhotoPreview = document.getElementById('general-participant-photo-preview');
     const imageLightbox = document.getElementById('image-lightbox');
     const imageLightboxContent = document.getElementById('image-lightbox-content');
     const imageLightboxCaption = document.getElementById('image-lightbox-caption');
@@ -74,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let importedEvidenceTable = null;
     let importedReadyFileName = '';
     let groupPhotoImageData = null; 
+    let generalParticipantPhoto = null;
     let generalSectionCounter = 0;
     
     let tempCapturedImages = []; 
@@ -535,6 +541,48 @@ document.addEventListener('DOMContentLoaded', () => {
         generalSectionsContainer.appendChild(section);
     }
 
+    function addGeneralDate(value = '') {
+        const row = document.createElement('div');
+        row.className = 'general-date-row';
+        row.innerHTML = `<input type="date" aria-label="Data do relatório" value="${value}"><button type="button" title="Remover esta data">Remover</button>`;
+        row.querySelector('button').addEventListener('click', () => {
+            if (generalDatesContainer.children.length > 1) row.remove();
+            else row.querySelector('input').value = '';
+        });
+        generalDatesContainer.appendChild(row);
+    }
+
+    function renderGeneralParticipantPhoto() {
+        generalParticipantPhotoPreview.innerHTML = '';
+        if (!generalParticipantPhoto) return;
+        const image = document.createElement('img');
+        image.src = generalParticipantPhoto.url;
+        image.alt = 'Foto dos participantes';
+        image.title = 'Clique duas vezes para ampliar';
+        image.addEventListener('dblclick', () => openImageLightbox(generalParticipantPhoto, 0, 1));
+        const removeButton = document.createElement('button');
+        removeButton.type = 'button';
+        removeButton.className = 'remove-image-btn';
+        removeButton.textContent = 'Remover foto';
+        removeButton.addEventListener('click', () => {
+            generalParticipantPhoto = null;
+            renderGeneralParticipantPhoto();
+        });
+        generalParticipantPhotoPreview.append(image, removeButton);
+    }
+
+    function handleGeneralParticipantPhotoUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = uploadEvent => resizeAndCompressImage(uploadEvent.target.result, 800, (url, aspect) => {
+            generalParticipantPhoto = { url, aspect };
+            renderGeneralParticipantPhoto();
+        });
+        reader.readAsDataURL(file);
+        event.target.value = '';
+    }
+
     function sanitizeEditorHtml(html) {
         const parsed = new DOMParser().parseFromString(html, 'text/html');
         parsed.body.querySelectorAll('*').forEach(element => {
@@ -547,9 +595,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return parsed.body.innerHTML;
     }
 
-    function openImageLightbox(imageData, index) {
+    function openImageLightbox(imageData, index, total = uploadedImages.length) {
         imageLightboxContent.src = imageData.url;
-        imageLightboxCaption.textContent = `Foto ${index + 1} de ${uploadedImages.length}`;
+        imageLightboxCaption.textContent = `Foto ${index + 1} de ${total}`;
         imageLightbox.hidden = false;
     }
 
@@ -562,27 +610,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const title = document.getElementById('general-report-title').value.trim() || 'Relatório geral';
         const eventName = document.getElementById('general-report-event').value.trim();
         const author = document.getElementById('general-report-author').value.trim();
-        const dateValue = document.getElementById('general-report-date').value;
-        const date = dateValue ? new Date(dateValue).toLocaleDateString('pt-BR', { timeZone: 'UTC' }) : '';
+        const participants = document.getElementById('general-report-participants').value.trim();
+        const dates = [...generalDatesContainer.querySelectorAll('input')].map(input => input.value ? new Date(input.value).toLocaleDateString('pt-BR', { timeZone: 'UTC' }) : '').filter(Boolean);
         const sections = [...generalSectionsContainer.querySelectorAll('.general-section')].map(section => ({
             title: section.querySelector('.general-section-title').value.trim(),
             content: sanitizeEditorHtml(section.querySelector('.general-section-editor').innerHTML).trim()
         })).filter(section => section.title || section.content);
-        if (!eventName && !author && !date && !sections.length && !uploadedImages.length) {
+        if (!eventName && !author && !participants && !dates.length && !sections.length && !uploadedImages.length && !generalParticipantPhoto) {
             alert('Preencha ao menos uma informação, uma seção ou anexe fotos para gerar o relatório.');
             return;
         }
-        const metadata = [eventName && `<p><b>Evento / local:</b> ${escapeHtml(eventName)}</p>`, date && `<p><b>Data:</b> ${escapeHtml(date)}</p>`, author && `<p><b>Responsável:</b> ${escapeHtml(author)}</p>`].filter(Boolean).join('');
+        const metadata = [eventName && `<p><b>Evento / local:</b> ${escapeHtml(eventName)}</p>`, dates.length && `<p><b>Data${dates.length > 1 ? 's' : ''}:</b> ${escapeHtml(dates.join(', '))}</p>`, author && `<p><b>Responsável:</b> ${escapeHtml(author)}</p>`, participants && `<p><b>Participantes / presentes:</b> ${escapeHtml(participants)}</p>`].filter(Boolean).join('');
         const sectionsHtml = sections.map(section => `<section><h2>${escapeHtml(section.title || 'Informações')}</h2><div class="section-content">${section.content || '<p>Não informado.</p>'}</div></section>`).join('');
+        const participantPhotoHtml = generalParticipantPhoto ? `<section class="participant-photo"><h2>Foto dos participantes</h2><p><img src="${generalParticipantPhoto.url}" width="430"></p></section>` : '';
         const photosHtml = uploadedImages.length ? `<section><h2>Registros fotográficos</h2><table>${buildEvidencePhotosRowsHtml(uploadedImages)}</table></section>` : '';
-        const wordHtml = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><style>@page { margin: 2cm; } body { font-family: Arial, sans-serif; color: #222; line-height: 1.5; } h1 { color: #004585; text-align: center; font-size: 22pt; border-bottom: 3pt solid #287eb8; padding-bottom: 10pt; } h2 { color: #004585; font-size: 14pt; margin-top: 22pt; border-bottom: 1pt solid #b7d1e2; padding-bottom: 4pt; } .metadata { background: #eef6fb; padding: 10pt 14pt; margin: 16pt 0; } .metadata p { margin: 3pt 0; } .section-content { font-size: 11pt; } table { width: 100%; border-collapse: collapse; } td { border: 1pt solid #ddd; padding: 8pt; text-align: center; }</style></head><body><h1>${escapeHtml(title)}</h1><div class="metadata">${metadata || '<p>Informações do evento não registradas.</p>'}</div>${sectionsHtml}${photosHtml}</body></html>`;
+        const wordHtml = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><style>@page { margin: 2cm; } body { font-family: Arial, sans-serif; color: #222; line-height: 1.5; } h1 { color: #004585; text-align: center; font-size: 22pt; border-bottom: 3pt solid #287eb8; padding-bottom: 10pt; } h2 { color: #004585; font-size: 14pt; margin-top: 22pt; border-bottom: 1pt solid #b7d1e2; padding-bottom: 4pt; } .metadata { background: #eef6fb; padding: 10pt 14pt; margin: 16pt 0; } .metadata p { margin: 3pt 0; } .section-content { font-size: 11pt; } .participant-photo { text-align: center; } table { width: 100%; border-collapse: collapse; } td { border: 1pt solid #ddd; padding: 8pt; text-align: center; }</style></head><body><h1>${escapeHtml(title)}</h1><div class="metadata">${metadata || '<p>Informações do evento não registradas.</p>'}</div>${participantPhotoHtml}${sectionsHtml}${photosHtml}</body></html>`;
         const blob = new Blob(['\ufeff', wordHtml], { type: 'application/msword;charset=utf-8' });
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
         link.download = `relatorio_${sanitizeFileName(title)}.doc`;
         document.body.appendChild(link); link.click(); document.body.removeChild(link); URL.revokeObjectURL(url);
-        generalReportOutput.innerHTML = `<h3>Relatório pronto para download</h3><p>O arquivo Word inclui ${sections.length} seção(ões) e ${uploadedImages.length} foto(s), na ordem da galeria.</p>`;
+        generalReportOutput.innerHTML = `<h3>Relatório pronto para download</h3><p>O arquivo Word inclui ${sections.length} seção(ões), ${uploadedImages.length} foto(s) da galeria${generalParticipantPhoto ? ' e uma foto dos participantes' : ''}, na ordem selecionada.</p>`;
     }
 
     // --- GERAÇÃO DE WORD ---
@@ -1314,6 +1363,9 @@ async function handleEvidenceFileUpload(event) {
     if(showGeneralReportBtn) showGeneralReportBtn.addEventListener('click', () => setReportMode('general'));
     if(addGeneralSectionBtn) addGeneralSectionBtn.addEventListener('click', () => addGeneralSection('Nova seção'));
     if(generateGeneralReportBtn) generateGeneralReportBtn.addEventListener('click', generateGeneralWordDocument);
+    if(addGeneralDateBtn) addGeneralDateBtn.addEventListener('click', () => addGeneralDate());
+    if(openGeneralParticipantPhotoBtn) openGeneralParticipantPhotoBtn.addEventListener('click', () => generalParticipantPhotoInput.click());
+    if(generalParticipantPhotoInput) generalParticipantPhotoInput.addEventListener('change', handleGeneralParticipantPhotoUpload);
     if(closeImageLightboxBtn) closeImageLightboxBtn.addEventListener('click', closeImageLightbox);
     if(imageLightbox) imageLightbox.addEventListener('click', event => { if (event.target === imageLightbox) closeImageLightbox(); });
     document.addEventListener('keydown', event => { if (event.key === 'Escape' && imageLightbox && !imageLightbox.hidden) closeImageLightbox(); });
@@ -1335,5 +1387,6 @@ async function handleEvidenceFileUpload(event) {
     doneMultiShotBtn.addEventListener('click', saveMultiShotPhotos);
 
     addGeneralSection('Observações');
+    addGeneralDate();
     loadDataAndInitialize();
 });

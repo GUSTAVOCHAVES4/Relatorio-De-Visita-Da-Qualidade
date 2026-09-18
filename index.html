@@ -33,8 +33,23 @@
             <div class="general-report-grid">
                 <div class="form-group"><label for="general-report-title">Título do relatório</label><input id="general-report-title" type="text" placeholder="Ex.: Relatório de participação em congresso"></div>
                 <div class="form-group"><label for="general-report-event">Evento / local</label><input id="general-report-event" type="text" placeholder="Ex.: Congresso de Qualidade 2026"></div>
-                <div class="form-group"><label for="general-report-date">Data</label><input id="general-report-date" type="date"></div>
                 <div class="form-group"><label for="general-report-author">Responsável</label><input id="general-report-author" type="text" placeholder="Nome de quem participou ou elaborou"></div>
+                <div class="form-group"><label for="general-report-participants">Participantes / presentes</label><input id="general-report-participants" type="text" placeholder="Ex.: Ana Silva, Carlos Souza e equipe"></div>
+            </div>
+            <div class="general-report-extra-grid">
+                <div class="form-group general-dates-group">
+                    <div class="field-label-row"><label>Datas do relatório</label><button type="button" id="add-general-date-btn" class="small-outline-btn">+ Adicionar data</button></div>
+                    <div id="general-dates-container" class="general-dates-container"></div>
+                    <small>Inclua uma ou mais datas para eventos, congressos ou reuniões recorrentes.</small>
+                </div>
+                <div class="form-group">
+                    <label for="general-participant-photo-input">Foto dos participantes <span>(opcional)</span></label>
+                    <div class="camera-controls-wrapper general-photo-actions">
+                        <button type="button" id="open-general-participant-photo-btn" class="camera-btn">📂 Anexar foto</button>
+                        <input type="file" id="general-participant-photo-input" accept="image/*" style="display: none;">
+                    </div>
+                    <div id="general-participant-photo-preview" class="general-participant-photo-preview"></div>
+                </div>
             </div>
             <div id="general-sections-container" class="general-sections-container"></div>
             <p class="general-report-help">As fotos anexadas na galeria abaixo serão incluídas na ordem exibida. Use o zoom para conferir imagens e o aviso de duplicidade antes de gerar o arquivo.</p>

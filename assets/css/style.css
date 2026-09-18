@@ -1008,6 +1008,21 @@ tr.avaliacao-pendente .evaluation-cell div {
 .general-report-area { max-width: 1180px; margin: 0 auto; }
 .section-heading-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; border-bottom: 2px solid #dfe9f0; padding-bottom: 14px; margin-bottom: 20px; }
 .general-report-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 20px; }
+.general-report-extra-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 20px; }
+.field-label-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 5px; }
+.field-label-row label { font-weight: bold; color: #333; }
+.small-outline-btn { padding: 6px 10px; font-size: 13px; background: #fff; color: #287eb8; border: 1px solid #287eb8; box-shadow: none; }
+.small-outline-btn:hover { background: #e3f2fd; }
+.general-dates-container { display: grid; gap: 8px; }
+.general-date-row { display: flex; gap: 8px; align-items: center; }
+.general-date-row input { flex: 1; min-width: 0; padding: 9px; border: 1px solid #ccc; border-radius: 5px; font-size: 15px; }
+.general-date-row button { padding: 7px 10px; background: #c63321; box-shadow: none; font-size: 13px; }
+.general-dates-group small { color: #5f6d78; margin-top: 6px; }
+.general-photo-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.general-participant-photo-preview { min-height: 82px; margin-top: 4px; display: flex; align-items: center; justify-content: center; border: 1px dashed #b9cbd8; border-radius: 6px; background: #f9fcff; }
+.general-participant-photo-preview:empty::before { content: "Nenhuma foto de participantes anexada."; color: #778590; font-size: .9rem; font-style: italic; }
+.general-participant-photo-preview img { max-width: 190px; max-height: 130px; margin: 8px; object-fit: contain; border-radius: 5px; }
+.general-participant-photo-preview .remove-image-btn { margin: 8px; padding: 7px 10px; background: #c63321; box-shadow: none; font-size: 13px; }
 .general-sections-container { display: grid; gap: 16px; margin: 22px 0; }
 .general-section { border: 1px solid #cbdce8; border-radius: 8px; padding: 16px; background: #f9fcff; }
 .general-section-header { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
@@ -1028,5 +1043,5 @@ tr.avaliacao-pendente .evaluation-cell div {
 .lightbox-close { position: fixed; top: 18px; right: 22px; width: 44px; height: 44px; padding: 0; border-radius: 50%; background: #fff; color: #222; font-size: 32px; line-height: 1; }
 @media (max-width: 768px) {
     .report-mode-section, .section-heading-row { align-items: stretch; flex-direction: column; }
-    .general-report-grid { grid-template-columns: 1fr; }
+    .general-report-grid, .general-report-extra-grid { grid-template-columns: 1fr; }
 }
