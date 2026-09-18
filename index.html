@@ -13,6 +13,52 @@
         <h1>RELATÓRIO DE VISITA DA QUALIDADE</h1>
     </header>
 
+    <section class="report-mode-section" aria-label="Tipo de relatório">
+        <div>
+            <h2>Gerador de relatórios</h2>
+            <p>Use o relatório de visita para a auditoria do CQH ou crie um relatório livre para congressos, reuniões e outros eventos.</p>
+        </div>
+        <div class="report-mode-actions">
+            <button type="button" id="show-quality-report-btn" class="mode-btn active">Relatório de visita</button>
+            <button type="button" id="show-general-report-btn" class="mode-btn">Novo relatório geral</button>
+        </div>
+    </section>
+
+    <main id="general-report-area" class="general-report-area" hidden>
+        <section class="general-report-card">
+            <div class="section-heading-row">
+                <div><h2>Relatório geral</h2><p>Monte somente as partes que fizerem sentido para o evento.</p></div>
+                <button type="button" id="add-general-section-btn" class="camera-btn">+ Adicionar seção</button>
+            </div>
+            <div class="general-report-grid">
+                <div class="form-group"><label for="general-report-title">Título do relatório</label><input id="general-report-title" type="text" placeholder="Ex.: Relatório de participação em congresso"></div>
+                <div class="form-group"><label for="general-report-event">Evento / local</label><input id="general-report-event" type="text" placeholder="Ex.: Congresso de Qualidade 2026"></div>
+                <div class="form-group"><label for="general-report-author">Responsável</label><input id="general-report-author" type="text" placeholder="Nome de quem participou ou elaborou"></div>
+                <div class="form-group"><label for="general-report-participants">Participantes / presentes</label><input id="general-report-participants" type="text" placeholder="Ex.: Ana Silva, Carlos Souza e equipe"></div>
+            </div>
+            <div class="general-report-extra-grid">
+                <div class="form-group general-dates-group">
+                    <div class="field-label-row"><label>Datas do relatório</label><button type="button" id="add-general-date-btn" class="small-outline-btn">+ Adicionar data</button></div>
+                    <div id="general-dates-container" class="general-dates-container"></div>
+                    <small>Inclua uma ou mais datas para eventos, congressos ou reuniões recorrentes.</small>
+                </div>
+                <div class="form-group">
+                    <label for="general-participant-photo-input">Foto dos participantes <span>(opcional)</span></label>
+                    <div class="camera-controls-wrapper general-photo-actions">
+                        <button type="button" id="open-general-participant-photo-btn" class="camera-btn">📂 Anexar foto</button>
+                        <input type="file" id="general-participant-photo-input" accept="image/*" style="display: none;">
+                    </div>
+                    <div id="general-participant-photo-preview" class="general-participant-photo-preview"></div>
+                </div>
+            </div>
+            <div id="general-sections-container" class="general-sections-container"></div>
+            <p class="general-report-help">As fotos anexadas na galeria abaixo serão incluídas na ordem exibida. Use o zoom para conferir imagens e o aviso de duplicidade antes de gerar o arquivo.</p>
+            <button type="button" id="generate-general-report-btn">Gerar relatório Word</button>
+        </section>
+        <section id="general-report-output" class="minutes-output" aria-live="polite"></section>
+    </main>
+
+    <div id="quality-report-area">
     <div class="visit-details-container">
     <h2>Informações da Visita</h2>
     <div class="details-form">
@@ -53,7 +99,7 @@
             <p id="ready-file-status" class="ready-file-status">Nenhum arquivo pronto carregado.</p>
         </section>
 
-        <section class="image-upload-section">
+        <section id="image-upload-section" class="image-upload-section">
             <h3>Anexar Fotos de Evidência</h3>
             
             <div class="camera-controls-wrapper" style="display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
@@ -176,6 +222,7 @@
         <section id="minutes-output" class="minutes-output"></section>
     </div>
 </main>
+    </div>
 
     <script src="assets/js/libs/jspdf.min.js"></script>
     <script src="assets/js/libs/jspdf-autotable.min.js"></script>
@@ -199,6 +246,12 @@
             <button type="button" id="close-modal-btn">Cancelar</button>
         </div>
     </div>
+</div>
+
+<div id="image-lightbox" class="image-lightbox" role="dialog" aria-modal="true" aria-label="Visualização ampliada da imagem" hidden>
+    <button type="button" id="close-image-lightbox-btn" class="lightbox-close" aria-label="Fechar visualização">×</button>
+    <img id="image-lightbox-content" alt="Imagem ampliada">
+    <p id="image-lightbox-caption"></p>
 </div>
 
 </body>
