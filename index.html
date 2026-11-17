@@ -30,6 +30,18 @@
                 <div><h2>Relatório geral</h2><p>Monte somente as partes que fizerem sentido para o evento.</p></div>
                 <button type="button" id="add-general-section-btn" class="camera-btn">+ Adicionar seção</button>
             </div>
+            <section class="general-ready-file-panel" aria-label="Editar relatório existente">
+                <div>
+                    <h3>Editar relatório já criado</h3>
+                    <p>Carregue um relatório geral em <strong>.doc</strong> gerado pelo sistema ou um arquivo HTML para continuar a edição, alterar textos e inserir novas imagens.</p>
+                </div>
+                <div class="general-ready-file-actions">
+                    <button type="button" id="open-general-ready-file-btn" class="camera-btn">📄 Abrir relatório existente</button>
+                    <input type="file" id="general-ready-file-input" accept=".doc,.html,.htm,application/msword,text/html" hidden>
+                    <button type="button" id="clear-general-ready-file-btn" class="camera-btn secondary-btn">Limpar arquivo carregado</button>
+                </div>
+                <p id="general-ready-file-status" class="general-ready-file-status" aria-live="polite">Nenhum relatório existente carregado.</p>
+            </section>
             <div class="general-report-grid">
                 <div class="form-group"><label for="general-report-title">Título do relatório</label><input id="general-report-title" type="text" placeholder="Ex.: Relatório de participação em congresso"></div>
                 <div class="form-group"><label for="general-report-event">Evento / local</label><input id="general-report-event" type="text" placeholder="Ex.: Congresso de Qualidade 2026"></div>
