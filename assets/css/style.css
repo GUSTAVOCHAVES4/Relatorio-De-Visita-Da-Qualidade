@@ -1045,3 +1045,29 @@ tr.avaliacao-pendente .evaluation-cell div {
     .report-mode-section, .section-heading-row { align-items: stretch; flex-direction: column; }
     .general-report-grid, .general-report-extra-grid { grid-template-columns: 1fr; }
 }
+
+
+/* Importação e edição de relatórios gerais */
+.general-ready-file-panel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 20px;
+    margin: 18px 0 22px;
+    padding: 16px;
+    border: 1px solid #b7d1e2;
+    border-radius: 8px;
+    background: #f4f9fd;
+}
+.general-ready-file-panel h3 { margin: 0; color: #004585; }
+.general-ready-file-panel p { margin: 5px 0 0; }
+.general-ready-file-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.general-ready-file-status { flex-basis: 100%; font-size: .9rem; color: #4b5964; }
+.general-ready-file-status.error { color: #b42318; font-weight: 600; }
+.general-section-editor img { max-width: 100%; height: auto; display: block; margin: 12px auto; }
+.insert-editor-image-btn { background: #eaf2f8 !important; color: #004585 !important; border: 1px solid #b7d1e2 !important; }
+@media (max-width: 768px) {
+    .general-ready-file-panel { align-items: stretch; flex-direction: column; }
+    .general-ready-file-actions { flex-direction: column; }
+}
