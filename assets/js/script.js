@@ -62,6 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const generalParticipantPhotoInput = document.getElementById('general-participant-photo-input');
     const openGeneralParticipantPhotoBtn = document.getElementById('open-general-participant-photo-btn');
     const generalParticipantPhotoPreview = document.getElementById('general-participant-photo-preview');
+    const openGeneralReadyFileBtn = document.getElementById('open-general-ready-file-btn');
+    const generalReadyFileInput = document.getElementById('general-ready-file-input');
+    const clearGeneralReadyFileBtn = document.getElementById('clear-general-ready-file-btn');
+    const generalReadyFileStatus = document.getElementById('general-ready-file-status');
     const imageLightbox = document.getElementById('image-lightbox');
     const imageLightboxContent = document.getElementById('image-lightbox-content');
     const imageLightboxCaption = document.getElementById('image-lightbox-caption');
@@ -81,6 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let groupPhotoImageData = null; 
     let generalParticipantPhoto = null;
     let generalSectionCounter = 0;
+    let importedGeneralFileName = '';
+    let generalEditorSelection = null;
     
     let tempCapturedImages = []; 
     let currentStream = null;
@@ -499,6 +505,209 @@ document.addEventListener('DOMContentLoaded', () => {
         setReadyFileStatus(`Arquivo alterado baixado com ${uploadedImages.length} foto(s).`);
     }
 
+
+    function setGeneralReadyFileStatus(message, isError = false) {
+        if (!generalReadyFileStatus) return;
+        generalReadyFileStatus.textContent = message;
+        generalReadyFileStatus.classList.toggle('error', isError);
+    }
+
+    function clearGeneralReadyFile() {
+        importedGeneralFileName = '';
+        setGeneralReadyFileStatus('Arquivo carregado desvinculado. Os dados atuais foram mantidos no formulário.');
+        generalReportOutput.innerHTML = '';
+    }
+
+    function parseImportedDate(value) {
+        const text = String(value || '').trim();
+        const isoMatch = text.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+        if (isoMatch) return text;
+        const brMatch = text.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+        if (!brMatch) return '';
+        return brMatch[3] + '-' + brMatch[2].padStart(2, '0') + '-' + brMatch[1].padStart(2, '0');
+    }
+
+    async function handleGeneralReadyFileUpload(event) {
+        const file = event.target.files && event.target.files[0];
+        if (!file) return;
+
+        const supportedExtension = /\.(doc|html?|txt)$/i.test(file.name);
+        if (!supportedExtension) {
+            setGeneralReadyFileStatus('Formato não reconhecido. Use um arquivo .doc gerado pelo sistema ou .html/.htm.', true);
+            event.target.value = '';
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = async function(loadEvent) {
+            try {
+                const parsedDocument = new DOMParser().parseFromString(loadEvent.target.result, 'text/html');
+                const body = parsedDocument.body;
+                const titleElement = body.querySelector('h1');
+                const allSections = Array.from(body.querySelectorAll('section'));
+                const metadataContainer = body.querySelector('.metadata');
+
+                if (!titleElement && !allSections.length && !body.textContent.trim()) {
+                    throw new Error('O arquivo não contém um relatório HTML válido.');
+                }
+
+                const metadataParagraphs = Array.from((metadataContainer || body).querySelectorAll('p'));
+                const readMetadata = labels => {
+                    const paragraph = metadataParagraphs.find(item => {
+                        const text = item.textContent.trim().toLocaleLowerCase('pt-BR');
+                        return labels.some(label => text.startsWith(label.toLocaleLowerCase('pt-BR') + ':'));
+                    });
+                    if (!paragraph) return '';
+                    const text = paragraph.textContent.trim();
+                    return text.slice(text.indexOf(':') + 1).trim();
+                };
+
+                document.getElementById('general-report-title').value = titleElement ? titleElement.textContent.trim() : '';
+                document.getElementById('general-report-event').value = readMetadata(['Evento / local']);
+                document.getElementById('general-report-author').value = readMetadata(['Responsável']);
+                document.getElementById('general-report-participants').value = readMetadata(['Participantes / presentes']);
+
+                const importedDates = readMetadata(['Data', 'Datas']).split(',').map(value => parseImportedDate(value)).filter(Boolean);
+                generalDatesContainer.innerHTML = '';
+                if (importedDates.length) importedDates.forEach(value => addGeneralDate(value));
+                else addGeneralDate();
+
+                const participantSection = allSections.find(section => {
+                    const heading = section.querySelector('h2');
+                    return section.classList.contains('participant-photo') ||
+                        (heading && heading.textContent.trim().toLocaleLowerCase('pt-BR') === 'foto dos participantes');
+                });
+                const participantImage = participantSection && participantSection.querySelector('img');
+                generalParticipantPhoto = null;
+                if (participantImage) {
+                    const imageUrl = participantImage.getAttribute('src') || '';
+                    if (imageUrl.startsWith('data:image/')) {
+                        generalParticipantPhoto = {
+                            url: imageUrl,
+                            aspect: await getImageAspectFromDataUrl(imageUrl, getImageAspectFromElement(participantImage))
+                        };
+                    }
+                }
+                renderGeneralParticipantPhoto();
+
+                const gallerySection = allSections.find(section => {
+                    const heading = section.querySelector('h2');
+                    return heading && /registros fotográficos|^fotos$/i.test(heading.textContent.trim());
+                });
+                const galleryImages = gallerySection ? Array.from(gallerySection.querySelectorAll('img')) : [];
+                uploadedImages = await Promise.all(galleryImages
+                    .map(img => ({ url: img.getAttribute('src') || '', fallbackAspect: getImageAspectFromElement(img) }))
+                    .filter(image => image.url.startsWith('data:image/'))
+                    .map(async image => ({
+                        url: image.url,
+                        aspect: await getImageAspectFromDataUrl(image.url, image.fallbackAspect)
+                    })));
+                renderImagePreviews();
+
+                generalSectionsContainer.innerHTML = '';
+                generalSectionCounter = 0;
+                const editableSections = allSections.filter(section => {
+                    if (section === participantSection || section === gallerySection) return false;
+                    return Boolean(section.querySelector('h2'));
+                });
+
+                editableSections.forEach(section => {
+                    const heading = section.querySelector('h2');
+                    const editorContent = section.querySelector('.section-content');
+                    const sectionTitle = heading ? heading.textContent.trim() : 'Informações';
+                    addGeneralSection(sectionTitle || 'Informações');
+                    const editor = generalSectionsContainer.lastElementChild.querySelector('.general-section-editor');
+
+                    if (editorContent) {
+                        editor.innerHTML = sanitizeEditorHtml(editorContent.innerHTML);
+                    } else {
+                        const contentWrapper = document.createElement('div');
+                        Array.from(section.childNodes).forEach(node => {
+                            if (node.nodeType === Node.ELEMENT_NODE && node === heading) return;
+                            if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'TABLE') return;
+                            contentWrapper.appendChild(node.cloneNode(true));
+                        });
+                        editor.innerHTML = sanitizeEditorHtml(contentWrapper.innerHTML);
+                    }
+                });
+
+                if (!editableSections.length) {
+                    const contentNodes = Array.from(body.children).filter(node =>
+                        !['H1', 'STYLE', 'SCRIPT'].includes(node.tagName) &&
+                        node !== metadataContainer &&
+                        !allSections.includes(node)
+                    );
+                    if (contentNodes.length) {
+                        addGeneralSection('Conteúdo importado');
+                        const editor = generalSectionsContainer.lastElementChild.querySelector('.general-section-editor');
+                        editor.innerHTML = sanitizeEditorHtml(contentNodes.map(node => node.outerHTML || node.textContent).join(''));
+                    } else {
+                        addGeneralSection('Observações');
+                    }
+                }
+
+                importedGeneralFileName = file.name;
+                generalReportOutput.innerHTML = '';
+                const inlineImages = generalSectionsContainer.querySelectorAll('.general-section-editor img').length;
+                let statusMessage = file.name + ' carregado. ' + editableSections.length + ' seção(ões), ' +
+                    uploadedImages.length + ' foto(s) na galeria';
+                if (generalParticipantPhoto) statusMessage += ' e foto dos participantes';
+                if (inlineImages) statusMessage += ', além de ' + inlineImages + ' imagem(ns) dentro do texto';
+                statusMessage += '. Edite os campos e clique em “Gerar relatório Word”.';
+                setGeneralReadyFileStatus(statusMessage);
+            } catch (error) {
+                console.error('Erro ao importar relatório geral:', error);
+                setGeneralReadyFileStatus(error.message || 'Não foi possível interpretar o relatório. Use um .doc gerado pelo sistema ou um HTML.', true);
+            }
+        };
+        reader.onerror = () => setGeneralReadyFileStatus('Não foi possível ler o arquivo selecionado.', true);
+        reader.readAsText(file);
+        event.target.value = '';
+    }
+
+    function insertImageIntoGeneralEditor(editor, file) {
+        if (!file || !file.type.startsWith('image/')) {
+            setGeneralReadyFileStatus('Selecione um arquivo de imagem válido.', true);
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = loadEvent => resizeAndCompressImage(loadEvent.target.result, 1000, imageUrl => {
+            editor.focus();
+            const selection = window.getSelection();
+            let range = generalEditorSelection;
+            if (!range || !editor.contains(range.commonAncestorContainer)) {
+                range = document.createRange();
+                range.selectNodeContents(editor);
+                range.collapse(false);
+            }
+            selection.removeAllRanges();
+            selection.addRange(range);
+            range.deleteContents();
+
+            const image = document.createElement('img');
+            image.src = imageUrl;
+            image.alt = file.name || 'Imagem inserida no relatório';
+            image.style.maxWidth = '100%';
+            image.style.height = 'auto';
+            image.style.display = 'block';
+            image.style.margin = '12px auto';
+            range.insertNode(image);
+
+            const spacer = document.createElement('p');
+            spacer.appendChild(document.createElement('br'));
+            image.parentNode.insertBefore(spacer, image.nextSibling);
+            range.setStart(spacer, 0);
+            range.collapse(true);
+            selection.removeAllRanges();
+            selection.addRange(range);
+            generalEditorSelection = null;
+        });
+        reader.onerror = () => setGeneralReadyFileStatus('Não foi possível ler a imagem selecionada.', true);
+        reader.readAsDataURL(file);
+    }
+
+
     function setReportMode(mode) {
         const isGeneral = mode === 'general';
         const generalCard = generalReportArea.querySelector('.general-report-card');
@@ -530,6 +739,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button type="button" data-command="underline" title="Sublinhado"><u>S</u></button>
                 <button type="button" data-command="insertUnorderedList" title="Lista com marcadores">• Lista</button>
                 <button type="button" data-command="insertOrderedList" title="Lista numerada">1. Lista</button>
+                <button type="button" class="insert-editor-image-btn" title="Inserir imagem nesta seção">🖼 Imagem</button>
+                <input type="file" class="general-editor-image-input" accept="image/*" hidden>
             </div>
             <div class="general-section-editor" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="Escreva as anotações e os principais pontos desta seção..."></div>`;
         section.querySelector('.general-remove-section').addEventListener('click', () => section.remove());
@@ -538,6 +749,25 @@ document.addEventListener('DOMContentLoaded', () => {
             editor.focus();
             document.execCommand(button.dataset.command, false, null);
         }));
+        const editor = section.querySelector('.general-section-editor');
+        const imageInput = section.querySelector('.general-editor-image-input');
+        section.querySelector('.insert-editor-image-btn').addEventListener('click', () => {
+            editor.focus();
+            const selection = window.getSelection();
+            if (selection && selection.rangeCount && editor.contains(selection.anchorNode)) {
+                generalEditorSelection = selection.getRangeAt(0).cloneRange();
+            } else {
+                generalEditorSelection = document.createRange();
+                generalEditorSelection.selectNodeContents(editor);
+                generalEditorSelection.collapse(false);
+            }
+            imageInput.click();
+        });
+        imageInput.addEventListener('change', event => {
+            const file = event.target.files && event.target.files[0];
+            if (file) insertImageIntoGeneralEditor(editor, file);
+            event.target.value = '';
+        });
         generalSectionsContainer.appendChild(section);
     }
 
@@ -586,7 +816,22 @@ document.addEventListener('DOMContentLoaded', () => {
     function sanitizeEditorHtml(html) {
         const parsed = new DOMParser().parseFromString(html, 'text/html');
         parsed.body.querySelectorAll('*').forEach(element => {
-            if (!['B', 'STRONG', 'I', 'EM', 'U', 'UL', 'OL', 'LI', 'BR', 'DIV', 'P'].includes(element.tagName)) {
+            if (element.tagName === 'IMG') {
+                const imageUrl = element.getAttribute('src') || '';
+                if (!imageUrl.startsWith('data:image/')) {
+                    element.remove();
+                } else {
+                    [...element.attributes].forEach(attribute => element.removeAttribute(attribute.name));
+                    element.setAttribute('src', imageUrl);
+                    element.setAttribute('alt', 'Imagem do relatório');
+                    element.style.maxWidth = '100%';
+                    element.style.height = 'auto';
+                    element.style.display = 'block';
+                    element.style.margin = '12px auto';
+                }
+                return;
+            }
+            if (!['B', 'STRONG', 'I', 'EM', 'U', 'UL', 'OL', 'LI', 'BR', 'DIV', 'P', 'H3', 'H4', 'BLOCKQUOTE'].includes(element.tagName)) {
                 element.replaceWith(...element.childNodes);
             } else {
                 [...element.attributes].forEach(attribute => element.removeAttribute(attribute.name));
@@ -629,9 +874,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
-        link.download = `relatorio_${sanitizeFileName(title)}.doc`;
+        const outputFileName = importedGeneralFileName
+            ? sanitizeFileName(importedGeneralFileName.replace(/\.[^.]+$/, '')) + '_editado.doc'
+            : 'relatorio_' + sanitizeFileName(title) + '.doc';
+        link.download = outputFileName;
         document.body.appendChild(link); link.click(); document.body.removeChild(link); URL.revokeObjectURL(url);
-        generalReportOutput.innerHTML = `<h3>Relatório pronto para download</h3><p>O arquivo Word inclui ${sections.length} seção(ões), ${uploadedImages.length} foto(s) da galeria${generalParticipantPhoto ? ' e uma foto dos participantes' : ''}, na ordem selecionada.</p>`;
+        generalReportOutput.innerHTML = `<h3>Relatório pronto para download</h3><p>O arquivo Word inclui ${sections.length} seção(ões), ${uploadedImages.length} foto(s) da galeria${generalParticipantPhoto ? ' e uma foto dos participantes' : ''}. As imagens inseridas no corpo do texto também foram preservadas.</p>`;
     }
 
     // --- GERAÇÃO DE WORD ---
@@ -1366,6 +1614,9 @@ async function handleEvidenceFileUpload(event) {
     if(addGeneralDateBtn) addGeneralDateBtn.addEventListener('click', () => addGeneralDate());
     if(openGeneralParticipantPhotoBtn) openGeneralParticipantPhotoBtn.addEventListener('click', () => generalParticipantPhotoInput.click());
     if(generalParticipantPhotoInput) generalParticipantPhotoInput.addEventListener('change', handleGeneralParticipantPhotoUpload);
+    if(openGeneralReadyFileBtn) openGeneralReadyFileBtn.addEventListener('click', () => generalReadyFileInput.click());
+    if(generalReadyFileInput) generalReadyFileInput.addEventListener('change', handleGeneralReadyFileUpload);
+    if(clearGeneralReadyFileBtn) clearGeneralReadyFileBtn.addEventListener('click', clearGeneralReadyFile);
     if(closeImageLightboxBtn) closeImageLightboxBtn.addEventListener('click', closeImageLightbox);
     if(imageLightbox) imageLightbox.addEventListener('click', event => { if (event.target === imageLightbox) closeImageLightbox(); });
     document.addEventListener('keydown', event => { if (event.key === 'Escape' && imageLightbox && !imageLightbox.hidden) closeImageLightbox(); });
