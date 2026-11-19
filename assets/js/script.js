@@ -495,7 +495,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const serializedHtml = importedWordDocument.documentElement.outerHTML;
         const baseName = sanitizeFileName(importedReadyFileName.replace(/\.[^.]+$/, '') || 'relatorio_editado');
         try {
-            downloadHtmlAsDocx(serializedHtml, `${baseName}_editado.docx`, {
+            await downloadHtmlAsDocx(serializedHtml, `${baseName}_editado.docx`, {
                 orientation: 'landscape',
                 margins: { top: 567, right: 567, bottom: 567, left: 567 }
             });
@@ -508,19 +508,80 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    function downloadHtmlAsDocx(htmlContent, fileName, options = {}) {
-        if (!window.htmlDocx || typeof window.htmlDocx.asBlob !== 'function') {
-            throw new Error('O conversor Word não foi carregado. Atualize a página e tente novamente.');
+    async function downloadHtmlAsDocx(htmlContent, fileName, options = {}) {
+        if (!window.docx || !window.docx.Document || !window.docx.Packer ||
+            !window.docxHtml || typeof window.docxHtml.htmlToContent !== 'function') {
+            throw new Error('O gerador de documentos Word não foi carregado. Atualize a página e tente novamente.');
         }
-        const blob = window.htmlDocx.asBlob(htmlContent, options);
+
+        const isLandscape = options.orientation === 'landscape';
+        const pageWidth = isLandscape ? 16838 : 11906;
+        const pageHeight = isLandscape ? 11906 : 16838;
+        const margins = options.margins || { top: 1134, right: 1134, bottom: 1134, left: 1134 };
+        const documentChildren = window.docxHtml.htmlToContent(htmlContent, {
+            maxImageWidth: isLandscape ? 900 : 600,
+            onWarning: warning => console.warn('Aviso ao converter conteúdo para Word:', warning)
+        });
+
+        if (!documentChildren || !documentChildren.length) {
+            throw new Error('O relatório não contém conteúdo compatível para gerar o Word.');
+        }
+
+        const wordDocument = new window.docx.Document({
+            sections: [{
+                properties: {
+                    page: {
+                        size: {
+                            width: pageWidth,
+                            height: pageHeight,
+                            orientation: isLandscape ? 'landscape' : 'portrait'
+                        },
+                        margin: margins
+                    }
+                },
+                children: documentChildren
+            }]
+        });
+
+        const blob = await window.docx.Packer.toBlob(wordDocument);
+        if (!blob || !blob.size) throw new Error('O Word foi gerado vazio. Verifique as imagens e o conteúdo do relatório.');
+
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
-        link.download = fileName;
+        link.download = fileName.toLowerCase().endsWith('.docx') ? fileName : fileName + '.docx';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        setTimeout(() => URL.revokeObjectURL(url), 1500);
+    }
+
+function wrapImportedWordHtmlSections(htmlContent) {
+        const parsed = new DOMParser().parseFromString(htmlContent, 'text/html');
+        const body = parsed.body;
+        const originalNodes = Array.from(body.childNodes);
+        const rebuilt = parsed.createDocumentFragment();
+        let currentContent = null;
+
+        originalNodes.forEach(node => {
+            if (node.nodeType === Node.ELEMENT_NODE && /^H2$/i.test(node.tagName)) {
+                const section = parsed.createElement('section');
+                const heading = node.cloneNode(true);
+                currentContent = parsed.createElement('div');
+                currentContent.className = 'section-content';
+                section.appendChild(heading);
+                section.appendChild(currentContent);
+                rebuilt.appendChild(section);
+                return;
+            }
+
+            if (currentContent) currentContent.appendChild(node.cloneNode(true));
+            else rebuilt.appendChild(node.cloneNode(true));
+        });
+
+        body.innerHTML = '';
+        body.appendChild(rebuilt);
+        return '<!DOCTYPE html>' + parsed.documentElement.outerHTML;
     }
 
     async function extractHtmlFromGeneratedDocx(file) {
@@ -531,7 +592,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const zip = await window.JSZip.loadAsync(file);
         const mhtPart = zip.file('word/afchunk.mht');
         if (!mhtPart) {
-            throw new Error('Este .docx não foi gerado pela versão atual do sistema ou foi salvo novamente no Word. Para reimportá-lo, use o .doc/.html original ou o .docx recém-baixado pelo sistema.');
+            if (!window.mammoth || typeof window.mammoth.convertToHtml !== 'function') {
+                throw new Error('O leitor de documentos Word não foi carregado. Atualize a página e tente novamente.');
+            }
+
+            const conversion = await window.mammoth.convertToHtml(
+                { arrayBuffer: await file.arrayBuffer() },
+                {
+                    convertImage: window.mammoth.images.imgElement(image =>
+                        image.readAsBase64String().then(base64 =>
+                            ({ src: 'data:' + image.contentType + ';base64,' + base64 })
+                        )
+                    )
+                }
+            );
+
+            if (!conversion.value || !conversion.value.trim()) {
+                throw new Error('Não foi possível recuperar o texto e as imagens deste .docx.');
+            }
+            return wrapImportedWordHtmlSections(conversion.value);
         }
 
         const mhtContent = await mhtPart.async('string');
@@ -965,7 +1044,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const outputFileName = importedGeneralFileName
                 ? sanitizeFileName(importedGeneralFileName.replace(/\.[^.]+$/, '')) + '_editado.docx'
                 : 'relatorio_' + sanitizeFileName(title) + '.docx';
-            downloadHtmlAsDocx(wordHtml, outputFileName, {
+            await downloadHtmlAsDocx(wordHtml, outputFileName, {
                 orientation: 'portrait',
                 margins: { top: 1134, right: 1134, bottom: 1134, left: 1134 }
             });
@@ -1106,7 +1185,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </html>
             `;
 
-            downloadHtmlAsDocx(wordHtml, `relatorio_visita_${sanitizeFileName(data.visitLocal)}.docx`, {
+            await downloadHtmlAsDocx(wordHtml, `relatorio_visita_${sanitizeFileName(data.visitLocal)}.docx`, {
                 orientation: 'landscape',
                 margins: { top: 567, right: 567, bottom: 567, left: 567 }
             });
