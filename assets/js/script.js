@@ -437,7 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!file) return;
 
         if (file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf')) {
-            setReadyFileStatus('PDF não pode ser reeditado neste modo. Anexe o arquivo .doc baixado pelo sistema.', true);
+            setReadyFileStatus('PDF não pode ser reeditado neste modo. Anexe um arquivo .doc ou .docx baixado pelo sistema.', true);
             event.target.value = '';
             return;
         }
@@ -487,7 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function downloadEditedReadyFile() {
         if (!importedWordDocument || !importedEvidenceTable) {
-            setReadyFileStatus('Anexe primeiro um arquivo .doc gerado pelo sistema.', true);
+            setReadyFileStatus('Anexe primeiro um arquivo .doc ou .docx gerado pelo sistema.', true);
             return;
         }
 
