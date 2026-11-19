@@ -375,8 +375,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const right = evidencePhotos[i + 1];
             evidencePhotosRowsHtml.push(`
                 <tr>
-                    <td style="width: 50%; border: 1pt solid #ddd; padding: 10pt; text-align: center;">${left ? `<img src='${left.url}' width='320'>` : '&nbsp;'}</td>
-                    <td style="width: 50%; border: 1pt solid #ddd; padding: 10pt; text-align: center;">${right ? `<img src='${right.url}' width='320'>` : '&nbsp;'}</td>
+                    <td style="width: 50%; border: 1pt solid #ddd; padding: 10pt; text-align: center;">${left ? `<img src="${left.url}" width="320">` : '&nbsp;'}</td>
+                    <td style="width: 50%; border: 1pt solid #ddd; padding: 10pt; text-align: center;">${right ? `<img src="${right.url}" width="320">` : '&nbsp;'}</td>
                 </tr>
             `);
         }
@@ -432,7 +432,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setReadyFileStatus('Nenhum arquivo pronto carregado.');
     }
 
-    function handleReadyFileUpload(event) {
+    async function handleReadyFileUpload(event) {
         const file = event.target.files[0];
         if (!file) return;
 
@@ -442,9 +442,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const reader = new FileReader();
-        reader.onload = async function(e) {
-            const fileContent = e.target.result;
+        try {
+            const fileContent = /.docx$/i.test(file.name)
+                ? await extractHtmlFromGeneratedDocx(file)
+                : await file.text();
             const parser = new DOMParser();
             const parsedDocument = parser.parseFromString(fileContent, 'text/html');
             const evidenceTable = findEvidencePhotosTable(parsedDocument);
@@ -476,12 +477,12 @@ document.addEventListener('DOMContentLoaded', () => {
             renderImagePreviews();
             syncReadyFileButtons();
             setReadyFileStatus(`${file.name} carregado com ${uploadedImages.length} foto(s). Reorganize, adicione ou exclua fotos e clique em Baixar arquivo alterado.`);
-        };
-        reader.onerror = function() {
-            setReadyFileStatus('Não foi possível ler o arquivo selecionado.', true);
-        };
-        reader.readAsText(file);
-        event.target.value = '';
+        } catch (error) {
+            console.error('Erro ao importar arquivo pronto:', error);
+            setReadyFileStatus(error.message || 'Não foi possível ler o arquivo selecionado.', true);
+        } finally {
+            event.target.value = '';
+        }
     }
 
     function downloadEditedReadyFile() {
@@ -492,19 +493,89 @@ document.addEventListener('DOMContentLoaded', () => {
 
         importedEvidenceTable.innerHTML = buildEvidencePhotosRowsHtml(uploadedImages);
         const serializedHtml = importedWordDocument.documentElement.outerHTML;
-        const blob = new Blob(['\ufeff', serializedHtml], { type: 'application/msword;charset=utf-8' });
+        const baseName = sanitizeFileName(importedReadyFileName.replace(/\.[^.]+$/, '') || 'relatorio_editado');
+        try {
+            downloadHtmlAsDocx(serializedHtml, `${baseName}_editado.docx`, {
+                orientation: 'landscape',
+                margins: { top: 567, right: 567, bottom: 567, left: 567 }
+            });
+            setReadyFileStatus(`Arquivo Word (.docx) alterado baixado com ${uploadedImages.length} foto(s) incorporadas.`);
+        } catch (error) {
+            console.error('Erro ao exportar arquivo editado:', error);
+            setReadyFileStatus(error.message || 'Não foi possível gerar o arquivo Word editado.', true);
+        }
+    }
+
+
+
+    function downloadHtmlAsDocx(htmlContent, fileName, options = {}) {
+        if (!window.htmlDocx || typeof window.htmlDocx.asBlob !== 'function') {
+            throw new Error('O conversor Word não foi carregado. Atualize a página e tente novamente.');
+        }
+        const blob = window.htmlDocx.asBlob(htmlContent, options);
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
-        const baseName = sanitizeFileName(importedReadyFileName.replace(/\.[^.]+$/, '') || 'relatorio_editado');
         link.href = url;
-        link.download = `${baseName}_editado.doc`;
+        link.download = fileName;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        URL.revokeObjectURL(url);
-        setReadyFileStatus(`Arquivo alterado baixado com ${uploadedImages.length} foto(s).`);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
     }
 
+    async function extractHtmlFromGeneratedDocx(file) {
+        if (!window.JSZip || typeof window.JSZip.loadAsync !== 'function') {
+            throw new Error('O leitor de arquivos Word não foi carregado. Atualize a página e tente novamente.');
+        }
+
+        const zip = await window.JSZip.loadAsync(file);
+        const mhtPart = zip.file('word/afchunk.mht');
+        if (!mhtPart) {
+            throw new Error('Este .docx não foi gerado pela versão atual do sistema ou foi salvo novamente no Word. Para reimportá-lo, use o .doc/.html original ou o .docx recém-baixado pelo sistema.');
+        }
+
+        const mhtContent = await mhtPart.async('string');
+        const boundary = '------=mhtDocumentPart';
+        const rawParts = mhtContent.split(boundary).slice(1);
+        let htmlContent = '';
+        const embeddedImages = [];
+
+        rawParts.forEach(rawPart => {
+            if (!rawPart || rawPart.trim() === '--') return;
+            const separatorIndex = rawPart.search(/\r?\n\r?\n/);
+            if (separatorIndex < 0) return;
+
+            const headers = rawPart.slice(0, separatorIndex);
+            const body = rawPart.slice(separatorIndex).replace(/^\r?\n/, '').replace(/\r?\n--\s*$/, '').trim();
+            const headerValue = name => {
+                const line = headers.split(/\r?\n/).find(item => item.toLowerCase().startsWith(name.toLowerCase() + ':'));
+                return line ? line.slice(line.indexOf(':') + 1).trim() : '';
+            };
+
+            const contentType = headerValue('Content-Type').split(';')[0].trim().toLowerCase();
+            const contentEncoding = headerValue('Content-Transfer-Encoding').toLowerCase();
+            const contentLocation = headerValue('Content-Location');
+
+            if (contentType === 'text/html') {
+                htmlContent = body.replace(/=\r?\n/g, '').replace(/=3D/gi, '=');
+            } else if (contentType.startsWith('image/') && contentEncoding === 'base64' && contentLocation) {
+                const base64 = body.replace(/\s/g, '');
+                embeddedImages.push({
+                    location: contentLocation,
+                    dataUrl: 'data:' + contentType + ';base64,' + base64
+                });
+            }
+        });
+
+        if (!htmlContent) {
+            throw new Error('Não foi possível localizar o conteúdo HTML deste relatório Word.');
+        }
+
+        embeddedImages.forEach(image => {
+            htmlContent = htmlContent.split(image.location).join(image.dataUrl);
+        });
+        return htmlContent;
+    }
 
     function setGeneralReadyFileStatus(message, isError = false) {
         if (!generalReadyFileStatus) return;
@@ -531,138 +602,137 @@ document.addEventListener('DOMContentLoaded', () => {
         const file = event.target.files && event.target.files[0];
         if (!file) return;
 
-        const supportedExtension = /\.(doc|html?|txt)$/i.test(file.name);
+        const supportedExtension = /\.(docx|doc|html?|txt)$/i.test(file.name);
         if (!supportedExtension) {
-            setGeneralReadyFileStatus('Formato não reconhecido. Use um arquivo .doc gerado pelo sistema ou .html/.htm.', true);
+            setGeneralReadyFileStatus('Formato não reconhecido. Use um .doc/.docx gerado pelo sistema ou um arquivo .html/.htm.', true);
             event.target.value = '';
             return;
         }
 
-        const reader = new FileReader();
-        reader.onload = async function(loadEvent) {
-            try {
-                const parsedDocument = new DOMParser().parseFromString(loadEvent.target.result, 'text/html');
-                const body = parsedDocument.body;
-                const titleElement = body.querySelector('h1');
-                const allSections = Array.from(body.querySelectorAll('section'));
-                const metadataContainer = body.querySelector('.metadata');
+        try {
+            const fileContent = /\.docx$/i.test(file.name)
+                ? await extractHtmlFromGeneratedDocx(file)
+                : await file.text();
+            const parsedDocument = new DOMParser().parseFromString(fileContent, 'text/html');
+            const body = parsedDocument.body;
+            const titleElement = body.querySelector('h1');
+            const allSections = Array.from(body.querySelectorAll('section'));
+            const metadataContainer = body.querySelector('.metadata');
 
-                if (!titleElement && !allSections.length && !body.textContent.trim()) {
-                    throw new Error('O arquivo não contém um relatório HTML válido.');
-                }
-
-                const metadataParagraphs = Array.from((metadataContainer || body).querySelectorAll('p'));
-                const readMetadata = labels => {
-                    const paragraph = metadataParagraphs.find(item => {
-                        const text = item.textContent.trim().toLocaleLowerCase('pt-BR');
-                        return labels.some(label => text.startsWith(label.toLocaleLowerCase('pt-BR') + ':'));
-                    });
-                    if (!paragraph) return '';
-                    const text = paragraph.textContent.trim();
-                    return text.slice(text.indexOf(':') + 1).trim();
-                };
-
-                document.getElementById('general-report-title').value = titleElement ? titleElement.textContent.trim() : '';
-                document.getElementById('general-report-event').value = readMetadata(['Evento / local']);
-                document.getElementById('general-report-author').value = readMetadata(['Responsável']);
-                document.getElementById('general-report-participants').value = readMetadata(['Participantes / presentes']);
-
-                const importedDates = readMetadata(['Data', 'Datas']).split(',').map(value => parseImportedDate(value)).filter(Boolean);
-                generalDatesContainer.innerHTML = '';
-                if (importedDates.length) importedDates.forEach(value => addGeneralDate(value));
-                else addGeneralDate();
-
-                const participantSection = allSections.find(section => {
-                    const heading = section.querySelector('h2');
-                    return section.classList.contains('participant-photo') ||
-                        (heading && heading.textContent.trim().toLocaleLowerCase('pt-BR') === 'foto dos participantes');
-                });
-                const participantImage = participantSection && participantSection.querySelector('img');
-                generalParticipantPhoto = null;
-                if (participantImage) {
-                    const imageUrl = participantImage.getAttribute('src') || '';
-                    if (imageUrl.startsWith('data:image/')) {
-                        generalParticipantPhoto = {
-                            url: imageUrl,
-                            aspect: await getImageAspectFromDataUrl(imageUrl, getImageAspectFromElement(participantImage))
-                        };
-                    }
-                }
-                renderGeneralParticipantPhoto();
-
-                const gallerySection = allSections.find(section => {
-                    const heading = section.querySelector('h2');
-                    return heading && /registros fotográficos|^fotos$/i.test(heading.textContent.trim());
-                });
-                const galleryImages = gallerySection ? Array.from(gallerySection.querySelectorAll('img')) : [];
-                uploadedImages = await Promise.all(galleryImages
-                    .map(img => ({ url: img.getAttribute('src') || '', fallbackAspect: getImageAspectFromElement(img) }))
-                    .filter(image => image.url.startsWith('data:image/'))
-                    .map(async image => ({
-                        url: image.url,
-                        aspect: await getImageAspectFromDataUrl(image.url, image.fallbackAspect)
-                    })));
-                renderImagePreviews();
-
-                generalSectionsContainer.innerHTML = '';
-                generalSectionCounter = 0;
-                const editableSections = allSections.filter(section => {
-                    if (section === participantSection || section === gallerySection) return false;
-                    return Boolean(section.querySelector('h2'));
-                });
-
-                editableSections.forEach(section => {
-                    const heading = section.querySelector('h2');
-                    const editorContent = section.querySelector('.section-content');
-                    const sectionTitle = heading ? heading.textContent.trim() : 'Informações';
-                    addGeneralSection(sectionTitle || 'Informações');
-                    const editor = generalSectionsContainer.lastElementChild.querySelector('.general-section-editor');
-
-                    if (editorContent) {
-                        editor.innerHTML = sanitizeEditorHtml(editorContent.innerHTML);
-                    } else {
-                        const contentWrapper = document.createElement('div');
-                        Array.from(section.childNodes).forEach(node => {
-                            if (node.nodeType === Node.ELEMENT_NODE && node === heading) return;
-                            if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'TABLE') return;
-                            contentWrapper.appendChild(node.cloneNode(true));
-                        });
-                        editor.innerHTML = sanitizeEditorHtml(contentWrapper.innerHTML);
-                    }
-                });
-
-                if (!editableSections.length) {
-                    const contentNodes = Array.from(body.children).filter(node =>
-                        !['H1', 'STYLE', 'SCRIPT'].includes(node.tagName) &&
-                        node !== metadataContainer &&
-                        !allSections.includes(node)
-                    );
-                    if (contentNodes.length) {
-                        addGeneralSection('Conteúdo importado');
-                        const editor = generalSectionsContainer.lastElementChild.querySelector('.general-section-editor');
-                        editor.innerHTML = sanitizeEditorHtml(contentNodes.map(node => node.outerHTML || node.textContent).join(''));
-                    } else {
-                        addGeneralSection('Observações');
-                    }
-                }
-
-                importedGeneralFileName = file.name;
-                generalReportOutput.innerHTML = '';
-                const inlineImages = generalSectionsContainer.querySelectorAll('.general-section-editor img').length;
-                let statusMessage = file.name + ' carregado. ' + editableSections.length + ' seção(ões), ' +
-                    uploadedImages.length + ' foto(s) na galeria';
-                if (generalParticipantPhoto) statusMessage += ' e foto dos participantes';
-                if (inlineImages) statusMessage += ', além de ' + inlineImages + ' imagem(ns) dentro do texto';
-                statusMessage += '. Edite os campos e clique em “Gerar relatório Word”.';
-                setGeneralReadyFileStatus(statusMessage);
-            } catch (error) {
-                console.error('Erro ao importar relatório geral:', error);
-                setGeneralReadyFileStatus(error.message || 'Não foi possível interpretar o relatório. Use um .doc gerado pelo sistema ou um HTML.', true);
+            if (!titleElement && !allSections.length && !body.textContent.trim()) {
+                throw new Error('O arquivo não contém um relatório HTML válido.');
             }
-        };
-        reader.onerror = () => setGeneralReadyFileStatus('Não foi possível ler o arquivo selecionado.', true);
-        reader.readAsText(file);
-        event.target.value = '';
+
+            const metadataParagraphs = Array.from((metadataContainer || body).querySelectorAll('p'));
+            const readMetadata = labels => {
+                const paragraph = metadataParagraphs.find(item => {
+                    const text = item.textContent.trim().toLocaleLowerCase('pt-BR');
+                    return labels.some(label => text.startsWith(label.toLocaleLowerCase('pt-BR') + ':'));
+                });
+                if (!paragraph) return '';
+                const text = paragraph.textContent.trim();
+                return text.slice(text.indexOf(':') + 1).trim();
+            };
+
+            document.getElementById('general-report-title').value = titleElement ? titleElement.textContent.trim() : '';
+            document.getElementById('general-report-event').value = readMetadata(['Evento / local']);
+            document.getElementById('general-report-author').value = readMetadata(['Responsável']);
+            document.getElementById('general-report-participants').value = readMetadata(['Participantes / presentes']);
+
+            const importedDates = readMetadata(['Data', 'Datas']).split(',').map(value => parseImportedDate(value)).filter(Boolean);
+            generalDatesContainer.innerHTML = '';
+            if (importedDates.length) importedDates.forEach(value => addGeneralDate(value));
+            else addGeneralDate();
+
+            const participantSection = allSections.find(section => {
+                const heading = section.querySelector('h2');
+                return section.classList.contains('participant-photo') ||
+                    (heading && heading.textContent.trim().toLocaleLowerCase('pt-BR') === 'foto dos participantes');
+            });
+            const participantImage = participantSection && participantSection.querySelector('img');
+            generalParticipantPhoto = null;
+            if (participantImage) {
+                const imageUrl = participantImage.getAttribute('src') || '';
+                if (imageUrl.startsWith('data:image/')) {
+                    generalParticipantPhoto = {
+                        url: imageUrl,
+                        aspect: await getImageAspectFromDataUrl(imageUrl, getImageAspectFromElement(participantImage))
+                    };
+                }
+            }
+            renderGeneralParticipantPhoto();
+
+            const gallerySection = allSections.find(section => {
+                const heading = section.querySelector('h2');
+                return heading && /registros fotográficos|^fotos$/i.test(heading.textContent.trim());
+            });
+            const galleryImages = gallerySection ? Array.from(gallerySection.querySelectorAll('img')) : [];
+            uploadedImages = await Promise.all(galleryImages
+                .map(img => ({ url: img.getAttribute('src') || '', fallbackAspect: getImageAspectFromElement(img) }))
+                .filter(image => image.url.startsWith('data:image/'))
+                .map(async image => ({
+                    url: image.url,
+                    aspect: await getImageAspectFromDataUrl(image.url, image.fallbackAspect)
+                })));
+            renderImagePreviews();
+
+            generalSectionsContainer.innerHTML = '';
+            generalSectionCounter = 0;
+            const editableSections = allSections.filter(section => {
+                if (section === participantSection || section === gallerySection) return false;
+                return Boolean(section.querySelector('h2'));
+            });
+
+            editableSections.forEach(section => {
+                const heading = section.querySelector('h2');
+                const editorContent = section.querySelector('.section-content');
+                const sectionTitle = heading ? heading.textContent.trim() : 'Informações';
+                addGeneralSection(sectionTitle || 'Informações');
+                const editor = generalSectionsContainer.lastElementChild.querySelector('.general-section-editor');
+
+                if (editorContent) {
+                    editor.innerHTML = sanitizeEditorHtml(editorContent.innerHTML);
+                } else {
+                    const contentWrapper = document.createElement('div');
+                    Array.from(section.childNodes).forEach(node => {
+                        if (node.nodeType === Node.ELEMENT_NODE && node === heading) return;
+                        if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'TABLE') return;
+                        contentWrapper.appendChild(node.cloneNode(true));
+                    });
+                    editor.innerHTML = sanitizeEditorHtml(contentWrapper.innerHTML);
+                }
+            });
+
+            if (!editableSections.length) {
+                const contentNodes = Array.from(body.children).filter(node =>
+                    !['H1', 'STYLE', 'SCRIPT'].includes(node.tagName) &&
+                    node !== metadataContainer &&
+                    !allSections.includes(node)
+                );
+                if (contentNodes.length) {
+                    addGeneralSection('Conteúdo importado');
+                    const editor = generalSectionsContainer.lastElementChild.querySelector('.general-section-editor');
+                    editor.innerHTML = sanitizeEditorHtml(contentNodes.map(node => node.outerHTML || node.textContent).join(''));
+                } else {
+                    addGeneralSection('Observações');
+                }
+            }
+
+            importedGeneralFileName = file.name;
+            generalReportOutput.innerHTML = '';
+            const inlineImages = generalSectionsContainer.querySelectorAll('.general-section-editor img').length;
+            let statusMessage = file.name + ' carregado. ' + editableSections.length + ' seção(ões), ' +
+                uploadedImages.length + ' foto(s) na galeria';
+            if (generalParticipantPhoto) statusMessage += ' e foto dos participantes';
+            if (inlineImages) statusMessage += ', além de ' + inlineImages + ' imagem(ns) dentro do texto';
+            statusMessage += '. Edite os campos e clique em “Gerar relatório Word”.';
+            setGeneralReadyFileStatus(statusMessage);
+        } catch (error) {
+            console.error('Erro ao importar relatório geral:', error);
+            setGeneralReadyFileStatus(error.message || 'Não foi possível interpretar o relatório. Use um arquivo .doc/.docx do sistema ou HTML.', true);
+        } finally {
+            event.target.value = '';
+        }
     }
 
     function insertImageIntoGeneralEditor(editor, file) {
@@ -852,34 +922,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function generateGeneralWordDocument() {
-        const title = document.getElementById('general-report-title').value.trim() || 'Relatório geral';
-        const eventName = document.getElementById('general-report-event').value.trim();
-        const author = document.getElementById('general-report-author').value.trim();
-        const participants = document.getElementById('general-report-participants').value.trim();
-        const dates = [...generalDatesContainer.querySelectorAll('input')].map(input => input.value ? new Date(input.value).toLocaleDateString('pt-BR', { timeZone: 'UTC' }) : '').filter(Boolean);
-        const sections = [...generalSectionsContainer.querySelectorAll('.general-section')].map(section => ({
-            title: section.querySelector('.general-section-title').value.trim(),
-            content: sanitizeEditorHtml(section.querySelector('.general-section-editor').innerHTML).trim()
-        })).filter(section => section.title || section.content);
-        if (!eventName && !author && !participants && !dates.length && !sections.length && !uploadedImages.length && !generalParticipantPhoto) {
-            alert('Preencha ao menos uma informação, uma seção ou anexe fotos para gerar o relatório.');
-            return;
+        try {
+            if (!window.htmlDocx || typeof window.htmlDocx.asBlob !== 'function') {
+                throw new Error('O conversor Word não foi carregado. Atualize a página e tente novamente.');
+            }
+            const title = document.getElementById('general-report-title').value.trim() || 'Relatório geral';
+            const eventName = document.getElementById('general-report-event').value.trim();
+            const author = document.getElementById('general-report-author').value.trim();
+            const participants = document.getElementById('general-report-participants').value.trim();
+            const dates = [...generalDatesContainer.querySelectorAll('input')].map(input => input.value ? new Date(input.value).toLocaleDateString('pt-BR', { timeZone: 'UTC' }) : '').filter(Boolean);
+            const sections = [...generalSectionsContainer.querySelectorAll('.general-section')].map(section => ({
+                title: section.querySelector('.general-section-title').value.trim(),
+                content: sanitizeEditorHtml(section.querySelector('.general-section-editor').innerHTML).trim()
+            })).filter(section => section.title || section.content);
+
+            if (!eventName && !author && !participants && !dates.length && !sections.length && !uploadedImages.length && !generalParticipantPhoto) {
+                alert('Preencha ao menos uma informação, uma seção ou anexe fotos para gerar o relatório.');
+                return;
+            }
+
+            const metadata = [
+                eventName && '<p><b>Evento / local:</b> ' + escapeHtml(eventName) + '</p>',
+                dates.length && '<p><b>Data' + (dates.length > 1 ? 's' : '') + ':</b> ' + escapeHtml(dates.join(', ')) + '</p>',
+                author && '<p><b>Responsável:</b> ' + escapeHtml(author) + '</p>',
+                participants && '<p><b>Participantes / presentes:</b> ' + escapeHtml(participants) + '</p>'
+            ].filter(Boolean).join('');
+            const sectionsHtml = sections.map(section =>
+                '<section><h2>' + escapeHtml(section.title || 'Informações') + '</h2><div class="section-content">' +
+                (section.content || '<p>Não informado.</p>') + '</div></section>'
+            ).join('');
+            const participantPhotoHtml = generalParticipantPhoto
+                ? '<section class="participant-photo"><h2>Foto dos participantes</h2><p><img src="' + generalParticipantPhoto.url + '" width="430"></p></section>'
+                : '';
+            const photosHtml = uploadedImages.length
+                ? '<section><h2>Registros fotográficos</h2><table>' + buildEvidencePhotosRowsHtml(uploadedImages) + '</table></section>'
+                : '';
+
+            const wordHtml = '<!DOCTYPE html><html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><style>@page { margin: 2cm; } body { font-family: Arial, sans-serif; color: #222; line-height: 1.5; } h1 { color: #004585; text-align: center; font-size: 22pt; border-bottom: 3pt solid #287eb8; padding-bottom: 10pt; } h2 { color: #004585; font-size: 14pt; margin-top: 22pt; border-bottom: 1pt solid #b7d1e2; padding-bottom: 4pt; } .metadata { background: #eef6fb; padding: 10pt 14pt; margin: 16pt 0; } .metadata p { margin: 3pt 0; } .section-content { font-size: 11pt; } .participant-photo { text-align: center; } table { width: 100%; border-collapse: collapse; } td { border: 1pt solid #ddd; padding: 8pt; text-align: center; } img { max-width: 100%; height: auto; }</style></head><body><h1>' +
+                escapeHtml(title) + '</h1><div class="metadata">' + (metadata || '<p>Informações do evento não registradas.</p>') +
+                '</div>' + participantPhotoHtml + sectionsHtml + photosHtml + '</body></html>';
+
+            const outputFileName = importedGeneralFileName
+                ? sanitizeFileName(importedGeneralFileName.replace(/\.[^.]+$/, '')) + '_editado.docx'
+                : 'relatorio_' + sanitizeFileName(title) + '.docx';
+            downloadHtmlAsDocx(wordHtml, outputFileName, {
+                orientation: 'portrait',
+                margins: { top: 1134, right: 1134, bottom: 1134, left: 1134 }
+            });
+
+            generalReportOutput.innerHTML = '<h3>Relatório pronto para download</h3><p>O arquivo Word (.docx) foi gerado com as imagens incorporadas ao próprio documento. Elas não dependem de links externos nem da pasta onde o arquivo foi salvo.</p>';
+        } catch (error) {
+            console.error('Erro ao gerar relatório geral em DOCX:', error);
+            alert(error.message || 'Não foi possível gerar o arquivo Word.');
         }
-        const metadata = [eventName && `<p><b>Evento / local:</b> ${escapeHtml(eventName)}</p>`, dates.length && `<p><b>Data${dates.length > 1 ? 's' : ''}:</b> ${escapeHtml(dates.join(', '))}</p>`, author && `<p><b>Responsável:</b> ${escapeHtml(author)}</p>`, participants && `<p><b>Participantes / presentes:</b> ${escapeHtml(participants)}</p>`].filter(Boolean).join('');
-        const sectionsHtml = sections.map(section => `<section><h2>${escapeHtml(section.title || 'Informações')}</h2><div class="section-content">${section.content || '<p>Não informado.</p>'}</div></section>`).join('');
-        const participantPhotoHtml = generalParticipantPhoto ? `<section class="participant-photo"><h2>Foto dos participantes</h2><p><img src="${generalParticipantPhoto.url}" width="430"></p></section>` : '';
-        const photosHtml = uploadedImages.length ? `<section><h2>Registros fotográficos</h2><table>${buildEvidencePhotosRowsHtml(uploadedImages)}</table></section>` : '';
-        const wordHtml = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><style>@page { margin: 2cm; } body { font-family: Arial, sans-serif; color: #222; line-height: 1.5; } h1 { color: #004585; text-align: center; font-size: 22pt; border-bottom: 3pt solid #287eb8; padding-bottom: 10pt; } h2 { color: #004585; font-size: 14pt; margin-top: 22pt; border-bottom: 1pt solid #b7d1e2; padding-bottom: 4pt; } .metadata { background: #eef6fb; padding: 10pt 14pt; margin: 16pt 0; } .metadata p { margin: 3pt 0; } .section-content { font-size: 11pt; } .participant-photo { text-align: center; } table { width: 100%; border-collapse: collapse; } td { border: 1pt solid #ddd; padding: 8pt; text-align: center; }</style></head><body><h1>${escapeHtml(title)}</h1><div class="metadata">${metadata || '<p>Informações do evento não registradas.</p>'}</div>${participantPhotoHtml}${sectionsHtml}${photosHtml}</body></html>`;
-        const blob = new Blob(['\ufeff', wordHtml], { type: 'application/msword;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        const outputFileName = importedGeneralFileName
-            ? sanitizeFileName(importedGeneralFileName.replace(/\.[^.]+$/, '')) + '_editado.doc'
-            : 'relatorio_' + sanitizeFileName(title) + '.doc';
-        link.download = outputFileName;
-        document.body.appendChild(link); link.click(); document.body.removeChild(link); URL.revokeObjectURL(url);
-        generalReportOutput.innerHTML = `<h3>Relatório pronto para download</h3><p>O arquivo Word inclui ${sections.length} seção(ões), ${uploadedImages.length} foto(s) da galeria${generalParticipantPhoto ? ' e uma foto dos participantes' : ''}. As imagens inseridas no corpo do texto também foram preservadas.</p>`;
     }
 
     // --- GERAÇÃO DE WORD ---
@@ -937,12 +1032,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 <body>
                     <table width="100%" style="border: none;">
                         <tr>
-                            <td width="30%" align="left">${logoHspmDataUrl ? `<img src='${logoHspmDataUrl}' height='60'>` : ''}</td>
+                            <td width="30%" align="left">${logoHspmDataUrl ? `<img src="${logoHspmDataUrl}" height="60">` : ''}</td>
                             <td width="40%" align="center">
                                 <div style="font-size: 12pt; font-weight: bold;">HOSPITAL DO SERVIDOR PÚBLICO MUNICIPAL</div>
                                 <div style="font-size: 9pt;">ASSESSORIA DE PLANEJAMENTO ESTRATÉGICO E QUALIDADE</div>
                             </td>
-                            <td width="30%" align="right">${logoSpDataUrl ? `<img src='${logoSpDataUrl}' height='70'>` : ''}</td>
+                            <td width="30%" align="right">${logoSpDataUrl ? `<img src="${logoSpDataUrl}" height="70">` : ''}</td>
                         </tr>
                     </table><br><br>
 
@@ -1006,20 +1101,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     <br clear="all" class="page-break" />
                     <div style="font-size: 14pt; font-weight: bold; text-align: center; margin-bottom: 10pt;">ANEXO - MAPEAMENTO DE PROCESSOS</div>
-                    ${mapImageDataUrl ? `<div align="center"><img src='${mapImageDataUrl}' width='800'></div>` : '<p>Imagem não disponível.</p>'}
+                    ${mapImageDataUrl ? `<div align="center"><img src="${mapImageDataUrl}" width="800"></div>` : '<p>Imagem não disponível.</p>'}
                 </body>
                 </html>
             `;
 
-            const blob = new Blob(['\ufeff', wordHtml], { type: 'application/msword;charset=utf-8' });
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = `relatorio_visita_${sanitizeFileName(data.visitLocal)}.doc`;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            URL.revokeObjectURL(url);
+            downloadHtmlAsDocx(wordHtml, `relatorio_visita_${sanitizeFileName(data.visitLocal)}.docx`, {
+                orientation: 'landscape',
+                margins: { top: 567, right: 567, bottom: 567, left: 567 }
+            });
         } catch (error) {
             console.error('Erro no Word:', error);
             alert('Não foi possível gerar o arquivo Word.');
