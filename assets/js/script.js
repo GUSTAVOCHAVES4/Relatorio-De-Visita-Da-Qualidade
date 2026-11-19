@@ -485,7 +485,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function downloadEditedReadyFile() {
+    async function downloadEditedReadyFile() {
         if (!importedWordDocument || !importedEvidenceTable) {
             setReadyFileStatus('Anexe primeiro um arquivo .doc ou .docx gerado pelo sistema.', true);
             return;
@@ -508,7 +508,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    async function downloadHtmlAsDocx(htmlContent, fileName, options = {}) {
+    async async function downloadHtmlAsDocx(htmlContent, fileName, options = {}) {
         if (!window.docx || !window.docx.Document || !window.docx.Packer ||
             !window.docxHtml || typeof window.docxHtml.htmlToContent !== 'function') {
             throw new Error('O gerador de documentos Word não foi carregado. Atualize a página e tente novamente.');
@@ -1000,10 +1000,10 @@ function wrapImportedWordHtmlSections(htmlContent) {
         imageLightboxContent.removeAttribute('src');
     }
 
-    function generateGeneralWordDocument() {
+    async function generateGeneralWordDocument() {
         try {
-            if (!window.htmlDocx || typeof window.htmlDocx.asBlob !== 'function') {
-                throw new Error('O conversor Word não foi carregado. Atualize a página e tente novamente.');
+            if (!window.docx || !window.docxHtml) {
+                throw new Error('O gerador nativo de documentos Word não foi carregado. Atualize a página e tente novamente.');
             }
             const title = document.getElementById('general-report-title').value.trim() || 'Relatório geral';
             const eventName = document.getElementById('general-report-event').value.trim();
