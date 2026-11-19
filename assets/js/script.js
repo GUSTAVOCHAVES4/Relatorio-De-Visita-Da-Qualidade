@@ -508,7 +508,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    async async function downloadHtmlAsDocx(htmlContent, fileName, options = {}) {
+    async function downloadHtmlAsDocx(htmlContent, fileName, options = {}) {
         if (!window.docx || !window.docx.Document || !window.docx.Packer ||
             !window.docxHtml || typeof window.docxHtml.htmlToContent !== 'function') {
             throw new Error('O gerador de documentos Word não foi carregado. Atualize a página e tente novamente.');
