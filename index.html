@@ -37,7 +37,7 @@
                 </div>
                 <div class="general-ready-file-actions">
                     <button type="button" id="open-general-ready-file-btn" class="camera-btn">📄 Abrir relatório existente</button>
-                    <input type="file" id="general-ready-file-input" accept=".doc,.html,.htm,application/msword,text/html" hidden>
+                    <input type="file" id="general-ready-file-input" accept=".doc,.docx,.html,.htm,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/html" hidden>
                     <button type="button" id="clear-general-ready-file-btn" class="camera-btn secondary-btn">Limpar arquivo carregado</button>
                 </div>
                 <p id="general-ready-file-status" class="general-ready-file-status" aria-live="polite">Nenhum relatório existente carregado.</p>
@@ -104,7 +104,7 @@
             <p>Carregue o arquivo <strong>.doc</strong> gerado pelo sistema para trazer as fotos de volta para a galeria. Depois, reorganize, exclua ou anexe novas fotos e baixe o arquivo alterado.</p>
             <div class="ready-file-actions">
                 <button type="button" id="open-ready-file-btn" class="camera-btn">📄 Anexar arquivo pronto</button>
-                <input type="file" id="ready-file-input" accept=".doc,.html,.htm,application/msword,text/html" style="display: none;">
+                <input type="file" id="ready-file-input" accept=".doc,.docx,.html,.htm,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/html" style="display: none;">
                 <button type="button" id="download-edited-file-btn" class="camera-btn" style="display: none;">⬇️ Baixar arquivo alterado</button>
                 <button type="button" id="clear-ready-file-btn" class="camera-btn secondary-btn" style="display: none;">Limpar edição</button>
             </div>
@@ -238,6 +238,8 @@
 
     <script src="assets/js/libs/jspdf.min.js"></script>
     <script src="assets/js/libs/jspdf-autotable.min.js"></script>
+    <script src="assets/js/libs/jszip.min.js"></script>
+    <script src="assets/js/libs/html-docx.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="assets/js/script.js"></script>
 
